@@ -33,6 +33,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MySql.Data">
+      <HintPath>..\..\..\Stock\Stock\Stock\bin\Debug\MySql.Data.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -47,6 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Clases_Maestras\Sesion.cs" />
+    <Compile Include="Dao\UsuarioDao.cs" />
     <Compile Include="Entidades\MenuPorPerfilUsuario.cs" />
     <Compile Include="Entidades\Usuario.cs" />
     <Compile Include="Form1.cs">
@@ -61,6 +65,12 @@
     <Compile Include="InicioWF.Designer.cs">
       <DependentUpon>InicioWF.cs</DependentUpon>
     </Compile>
+    <Compile Include="LoginWF.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoginWF.Designer.cs">
+      <DependentUpon>LoginWF.cs</DependentUpon>
+    </Compile>
     <Compile Include="MasterInicioWF.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -72,6 +82,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="InicioWF.resx">
       <DependentUpon>InicioWF.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoginWF.resx">
+      <DependentUpon>LoginWF.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MasterInicioWF.resx">
       <DependentUpon>MasterInicioWF.cs</DependentUpon>
@@ -172,7 +185,7 @@
     <None Include="Resources\trabajando.png" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Dao\" />
+    <None Include="Resources\El Obrador Icono.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\usuario1.png" />

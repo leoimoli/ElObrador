@@ -93,6 +93,16 @@ namespace ElObrador.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap El_Obrador_Icono {
+            get {
+                object obj = ResourceManager.GetObject("El Obrador Icono", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap hogar__3_ {
             get {
                 object obj = ResourceManager.GetObject("hogar (3)", resourceCulture);

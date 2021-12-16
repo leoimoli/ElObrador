@@ -62,17 +62,17 @@ namespace ElObrador
                     if (item.NombreMenu == "btnTaller")
                     {
                         btnTaller.Visible = true;
-                        btnTaller.Visible = true;
+                        btnPanelTaller.Visible = true;
                     }
                     if (item.NombreMenu == "btnReparaciones")
                     {
                         btnReparaciones.Visible = true;
-                        btnReparaciones.Visible = true;
+                        btnPanelReparaciones.Visible = true;
                     }
                     if (item.NombreMenu == "btnClientes")
                     {
                         btnClientes.Visible = true;
-                        btnClientes.Visible = true;
+                        btnPanelClientes.Visible = true;
                     }
                 }
             }

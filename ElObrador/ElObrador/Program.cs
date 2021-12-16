@@ -16,7 +16,7 @@ namespace ElObrador
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MasterInicioWF());
+            Application.Run(new LoginWF());
         }
     }
 }

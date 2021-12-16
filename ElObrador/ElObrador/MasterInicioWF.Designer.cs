@@ -32,9 +32,9 @@
             this.panel14 = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
             this.MenuVertical = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.panel4 = new System.Windows.Forms.Panel();
+            this.btnPanelReparaciones = new System.Windows.Forms.Panel();
+            this.btnPanelTaller = new System.Windows.Forms.Panel();
+            this.btnPanelClientes = new System.Windows.Forms.Panel();
             this.btnPanelConfiguracion = new System.Windows.Forms.Panel();
             this.btnPanelUsuarios = new System.Windows.Forms.Panel();
             this.btnPanelReportes = new System.Windows.Forms.Panel();
@@ -52,9 +52,9 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblPantalla = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.btnModificarClave = new System.Windows.Forms.Button();
             this.txtNuevaClave = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.btnModificarClave = new System.Windows.Forms.Button();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.btnReparaciones = new System.Windows.Forms.Button();
             this.btnTaller = new System.Windows.Forms.Button();
@@ -127,11 +127,11 @@
             // MenuVertical
             // 
             this.MenuVertical.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
-            this.MenuVertical.Controls.Add(this.panel2);
+            this.MenuVertical.Controls.Add(this.btnPanelReparaciones);
             this.MenuVertical.Controls.Add(this.btnReparaciones);
-            this.MenuVertical.Controls.Add(this.panel3);
+            this.MenuVertical.Controls.Add(this.btnPanelTaller);
             this.MenuVertical.Controls.Add(this.btnTaller);
-            this.MenuVertical.Controls.Add(this.panel4);
+            this.MenuVertical.Controls.Add(this.btnPanelClientes);
             this.MenuVertical.Controls.Add(this.btnClientes);
             this.MenuVertical.Controls.Add(this.btnPanelConfiguracion);
             this.MenuVertical.Controls.Add(this.btnConfiguaracion);
@@ -155,32 +155,32 @@
             this.MenuVertical.Size = new System.Drawing.Size(222, 615);
             this.MenuVertical.TabIndex = 14;
             // 
-            // panel2
+            // btnPanelReparaciones
             // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(187)))), ((int)(((byte)(45)))));
-            this.panel2.Location = new System.Drawing.Point(4, 355);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(5, 32);
-            this.panel2.TabIndex = 36;
-            this.panel2.Visible = false;
+            this.btnPanelReparaciones.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(187)))), ((int)(((byte)(45)))));
+            this.btnPanelReparaciones.Location = new System.Drawing.Point(4, 355);
+            this.btnPanelReparaciones.Name = "btnPanelReparaciones";
+            this.btnPanelReparaciones.Size = new System.Drawing.Size(5, 32);
+            this.btnPanelReparaciones.TabIndex = 36;
+            this.btnPanelReparaciones.Visible = false;
             // 
-            // panel3
+            // btnPanelTaller
             // 
-            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(187)))), ((int)(((byte)(45)))));
-            this.panel3.Location = new System.Drawing.Point(4, 313);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(5, 32);
-            this.panel3.TabIndex = 34;
-            this.panel3.Visible = false;
+            this.btnPanelTaller.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(187)))), ((int)(((byte)(45)))));
+            this.btnPanelTaller.Location = new System.Drawing.Point(4, 313);
+            this.btnPanelTaller.Name = "btnPanelTaller";
+            this.btnPanelTaller.Size = new System.Drawing.Size(5, 32);
+            this.btnPanelTaller.TabIndex = 34;
+            this.btnPanelTaller.Visible = false;
             // 
-            // panel4
+            // btnPanelClientes
             // 
-            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(187)))), ((int)(((byte)(45)))));
-            this.panel4.Location = new System.Drawing.Point(4, 270);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(5, 32);
-            this.panel4.TabIndex = 32;
-            this.panel4.Visible = false;
+            this.btnPanelClientes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(187)))), ((int)(((byte)(45)))));
+            this.btnPanelClientes.Location = new System.Drawing.Point(4, 270);
+            this.btnPanelClientes.Name = "btnPanelClientes";
+            this.btnPanelClientes.Size = new System.Drawing.Size(5, 32);
+            this.btnPanelClientes.TabIndex = 32;
+            this.btnPanelClientes.Visible = false;
             // 
             // btnPanelConfiguracion
             // 
@@ -361,17 +361,6 @@
             this.panel5.Size = new System.Drawing.Size(1078, 51);
             this.panel5.TabIndex = 17;
             // 
-            // btnModificarClave
-            // 
-            this.btnModificarClave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(187)))), ((int)(((byte)(45)))));
-            this.btnModificarClave.Image = global::ElObrador.Properties.Resources.play;
-            this.btnModificarClave.Location = new System.Drawing.Point(1039, 20);
-            this.btnModificarClave.Name = "btnModificarClave";
-            this.btnModificarClave.Size = new System.Drawing.Size(30, 28);
-            this.btnModificarClave.TabIndex = 6;
-            this.btnModificarClave.UseVisualStyleBackColor = false;
-            this.btnModificarClave.Visible = false;
-            // 
             // txtNuevaClave
             // 
             this.txtNuevaClave.Location = new System.Drawing.Point(908, 25);
@@ -390,6 +379,17 @@
             this.label6.Size = new System.Drawing.Size(125, 17);
             this.label6.TabIndex = 3;
             this.label6.Text = "Usuario Logueado";
+            // 
+            // btnModificarClave
+            // 
+            this.btnModificarClave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(187)))), ((int)(((byte)(45)))));
+            this.btnModificarClave.Image = global::ElObrador.Properties.Resources.play;
+            this.btnModificarClave.Location = new System.Drawing.Point(1039, 20);
+            this.btnModificarClave.Name = "btnModificarClave";
+            this.btnModificarClave.Size = new System.Drawing.Size(30, 28);
+            this.btnModificarClave.TabIndex = 6;
+            this.btnModificarClave.UseVisualStyleBackColor = false;
+            this.btnModificarClave.Visible = false;
             // 
             // pictureBox6
             // 
@@ -758,11 +758,11 @@
         private System.Windows.Forms.PictureBox btnMinimizar;
         private System.Windows.Forms.PictureBox btnMaximizar;
         private System.Windows.Forms.PictureBox btnCerrar;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel btnPanelReparaciones;
         private System.Windows.Forms.Button btnReparaciones;
-        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel btnPanelTaller;
         private System.Windows.Forms.Button btnTaller;
-        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Panel btnPanelClientes;
         private System.Windows.Forms.Button btnClientes;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Button btnModificarClave;
