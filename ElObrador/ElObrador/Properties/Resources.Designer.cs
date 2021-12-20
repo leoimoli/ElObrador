@@ -303,6 +303,16 @@ namespace ElObrador.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap repartidor__1_ {
+            get {
+                object obj = ResourceManager.GetObject("repartidor__1_", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap restaurar {
             get {
                 object obj = ResourceManager.GetObject("restaurar", resourceCulture);
@@ -316,6 +326,16 @@ namespace ElObrador.Properties {
         internal static System.Drawing.Bitmap trabajando {
             get {
                 object obj = ResourceManager.GetObject("trabajando", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap usuario__4_ {
+            get {
+                object obj = ResourceManager.GetObject("usuario__4_", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
