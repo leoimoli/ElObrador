@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ElObrador.Dao;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -29,18 +30,39 @@ namespace ElObrador
             txtDescripcionProducto.Focus();
             PanelNuevoMaterial.Visible = true;
             PanelNuevoMaterial.Enabled = true;
+            CargarComboGrupo();
+            BuscarProveedores();
         }
 
+        private void BuscarProveedores()
+        {
+            txtProveedor.AutoCompleteCustomSource = Clases_Maestras.ListarProveedores.Autocomplete();
+            txtProveedor.AutoCompleteMode = AutoCompleteMode.Suggest;
+            txtProveedor.AutoCompleteSource = AutoCompleteSource.CustomSource;
+        }
+
+        private void CargarComboGrupo()
+        {
+            List<string> Grupo = new List<string>();
+            Grupo = GrupoDao.CargarComboGrupo();
+            cmbGrupo.Items.Clear();
+            cmbGrupo.Text = "Seleccione";
+            cmbGrupo.Items.Add("Seleccione");
+            foreach (string item in Grupo)
+            {
+                cmbGrupo.Text = "Seleccione";
+                cmbGrupo.Items.Add(item);
+
+            }
+        }
         private void btnCrerarProveedor_Click(object sender, EventArgs e)
-        {           
+        {
         }
-
         private void btnCrearGrupo_Click(object sender, EventArgs e)
         {
             GrupoWF _grupo = new GrupoWF();
             _grupo.Show();
         }
-
         private void btnCrearCategoria_Click(object sender, EventArgs e)
         {
             CategoriaWF _categoria = new CategoriaWF();
@@ -58,6 +80,28 @@ namespace ElObrador
                 e.Handled = true;
             }
             //e.Handled = !char.IsNumber(e.KeyChar) && e.KeyChar != Convert.ToChar(Keys.Back);
+        }
+
+        private void cmbGrupo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string Grupo = cmbGrupo.Text;
+            int idGrupo = GrupoDao.BuscarIdGrupo(Grupo);
+            CargarComboCategoria(idGrupo);
+            //_categoria.idGrupo = idGrupo;
+        }
+        private void CargarComboCategoria(int idGrupo)
+        {
+            List<string> Categoria = new List<string>();
+            Categoria = CategoriaDao.CargarComboCategoria(idGrupo);
+            cmbCategoria.Items.Clear();
+            cmbCategoria.Text = "Seleccione";
+            cmbCategoria.Items.Add("Seleccione");
+            foreach (string item in Categoria)
+            {
+                cmbCategoria.Text = "Seleccione";
+                cmbCategoria.Items.Add(item);
+
+            }
         }
     }
 }

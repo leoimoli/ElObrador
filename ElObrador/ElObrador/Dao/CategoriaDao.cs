@@ -56,5 +56,30 @@ namespace ElObrador.Dao
             connection.Close();
             return Existe;
         }
+        public static List<string> CargarComboCategoria(int idGrupo)
+        {
+            connection.Close();
+            connection.Open();
+            List<string> _Grupos = new List<string>();
+            MySqlCommand cmd = new MySqlCommand();
+            cmd.Connection = connection;
+            DataTable Tabla = new DataTable();
+            MySqlParameter[] oParam = { new MySqlParameter("idGrupo_in", idGrupo) };
+            string proceso = "CargarComboCategoria";
+            MySqlDataAdapter dt = new MySqlDataAdapter(proceso, connection);
+            dt.SelectCommand.CommandType = CommandType.StoredProcedure;
+            dt.SelectCommand.Parameters.AddRange(oParam);
+            dt.Fill(Tabla);
+            if (Tabla.Rows.Count > 0)
+            {
+                foreach (DataRow item in Tabla.Rows)
+                {
+                    string Perfil = item["Nombre"].ToString();
+                    _Grupos.Add(Perfil);
+                }
+            }
+            connection.Close();
+            return _Grupos;
+        }
     }
 }

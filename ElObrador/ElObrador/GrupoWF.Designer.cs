@@ -87,6 +87,7 @@
             // 
             // txtGrupo
             // 
+            this.txtGrupo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtGrupo.Location = new System.Drawing.Point(99, 86);
             this.txtGrupo.Name = "txtGrupo";
             this.txtGrupo.Size = new System.Drawing.Size(220, 20);

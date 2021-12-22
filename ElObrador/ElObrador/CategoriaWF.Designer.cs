@@ -89,6 +89,7 @@
             // 
             // txtCategoria
             // 
+            this.txtCategoria.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtCategoria.Location = new System.Drawing.Point(86, 109);
             this.txtCategoria.Name = "txtCategoria";
             this.txtCategoria.Size = new System.Drawing.Size(220, 20);

@@ -107,7 +107,7 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvStock.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvStock.EnableHeadersVisualStyles = false;
-            this.dgvStock.Location = new System.Drawing.Point(12, 83);
+            this.dgvStock.Location = new System.Drawing.Point(12, 98);
             this.dgvStock.Name = "dgvStock";
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
@@ -151,7 +151,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(187)))), ((int)(((byte)(45)))));
-            this.label5.Location = new System.Drawing.Point(18, 51);
+            this.label5.Location = new System.Drawing.Point(18, 66);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(139, 13);
             this.label5.TabIndex = 73;
@@ -160,7 +160,7 @@
             // txtDescipcionBus
             // 
             this.txtDescipcionBus.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtDescipcionBus.Location = new System.Drawing.Point(163, 48);
+            this.txtDescipcionBus.Location = new System.Drawing.Point(163, 63);
             this.txtDescipcionBus.Name = "txtDescipcionBus";
             this.txtDescipcionBus.Size = new System.Drawing.Size(326, 20);
             this.txtDescipcionBus.TabIndex = 72;
@@ -170,7 +170,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(187)))), ((int)(((byte)(45)))));
-            this.label1.Location = new System.Drawing.Point(17, 24);
+            this.label1.Location = new System.Drawing.Point(17, 39);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(173, 24);
             this.label1.TabIndex = 71;
@@ -183,7 +183,7 @@
             this.btnEditarProducto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEditarProducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEditarProducto.ForeColor = System.Drawing.Color.White;
-            this.btnEditarProducto.Location = new System.Drawing.Point(156, 511);
+            this.btnEditarProducto.Location = new System.Drawing.Point(156, 526);
             this.btnEditarProducto.Name = "btnEditarProducto";
             this.btnEditarProducto.Size = new System.Drawing.Size(136, 28);
             this.btnEditarProducto.TabIndex = 76;
@@ -198,7 +198,7 @@
             this.btnRegistroStock.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRegistroStock.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRegistroStock.ForeColor = System.Drawing.Color.White;
-            this.btnRegistroStock.Location = new System.Drawing.Point(12, 511);
+            this.btnRegistroStock.Location = new System.Drawing.Point(12, 526);
             this.btnRegistroStock.Name = "btnRegistroStock";
             this.btnRegistroStock.Size = new System.Drawing.Size(136, 28);
             this.btnRegistroStock.TabIndex = 75;
@@ -211,7 +211,7 @@
             this.PanelDerecho.BackColor = System.Drawing.Color.Gainsboro;
             this.PanelDerecho.Controls.Add(this.PanelNuevoMaterial);
             this.PanelDerecho.Controls.Add(this.lblNuevoProducto);
-            this.PanelDerecho.Location = new System.Drawing.Point(557, 24);
+            this.PanelDerecho.Location = new System.Drawing.Point(557, 39);
             this.PanelDerecho.Name = "PanelDerecho";
             this.PanelDerecho.Size = new System.Drawing.Size(507, 515);
             this.PanelDerecho.TabIndex = 77;
@@ -444,6 +444,7 @@
             this.cmbGrupo.Name = "cmbGrupo";
             this.cmbGrupo.Size = new System.Drawing.Size(220, 21);
             this.cmbGrupo.TabIndex = 167;
+            this.cmbGrupo.SelectedIndexChanged += new System.EventHandler(this.cmbGrupo_SelectedIndexChanged);
             // 
             // lblContador
             // 
