@@ -63,6 +63,16 @@ namespace ElObrador.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap cajas_de_carga_de_trabajador__1_ {
+            get {
+                object obj = ResourceManager.GetObject("cajas_de_carga_de_trabajador__1_", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap cancelar2 {
             get {
                 object obj = ResourceManager.GetObject("cancelar2", resourceCulture);
@@ -256,6 +266,16 @@ namespace ElObrador.Properties {
         internal static System.Drawing.Bitmap icons8_vender_stock_50 {
             get {
                 object obj = ResourceManager.GetObject("icons8-vender-stock-50", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap mas__2_ {
+            get {
+                object obj = ResourceManager.GetObject("mas (2)", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

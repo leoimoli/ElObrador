@@ -539,6 +539,7 @@
             this.btnStock.Text = "Stock";
             this.btnStock.UseVisualStyleBackColor = true;
             this.btnStock.Visible = false;
+            this.btnStock.Click += new System.EventHandler(this.btnStock_Click);
             // 
             // panel1
             // 

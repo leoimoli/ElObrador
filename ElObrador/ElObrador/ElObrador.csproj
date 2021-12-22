@@ -49,11 +49,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CategoriaWF.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CategoriaWF.Designer.cs">
+      <DependentUpon>CategoriaWF.cs</DependentUpon>
+    </Compile>
     <Compile Include="Clases_Maestras\AutoCompleteProveedores.cs" />
     <Compile Include="Clases_Maestras\AutoCompleteUsuarios.cs" />
     <Compile Include="Clases_Maestras\Sesion.cs" />
+    <Compile Include="Dao\CategoriaDao.cs" />
+    <Compile Include="Dao\GrupoDao.cs" />
     <Compile Include="Dao\ProveedoresDao.cs" />
     <Compile Include="Dao\UsuarioDao.cs" />
+    <Compile Include="Entidades\Categoria.cs" />
+    <Compile Include="Entidades\Grupo.cs" />
     <Compile Include="Entidades\MenuPorPerfilUsuario.cs" />
     <Compile Include="Entidades\Proveedores.cs" />
     <Compile Include="Entidades\Usuario.cs" />
@@ -62,6 +72,12 @@
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GrupoWF.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GrupoWF.Designer.cs">
+      <DependentUpon>GrupoWF.cs</DependentUpon>
     </Compile>
     <Compile Include="InicioWF.cs">
       <SubType>Form</SubType>
@@ -81,6 +97,8 @@
     <Compile Include="MasterInicioWF.Designer.cs">
       <DependentUpon>MasterInicioWF.cs</DependentUpon>
     </Compile>
+    <Compile Include="Negocio\CategoriaNeg.cs" />
+    <Compile Include="Negocio\GrupoNeg.cs" />
     <Compile Include="Negocio\ProveedoresNeg.cs" />
     <Compile Include="Negocio\UsuarioNeg.cs" />
     <Compile Include="Program.cs" />
@@ -91,12 +109,24 @@
     <Compile Include="ProveedoresWF.Designer.cs">
       <DependentUpon>ProveedoresWF.cs</DependentUpon>
     </Compile>
+    <Compile Include="StockWF.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StockWF.Designer.cs">
+      <DependentUpon>StockWF.cs</DependentUpon>
+    </Compile>
     <Compile Include="UsuariosWF.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="UsuariosWF.Designer.cs">
       <DependentUpon>UsuariosWF.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="CategoriaWF.resx">
+      <DependentUpon>CategoriaWF.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GrupoWF.resx">
+      <DependentUpon>GrupoWF.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="InicioWF.resx">
       <DependentUpon>InicioWF.cs</DependentUpon>
     </EmbeddedResource>
@@ -118,6 +148,9 @@
     </Compile>
     <EmbeddedResource Include="ProveedoresWF.resx">
       <DependentUpon>ProveedoresWF.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StockWF.resx">
+      <DependentUpon>StockWF.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UsuariosWF.resx">
       <DependentUpon>UsuariosWF.cs</DependentUpon>
@@ -221,6 +254,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\usuario %284%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mas %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cajas-de-carga-de-trabajador %281%29.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

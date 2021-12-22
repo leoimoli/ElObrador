@@ -222,5 +222,13 @@ namespace ElObrador
             tripledes.Clear();
             return Convert.ToBase64String(resultado, 0, resultado.Length); // Convertimos la cadena y la regresamos.
         }
+
+        private void btnStock_Click(object sender, EventArgs e)
+        {
+            AbrirFormEnPanel(new StockWF());
+            var imagen = new Bitmap(ElObrador.Properties.Resources.cajas_de_carga_de_trabajador__1_);
+            ImagenPagina.Image = imagen;
+            lblPantalla.Text = "Stock";
+        }
     }
 }
