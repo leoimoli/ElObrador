@@ -9,7 +9,7 @@ using System.Windows.Forms;
 using ElObrador.Entidades;
 
 namespace ElObrador.Dao
-{    
+{
     public class ProveedoresDao
     {
         private static MySql.Data.MySqlClient.MySqlConnection connection = new MySqlConnection(Properties.Settings.Default.db);
@@ -191,6 +191,31 @@ namespace ElObrador.Dao
             }
             connection.Close();
             return lista;
+        }
+        public static int BuscarIdProveedor(string proveedor)
+        {
+            connection.Close();
+            connection.Open();
+            int idProveedor = 0;
+            MySqlCommand cmd = new MySqlCommand();
+            cmd.Connection = connection;
+            DataTable Tabla = new DataTable();
+            MySqlParameter[] oParam = {
+                                       new MySqlParameter("NombreProveedor_in", proveedor)};
+            string proceso = "BuscarProvedorPorNombre";
+            MySqlDataAdapter dt = new MySqlDataAdapter(proceso, connection);
+            dt.SelectCommand.CommandType = CommandType.StoredProcedure;
+            dt.SelectCommand.Parameters.AddRange(oParam);
+            dt.Fill(Tabla);
+            if (Tabla.Rows.Count > 0)
+            {
+                foreach (DataRow item in Tabla.Rows)
+                {
+                    idProveedor = Convert.ToInt32(item["idProveedores"].ToString());                    
+                }
+            }
+            connection.Close();
+            return idProveedor;
         }
     }
 }

@@ -1,4 +1,7 @@
-﻿using ElObrador.Dao;
+﻿using ElObrador.Clases_Maestras;
+using ElObrador.Dao;
+using ElObrador.Entidades;
+using ElObrador.Negocio;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -81,27 +84,186 @@ namespace ElObrador
             }
             //e.Handled = !char.IsNumber(e.KeyChar) && e.KeyChar != Convert.ToChar(Keys.Back);
         }
-
+        public static int idGrupoSeleccionado = 0;
         private void cmbGrupo_SelectedIndexChanged(object sender, EventArgs e)
         {
             string Grupo = cmbGrupo.Text;
             int idGrupo = GrupoDao.BuscarIdGrupo(Grupo);
+            idGrupoSeleccionado = idGrupo;
             CargarComboCategoria(idGrupo);
             //_categoria.idGrupo = idGrupo;
         }
         private void CargarComboCategoria(int idGrupo)
         {
-            List<string> Categoria = new List<string>();
-            Categoria = CategoriaDao.CargarComboCategoria(idGrupo);
-            cmbCategoria.Items.Clear();
-            cmbCategoria.Text = "Seleccione";
-            cmbCategoria.Items.Add("Seleccione");
-            foreach (string item in Categoria)
+            if (idGrupo > 0)
             {
+                List<string> Categoria = new List<string>();
+                Categoria = CategoriaDao.CargarComboCategoria(idGrupo);
+                cmbCategoria.Items.Clear();
                 cmbCategoria.Text = "Seleccione";
-                cmbCategoria.Items.Add(item);
-
+                cmbCategoria.Items.Add("Seleccione");
+                foreach (string item in Categoria)
+                {
+                    cmbCategoria.Text = "Seleccione";
+                    cmbCategoria.Items.Add(item);
+                }
             }
+            else
+            {
+                List<string> Categoria = new List<string>();
+                cmbCategoria.Items.Clear();
+                cmbCategoria.Text = "Seleccione";
+                cmbCategoria.Items.Add("Seleccione");
+                foreach (string item in Categoria)
+                {
+                    cmbCategoria.Text = "Seleccione";
+                    cmbCategoria.Items.Add(item);
+                }
+            }
+        }
+
+        private void btnGuardarProducto_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Stock _stock = CargarEntidad();
+                ProgressBar();
+                bool Exito = StockNeg.CargarProducto(_stock);
+                if (Exito == true)
+                {
+                    const string message2 = "Se registro el material exitosamente.";
+                    const string caption2 = "Éxito";
+                    var result2 = MessageBox.Show(message2, caption2,
+                                                 MessageBoxButtons.OK,
+                                                 MessageBoxIcon.Asterisk);
+                    LimpiarCampos();
+                    //FuncionListarproveedores();
+                }
+            }
+            catch (Exception ex)
+            { }
+        }
+
+        private void LimpiarCampos()
+        {
+            CargarComboGrupo();
+            CargarComboCategoria(0);
+            txtDescripcionProducto.Clear();
+            txtCodigo.Clear();
+            txtMonto.Clear();
+            txtModelo.Clear();
+            dtFechaCompra.Value = DateTime.Now;
+            txtProveedor.Clear();
+            txtFacturaRemito.Clear();
+            progressBar1.Value = Convert.ToInt32(null);
+            progressBar1.Visible = false;
+        }
+
+        private void ProgressBar()
+        {
+            progressBar1.Visible = true;
+            progressBar1.Maximum = 100000;
+            progressBar1.Step = 1;
+
+            for (int j = 0; j < 100000; j++)
+            {
+                Caluculate(j);
+                progressBar1.PerformStep();
+            }
+        }
+        private void Caluculate(int i)
+        {
+            double pow = Math.Pow(i, i);
+        }
+        private Stock CargarEntidad()
+        {
+            Stock _stock = new Stock();
+            int idCategoria = 0;
+            int idusuarioLogueado = Sesion.UsuarioLogueado.idUsuario;
+            if (idGrupoSeleccionado > 0)
+            {
+                _stock.idGrupo = idGrupoSeleccionado;
+            }
+            else
+            {
+                const string message = "El campo Grupo es obligatorio.";
+                const string caption = "Error";
+                var result = MessageBox.Show(message, caption,
+                                             MessageBoxButtons.OK,
+                                           MessageBoxIcon.Exclamation);
+                throw new Exception();
+            }
+            string Categoria = cmbCategoria.Text;
+            if (Categoria != "Seleccione")
+            {
+                idCategoria = CategoriaDao.BuscarIdCategoria(Categoria);
+            }
+            else
+            {
+                const string message = "El campo Categoría es obligatorio.";
+                const string caption = "Error";
+                var result = MessageBox.Show(message, caption,
+                                             MessageBoxButtons.OK,
+                                           MessageBoxIcon.Exclamation);
+                throw new Exception();
+            }
+            _stock.idCategoria = idCategoria;
+            _stock.Descripcion = txtDescripcionProducto.Text;
+            _stock.Modelo = txtModelo.Text;
+            _stock.Codigo = txtCodigo.Text;
+            _stock.FechaDeCompra = dtFechaCompra.Value;
+            _stock.Monto = Convert.ToDecimal(txtMonto.Text);
+            DateTime fechaActual = DateTime.Now;
+            string proveedor = txtProveedor.Text;
+            _stock.idProveedor = ProveedoresDao.BuscarIdProveedor(proveedor);
+            _stock.FechaDeAlta = fechaActual;
+            _stock.idUsuario = idusuarioLogueado;
+            return _stock;
+        }
+        private void btnCrearCodigo_Click(object sender, EventArgs e)
+        {
+            string Codigo = "";
+            int cadena = 100;
+            int numero1 = DateTime.Now.Day;
+            int numero2 = DateTime.Now.Month;
+            int numero3 = DateTime.Now.Year;
+            int Suma1 = numero1 + numero2 + numero2 + numero3;
+            Codigo = Convert.ToString(numero1 + numero2 + Suma1 + numero3) + numero1;
+
+            for (int i = 0; i < cadena; i++)
+            {
+                bool existe = StockDao.ValidarCodigoExistente(Codigo);
+                if (existe == true)
+                {
+                    Suma1 = (numero1 + numero2 + numero2 + numero3 + 10 + i) - 2;
+                    Codigo = Convert.ToString(numero1 + numero2 + Suma1 + numero3) + numero1;
+                }
+                else
+                {
+                    txtCodigo.Text = Codigo;
+                    break;
+                }
+            }
+
+
+        }
+
+        private void txtDescripcionProducto_TextChanged(object sender, EventArgs e)
+        {
+            lblContador.Text = Convert.ToString(txtDescripcionProducto.Text.Length);
+        }
+
+        private void cmbGrupo_Click(object sender, EventArgs e)
+        {
+            CargarComboGrupo();
+        }
+
+        private void cmbCategoria_Click(object sender, EventArgs e)
+        {
+            string Grupo = cmbGrupo.Text;
+            int idGrupo = GrupoDao.BuscarIdGrupo(Grupo);
+            idGrupoSeleccionado = idGrupo;
+            CargarComboCategoria(idGrupo);
         }
     }
 }

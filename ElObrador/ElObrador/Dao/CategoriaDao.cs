@@ -81,5 +81,30 @@ namespace ElObrador.Dao
             connection.Close();
             return _Grupos;
         }
+        public static int BuscarIdCategoria(string categoria)
+        {
+            connection.Close();
+            connection.Open();
+            int idGrupo = 0;
+            MySqlCommand cmd = new MySqlCommand();
+            cmd.Connection = connection;
+            DataTable Tabla = new DataTable();
+            MySqlParameter[] oParam = {
+                                       new MySqlParameter("Nombre_in", categoria)};
+            string proceso = "BuscarIdCategoria";
+            MySqlDataAdapter dt = new MySqlDataAdapter(proceso, connection);
+            dt.SelectCommand.CommandType = CommandType.StoredProcedure;
+            dt.SelectCommand.Parameters.AddRange(oParam);
+            dt.Fill(Tabla);
+            if (Tabla.Rows.Count > 0)
+            {
+                foreach (DataRow item in Tabla.Rows)
+                {
+                    idGrupo = Convert.ToInt32(item["idCategoria"].ToString());
+                }
+            }
+            connection.Close();
+            return idGrupo;
+        }
     }
 }
