@@ -265,5 +265,57 @@ namespace ElObrador
             idGrupoSeleccionado = idGrupo;
             CargarComboCategoria(idGrupo);
         }
+
+        private void StockWF_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                FuncionListarStock();
+                //FuncionBuscartexto();
+            }
+            catch (Exception ex)
+            { }
+        }
+
+        private void FuncionListarStock()
+        {
+            //FuncionBuscartexto();
+            dgvStock.Rows.Clear();
+            List<Stock> ListaProductos = StockNeg.ListarStock();
+            if (ListaProductos.Count > 0)
+            {
+                foreach (var item in ListaProductos)
+                {
+                    string cantidad = Convert.ToString(item.TotalStock);
+                    dgvStock.Rows.Add(item.idCategoria, item.Descripcion, cantidad);
+                }
+               // btnEditarProducto.Visible = true;
+            }
+            dgvStock.ReadOnly = true;
+        }
+        private void dgvStock_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgvStock.CurrentCell.ColumnIndex == 3)
+            {
+                idProductoSeleccionado = Convert.ToInt32(this.dgvStock.CurrentRow.Cells[0].Value.ToString());
+                string Material = dgvStock.CurrentRow.Cells[1].Value.ToString();
+                InformeStockWF frm2 = new InformeStockWF(idProductoSeleccionado);
+                frm2.Show();
+            }
+        }
+        private void dgvStock_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
+        {
+            if (e.ColumnIndex >= 0 && this.dgvStock.Columns[e.ColumnIndex].Name == "Ver" && e.RowIndex >= 0)
+            {
+                e.Paint(e.CellBounds, DataGridViewPaintParts.All);
+                DataGridViewButtonCell BotonVer = this.dgvStock.Rows[e.RowIndex].Cells["Ver"] as DataGridViewButtonCell;
+                Icon icoAtomico = new Icon(Environment.CurrentDirectory + "\\" + @"icons8-visible-30.ico");
+                e.Graphics.DrawIcon(icoAtomico, e.CellBounds.Left + 20, e.CellBounds.Top + 4);
+                this.dgvStock.Rows[e.RowIndex].Height = icoAtomico.Height + 8;
+                this.dgvStock.Columns[e.ColumnIndex].Width = icoAtomico.Width + 40;
+                e.Handled = true;
+            }           
+        }
+
     }
 }

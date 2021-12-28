@@ -36,9 +36,18 @@ namespace ElObrador.Negocio
             { }
             return exito;
         }
-
-       
-
+        public static List<Stock> ListaMaterialesDeLaCategoria(int idCategoriaSeleccionado)
+        {
+            List<Stock> _listaMateriales = new List<Stock>();
+            try
+            {
+                _listaMateriales = StockDao.ListaMaterialesDeLaCategoria(idCategoriaSeleccionado);
+            }
+            catch (Exception ex)
+            {
+            }
+            return _listaMateriales;
+        }
         private static void ValidarDatos(Stock stock)
         {
             if (String.IsNullOrEmpty(stock.Descripcion))
@@ -59,6 +68,44 @@ namespace ElObrador.Negocio
                                            MessageBoxIcon.Exclamation);
                 throw new Exception();
             }
+        }
+        public static List<Stock> ListarStock()
+        {
+            List<Stock> _listaProductos = new List<Stock>();
+            try
+            {
+                _listaProductos = StockDao.ListarStock();
+            }
+            catch (Exception ex)
+            {
+            }
+            return _listaProductos;
+        }
+
+        public static List<Stock> BuscarProductoPorId(int idMaterialSeleccionado)
+        {
+            List<Stock> _listaProductos = new List<Stock>();
+            try
+            {
+                _listaProductos = StockDao.BuscarProductoPorId(idMaterialSeleccionado);
+            }
+            catch (Exception ex)
+            {
+            }
+            return _listaProductos;
+        }
+
+        public static bool EditarProducto(Stock stock, int idMaterialSeleccionado)
+        {
+            bool exito = false;
+            try
+            {
+                exito = StockDao.EditarProducto(stock, idMaterialSeleccionado);
+
+            }
+            catch (Exception ex)
+            { }
+            return exito;
         }
     }
 }

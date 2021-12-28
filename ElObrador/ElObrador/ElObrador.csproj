@@ -82,6 +82,12 @@
     <Compile Include="GrupoWF.Designer.cs">
       <DependentUpon>GrupoWF.cs</DependentUpon>
     </Compile>
+    <Compile Include="InformeStockWF.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InformeStockWF.Designer.cs">
+      <DependentUpon>InformeStockWF.cs</DependentUpon>
+    </Compile>
     <Compile Include="InicioWF.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -130,6 +136,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GrupoWF.resx">
       <DependentUpon>GrupoWF.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InformeStockWF.resx">
+      <DependentUpon>InformeStockWF.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="InicioWF.resx">
       <DependentUpon>InicioWF.cs</DependentUpon>
@@ -264,6 +273,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\cajas-de-carga-de-trabajador %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\icons8-visible-30.ico" />
+    <None Include="Resources\informe-empresarial-con-crecimiento %281%29.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

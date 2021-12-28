@@ -273,6 +273,16 @@ namespace ElObrador.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap informe_empresarial_con_crecimiento__1_ {
+            get {
+                object obj = ResourceManager.GetObject("informe-empresarial-con-crecimiento (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap mas__2_ {
             get {
                 object obj = ResourceManager.GetObject("mas (2)", resourceCulture);

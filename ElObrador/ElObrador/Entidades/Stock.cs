@@ -20,5 +20,10 @@ namespace ElObrador.Entidades
         public int idCategoria { get; set; }
         public DateTime FechaDeAlta { get; set; }
         public int idUsuario { get; set; }
+        public int TotalStock { get; set; }
+        public int idMaterial { get; set; }
+        public string NombreGrupo { get; set; }
+        public string NombreCategoria { get; set; }
+        public string NombreProveedor { get; set; }
     }
 }
