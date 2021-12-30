@@ -230,5 +230,13 @@ namespace ElObrador
             ImagenPagina.Image = imagen;
             lblPantalla.Text = "Stock";
         }
+
+        private void btnClientes_Click(object sender, EventArgs e)
+        {
+            AbrirFormEnPanel(new ClientesWF());
+            var imagen = new Bitmap(ElObrador.Properties.Resources.cajas_de_carga_de_trabajador__1_);
+            ImagenPagina.Image = imagen;
+            lblPantalla.Text = "Clientes";
+        }
     }
 }

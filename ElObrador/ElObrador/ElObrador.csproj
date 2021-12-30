@@ -55,16 +55,28 @@
     <Compile Include="CategoriaWF.Designer.cs">
       <DependentUpon>CategoriaWF.cs</DependentUpon>
     </Compile>
+    <Compile Include="Clases_Maestras\AutoCompleteLocalidades.cs" />
+    <Compile Include="Clases_Maestras\AutoCompletePorApellido.cs" />
     <Compile Include="Clases_Maestras\AutoCompleteProveedores.cs" />
+    <Compile Include="Clases_Maestras\AutoCompleteProvincias.cs" />
     <Compile Include="Clases_Maestras\AutoCompleteUsuarios.cs" />
     <Compile Include="Clases_Maestras\ListarProveedores.cs" />
     <Compile Include="Clases_Maestras\Sesion.cs" />
+    <Compile Include="Clases_Maestras\ValoresConstantes.cs" />
+    <Compile Include="ClientesWF.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ClientesWF.Designer.cs">
+      <DependentUpon>ClientesWF.cs</DependentUpon>
+    </Compile>
     <Compile Include="Dao\CategoriaDao.cs" />
+    <Compile Include="Dao\ClientesDao.cs" />
     <Compile Include="Dao\GrupoDao.cs" />
     <Compile Include="Dao\ProveedoresDao.cs" />
     <Compile Include="Dao\StockDao.cs" />
     <Compile Include="Dao\UsuarioDao.cs" />
     <Compile Include="Entidades\Categoria.cs" />
+    <Compile Include="Entidades\Clientes.cs" />
     <Compile Include="Entidades\Grupo.cs" />
     <Compile Include="Entidades\MenuPorPerfilUsuario.cs" />
     <Compile Include="Entidades\Proveedores.cs" />
@@ -107,6 +119,7 @@
       <DependentUpon>MasterInicioWF.cs</DependentUpon>
     </Compile>
     <Compile Include="Negocio\CategoriaNeg.cs" />
+    <Compile Include="Negocio\ClientesNeg.cs" />
     <Compile Include="Negocio\GrupoNeg.cs" />
     <Compile Include="Negocio\ProveedoresNeg.cs" />
     <Compile Include="Negocio\StockNeg.cs" />
@@ -133,6 +146,9 @@
     </Compile>
     <EmbeddedResource Include="CategoriaWF.resx">
       <DependentUpon>CategoriaWF.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ClientesWF.resx">
+      <DependentUpon>ClientesWF.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GrupoWF.resx">
       <DependentUpon>GrupoWF.cs</DependentUpon>

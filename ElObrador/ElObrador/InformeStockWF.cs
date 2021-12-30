@@ -148,12 +148,62 @@ namespace ElObrador
             catch (Exception ex)
             { }
         }
-
         private void LimpiarCampos()
         {
-            throw new NotImplementedException();
+            CargarComboGrupo();
+            CargarComboCategoria(0);
+            txtDescripcionProducto.Clear();
+            txtCodigo.Clear();
+            txtMonto.Clear();
+            txtModelo.Clear();
+            dtFechaCompra.Value = DateTime.Now;
+            txtProveedor.Clear();
+            txtFacturaRemito.Clear();
+            progressBar1.Value = Convert.ToInt32(null);
+            progressBar1.Visible = false;
         }
+        private void CargarComboCategoria(int idGrupo)
+        {
+            if (idGrupo > 0)
+            {
+                List<string> Categoria = new List<string>();
+                Categoria = CategoriaDao.CargarComboCategoria(idGrupo);
+                cmbCategoria.Items.Clear();
+                cmbCategoria.Text = "Seleccione";
+                cmbCategoria.Items.Add("Seleccione");
+                foreach (string item in Categoria)
+                {
+                    cmbCategoria.Text = "Seleccione";
+                    cmbCategoria.Items.Add(item);
+                }
+            }
+            else
+            {
+                List<string> Categoria = new List<string>();
+                cmbCategoria.Items.Clear();
+                cmbCategoria.Text = "Seleccione";
+                cmbCategoria.Items.Add("Seleccione");
+                foreach (string item in Categoria)
+                {
+                    cmbCategoria.Text = "Seleccione";
+                    cmbCategoria.Items.Add(item);
+                }
+            }
+        }
+        private void CargarComboGrupo()
+        {
+            List<string> Grupo = new List<string>();
+            Grupo = GrupoDao.CargarComboGrupo();
+            cmbGrupo.Items.Clear();
+            cmbGrupo.Text = "Seleccione";
+            cmbGrupo.Items.Add("Seleccione");
+            foreach (string item in Grupo)
+            {
+                cmbGrupo.Text = "Seleccione";
+                cmbGrupo.Items.Add(item);
 
+            }
+        }
         private void ProgressBar()
         {
             progressBar1.Visible = true;
@@ -172,9 +222,9 @@ namespace ElObrador
         }
         private Stock CargarEntidad()
         {
-            Stock _stock = new Stock();            
+            Stock _stock = new Stock();
             int idusuarioLogueado = Sesion.UsuarioLogueado.idUsuario;
-            
+
             _stock.Descripcion = txtDescripcionProducto.Text;
             _stock.Modelo = txtModelo.Text;
             _stock.FechaDeCompra = dtFechaCompra.Value;
