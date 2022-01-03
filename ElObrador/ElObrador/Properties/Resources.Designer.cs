@@ -173,9 +173,29 @@ namespace ElObrador.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_escudo_de_soldador_30__1_ {
+            get {
+                object obj = ResourceManager.GetObject("icons8_escudo_de_soldador_30__1_", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_gestión_de_clientes_30 {
             get {
                 object obj = ResourceManager.GetObject("icons8-gestión-de-clientes-30", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_gestión_de_clientes_30__1_ {
+            get {
+                object obj = ResourceManager.GetObject("icons8_gestión_de_clientes_30__1_", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -213,9 +233,29 @@ namespace ElObrador.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_mantenimiento_20 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-mantenimiento-20", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_mantenimiento_30 {
             get {
                 object obj = ResourceManager.GetObject("icons8-mantenimiento-30", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_mantenimiento_30__1_ {
+            get {
+                object obj = ResourceManager.GetObject("icons8-mantenimiento-30 (1)", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

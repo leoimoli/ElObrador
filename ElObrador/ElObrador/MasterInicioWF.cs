@@ -234,9 +234,17 @@ namespace ElObrador
         private void btnClientes_Click(object sender, EventArgs e)
         {
             AbrirFormEnPanel(new ClientesWF());
-            var imagen = new Bitmap(ElObrador.Properties.Resources.cajas_de_carga_de_trabajador__1_);
+            var imagen = new Bitmap(ElObrador.Properties.Resources.icons8_gestión_de_clientes_30__1_);
             ImagenPagina.Image = imagen;
             lblPantalla.Text = "Clientes";
+        }
+
+        private void btnTaller_Click(object sender, EventArgs e)
+        {
+            AbrirFormEnPanel(new TallerWF());
+            var imagen = new Bitmap(ElObrador.Properties.Resources.icons8_escudo_de_soldador_30__1_);
+            ImagenPagina.Image = imagen;
+            lblPantalla.Text = "Taller";
         }
     }
 }

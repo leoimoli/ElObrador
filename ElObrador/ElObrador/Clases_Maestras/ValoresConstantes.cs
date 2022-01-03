@@ -15,5 +15,12 @@ namespace ElObrador.Clases_Maestras
                 return new string[] { "MASCULINO", "FEMENINO", "NO_BINARIO" };
             }
         }
+        public static string[] TipoServicio
+        {
+            get
+            {
+                return new string[] { "MANTENIMIENTO", "REPARACIÓN" };
+            }
+        }
     }
 }

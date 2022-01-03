@@ -74,6 +74,7 @@
     <Compile Include="Dao\GrupoDao.cs" />
     <Compile Include="Dao\ProveedoresDao.cs" />
     <Compile Include="Dao\StockDao.cs" />
+    <Compile Include="Dao\TallerDao.cs" />
     <Compile Include="Dao\UsuarioDao.cs" />
     <Compile Include="Entidades\Categoria.cs" />
     <Compile Include="Entidades\Clientes.cs" />
@@ -81,6 +82,7 @@
     <Compile Include="Entidades\MenuPorPerfilUsuario.cs" />
     <Compile Include="Entidades\Proveedores.cs" />
     <Compile Include="Entidades\Stock.cs" />
+    <Compile Include="Entidades\Taller.cs" />
     <Compile Include="Entidades\Usuario.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -118,11 +120,18 @@
     <Compile Include="MasterInicioWF.Designer.cs">
       <DependentUpon>MasterInicioWF.cs</DependentUpon>
     </Compile>
+    <Compile Include="MaterialWF.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MaterialWF.Designer.cs">
+      <DependentUpon>MaterialWF.cs</DependentUpon>
+    </Compile>
     <Compile Include="Negocio\CategoriaNeg.cs" />
     <Compile Include="Negocio\ClientesNeg.cs" />
     <Compile Include="Negocio\GrupoNeg.cs" />
     <Compile Include="Negocio\ProveedoresNeg.cs" />
     <Compile Include="Negocio\StockNeg.cs" />
+    <Compile Include="Negocio\TallerNeg.cs" />
     <Compile Include="Negocio\UsuarioNeg.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -137,6 +146,12 @@
     </Compile>
     <Compile Include="StockWF.Designer.cs">
       <DependentUpon>StockWF.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TallerWF.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TallerWF.Designer.cs">
+      <DependentUpon>TallerWF.cs</DependentUpon>
     </Compile>
     <Compile Include="UsuariosWF.cs">
       <SubType>Form</SubType>
@@ -165,6 +180,9 @@
     <EmbeddedResource Include="MasterInicioWF.resx">
       <DependentUpon>MasterInicioWF.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MaterialWF.resx">
+      <DependentUpon>MaterialWF.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -180,6 +198,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="StockWF.resx">
       <DependentUpon>StockWF.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TallerWF.resx">
+      <DependentUpon>TallerWF.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UsuariosWF.resx">
       <DependentUpon>UsuariosWF.cs</DependentUpon>
@@ -291,6 +312,10 @@
     <None Include="Resources\cajas-de-carga-de-trabajador %281%29.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\icons8-mantenimiento-20.png" />
+    <None Include="Resources\icons8-mantenimiento-30 %281%29.png" />
+    <None Include="Resources\icons8-escudo-de-soldador-30 %281%29.png" />
+    <None Include="Resources\icons8-gestión-de-clientes-30 %281%29.png" />
     <Content Include="Resources\icons8-visible-30.ico" />
     <None Include="Resources\informe-empresarial-con-crecimiento %281%29.png" />
   </ItemGroup>

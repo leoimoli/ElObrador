@@ -44,6 +44,10 @@
             this.btnRegistroStock = new System.Windows.Forms.Button();
             this.PanelDerecho = new System.Windows.Forms.Panel();
             this.PanelNuevoMaterial = new System.Windows.Forms.Panel();
+            this.btnCrearCodigo = new System.Windows.Forms.Button();
+            this.btnCrerarProveedor = new System.Windows.Forms.Button();
+            this.btnCrearCategoria = new System.Windows.Forms.Button();
+            this.btnCrearGrupo = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
             this.txtProveedor = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -69,10 +73,6 @@
             this.lblNuevoProducto = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.btnCrearCodigo = new System.Windows.Forms.Button();
-            this.btnCrerarProveedor = new System.Windows.Forms.Button();
-            this.btnCrearCategoria = new System.Windows.Forms.Button();
-            this.btnCrearGrupo = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStock)).BeginInit();
             this.PanelDerecho.SuspendLayout();
             this.PanelNuevoMaterial.SuspendLayout();
@@ -237,6 +237,70 @@
             this.PanelNuevoMaterial.Name = "PanelNuevoMaterial";
             this.PanelNuevoMaterial.Size = new System.Drawing.Size(501, 481);
             this.PanelNuevoMaterial.TabIndex = 166;
+            // 
+            // btnCrearCodigo
+            // 
+            this.btnCrearCodigo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(187)))), ((int)(((byte)(45)))));
+            this.btnCrearCodigo.FlatAppearance.BorderColor = System.Drawing.Color.SeaGreen;
+            this.btnCrearCodigo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCrearCodigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCrearCodigo.ForeColor = System.Drawing.Color.White;
+            this.btnCrearCodigo.Image = global::ElObrador.Properties.Resources.mas__2_;
+            this.btnCrearCodigo.Location = new System.Drawing.Point(388, 129);
+            this.btnCrearCodigo.Name = "btnCrearCodigo";
+            this.btnCrearCodigo.Size = new System.Drawing.Size(27, 29);
+            this.btnCrearCodigo.TabIndex = 190;
+            this.toolTip1.SetToolTip(this.btnCrearCodigo, "Generar Código");
+            this.btnCrearCodigo.UseVisualStyleBackColor = false;
+            this.btnCrearCodigo.Click += new System.EventHandler(this.btnCrearCodigo_Click);
+            // 
+            // btnCrerarProveedor
+            // 
+            this.btnCrerarProveedor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(187)))), ((int)(((byte)(45)))));
+            this.btnCrerarProveedor.FlatAppearance.BorderColor = System.Drawing.Color.SeaGreen;
+            this.btnCrerarProveedor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCrerarProveedor.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCrerarProveedor.ForeColor = System.Drawing.Color.White;
+            this.btnCrerarProveedor.Image = global::ElObrador.Properties.Resources.mas__2_;
+            this.btnCrerarProveedor.Location = new System.Drawing.Point(388, 346);
+            this.btnCrerarProveedor.Name = "btnCrerarProveedor";
+            this.btnCrerarProveedor.Size = new System.Drawing.Size(27, 29);
+            this.btnCrerarProveedor.TabIndex = 189;
+            this.toolTip1.SetToolTip(this.btnCrerarProveedor, "Nuevo Proveedor");
+            this.btnCrerarProveedor.UseVisualStyleBackColor = false;
+            this.btnCrerarProveedor.Click += new System.EventHandler(this.btnCrerarProveedor_Click);
+            // 
+            // btnCrearCategoria
+            // 
+            this.btnCrearCategoria.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(187)))), ((int)(((byte)(45)))));
+            this.btnCrearCategoria.FlatAppearance.BorderColor = System.Drawing.Color.SeaGreen;
+            this.btnCrearCategoria.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCrearCategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCrearCategoria.ForeColor = System.Drawing.Color.White;
+            this.btnCrearCategoria.Image = global::ElObrador.Properties.Resources.mas__2_;
+            this.btnCrearCategoria.Location = new System.Drawing.Point(388, 42);
+            this.btnCrearCategoria.Name = "btnCrearCategoria";
+            this.btnCrearCategoria.Size = new System.Drawing.Size(27, 29);
+            this.btnCrearCategoria.TabIndex = 188;
+            this.toolTip1.SetToolTip(this.btnCrearCategoria, "Crear Cátegoria");
+            this.btnCrearCategoria.UseVisualStyleBackColor = false;
+            this.btnCrearCategoria.Click += new System.EventHandler(this.btnCrearCategoria_Click);
+            // 
+            // btnCrearGrupo
+            // 
+            this.btnCrearGrupo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(187)))), ((int)(((byte)(45)))));
+            this.btnCrearGrupo.FlatAppearance.BorderColor = System.Drawing.Color.SeaGreen;
+            this.btnCrearGrupo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCrearGrupo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCrearGrupo.ForeColor = System.Drawing.Color.White;
+            this.btnCrearGrupo.Image = global::ElObrador.Properties.Resources.mas__2_;
+            this.btnCrearGrupo.Location = new System.Drawing.Point(388, 4);
+            this.btnCrearGrupo.Name = "btnCrearGrupo";
+            this.btnCrearGrupo.Size = new System.Drawing.Size(27, 29);
+            this.btnCrearGrupo.TabIndex = 187;
+            this.toolTip1.SetToolTip(this.btnCrearGrupo, "Crear Grupo");
+            this.btnCrearGrupo.UseVisualStyleBackColor = false;
+            this.btnCrearGrupo.Click += new System.EventHandler(this.btnCrearGrupo_Click);
             // 
             // label10
             // 
@@ -469,70 +533,6 @@
             this.lblNuevoProducto.Size = new System.Drawing.Size(121, 18);
             this.lblNuevoProducto.TabIndex = 42;
             this.lblNuevoProducto.Text = "Nuevo Material";
-            // 
-            // btnCrearCodigo
-            // 
-            this.btnCrearCodigo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(187)))), ((int)(((byte)(45)))));
-            this.btnCrearCodigo.FlatAppearance.BorderColor = System.Drawing.Color.SeaGreen;
-            this.btnCrearCodigo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCrearCodigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCrearCodigo.ForeColor = System.Drawing.Color.White;
-            this.btnCrearCodigo.Image = global::ElObrador.Properties.Resources.mas__2_;
-            this.btnCrearCodigo.Location = new System.Drawing.Point(388, 129);
-            this.btnCrearCodigo.Name = "btnCrearCodigo";
-            this.btnCrearCodigo.Size = new System.Drawing.Size(27, 29);
-            this.btnCrearCodigo.TabIndex = 190;
-            this.toolTip1.SetToolTip(this.btnCrearCodigo, "Generar Código");
-            this.btnCrearCodigo.UseVisualStyleBackColor = false;
-            this.btnCrearCodigo.Click += new System.EventHandler(this.btnCrearCodigo_Click);
-            // 
-            // btnCrerarProveedor
-            // 
-            this.btnCrerarProveedor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(187)))), ((int)(((byte)(45)))));
-            this.btnCrerarProveedor.FlatAppearance.BorderColor = System.Drawing.Color.SeaGreen;
-            this.btnCrerarProveedor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCrerarProveedor.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCrerarProveedor.ForeColor = System.Drawing.Color.White;
-            this.btnCrerarProveedor.Image = global::ElObrador.Properties.Resources.mas__2_;
-            this.btnCrerarProveedor.Location = new System.Drawing.Point(388, 346);
-            this.btnCrerarProveedor.Name = "btnCrerarProveedor";
-            this.btnCrerarProveedor.Size = new System.Drawing.Size(27, 29);
-            this.btnCrerarProveedor.TabIndex = 189;
-            this.toolTip1.SetToolTip(this.btnCrerarProveedor, "Nuevo Proveedor");
-            this.btnCrerarProveedor.UseVisualStyleBackColor = false;
-            this.btnCrerarProveedor.Click += new System.EventHandler(this.btnCrerarProveedor_Click);
-            // 
-            // btnCrearCategoria
-            // 
-            this.btnCrearCategoria.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(187)))), ((int)(((byte)(45)))));
-            this.btnCrearCategoria.FlatAppearance.BorderColor = System.Drawing.Color.SeaGreen;
-            this.btnCrearCategoria.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCrearCategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCrearCategoria.ForeColor = System.Drawing.Color.White;
-            this.btnCrearCategoria.Image = global::ElObrador.Properties.Resources.mas__2_;
-            this.btnCrearCategoria.Location = new System.Drawing.Point(388, 42);
-            this.btnCrearCategoria.Name = "btnCrearCategoria";
-            this.btnCrearCategoria.Size = new System.Drawing.Size(27, 29);
-            this.btnCrearCategoria.TabIndex = 188;
-            this.toolTip1.SetToolTip(this.btnCrearCategoria, "Crear Cátegoria");
-            this.btnCrearCategoria.UseVisualStyleBackColor = false;
-            this.btnCrearCategoria.Click += new System.EventHandler(this.btnCrearCategoria_Click);
-            // 
-            // btnCrearGrupo
-            // 
-            this.btnCrearGrupo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(187)))), ((int)(((byte)(45)))));
-            this.btnCrearGrupo.FlatAppearance.BorderColor = System.Drawing.Color.SeaGreen;
-            this.btnCrearGrupo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCrearGrupo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCrearGrupo.ForeColor = System.Drawing.Color.White;
-            this.btnCrearGrupo.Image = global::ElObrador.Properties.Resources.mas__2_;
-            this.btnCrearGrupo.Location = new System.Drawing.Point(388, 4);
-            this.btnCrearGrupo.Name = "btnCrearGrupo";
-            this.btnCrearGrupo.Size = new System.Drawing.Size(27, 29);
-            this.btnCrearGrupo.TabIndex = 187;
-            this.toolTip1.SetToolTip(this.btnCrearGrupo, "Crear Grupo");
-            this.btnCrearGrupo.UseVisualStyleBackColor = false;
-            this.btnCrearGrupo.Click += new System.EventHandler(this.btnCrearGrupo_Click);
             // 
             // StockWF
             // 
