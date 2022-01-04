@@ -51,10 +51,18 @@ namespace ElObrador
         {
             try
             {
-                FuncionListarMaterialesEnTaller();               
+                FuncionListarMaterialesEnTaller();
+                FuncionBuscartexto();
             }
             catch (Exception ex)
             { }
+        }
+
+        private void FuncionBuscartexto()
+        {
+            txtDescipcionBus.AutoCompleteCustomSource = Clases_Maestras.AutoCompleteMateriales.Autocomplete();
+            txtDescipcionBus.AutoCompleteMode = AutoCompleteMode.Suggest;
+            txtDescipcionBus.AutoCompleteSource = AutoCompleteSource.CustomSource;
         }
 
         private void FuncionListarMaterialesEnTaller()
@@ -66,10 +74,8 @@ namespace ElObrador
             {
                 foreach (var item in ListaTaller)
                 {
-                    //string Calle = item.Calle;
-                    //string Altura = item.Altura;
-                    //string Domicilio = Calle + " " + "N° " + item.Altura;
-                    dgvTaller.Rows.Add(item.idMaterial, item.Material, item.Codigo, item.Modelo);
+
+                    dgvTaller.Rows.Add(item.idTaller, item.Material, item.Codigo, item.Modelo);
                 }
             }
             dgvTaller.ReadOnly = true;
@@ -91,7 +97,7 @@ namespace ElObrador
             try
             {
                 Taller _taller = CargarEntidad();
-              
+
                 bool Exito = TallerNeg.RegistrarIngresoEnTaller(_taller);
                 if (Exito == true)
                 {
@@ -146,13 +152,26 @@ namespace ElObrador
             _taller.idUsuario = idusuarioLogueado;
             return _taller;
         }
-        public static int idMaterialSeleccionado = 0;
+        public static int idTallerSeleccionado = 0;
+        public static int idHistorialTallerSeleccionado = 0;
         private void dgvTaller_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (dgvTaller.CurrentCell.ColumnIndex == 4)
             {
+                dgvHistorialTaller.Rows.Clear();
+                idTallerSeleccionado = Convert.ToInt32(this.dgvTaller.CurrentRow.Cells[0].Value.ToString());
+                lblidTaller.Text = Convert.ToString(idTallerSeleccionado);
                 panel1.Visible = false;
                 panelVer.Visible = true;
+                List<Taller> ListaHistorialTaller = TallerNeg.ListarHistorialTaller(idTallerSeleccionado);
+                if (ListaHistorialTaller.Count > 0)
+                {
+                    foreach (var item in ListaHistorialTaller)
+                    {
+                        dgvHistorialTaller.Rows.Add(item.idTaller, item.Fecha, item.Usuario);
+                    }
+
+                }
             }
         }
 
@@ -162,12 +181,69 @@ namespace ElObrador
             {
                 e.Paint(e.CellBounds, DataGridViewPaintParts.All);
                 DataGridViewButtonCell BotonVer = this.dgvTaller.Rows[e.RowIndex].Cells["Ver"] as DataGridViewButtonCell;
-                Icon icoAtomico = new Icon(Environment.CurrentDirectory + "\\" + @"icons8-visible-30.ico");
+                Icon icoAtomico = new Icon(Environment.CurrentDirectory + "\\" + @"icons8-cursor-30.ico");
                 e.Graphics.DrawIcon(icoAtomico, e.CellBounds.Left + 20, e.CellBounds.Top + 4);
                 this.dgvTaller.Rows[e.RowIndex].Height = icoAtomico.Height + 8;
-                this.dgvTaller.Columns[e.ColumnIndex].Width = icoAtomico.Width + 40;
+                this.dgvTaller.Columns[e.ColumnIndex].Width = icoAtomico.Width + 50;
                 e.Handled = true;
             }
+        }
+
+        private void btnNuevoHistorial_Click(object sender, EventArgs e)
+        {
+            int idTaller = Convert.ToInt32(lblidTaller.Text);
+            Funcion = "";
+            NuevoHistorialWF _historial = new NuevoHistorialWF(idTaller, Funcion);
+            _historial.Show();
+        }
+
+        private void dgvHistorialTaller_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
+        {
+            if (e.ColumnIndex >= 0 && this.dgvHistorialTaller.Columns[e.ColumnIndex].Name == "VerHistorial" && e.RowIndex >= 0)
+            {
+                e.Paint(e.CellBounds, DataGridViewPaintParts.All);
+                DataGridViewButtonCell BotonVer = this.dgvHistorialTaller.Rows[e.RowIndex].Cells["VerHistorial"] as DataGridViewButtonCell;
+                Icon icoAtomico = new Icon(Environment.CurrentDirectory + "\\" + @"icons8-visible-30.ico");
+                e.Graphics.DrawIcon(icoAtomico, e.CellBounds.Left + 20, e.CellBounds.Top + 4);
+                this.dgvHistorialTaller.Rows[e.RowIndex].Height = icoAtomico.Height + 8;
+                this.dgvHistorialTaller.Columns[e.ColumnIndex].Width = icoAtomico.Width + 40;
+                e.Handled = true;
+            }
+        }
+
+
+        private void dgvHistorialTaller_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgvHistorialTaller.CurrentCell.ColumnIndex == 3)
+            {
+                idHistorialTallerSeleccionado = Convert.ToInt32(this.dgvHistorialTaller.CurrentRow.Cells[0].Value.ToString());
+                lblidTaller.Text = Convert.ToString(idHistorialTallerSeleccionado);
+                List<Taller> ListaHistorialTaller = TallerNeg.BuscarHistorialPorId(idHistorialTallerSeleccionado);
+                if (ListaHistorialTaller.Count > 0)
+                {
+                    string Material = "";
+                    DateTime Fecha = DateTime.Now;
+                    int idTaller = 0;
+                    string Descripcion = "";
+                    foreach (var item in ListaHistorialTaller)
+                    {
+                        Material = item.Material;
+                        Fecha = item.Fecha;
+                        idTaller = item.idTaller;
+                        Descripcion = item.Diagnostico;
+                    }
+                    VisualizarHistorialWF _visualizar = new VisualizarHistorialWF(Material, Fecha, idTaller, Descripcion);
+                    _visualizar.Show();
+                }
+            }
+        }
+        public static string Funcion;
+        private void btnSalidaTaller_Click(object sender, EventArgs e)
+        {
+            int idTaller = Convert.ToInt32(lblidTaller.Text);
+            Funcion = "Cierre";
+            NuevoHistorialWF _historial = new NuevoHistorialWF(idTaller, Funcion);
+            _historial.Show();
         }
     }
 }

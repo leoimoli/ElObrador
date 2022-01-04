@@ -93,6 +93,31 @@ namespace ElObrador.Dao
             connection.Close();
             return _listaStock;
         }
+        public static int BuscarIdMaterialPorIdTaller(int idTaller)
+        {
+            connection.Close();
+            connection.Open();
+            int idMaterial = 0;
+            MySqlCommand cmd = new MySqlCommand();
+            cmd.Connection = connection;
+            DataTable Tabla = new DataTable();
+            MySqlParameter[] oParam = { new MySqlParameter("idTaller_in", idTaller) };
+            string proceso = "BuscarIdMaterialPorIdTaller";
+            MySqlDataAdapter dt = new MySqlDataAdapter(proceso, connection);
+            dt.SelectCommand.CommandType = CommandType.StoredProcedure;
+            dt.SelectCommand.Parameters.AddRange(oParam);
+            dt.Fill(Tabla);
+            DataSet ds = new DataSet();
+            if (Tabla.Rows.Count > 0)
+            {
+                foreach (DataRow item in Tabla.Rows)
+                {
+                    idMaterial = Convert.ToInt32(item["idProducto"].ToString());
+                }
+            }
+            connection.Close();
+            return idMaterial;
+        }
 
         public static bool EditarProducto(Stock stock, int idMaterialSeleccionado)
         {
@@ -110,7 +135,7 @@ namespace ElObrador.Dao
             cmd.Parameters.AddWithValue("Factura_in", stock.Factura);
             cmd.Parameters.AddWithValue("idProveedor_in", stock.idProveedor);
             cmd.Parameters.AddWithValue("FechaDeAlta_in", stock.FechaDeAlta);
-            cmd.Parameters.AddWithValue("idUsuario_in", stock.idUsuario);           
+            cmd.Parameters.AddWithValue("idUsuario_in", stock.idUsuario);
             cmd.ExecuteNonQuery();
             exito = true;
             connection.Close();

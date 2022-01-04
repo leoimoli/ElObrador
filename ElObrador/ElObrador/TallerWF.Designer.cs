@@ -37,11 +37,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle39 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle40 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvTaller = new System.Windows.Forms.DataGridView();
-            this.idProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RazonSocial = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Domicilio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Telefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Ver = new System.Windows.Forms.DataGridViewButtonColumn();
             this.label5 = new System.Windows.Forms.Label();
             this.txtDescipcionBus = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -66,16 +61,24 @@
             this.label2 = new System.Windows.Forms.Label();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.panelVer = new System.Windows.Forms.Panel();
+            this.lblidTaller = new System.Windows.Forms.Label();
+            this.dgvHistorialTaller = new System.Windows.Forms.DataGridView();
             this.label18 = new System.Windows.Forms.Label();
             this.btnNuevoHistorial = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewButtonColumn1 = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Usuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.VerHistorial = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.idProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RazonSocial = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Domicilio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Telefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ver = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.btnSalidaTaller = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTaller)).BeginInit();
             this.panel1.SuspendLayout();
             this.panelVer.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvHistorialTaller)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvTaller
@@ -125,36 +128,6 @@
             this.dgvTaller.TabIndex = 82;
             this.dgvTaller.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTaller_CellClick);
             this.dgvTaller.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dgvTaller_CellPainting);
-            // 
-            // idProducto
-            // 
-            this.idProducto.HeaderText = "id";
-            this.idProducto.Name = "idProducto";
-            this.idProducto.Visible = false;
-            this.idProducto.Width = 50;
-            // 
-            // RazonSocial
-            // 
-            this.RazonSocial.HeaderText = "Material";
-            this.RazonSocial.Name = "RazonSocial";
-            this.RazonSocial.Width = 240;
-            // 
-            // Domicilio
-            // 
-            this.Domicilio.HeaderText = "Codigo";
-            this.Domicilio.Name = "Domicilio";
-            // 
-            // Telefono
-            // 
-            this.Telefono.HeaderText = "Modelo";
-            this.Telefono.Name = "Telefono";
-            this.Telefono.Width = 150;
-            // 
-            // Ver
-            // 
-            this.Ver.HeaderText = "Ver";
-            this.Ver.Name = "Ver";
-            this.Ver.Width = 80;
             // 
             // label5
             // 
@@ -421,15 +394,75 @@
             // panelVer
             // 
             this.panelVer.BackColor = System.Drawing.Color.Gainsboro;
-            this.panelVer.Controls.Add(this.dataGridView1);
+            this.panelVer.Controls.Add(this.btnSalidaTaller);
+            this.panelVer.Controls.Add(this.lblidTaller);
+            this.panelVer.Controls.Add(this.dgvHistorialTaller);
             this.panelVer.Controls.Add(this.label18);
             this.panelVer.Controls.Add(this.btnNuevoHistorial);
-            this.panelVer.Enabled = false;
             this.panelVer.Location = new System.Drawing.Point(589, 67);
             this.panelVer.Name = "panelVer";
             this.panelVer.Size = new System.Drawing.Size(478, 481);
             this.panelVer.TabIndex = 84;
             this.panelVer.Visible = false;
+            // 
+            // lblidTaller
+            // 
+            this.lblidTaller.AutoSize = true;
+            this.lblidTaller.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblidTaller.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(187)))), ((int)(((byte)(45)))));
+            this.lblidTaller.Location = new System.Drawing.Point(203, 7);
+            this.lblidTaller.Name = "lblidTaller";
+            this.lblidTaller.Size = new System.Drawing.Size(19, 18);
+            this.lblidTaller.TabIndex = 97;
+            this.lblidTaller.Text = "@";
+            this.lblidTaller.Visible = false;
+            // 
+            // dgvHistorialTaller
+            // 
+            this.dgvHistorialTaller.AllowUserToAddRows = false;
+            this.dgvHistorialTaller.BackgroundColor = System.Drawing.Color.White;
+            this.dgvHistorialTaller.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvHistorialTaller.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle37.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle37.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(187)))), ((int)(((byte)(45)))));
+            dataGridViewCellStyle37.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle37.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle37.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle37.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle37.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvHistorialTaller.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle37;
+            this.dgvHistorialTaller.ColumnHeadersHeight = 30;
+            this.dgvHistorialTaller.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dgvHistorialTaller.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2,
+            this.Usuario,
+            this.VerHistorial});
+            dataGridViewCellStyle38.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle38.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle38.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle38.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle38.SelectionBackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle38.SelectionForeColor = System.Drawing.Color.IndianRed;
+            dataGridViewCellStyle38.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvHistorialTaller.DefaultCellStyle = dataGridViewCellStyle38;
+            this.dgvHistorialTaller.EnableHeadersVisualStyles = false;
+            this.dgvHistorialTaller.Location = new System.Drawing.Point(4, 38);
+            this.dgvHistorialTaller.Name = "dgvHistorialTaller";
+            dataGridViewCellStyle39.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle39.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle39.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle39.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle39.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle39.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvHistorialTaller.RowHeadersDefaultCellStyle = dataGridViewCellStyle39;
+            this.dgvHistorialTaller.RowHeadersVisible = false;
+            dataGridViewCellStyle40.ForeColor = System.Drawing.Color.Black;
+            this.dgvHistorialTaller.RowsDefaultCellStyle = dataGridViewCellStyle40;
+            this.dgvHistorialTaller.Size = new System.Drawing.Size(469, 341);
+            this.dgvHistorialTaller.TabIndex = 96;
+            this.dgvHistorialTaller.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHistorialTaller_CellClick);
+            this.dgvHistorialTaller.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dgvHistorialTaller_CellPainting);
             // 
             // label18
             // 
@@ -449,56 +482,13 @@
             this.btnNuevoHistorial.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNuevoHistorial.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNuevoHistorial.ForeColor = System.Drawing.Color.White;
-            this.btnNuevoHistorial.Location = new System.Drawing.Point(102, 366);
+            this.btnNuevoHistorial.Location = new System.Drawing.Point(283, 428);
             this.btnNuevoHistorial.Name = "btnNuevoHistorial";
-            this.btnNuevoHistorial.Size = new System.Drawing.Size(289, 38);
+            this.btnNuevoHistorial.Size = new System.Drawing.Size(159, 38);
             this.btnNuevoHistorial.TabIndex = 13;
             this.btnNuevoHistorial.Text = "Nuevo Historial";
             this.btnNuevoHistorial.UseVisualStyleBackColor = false;
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
-            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle37.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle37.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(187)))), ((int)(((byte)(45)))));
-            dataGridViewCellStyle37.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle37.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle37.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle37.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle37.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle37;
-            this.dataGridView1.ColumnHeadersHeight = 30;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewButtonColumn1});
-            dataGridViewCellStyle38.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle38.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle38.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle38.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle38.SelectionBackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle38.SelectionForeColor = System.Drawing.Color.IndianRed;
-            dataGridViewCellStyle38.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle38;
-            this.dataGridView1.EnableHeadersVisualStyles = false;
-            this.dataGridView1.Location = new System.Drawing.Point(38, 38);
-            this.dataGridView1.Name = "dataGridView1";
-            dataGridViewCellStyle39.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle39.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle39.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle39.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle39.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle39.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle39;
-            this.dataGridView1.RowHeadersVisible = false;
-            dataGridViewCellStyle40.ForeColor = System.Drawing.Color.Black;
-            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle40;
-            this.dataGridView1.Size = new System.Drawing.Size(417, 295);
-            this.dataGridView1.TabIndex = 96;
+            this.btnNuevoHistorial.Click += new System.EventHandler(this.btnNuevoHistorial_Click);
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -510,13 +500,63 @@
             // 
             this.dataGridViewTextBoxColumn2.HeaderText = "Fecha";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.Width = 240;
+            this.dataGridViewTextBoxColumn2.Width = 200;
             // 
-            // dataGridViewButtonColumn1
+            // Usuario
             // 
-            this.dataGridViewButtonColumn1.HeaderText = "Ver";
-            this.dataGridViewButtonColumn1.Name = "dataGridViewButtonColumn1";
-            this.dataGridViewButtonColumn1.Width = 80;
+            this.Usuario.HeaderText = "Usuario";
+            this.Usuario.Name = "Usuario";
+            // 
+            // VerHistorial
+            // 
+            this.VerHistorial.HeaderText = "Ver";
+            this.VerHistorial.Name = "VerHistorial";
+            this.VerHistorial.Width = 70;
+            // 
+            // idProducto
+            // 
+            this.idProducto.HeaderText = "id";
+            this.idProducto.Name = "idProducto";
+            this.idProducto.Visible = false;
+            this.idProducto.Width = 50;
+            // 
+            // RazonSocial
+            // 
+            this.RazonSocial.HeaderText = "Material";
+            this.RazonSocial.Name = "RazonSocial";
+            this.RazonSocial.Width = 240;
+            // 
+            // Domicilio
+            // 
+            this.Domicilio.HeaderText = "Codigo";
+            this.Domicilio.Name = "Domicilio";
+            // 
+            // Telefono
+            // 
+            this.Telefono.HeaderText = "Modelo";
+            this.Telefono.Name = "Telefono";
+            this.Telefono.Width = 150;
+            // 
+            // Ver
+            // 
+            this.Ver.HeaderText = "Seleccionar";
+            this.Ver.Name = "Ver";
+            this.Ver.Width = 80;
+            // 
+            // btnSalidaTaller
+            // 
+            this.btnSalidaTaller.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(187)))), ((int)(((byte)(45)))));
+            this.btnSalidaTaller.FlatAppearance.BorderColor = System.Drawing.Color.SeaGreen;
+            this.btnSalidaTaller.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSalidaTaller.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSalidaTaller.ForeColor = System.Drawing.Color.White;
+            this.btnSalidaTaller.Location = new System.Drawing.Point(63, 428);
+            this.btnSalidaTaller.Name = "btnSalidaTaller";
+            this.btnSalidaTaller.Size = new System.Drawing.Size(159, 38);
+            this.btnSalidaTaller.TabIndex = 98;
+            this.btnSalidaTaller.Text = "Salida de Taller";
+            this.btnSalidaTaller.UseVisualStyleBackColor = false;
+            this.btnSalidaTaller.Click += new System.EventHandler(this.btnSalidaTaller_Click);
             // 
             // TallerWF
             // 
@@ -540,7 +580,7 @@
             this.panel1.PerformLayout();
             this.panelVer.ResumeLayout(false);
             this.panelVer.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvHistorialTaller)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -572,17 +612,20 @@
         public System.Windows.Forms.TextBox txtDescripcionProducto;
         private System.Windows.Forms.Label lblContador;
         private System.Windows.Forms.Label lblTotal;
+        private System.Windows.Forms.Panel panelVer;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Button btnNuevoHistorial;
+        private System.Windows.Forms.DataGridView dgvHistorialTaller;
+        private System.Windows.Forms.Label lblidTaller;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Usuario;
+        private System.Windows.Forms.DataGridViewButtonColumn VerHistorial;
         private System.Windows.Forms.DataGridViewTextBoxColumn idProducto;
         private System.Windows.Forms.DataGridViewTextBoxColumn RazonSocial;
         private System.Windows.Forms.DataGridViewTextBoxColumn Domicilio;
         private System.Windows.Forms.DataGridViewTextBoxColumn Telefono;
         private System.Windows.Forms.DataGridViewButtonColumn Ver;
-        private System.Windows.Forms.Panel panelVer;
-        private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.Button btnNuevoHistorial;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewButtonColumn dataGridViewButtonColumn1;
+        private System.Windows.Forms.Button btnSalidaTaller;
     }
 }

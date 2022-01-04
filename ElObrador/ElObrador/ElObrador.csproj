@@ -56,6 +56,7 @@
       <DependentUpon>CategoriaWF.cs</DependentUpon>
     </Compile>
     <Compile Include="Clases_Maestras\AutoCompleteLocalidades.cs" />
+    <Compile Include="Clases_Maestras\AutoCompleteMateriales.cs" />
     <Compile Include="Clases_Maestras\AutoCompletePorApellido.cs" />
     <Compile Include="Clases_Maestras\AutoCompleteProveedores.cs" />
     <Compile Include="Clases_Maestras\AutoCompleteProvincias.cs" />
@@ -68,6 +69,12 @@
     </Compile>
     <Compile Include="ClientesWF.Designer.cs">
       <DependentUpon>ClientesWF.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ConfiguracionesWF.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConfiguracionesWF.Designer.cs">
+      <DependentUpon>ConfiguracionesWF.cs</DependentUpon>
     </Compile>
     <Compile Include="Dao\CategoriaDao.cs" />
     <Compile Include="Dao\ClientesDao.cs" />
@@ -133,6 +140,12 @@
     <Compile Include="Negocio\StockNeg.cs" />
     <Compile Include="Negocio\TallerNeg.cs" />
     <Compile Include="Negocio\UsuarioNeg.cs" />
+    <Compile Include="NuevoHistorialWF.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NuevoHistorialWF.Designer.cs">
+      <DependentUpon>NuevoHistorialWF.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ProveedoresWF.cs">
@@ -159,11 +172,20 @@
     <Compile Include="UsuariosWF.Designer.cs">
       <DependentUpon>UsuariosWF.cs</DependentUpon>
     </Compile>
+    <Compile Include="VisualizarHistorialWF.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VisualizarHistorialWF.Designer.cs">
+      <DependentUpon>VisualizarHistorialWF.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="CategoriaWF.resx">
       <DependentUpon>CategoriaWF.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ClientesWF.resx">
       <DependentUpon>ClientesWF.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ConfiguracionesWF.resx">
+      <DependentUpon>ConfiguracionesWF.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GrupoWF.resx">
       <DependentUpon>GrupoWF.cs</DependentUpon>
@@ -182,6 +204,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MaterialWF.resx">
       <DependentUpon>MaterialWF.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NuevoHistorialWF.resx">
+      <DependentUpon>NuevoHistorialWF.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -204,6 +229,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UsuariosWF.resx">
       <DependentUpon>UsuariosWF.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VisualizarHistorialWF.resx">
+      <DependentUpon>VisualizarHistorialWF.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -316,6 +344,9 @@
     <None Include="Resources\icons8-mantenimiento-30 %281%29.png" />
     <None Include="Resources\icons8-escudo-de-soldador-30 %281%29.png" />
     <None Include="Resources\icons8-gestión-de-clientes-30 %281%29.png" />
+    <None Include="Resources\icons8-historial-de-pedidos-30.png" />
+    <None Include="Resources\icons8-cursor-30.png" />
+    <None Include="Resources\icons8-cursor-30.ico" />
     <Content Include="Resources\icons8-visible-30.ico" />
     <None Include="Resources\informe-empresarial-con-crecimiento %281%29.png" />
   </ItemGroup>
