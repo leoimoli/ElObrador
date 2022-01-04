@@ -63,5 +63,17 @@ namespace ElObrador.Negocio
                 throw new Exception();
             }
         }
+        public static List<Taller> ListaDeTaller()
+        {
+            List<Entidades.Taller> _listaTaller = new List<Entidades.Taller>();
+            try
+            {
+                _listaTaller = TallerDao.ListaDeTaller();
+            }
+            catch (Exception ex)
+            {
+            }
+            return _listaTaller;
+        }
     }
 }

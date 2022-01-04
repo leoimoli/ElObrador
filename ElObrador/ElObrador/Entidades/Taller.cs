@@ -14,6 +14,10 @@ namespace ElObrador.Entidades
         public string TipoServicio { get; set; }
         public string Diagnostico { get; set; }
         public int idUsuario { get; set; }
+        public string Material { get; set; }
+        public string Codigo { get; set; }
+        public string Modelo { get; set; }
+        
 
     }
 }

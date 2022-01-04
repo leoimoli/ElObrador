@@ -137,7 +137,7 @@ namespace ElObrador
                                                  MessageBoxButtons.OK,
                                                  MessageBoxIcon.Asterisk);
                     LimpiarCampos();
-                    //FuncionListarproveedores();
+                    FuncionListarStock();
                 }
             }
             catch (Exception ex)
@@ -212,7 +212,12 @@ namespace ElObrador
             _stock.Modelo = txtModelo.Text;
             _stock.Codigo = txtCodigo.Text;
             _stock.FechaDeCompra = dtFechaCompra.Value;
-            _stock.Monto = Convert.ToDecimal(txtMonto.Text);
+            if (txtMonto.Text != "")
+            {
+                _stock.Monto = Convert.ToDecimal(txtMonto.Text);
+            }
+            else
+            { _stock.Monto = 0; }
             DateTime fechaActual = DateTime.Now;
             string proveedor = txtProveedor.Text;
             _stock.idProveedor = ProveedoresDao.BuscarIdProveedor(proveedor);
@@ -289,7 +294,7 @@ namespace ElObrador
                     string cantidad = Convert.ToString(item.TotalStock);
                     dgvStock.Rows.Add(item.idCategoria, item.Descripcion, cantidad);
                 }
-               // btnEditarProducto.Visible = true;
+                // btnEditarProducto.Visible = true;
             }
             dgvStock.ReadOnly = true;
         }
@@ -314,7 +319,7 @@ namespace ElObrador
                 this.dgvStock.Rows[e.RowIndex].Height = icoAtomico.Height + 8;
                 this.dgvStock.Columns[e.ColumnIndex].Width = icoAtomico.Width + 40;
                 e.Handled = true;
-            }           
+            }
         }
 
     }

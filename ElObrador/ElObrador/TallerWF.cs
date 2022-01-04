@@ -28,6 +28,8 @@ namespace ElObrador
         private void btnNuevo_Click(object sender, EventArgs e)
         {
             panel1.Enabled = true;
+            panel1.Visible = true;
+            panelVer.Visible = false;
             cmbTipoServicio.Focus();
             CargarComboServicio();
             MaterialWF _material = new MaterialWF();
@@ -47,8 +49,32 @@ namespace ElObrador
 
         private void TallerWF_Load(object sender, EventArgs e)
         {
-
+            try
+            {
+                FuncionListarMaterialesEnTaller();               
+            }
+            catch (Exception ex)
+            { }
         }
+
+        private void FuncionListarMaterialesEnTaller()
+        {
+            //FuncionBuscartexto();
+            dgvTaller.Rows.Clear();
+            List<Taller> ListaTaller = TallerNeg.ListaDeTaller();
+            if (ListaTaller.Count > 0)
+            {
+                foreach (var item in ListaTaller)
+                {
+                    //string Calle = item.Calle;
+                    //string Altura = item.Altura;
+                    //string Domicilio = Calle + " " + "N° " + item.Altura;
+                    dgvTaller.Rows.Add(item.idMaterial, item.Material, item.Codigo, item.Modelo);
+                }
+            }
+            dgvTaller.ReadOnly = true;
+        }
+
         public void IniciarPantalla()
         {
             //CargarCombos();
@@ -76,7 +102,7 @@ namespace ElObrador
                                                  MessageBoxButtons.OK,
                                                  MessageBoxIcon.Asterisk);
                     LimpiarCampos();
-                    //FuncionListarproveedores();
+                    FuncionListarMaterialesEnTaller();
                 }
             }
             catch (Exception ex)
@@ -119,6 +145,29 @@ namespace ElObrador
             _taller.Diagnostico = txtDiagnostico.Text;
             _taller.idUsuario = idusuarioLogueado;
             return _taller;
+        }
+        public static int idMaterialSeleccionado = 0;
+        private void dgvTaller_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgvTaller.CurrentCell.ColumnIndex == 4)
+            {
+                panel1.Visible = false;
+                panelVer.Visible = true;
+            }
+        }
+
+        private void dgvTaller_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
+        {
+            if (e.ColumnIndex >= 0 && this.dgvTaller.Columns[e.ColumnIndex].Name == "Ver" && e.RowIndex >= 0)
+            {
+                e.Paint(e.CellBounds, DataGridViewPaintParts.All);
+                DataGridViewButtonCell BotonVer = this.dgvTaller.Rows[e.RowIndex].Cells["Ver"] as DataGridViewButtonCell;
+                Icon icoAtomico = new Icon(Environment.CurrentDirectory + "\\" + @"icons8-visible-30.ico");
+                e.Graphics.DrawIcon(icoAtomico, e.CellBounds.Left + 20, e.CellBounds.Top + 4);
+                this.dgvTaller.Rows[e.RowIndex].Height = icoAtomico.Height + 8;
+                this.dgvTaller.Columns[e.ColumnIndex].Width = icoAtomico.Width + 40;
+                e.Handled = true;
+            }
         }
     }
 }
