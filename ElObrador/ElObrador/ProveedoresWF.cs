@@ -254,5 +254,12 @@ namespace ElObrador
         }
         #endregion
 
+        private void txtDescipcionBus_KeyDown_1(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                FuncionListarproveedores();
+            }
+        }
     }
 }

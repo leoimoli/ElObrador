@@ -137,7 +137,7 @@ namespace ElObrador
                                                  MessageBoxButtons.OK,
                                                  MessageBoxIcon.Asterisk);
                     LimpiarCampos();
-                    FuncionListarStock();
+                    FuncionListarStock(null);
                 }
             }
             catch (Exception ex)
@@ -275,26 +275,50 @@ namespace ElObrador
         {
             try
             {
-                FuncionListarStock();
-                //FuncionBuscartexto();
+                FuncionListarStock(null);
+                FuncionBuscartexto();
             }
             catch (Exception ex)
             { }
         }
-
-        private void FuncionListarStock()
+        private void FuncionBuscartexto()
         {
-            //FuncionBuscartexto();
-            dgvStock.Rows.Clear();
-            List<Stock> ListaProductos = StockNeg.ListarStock();
-            if (ListaProductos.Count > 0)
+            txtDescipcionBus.AutoCompleteCustomSource = Clases_Maestras.AutoCompleteCategoria.Autocomplete();
+            txtDescipcionBus.AutoCompleteMode = AutoCompleteMode.Suggest;
+            txtDescipcionBus.AutoCompleteSource = AutoCompleteSource.CustomSource;
+        }
+
+        private void FuncionListarStock(string Categoria)
+        {
+            if (Categoria != null)
             {
-                foreach (var item in ListaProductos)
+                FuncionBuscartexto();
+                dgvStock.Rows.Clear();
+                List<Stock> ListaProductos = StockNeg.ListarStockPorCategoriaSeleccionada(Categoria);
+                if (ListaProductos.Count > 0)
                 {
-                    string cantidad = Convert.ToString(item.TotalStock);
-                    dgvStock.Rows.Add(item.idCategoria, item.Descripcion, cantidad);
+                    foreach (var item in ListaProductos)
+                    {
+                        string cantidad = Convert.ToString(item.TotalStock);
+                        dgvStock.Rows.Add(item.idCategoria, item.Descripcion, cantidad);
+                    }
+                    // btnEditarProducto.Visible = true;
                 }
-                // btnEditarProducto.Visible = true;
+            }
+            else
+            {
+                FuncionBuscartexto();
+                dgvStock.Rows.Clear();
+                List<Stock> ListaProductos = StockNeg.ListarStock();
+                if (ListaProductos.Count > 0)
+                {
+                    foreach (var item in ListaProductos)
+                    {
+                        string cantidad = Convert.ToString(item.TotalStock);
+                        dgvStock.Rows.Add(item.idCategoria, item.Descripcion, cantidad);
+                    }
+                    // btnEditarProducto.Visible = true;
+                }
             }
             dgvStock.ReadOnly = true;
         }
@@ -322,5 +346,13 @@ namespace ElObrador
             }
         }
 
+        private void txtDescipcionBus_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                string Categoria = txtDescipcionBus.Text;
+                FuncionListarStock(Categoria);
+            }
+        }
     }
 }

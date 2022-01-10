@@ -62,6 +62,39 @@ namespace ElObrador.Dao
             connection.Close();
             return Existe;
         }
+
+        public static List<Stock> ListarStockPorCategoriaSeleccionada(string categoria)
+        {
+            int idCategoria = CategoriaDao.BuscarIdCategoria(categoria);
+            connection.Close();
+            connection.Open();
+            List<Entidades.Stock> _listaStock = new List<Entidades.Stock>();
+            MySqlCommand cmd = new MySqlCommand();
+            cmd.Connection = connection;
+            DataTable Tabla = new DataTable();
+            MySqlParameter[] oParam = { new MySqlParameter("idCategoria_in", idCategoria) };
+            string proceso = "ListarStockPorCategoriaSeleccionada";
+            MySqlDataAdapter dt = new MySqlDataAdapter(proceso, connection);
+            dt.SelectCommand.CommandType = CommandType.StoredProcedure;
+            dt.SelectCommand.Parameters.AddRange(oParam);
+            dt.Fill(Tabla);
+            DataSet ds = new DataSet();
+            if (Tabla.Rows.Count > 0)
+            {
+
+                foreach (DataRow item in Tabla.Rows)
+                {
+                    Entidades.Stock listaStock = new Entidades.Stock();
+                    listaStock.idCategoria = Convert.ToInt32(item["idCategoria"].ToString());
+                    listaStock.TotalStock = Convert.ToInt32(item["TotalStock"].ToString());
+                    listaStock.Descripcion = item["Descripcion"].ToString();
+                    _listaStock.Add(listaStock);
+                }
+            }
+            connection.Close();
+            return _listaStock;
+        }
+
         public static List<Stock> ListaMaterialesDeLaCategoria(int idCategoriaSeleccionado)
         {
             connection.Close();
@@ -87,6 +120,7 @@ namespace ElObrador.Dao
                     listaStock.Descripcion = item["Descripcion"].ToString();
                     listaStock.Codigo = item["Codigo"].ToString();
                     listaStock.Modelo = item["Modelo"].ToString();
+                    listaStock.MontoAlquiler = Convert.ToDecimal(item["MontoAlquiler"].ToString());
                     _listaStock.Add(listaStock);
                 }
             }

@@ -246,5 +246,13 @@ namespace ElObrador
             ImagenPagina.Image = imagen;
             lblPantalla.Text = "Taller";
         }
+
+        private void btnConfiguaracion_Click(object sender, EventArgs e)
+        {
+            AbrirFormEnPanel(new ConfiguracionesWF());
+            var imagen = new Bitmap(ElObrador.Properties.Resources.icons8_escudo_de_soldador_30__1_);
+            ImagenPagina.Image = imagen;
+            lblPantalla.Text = "Configuraciones";
+        }
     }
 }

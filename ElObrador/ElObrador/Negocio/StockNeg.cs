@@ -48,6 +48,20 @@ namespace ElObrador.Negocio
             }
             return _listaMateriales;
         }
+
+        public static List<Stock> ListarStockPorCategoriaSeleccionada(string categoria)
+        {
+            List<Stock> _listaProductos = new List<Stock>();
+            try
+            {
+                _listaProductos = StockDao.ListarStockPorCategoriaSeleccionada(categoria);
+            }
+            catch (Exception ex)
+            {
+            }
+            return _listaProductos;
+        }
+
         private static void ValidarDatos(Stock stock)
         {
             if (String.IsNullOrEmpty(stock.Descripcion))

@@ -25,5 +25,6 @@ namespace ElObrador.Entidades
         public string NombreGrupo { get; set; }
         public string NombreCategoria { get; set; }
         public string NombreProveedor { get; set; }
+        public decimal MontoAlquiler { get; set; }
     }
 }

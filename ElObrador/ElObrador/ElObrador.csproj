@@ -55,6 +55,7 @@
     <Compile Include="CategoriaWF.Designer.cs">
       <DependentUpon>CategoriaWF.cs</DependentUpon>
     </Compile>
+    <Compile Include="Clases_Maestras\AutoCompleteCategoria.cs" />
     <Compile Include="Clases_Maestras\AutoCompleteLocalidades.cs" />
     <Compile Include="Clases_Maestras\AutoCompleteMateriales.cs" />
     <Compile Include="Clases_Maestras\AutoCompletePorApellido.cs" />
@@ -78,6 +79,7 @@
     </Compile>
     <Compile Include="Dao\CategoriaDao.cs" />
     <Compile Include="Dao\ClientesDao.cs" />
+    <Compile Include="Dao\ConfiguracionesDao.cs" />
     <Compile Include="Dao\GrupoDao.cs" />
     <Compile Include="Dao\ProveedoresDao.cs" />
     <Compile Include="Dao\StockDao.cs" />
@@ -135,6 +137,7 @@
     </Compile>
     <Compile Include="Negocio\CategoriaNeg.cs" />
     <Compile Include="Negocio\ClientesNeg.cs" />
+    <Compile Include="Negocio\ConfiguracionesNeg.cs" />
     <Compile Include="Negocio\GrupoNeg.cs" />
     <Compile Include="Negocio\ProveedoresNeg.cs" />
     <Compile Include="Negocio\StockNeg.cs" />
