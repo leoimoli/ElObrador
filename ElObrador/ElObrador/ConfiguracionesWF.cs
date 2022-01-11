@@ -187,6 +187,60 @@ namespace ElObrador
                 FuncionListarStock(Categoria);
             }
         }
+
+        private void progressBar1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnTildar_Click(object sender, EventArgs e)
+        {
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                row.Cells["Check"].Value = true;
+            }
+        }
+
+        private void btnDestildar_Click(object sender, EventArgs e)
+        {
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                row.Cells["Check"].Value = false;
+            }
+        }
+
+        private void btnHistorial_Click(object sender, EventArgs e)
+        {
+            int Contador = 0;
+            int idMaterial = 0;
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                if (Contador > 1)
+                {
+                    const string message2 = "Solo debe seleccionar un producto de la lista para acceder al historial.";
+                    const string caption2 = "Atención:";
+                    var result2 = MessageBox.Show(message2, caption2,
+                                                 MessageBoxButtons.OK,
+                                                 MessageBoxIcon.Exclamation);
+                }
+                else
+                {
+                    Stock _lista = new Stock();
+                    bool ck = Convert.ToBoolean(row.Cells[0].Value.ToString());
+                    if (ck == true)
+                    {
+                        Contador = Contador + 1;
+                        idMaterial = Convert.ToInt32(row.Cells[1].Value.ToString());
+                        if (idMaterial > 0)
+                        {
+                            break;
+                        }
+                    }
+                }               
+            }
+            HistorialPrecioWF _historial = new HistorialPrecioWF(idMaterial);
+            _historial.Show();
+        }
     }
 }
 

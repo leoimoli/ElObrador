@@ -6,6 +6,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace ElObrador.Dao
 {
@@ -39,6 +40,40 @@ namespace ElObrador.Dao
             connection.Close();
             return Existe;
         }
+        public static List<Stock> BuscarHistorialPrecioPorProducto(int idMaterial)
+        {
+            connection.Close();
+            connection.Open();
+            List<Entidades.Stock> _listaStock = new List<Entidades.Stock>();
+            MySqlCommand cmd = new MySqlCommand();
+            cmd.Connection = connection;
+            DataTable Tabla = new DataTable();
+            MySqlParameter[] oParam = { new MySqlParameter("idMaterial_in", idMaterial) };
+            string proceso = "BuscarHistorialPrecioPorProducto";
+            MySqlDataAdapter dt = new MySqlDataAdapter(proceso, connection);
+            dt.SelectCommand.CommandType = CommandType.StoredProcedure;
+            dt.SelectCommand.Parameters.AddRange(oParam);
+            dt.Fill(Tabla);
+            DataSet ds = new DataSet();
+            if (Tabla.Rows.Count > 0)
+            {
+                foreach (DataRow item in Tabla.Rows)
+                {
+                    Entidades.Stock listaStock = new Entidades.Stock();
+                    listaStock.idHistorial = Convert.ToInt32(item["idHistorial"].ToString());
+                    listaStock.Descripcion = item["NombreProducto"].ToString();
+                    listaStock.MontoAlquiler = Convert.ToDecimal(item["Monto"].ToString());
+                    listaStock.FechaDeAlta = Convert.ToDateTime(item["Fecha"].ToString());
+                    string Apellido = item["Apellido"].ToString();
+                    string Nombre = item["Nombre"].ToString();
+                    listaStock.NombreUsuario = Apellido + " " + Nombre;
+                    _listaStock.Add(listaStock);
+                }
+            }
+            connection.Close();
+            return _listaStock;
+        }
+
         public static bool ValidarProductoExistente(string codigo)
         {
             connection.Close();
