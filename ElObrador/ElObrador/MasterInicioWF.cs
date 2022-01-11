@@ -254,5 +254,13 @@ namespace ElObrador
             ImagenPagina.Image = imagen;
             lblPantalla.Text = "Configuraciones";
         }
+
+        private void btnAlquiler_Click(object sender, EventArgs e)
+        {
+            AbrirFormEnPanel(new AlquileresWF());
+            var imagen = new Bitmap(ElObrador.Properties.Resources.icons8_mensaje_de_telefono_30__2_);
+            ImagenPagina.Image = imagen;
+            lblPantalla.Text = "Alquileres";
+        }
     }
 }

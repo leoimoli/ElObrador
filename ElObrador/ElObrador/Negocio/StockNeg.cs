@@ -48,7 +48,18 @@ namespace ElObrador.Negocio
             }
             return _listaMateriales;
         }
-
+        public static List<Stock> ListaMaterialesDeLaCategoriaParaAlquiler(int idCategoriaSeleccionado)
+        {
+            List<Stock> _listaMateriales = new List<Stock>();
+            try
+            {
+                _listaMateriales = StockDao.ListaMaterialesDeLaCategoriaParaAlquiler(idCategoriaSeleccionado);
+            }
+            catch (Exception ex)
+            {
+            }
+            return _listaMateriales;
+        }
         public static List<Stock> ListarStockPorCategoriaSeleccionada(string categoria)
         {
             List<Stock> _listaProductos = new List<Stock>();
@@ -120,6 +131,18 @@ namespace ElObrador.Negocio
             catch (Exception ex)
             { }
             return exito;
+        }
+        public static List<Stock> ListaMaterialesParaAlquiler(string material)
+        {
+            List<Stock> _listaMateriales = new List<Stock>();
+            try
+            {
+                _listaMateriales = StockDao.ListaMaterialesParaAlquiler(material);
+            }
+            catch (Exception ex)
+            {
+            }
+            return _listaMateriales;
         }
     }
 }

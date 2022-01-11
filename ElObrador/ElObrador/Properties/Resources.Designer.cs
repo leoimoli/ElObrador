@@ -293,6 +293,46 @@ namespace ElObrador.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_mensaje_de_telefono_30__2_ {
+            get {
+                object obj = ResourceManager.GetObject("icons8_mensaje_de_telefono_30__2_", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_mensaje_de_telefono_50 {
+            get {
+                object obj = ResourceManager.GetObject("icons8_mensaje_de_telefono_50", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_precio_bajo_30 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-precio-bajo-30", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_precio_bajo_301 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-precio-bajo-301", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_proveedor_30 {
             get {
                 object obj = ResourceManager.GetObject("icons8-proveedor-30", resourceCulture);

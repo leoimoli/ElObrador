@@ -49,6 +49,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AlquileresWF.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AlquileresWF.Designer.cs">
+      <DependentUpon>AlquileresWF.cs</DependentUpon>
+    </Compile>
     <Compile Include="CategoriaWF.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -59,6 +65,7 @@
     <Compile Include="Clases_Maestras\AutoCompleteLocalidades.cs" />
     <Compile Include="Clases_Maestras\AutoCompleteMateriales.cs" />
     <Compile Include="Clases_Maestras\AutoCompletePorApellido.cs" />
+    <Compile Include="Clases_Maestras\AutoCompleteProducto.cs" />
     <Compile Include="Clases_Maestras\AutoCompleteProveedores.cs" />
     <Compile Include="Clases_Maestras\AutoCompleteProvincias.cs" />
     <Compile Include="Clases_Maestras\AutoCompleteUsuarios.cs" />
@@ -187,6 +194,9 @@
     <Compile Include="VisualizarHistorialWF.Designer.cs">
       <DependentUpon>VisualizarHistorialWF.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AlquileresWF.resx">
+      <DependentUpon>AlquileresWF.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CategoriaWF.resx">
       <DependentUpon>CategoriaWF.cs</DependentUpon>
     </EmbeddedResource>
@@ -359,6 +369,10 @@
     <None Include="Resources\icons8-historial-de-pedidos-30.png" />
     <None Include="Resources\icons8-cursor-30.png" />
     <None Include="Resources\icons8-cursor-30.ico" />
+    <None Include="Resources\icons8-precio-bajo-30.png" />
+    <None Include="Resources\icons8-precio-bajo-301.png" />
+    <None Include="Resources\icons8-mensaje-de-telefono-50.png" />
+    <None Include="Resources\icons8-mensaje-de-telefono-30 %282%29.png" />
     <Content Include="Resources\icons8-visible-30.ico" />
     <None Include="Resources\informe-empresarial-con-crecimiento %281%29.png" />
   </ItemGroup>

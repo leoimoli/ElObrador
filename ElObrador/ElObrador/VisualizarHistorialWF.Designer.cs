@@ -29,15 +29,15 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.ImagenPagina = new System.Windows.Forms.PictureBox();
             this.lblHistorial = new System.Windows.Forms.Label();
-            this.btnCerrar = new System.Windows.Forms.PictureBox();
             this.lblidTaller = new System.Windows.Forms.Label();
             this.btnVolver = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.txtDiagnostico = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.dtFecha = new System.Windows.Forms.DateTimePicker();
+            this.ImagenPagina = new System.Windows.Forms.PictureBox();
+            this.btnCerrar = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ImagenPagina)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
@@ -55,16 +55,6 @@
             this.panel1.Size = new System.Drawing.Size(500, 35);
             this.panel1.TabIndex = 7;
             // 
-            // ImagenPagina
-            // 
-            this.ImagenPagina.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(187)))), ((int)(((byte)(45)))));
-            this.ImagenPagina.Image = global::ElObrador.Properties.Resources.icons8_historial_de_pedidos_30;
-            this.ImagenPagina.Location = new System.Drawing.Point(10, 1);
-            this.ImagenPagina.Name = "ImagenPagina";
-            this.ImagenPagina.Size = new System.Drawing.Size(32, 32);
-            this.ImagenPagina.TabIndex = 3;
-            this.ImagenPagina.TabStop = false;
-            // 
             // lblHistorial
             // 
             this.lblHistorial.AutoSize = true;
@@ -75,19 +65,6 @@
             this.lblHistorial.Size = new System.Drawing.Size(113, 19);
             this.lblHistorial.TabIndex = 4;
             this.lblHistorial.Text = "Historial Taller";
-            // 
-            // btnCerrar
-            // 
-            this.btnCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCerrar.Image = global::ElObrador.Properties.Resources.cancelar2;
-            this.btnCerrar.Location = new System.Drawing.Point(463, 3);
-            this.btnCerrar.Name = "btnCerrar";
-            this.btnCerrar.Size = new System.Drawing.Size(25, 25);
-            this.btnCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btnCerrar.TabIndex = 3;
-            this.btnCerrar.TabStop = false;
-            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
             // lblidTaller
             // 
@@ -153,6 +130,29 @@
             this.dtFecha.Name = "dtFecha";
             this.dtFecha.Size = new System.Drawing.Size(220, 20);
             this.dtFecha.TabIndex = 202;
+            // 
+            // ImagenPagina
+            // 
+            this.ImagenPagina.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(187)))), ((int)(((byte)(45)))));
+            this.ImagenPagina.Image = global::ElObrador.Properties.Resources.icons8_historial_de_pedidos_30;
+            this.ImagenPagina.Location = new System.Drawing.Point(10, 1);
+            this.ImagenPagina.Name = "ImagenPagina";
+            this.ImagenPagina.Size = new System.Drawing.Size(32, 32);
+            this.ImagenPagina.TabIndex = 3;
+            this.ImagenPagina.TabStop = false;
+            // 
+            // btnCerrar
+            // 
+            this.btnCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCerrar.Image = global::ElObrador.Properties.Resources.cancelar2;
+            this.btnCerrar.Location = new System.Drawing.Point(463, 3);
+            this.btnCerrar.Name = "btnCerrar";
+            this.btnCerrar.Size = new System.Drawing.Size(25, 25);
+            this.btnCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btnCerrar.TabIndex = 3;
+            this.btnCerrar.TabStop = false;
+            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
             // VisualizarHistorialWF
             // 

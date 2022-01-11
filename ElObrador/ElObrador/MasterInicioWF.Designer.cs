@@ -515,6 +515,7 @@
             this.btnAlquiler.Text = "Alquileres";
             this.btnAlquiler.UseVisualStyleBackColor = true;
             this.btnAlquiler.Visible = false;
+            this.btnAlquiler.Click += new System.EventHandler(this.btnAlquiler_Click);
             // 
             // btnPanelStock
             // 

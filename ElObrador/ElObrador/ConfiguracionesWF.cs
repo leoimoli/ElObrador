@@ -236,10 +236,13 @@ namespace ElObrador
                             break;
                         }
                     }
-                }               
+                }
             }
-            HistorialPrecioWF _historial = new HistorialPrecioWF(idMaterial);
-            _historial.Show();
+            if (Contador > 0)
+            {
+                HistorialPrecioWF _historial = new HistorialPrecioWF(idMaterial);
+                _historial.Show();
+            }
         }
     }
 }
