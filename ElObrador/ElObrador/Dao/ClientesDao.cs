@@ -97,6 +97,42 @@ namespace ElObrador.Dao
             connection.Close();
             return _listaClientes;
         }
+        public static List<Clientes> ListarClientesPorDNI(string dni)
+        {
+            connection.Close();
+            connection.Open();
+            List<Entidades.Clientes> _listaClientes = new List<Entidades.Clientes>();
+            MySqlCommand cmd = new MySqlCommand();
+            cmd.Connection = connection;
+            DataTable Tabla = new DataTable();
+            MySqlParameter[] oParam = { new MySqlParameter("Dni_in", dni) };
+            string proceso = "ListarClientesPorDNI";
+            MySqlDataAdapter dt = new MySqlDataAdapter(proceso, connection);
+            dt.SelectCommand.CommandType = CommandType.StoredProcedure;
+            dt.SelectCommand.Parameters.AddRange(oParam);
+            dt.Fill(Tabla);
+            if (Tabla.Rows.Count > 0)
+            {
+                foreach (DataRow item in Tabla.Rows)
+                {
+                    Entidades.Clientes listaCliente = new Entidades.Clientes();
+                    listaCliente.IdCliente = Convert.ToInt32(item["idClientes"].ToString());
+                    listaCliente.Apellido = item["Apellido"].ToString();
+                    listaCliente.Nombre = item["Nombre"].ToString();
+                    listaCliente.Dni = item["Dni"].ToString();
+                    listaCliente.FechaDeAlta = Convert.ToDateTime(item["FechaDeAlta"].ToString());
+                    listaCliente.Email = item["Email"].ToString();
+                    listaCliente.Telefono = item["Telefono"].ToString();
+                    listaCliente.Calle = item["Calle"].ToString();
+                    listaCliente.Altura = item["Altura"].ToString();
+                    listaCliente.NombreProvincia = item["Provincia"].ToString();
+                    listaCliente.NombreLocalidad = item["Localidad"].ToString();
+                    _listaClientes.Add(listaCliente);
+                }
+            }
+            connection.Close();
+            return _listaClientes;
+        }
         public static List<Entidades.Clientes> BuscarClientePorApellidoNombre(string apellido, string nombre)
         {
             connection.Close();

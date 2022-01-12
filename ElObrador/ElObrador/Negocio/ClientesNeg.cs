@@ -76,7 +76,7 @@ namespace ElObrador.Negocio
                                            MessageBoxIcon.Exclamation);
                 throw new Exception();
             }
-            if (String.IsNullOrEmpty(_cliente.Email) && _cliente.Telefono == "-" )
+            if (String.IsNullOrEmpty(_cliente.Email) && _cliente.Telefono == "-")
             {
                 const string message = "Debe ingresar un email o teléfono de contacto de la persona.";
                 const string caption = "Error";
@@ -104,6 +104,19 @@ namespace ElObrador.Negocio
                 throw new Exception();
             }
         }
+        public static List<Clientes> ListaDeClientesPorDNI(string dni)
+        {
+            List<Entidades.Clientes> _listaClientes = new List<Entidades.Clientes>();
+            try
+            {
+                _listaClientes = ClientesDao.ListarClientesPorDNI(dni);
+            }
+            catch (Exception ex)
+            {
+            }
+            return _listaClientes;
+        }
+
         //public static bool ActualizarDeuda(List<Entidades.Clientes> cliente, string deuda, decimal pagoIngresado)
         //{
         //    bool exito = false;
@@ -317,7 +330,7 @@ namespace ElObrador.Negocio
                 _Cliente = ClientesDao.BuscarClientePorID(idClienteSeleccionado);
             }
             catch (Exception ex)
-            {             
+            {
             }
             return _Cliente;
         }

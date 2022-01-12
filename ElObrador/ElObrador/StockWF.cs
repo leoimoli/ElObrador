@@ -11,6 +11,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+///// Estado de los productos
+///// 1 Habilitado
+///// 2 en Taller
+///// 3 Alquilado
 
 namespace ElObrador
 {
