@@ -28,5 +28,6 @@ namespace ElObrador.Entidades
         public decimal MontoAlquiler { get; set; }
         public string NombreUsuario { get; set; }
         public int idHistorial { get; set; }
+        public int CantidadDiasAlquiler { get; set; }
     }
 }

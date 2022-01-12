@@ -84,6 +84,7 @@
     <Compile Include="ConfiguracionesWF.Designer.cs">
       <DependentUpon>ConfiguracionesWF.cs</DependentUpon>
     </Compile>
+    <Compile Include="Dao\AlquilerDao.cs" />
     <Compile Include="Dao\CategoriaDao.cs" />
     <Compile Include="Dao\ClientesDao.cs" />
     <Compile Include="Dao\ConfiguracionesDao.cs" />
