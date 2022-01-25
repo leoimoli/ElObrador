@@ -280,6 +280,7 @@ namespace ElObrador
                 int idAlquiler = AlquilerNeg.RegistrarAlquiler(_listaAlquiler);
                 if (idAlquiler > 0)
                 {
+                    ListaAlquilerStatic = _listaAlquiler;
                     GenerarFactura(idAlquiler, _listaAlquiler);
                     const string message2 = "Se registro la venta exitosamente.";
                     const string caption2 = "Éxito";
@@ -287,13 +288,12 @@ namespace ElObrador
                                                  MessageBoxButtons.OK,
                                                  MessageBoxIcon.Asterisk);
                     ///// Generar Factura
-
                 }
             }
             catch (Exception ex)
             { }
         }
-
+        public static List<Alquiler> ListaAlquilerStatic;
         private void GenerarFactura(int idAlquiler, List<Alquiler> listaAlquiler)
         {
             MemoryStream m = new MemoryStream();
@@ -304,14 +304,14 @@ namespace ElObrador
             {
                 Directory.CreateDirectory(folderPath);
             }
-            string replaceWith = "";
+            //string replaceWith = "";
             //material = material.Replace("\r\n", replaceWith).Replace("\n", replaceWith).Replace("\r", replaceWith);
             string ruta = folderPath;
             //string Periodo = "Reporte de Obra";
             string fecha = DateTime.Now.ToShortDateString();
             fecha = fecha.Replace("/", "-");
             PdfWriter writer = PdfWriter.GetInstance(doc,
-                                        new FileStream(ruta + "Año " + fecha + " Reporte Inventario en Kilos" + ".pdf", FileMode.Create));
+                                        new FileStream(ruta + "Año " + fecha + " Reporte Inventario jajaja" + ".pdf", FileMode.Create));
             writer.PageEvent = new PDF();
 
             doc.AddTitle("PDF");
@@ -337,8 +337,6 @@ namespace ElObrador
             p1.Alignment = Element.ALIGN_LEFT;
             doc.Add(new Paragraph(p1));
             doc.Add(new Paragraph(" "));
-
-
 
             // Creamos una tabla que contendrá las cabeceras
             // de nuestros visitante.
@@ -386,6 +384,52 @@ namespace ElObrador
             tblPrueba.AddCell(clFechaDesde);
             tblPrueba.AddCell(clFechaHasta);
             tblPrueba.AddCell(clMonto);
+
+            int TotalDeElementos = ListaAlquilerStatic.Count;
+            int Contador = 0;
+            foreach (var item in ListaAlquilerStatic)
+            {
+                Contador = Contador + 1;
+                if (TotalDeElementos == Contador)
+                {
+                    clMaterial = new PdfPCell(new Phrase(item.Material, UltimoRegistro));
+                    clMaterial.BorderWidth = 0;
+
+                    string dias = Convert.ToString(item.Dias);
+                    clDias = new PdfPCell(new Phrase(dias, UltimoRegistro));
+                    clDias.BorderWidth = 0;
+                  
+                    string fechaDesde = Convert.ToString(item.FechaDesde);
+                    clFechaDesde = new PdfPCell(new Phrase(fechaDesde, UltimoRegistro));
+                    clFechaDesde.BorderWidth = 0;
+
+                    string fechaHasta = Convert.ToString(item.FechaHasta);
+                    clFechaHasta = new PdfPCell(new Phrase(fechaHasta, UltimoRegistro));
+                    clFechaHasta.BorderWidth = 0;
+
+                    string Monto = Convert.ToString(item.Monto);
+                    clMonto = new PdfPCell(new Phrase(Monto, UltimoRegistro));
+                    clMonto.BorderWidth = 0;
+
+                    tblPrueba.AddCell(clMaterial);
+                    tblPrueba.AddCell(clDias);
+                    tblPrueba.AddCell(clFechaDesde);
+                    tblPrueba.AddCell(clFechaHasta);
+                    tblPrueba.AddCell(clMonto);
+                }
+            }
+
+            tblPrueba.AddCell(clMonto);
+            doc.Add(tblPrueba);
+            doc.Close();
+            writer.Close();
+            string mensaje = "Se generó el PDF exitosamente en la carpeta" + " " + folderPath;
+            string message2 = mensaje;
+            const string caption2 = "Éxito";
+            var result2 = MessageBox.Show(message2, caption2,
+                                         MessageBoxButtons.OK,
+                                         MessageBoxIcon.Asterisk);
+
         }
 
         private List<Alquiler> CargarEntidad()

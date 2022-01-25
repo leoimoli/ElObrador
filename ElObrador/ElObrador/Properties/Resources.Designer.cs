@@ -153,6 +153,46 @@ namespace ElObrador.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_actualizaciones_disponibles_30 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-actualizaciones-disponibles-30", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_caja_registradora_30 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-caja-registradora-30", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_calendario_26_30 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-calendario-26-30", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_calendario_26_30__1_ {
+            get {
+                object obj = ResourceManager.GetObject("icons8-calendario-26-30 (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_engranajes_30 {
             get {
                 object obj = ResourceManager.GetObject("icons8-engranajes-30", resourceCulture);
@@ -183,6 +223,16 @@ namespace ElObrador.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_escudo_de_soldador_30__2_ {
+            get {
+                object obj = ResourceManager.GetObject("icons8-escudo-de-soldador-30 (2)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_gestión_de_clientes_30 {
             get {
                 object obj = ResourceManager.GetObject("icons8-gestión-de-clientes-30", resourceCulture);
@@ -196,6 +246,16 @@ namespace ElObrador.Properties {
         internal static System.Drawing.Bitmap icons8_gestión_de_clientes_30__1_ {
             get {
                 object obj = ResourceManager.GetObject("icons8_gestión_de_clientes_30__1_", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_gestión_de_clientes_30__2_ {
+            get {
+                object obj = ResourceManager.GetObject("icons8-gestión-de-clientes-30 (2)", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -236,6 +296,16 @@ namespace ElObrador.Properties {
         internal static System.Drawing.Bitmap icons8_home_30 {
             get {
                 object obj = ResourceManager.GetObject("icons8-home-30", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_horas_extras_30 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-horas-extras-30", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -313,6 +383,16 @@ namespace ElObrador.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_no_tarifa_ocultos_30 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-no-tarifa-ocultos-30", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_precio_bajo_30 {
             get {
                 object obj = ResourceManager.GetObject("icons8-precio-bajo-30", resourceCulture);
@@ -343,6 +423,16 @@ namespace ElObrador.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_usd_order_reciept_invoice_bill_accounting_purchase_30 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-usd-order-reciept-invoice-bill-accounting-purchase-30", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_vender_stock_30 {
             get {
                 object obj = ResourceManager.GetObject("icons8-vender-stock-30", resourceCulture);
@@ -356,6 +446,16 @@ namespace ElObrador.Properties {
         internal static System.Drawing.Bitmap icons8_vender_stock_50 {
             get {
                 object obj = ResourceManager.GetObject("icons8-vender-stock-50", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_ventas_totales_30 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-ventas-totales-30", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

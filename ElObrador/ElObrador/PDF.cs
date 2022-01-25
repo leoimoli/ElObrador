@@ -39,8 +39,8 @@ namespace ElObrador
                     //Image img_LogoMty = Image.GetInstance(System.Web.HttpContext.Current.Server.MapPath(ConfigurationManager.AppSettings["LOGO_MTY_DOC"].ToString()));
                     string pathImagen = @"Añuri_Imagen_PDF.png";
                     Image img_LogoMty = Image.GetInstance(pathImagen);
-                    img_LogoMty.BorderWidth = 5;
-                    img_LogoMty.Alignment = Image.TEXTWRAP | Element.ALIGN_CENTER;
+                    //img_LogoMty.BorderWidth = 0;
+                    img_LogoMty.Alignment = Image.TEXTWRAP | Element.ALIGN_LEFT;
                     float percentage = 0.0f;
                     percentage = 85 / img_LogoMty.Width;
                     //img_LogoMty.SpacingBefore = 15f;
@@ -52,11 +52,11 @@ namespace ElObrador
                     ///// Armamos el rectangulo del encabezado.
                     PdfPTable tbHeader = new PdfPTable(1);
                     tbHeader.TotalWidth = page.Width - doc.LeftMargin - doc.RightMargin;
-                    tbHeader.DefaultCell.Border = 0;
-                    tbHeader.DefaultCell.Border = Rectangle.BOTTOM_BORDER;
-                    tbHeader.DefaultCell.BorderWidthRight = 1;
-                    tbHeader.DefaultCell.PaddingLeft = 2f;
 
+                    tbHeader.DefaultCell.Border = 0;
+                    tbHeader.DefaultCell.Border = Rectangle.NO_BORDER;
+                    tbHeader.DefaultCell.BorderWidthRight = 0;
+                    tbHeader.DefaultCell.PaddingLeft = 0f;
                     //tbHeader.DefaultCell.Height = 300f;
 
                     ///// Contenido del rectangulo del encabezado.
@@ -70,10 +70,11 @@ namespace ElObrador
                     //para1.SetLeading(3f, 1f);              
                     //_cell.AddElement(para1);
 
-                    _cell.BorderWidthBottom = 1f;
-                    _cell.BorderWidthLeft = 1f;
-                    _cell.BorderWidthTop = 1f;
-                    _cell.BorderWidthRight = 1f;
+                    //_cell.BorderWidthBottom = 1f;
+                    //_cell.BorderWidthLeft = 1f;
+                    //_cell.BorderWidthTop = 1f;
+                    //_cell.BorderWidthRight = 1f;
+
                     tbHeader.AddCell(_cell);
 
                     //////  2 columnas

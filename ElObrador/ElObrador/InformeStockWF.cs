@@ -52,7 +52,9 @@ namespace ElObrador
             if (dgvLista.CurrentCell.ColumnIndex == 4)
             {
                 idProductoSeleccionado = Convert.ToInt32(this.dgvLista.CurrentRow.Cells[0].Value.ToString());
-                PanelNuevoMaterial.Visible = true;
+                PanelNuevoMaterial.Visible = false;
+                panelInformacion.Visible = true;
+                lblNuevoProducto.Text = "Información del Material";
             }
         }
         private void dgvStock_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
@@ -82,6 +84,8 @@ namespace ElObrador
             lblNuevoProducto.Text = "Editar Material";
             if (this.dgvLista.RowCount > 0)
             {
+                PanelNuevoMaterial.Visible = true;
+                panelInformacion.Visible = false;
                 List<Stock> _stock = new List<Stock>();
                 idMaterialSeleccionado = Convert.ToInt32(this.dgvLista.CurrentRow.Cells[0].Value);
                 _stock = StockNeg.BuscarProductoPorId(idMaterialSeleccionado);

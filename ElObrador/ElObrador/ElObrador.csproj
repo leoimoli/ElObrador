@@ -390,6 +390,16 @@
     <None Include="Resources\icons8-precio-bajo-301.png" />
     <None Include="Resources\icons8-mensaje-de-telefono-50.png" />
     <None Include="Resources\icons8-mensaje-de-telefono-30 %282%29.png" />
+    <None Include="Resources\icons8-actualizaciones-disponibles-30.png" />
+    <None Include="Resources\icons8-calendario-26-30.png" />
+    <None Include="Resources\icons8-calendario-26-30 %281%29.png" />
+    <None Include="Resources\icons8-usd-order-reciept-invoice-bill-accounting-purchase-30.png" />
+    <None Include="Resources\icons8-ventas-totales-30.png" />
+    <None Include="Resources\icons8-gestión-de-clientes-30 %282%29.png" />
+    <None Include="Resources\icons8-no-tarifa-ocultos-30.png" />
+    <None Include="Resources\icons8-escudo-de-soldador-30 %282%29.png" />
+    <None Include="Resources\icons8-horas-extras-30.png" />
+    <None Include="Resources\icons8-caja-registradora-30.png" />
     <Content Include="Resources\icons8-visible-30.ico" />
     <None Include="Resources\informe-empresarial-con-crecimiento %281%29.png" />
   </ItemGroup>
