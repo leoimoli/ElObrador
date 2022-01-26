@@ -100,6 +100,7 @@
     <Compile Include="Dao\ConfiguracionesDao.cs" />
     <Compile Include="Dao\GrupoDao.cs" />
     <Compile Include="Dao\ProveedoresDao.cs" />
+    <Compile Include="Dao\ReportesDao.cs" />
     <Compile Include="Dao\StockDao.cs" />
     <Compile Include="Dao\TallerDao.cs" />
     <Compile Include="Dao\UsuarioDao.cs" />

@@ -35,7 +35,12 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.idProducto = new System.Windows.Forms.Label();
             this.idCategoria = new System.Windows.Forms.Label();
+            this.ImagenPagina = new System.Windows.Forms.PictureBox();
             this.lblPantalla = new System.Windows.Forms.Label();
+            this.btnRestaurar = new System.Windows.Forms.PictureBox();
+            this.btnMinimizar = new System.Windows.Forms.PictureBox();
+            this.btnMaximizar = new System.Windows.Forms.PictureBox();
+            this.btnCerrar = new System.Windows.Forms.PictureBox();
             this.dgvLista = new System.Windows.Forms.DataGridView();
             this.idprod = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -43,35 +48,6 @@
             this.Modelo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Ver = new System.Windows.Forms.DataGridViewButtonColumn();
             this.PanelDerecho = new System.Windows.Forms.Panel();
-            this.lblNuevoProducto = new System.Windows.Forms.Label();
-            this.panelInformacion = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.lblEstado = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.panel8 = new System.Windows.Forms.Panel();
-            this.lblTotalTaller = new System.Windows.Forms.Button();
-            this.button13 = new System.Windows.Forms.Button();
-            this.panel9 = new System.Windows.Forms.Panel();
-            this.lblCostoTaller = new System.Windows.Forms.Button();
-            this.button15 = new System.Windows.Forms.Button();
-            this.panel10 = new System.Windows.Forms.Panel();
-            this.lblUltimoIngresoTaller = new System.Windows.Forms.Button();
-            this.button17 = new System.Windows.Forms.Button();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.lblTotalDiasAlquilado = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.lblMontoRecaudado = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
-            this.panel7 = new System.Windows.Forms.Panel();
-            this.lblTotalClientesAlquilado = new System.Windows.Forms.Button();
-            this.button11 = new System.Windows.Forms.Button();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.lblDiasSinAlquilar = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.lblUltimoAlquiler = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
             this.PanelNuevoMaterial = new System.Windows.Forms.Panel();
             this.label10 = new System.Windows.Forms.Label();
             this.txtProveedor = new System.Windows.Forms.TextBox();
@@ -95,51 +71,75 @@
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.txtDescripcionProducto = new System.Windows.Forms.TextBox();
             this.btnGuardarProducto = new System.Windows.Forms.Button();
-            this.btnEditarProducto = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblNuevoProducto = new System.Windows.Forms.Label();
+            this.panelInformacion = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.lblEstado = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.lblTotalTaller = new System.Windows.Forms.Button();
+            this.button13 = new System.Windows.Forms.Button();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
+            this.panel9 = new System.Windows.Forms.Panel();
+            this.lblCostoTaller = new System.Windows.Forms.Button();
+            this.button15 = new System.Windows.Forms.Button();
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
+            this.panel10 = new System.Windows.Forms.Panel();
+            this.lblUltimoIngresoTaller = new System.Windows.Forms.Button();
+            this.button17 = new System.Windows.Forms.Button();
             this.pictureBox9 = new System.Windows.Forms.PictureBox();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.lblDiasSinAlquilar = new System.Windows.Forms.Button();
+            this.button7 = new System.Windows.Forms.Button();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.lblMontoRecaudado = new System.Windows.Forms.Button();
+            this.button9 = new System.Windows.Forms.Button();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.lblTotalClientesAlquilado = new System.Windows.Forms.Button();
+            this.button11 = new System.Windows.Forms.Button();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.lblTotalDiasAlquilado = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.lblUltimoAlquiler = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.ImagenPagina = new System.Windows.Forms.PictureBox();
-            this.btnRestaurar = new System.Windows.Forms.PictureBox();
-            this.btnMinimizar = new System.Windows.Forms.PictureBox();
-            this.btnMaximizar = new System.Windows.Forms.PictureBox();
-            this.btnCerrar = new System.Windows.Forms.PictureBox();
+            this.btnEditarProducto = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvLista)).BeginInit();
-            this.PanelDerecho.SuspendLayout();
-            this.panelInformacion.SuspendLayout();
-            this.panel2.SuspendLayout();
-            this.panel8.SuspendLayout();
-            this.panel9.SuspendLayout();
-            this.panel10.SuspendLayout();
-            this.panel5.SuspendLayout();
-            this.panel6.SuspendLayout();
-            this.panel7.SuspendLayout();
-            this.panel4.SuspendLayout();
-            this.panel3.SuspendLayout();
-            this.PanelNuevoMaterial.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ImagenPagina)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnRestaurar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMaximizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLista)).BeginInit();
+            this.PanelDerecho.SuspendLayout();
+            this.PanelNuevoMaterial.SuspendLayout();
+            this.panelInformacion.SuspendLayout();
+            this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panel8.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
+            this.panel9.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
+            this.panel10.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
+            this.panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            this.panel6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            this.panel7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
+            this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -183,6 +183,16 @@
             this.idCategoria.Text = "idCategoria";
             this.idCategoria.Visible = false;
             // 
+            // ImagenPagina
+            // 
+            this.ImagenPagina.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(187)))), ((int)(((byte)(45)))));
+            this.ImagenPagina.Image = global::ElObrador.Properties.Resources.informe_empresarial_con_crecimiento__1_;
+            this.ImagenPagina.Location = new System.Drawing.Point(10, 1);
+            this.ImagenPagina.Name = "ImagenPagina";
+            this.ImagenPagina.Size = new System.Drawing.Size(32, 32);
+            this.ImagenPagina.TabIndex = 3;
+            this.ImagenPagina.TabStop = false;
+            // 
             // lblPantalla
             // 
             this.lblPantalla.AutoSize = true;
@@ -193,6 +203,58 @@
             this.lblPantalla.Size = new System.Drawing.Size(138, 19);
             this.lblPantalla.TabIndex = 4;
             this.lblPantalla.Text = "Informe de Stock";
+            // 
+            // btnRestaurar
+            // 
+            this.btnRestaurar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnRestaurar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRestaurar.Image = global::ElObrador.Properties.Resources.restaurar;
+            this.btnRestaurar.Location = new System.Drawing.Point(1170, 3);
+            this.btnRestaurar.Name = "btnRestaurar";
+            this.btnRestaurar.Size = new System.Drawing.Size(25, 25);
+            this.btnRestaurar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btnRestaurar.TabIndex = 6;
+            this.btnRestaurar.TabStop = false;
+            this.btnRestaurar.Visible = false;
+            // 
+            // btnMinimizar
+            // 
+            this.btnMinimizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnMinimizar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnMinimizar.Image = global::ElObrador.Properties.Resources.menos__2_1;
+            this.btnMinimizar.Location = new System.Drawing.Point(1201, 3);
+            this.btnMinimizar.Name = "btnMinimizar";
+            this.btnMinimizar.Size = new System.Drawing.Size(25, 25);
+            this.btnMinimizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btnMinimizar.TabIndex = 4;
+            this.btnMinimizar.TabStop = false;
+            this.btnMinimizar.Visible = false;
+            // 
+            // btnMaximizar
+            // 
+            this.btnMaximizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnMaximizar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnMaximizar.Image = global::ElObrador.Properties.Resources.maximizar1;
+            this.btnMaximizar.Location = new System.Drawing.Point(1232, 3);
+            this.btnMaximizar.Name = "btnMaximizar";
+            this.btnMaximizar.Size = new System.Drawing.Size(25, 25);
+            this.btnMaximizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btnMaximizar.TabIndex = 5;
+            this.btnMaximizar.TabStop = false;
+            this.btnMaximizar.Visible = false;
+            // 
+            // btnCerrar
+            // 
+            this.btnCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCerrar.Image = global::ElObrador.Properties.Resources.cancelar2;
+            this.btnCerrar.Location = new System.Drawing.Point(1263, 3);
+            this.btnCerrar.Name = "btnCerrar";
+            this.btnCerrar.Size = new System.Drawing.Size(25, 25);
+            this.btnCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btnCerrar.TabIndex = 3;
+            this.btnCerrar.TabStop = false;
+            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
             // dgvLista
             // 
@@ -279,378 +341,6 @@
             this.PanelDerecho.Name = "PanelDerecho";
             this.PanelDerecho.Size = new System.Drawing.Size(691, 515);
             this.PanelDerecho.TabIndex = 162;
-            // 
-            // lblNuevoProducto
-            // 
-            this.lblNuevoProducto.AutoSize = true;
-            this.lblNuevoProducto.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNuevoProducto.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(187)))), ((int)(((byte)(45)))));
-            this.lblNuevoProducto.Location = new System.Drawing.Point(8, 10);
-            this.lblNuevoProducto.Name = "lblNuevoProducto";
-            this.lblNuevoProducto.Size = new System.Drawing.Size(121, 18);
-            this.lblNuevoProducto.TabIndex = 42;
-            this.lblNuevoProducto.Text = "Nuevo Material";
-            // 
-            // panelInformacion
-            // 
-            this.panelInformacion.Controls.Add(this.label5);
-            this.panelInformacion.Controls.Add(this.label1);
-            this.panelInformacion.Controls.Add(this.panel2);
-            this.panelInformacion.Controls.Add(this.panel8);
-            this.panelInformacion.Controls.Add(this.panel9);
-            this.panelInformacion.Controls.Add(this.panel10);
-            this.panelInformacion.Controls.Add(this.panel5);
-            this.panelInformacion.Controls.Add(this.panel6);
-            this.panelInformacion.Controls.Add(this.panel7);
-            this.panelInformacion.Controls.Add(this.panel4);
-            this.panelInformacion.Controls.Add(this.panel3);
-            this.panelInformacion.Location = new System.Drawing.Point(76, 37);
-            this.panelInformacion.Name = "panelInformacion";
-            this.panelInformacion.Size = new System.Drawing.Size(509, 471);
-            this.panelInformacion.TabIndex = 187;
-            this.panelInformacion.Visible = false;
-            // 
-            // panel2
-            // 
-            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel2.Controls.Add(this.lblEstado);
-            this.panel2.Controls.Add(this.button1);
-            this.panel2.Controls.Add(this.pictureBox1);
-            this.panel2.Location = new System.Drawing.Point(22, 29);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(131, 128);
-            this.panel2.TabIndex = 6;
-            // 
-            // lblEstado
-            // 
-            this.lblEstado.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(187)))), ((int)(((byte)(45)))));
-            this.lblEstado.FlatAppearance.BorderColor = System.Drawing.Color.SeaGreen;
-            this.lblEstado.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.lblEstado.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEstado.ForeColor = System.Drawing.Color.White;
-            this.lblEstado.Location = new System.Drawing.Point(14, 89);
-            this.lblEstado.Name = "lblEstado";
-            this.lblEstado.Size = new System.Drawing.Size(102, 34);
-            this.lblEstado.TabIndex = 49;
-            this.lblEstado.UseVisualStyleBackColor = false;
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Century Gothic", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(3, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(123, 26);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Estado Actual";
-            this.button1.UseVisualStyleBackColor = false;
-            // 
-            // panel8
-            // 
-            this.panel8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel8.Controls.Add(this.lblTotalTaller);
-            this.panel8.Controls.Add(this.button13);
-            this.panel8.Controls.Add(this.pictureBox7);
-            this.panel8.Location = new System.Drawing.Point(23, 338);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(131, 128);
-            this.panel8.TabIndex = 12;
-            // 
-            // lblTotalTaller
-            // 
-            this.lblTotalTaller.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(187)))), ((int)(((byte)(45)))));
-            this.lblTotalTaller.FlatAppearance.BorderColor = System.Drawing.Color.SeaGreen;
-            this.lblTotalTaller.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.lblTotalTaller.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotalTaller.ForeColor = System.Drawing.Color.White;
-            this.lblTotalTaller.Location = new System.Drawing.Point(14, 89);
-            this.lblTotalTaller.Name = "lblTotalTaller";
-            this.lblTotalTaller.Size = new System.Drawing.Size(102, 34);
-            this.lblTotalTaller.TabIndex = 49;
-            this.lblTotalTaller.UseVisualStyleBackColor = false;
-            // 
-            // button13
-            // 
-            this.button13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
-            this.button13.FlatAppearance.BorderSize = 0;
-            this.button13.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button13.Font = new System.Drawing.Font("Century Gothic", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button13.ForeColor = System.Drawing.Color.White;
-            this.button13.Location = new System.Drawing.Point(3, 3);
-            this.button13.Name = "button13";
-            this.button13.Size = new System.Drawing.Size(123, 26);
-            this.button13.TabIndex = 1;
-            this.button13.Text = "Ingresos a Taller";
-            this.button13.UseVisualStyleBackColor = false;
-            // 
-            // panel9
-            // 
-            this.panel9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel9.Controls.Add(this.lblCostoTaller);
-            this.panel9.Controls.Add(this.button15);
-            this.panel9.Controls.Add(this.pictureBox8);
-            this.panel9.Location = new System.Drawing.Point(354, 338);
-            this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(131, 128);
-            this.panel9.TabIndex = 14;
-            // 
-            // lblCostoTaller
-            // 
-            this.lblCostoTaller.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(187)))), ((int)(((byte)(45)))));
-            this.lblCostoTaller.FlatAppearance.BorderColor = System.Drawing.Color.SeaGreen;
-            this.lblCostoTaller.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.lblCostoTaller.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCostoTaller.ForeColor = System.Drawing.Color.White;
-            this.lblCostoTaller.Location = new System.Drawing.Point(14, 89);
-            this.lblCostoTaller.Name = "lblCostoTaller";
-            this.lblCostoTaller.Size = new System.Drawing.Size(102, 34);
-            this.lblCostoTaller.TabIndex = 49;
-            this.lblCostoTaller.UseVisualStyleBackColor = false;
-            // 
-            // button15
-            // 
-            this.button15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
-            this.button15.FlatAppearance.BorderSize = 0;
-            this.button15.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button15.Font = new System.Drawing.Font("Century Gothic", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button15.ForeColor = System.Drawing.Color.White;
-            this.button15.Location = new System.Drawing.Point(3, 3);
-            this.button15.Name = "button15";
-            this.button15.Size = new System.Drawing.Size(123, 26);
-            this.button15.TabIndex = 1;
-            this.button15.Text = "Costos de servcios";
-            this.button15.UseVisualStyleBackColor = false;
-            // 
-            // panel10
-            // 
-            this.panel10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel10.Controls.Add(this.lblUltimoIngresoTaller);
-            this.panel10.Controls.Add(this.button17);
-            this.panel10.Controls.Add(this.pictureBox9);
-            this.panel10.Location = new System.Drawing.Point(192, 338);
-            this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(131, 128);
-            this.panel10.TabIndex = 13;
-            // 
-            // lblUltimoIngresoTaller
-            // 
-            this.lblUltimoIngresoTaller.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(187)))), ((int)(((byte)(45)))));
-            this.lblUltimoIngresoTaller.FlatAppearance.BorderColor = System.Drawing.Color.SeaGreen;
-            this.lblUltimoIngresoTaller.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.lblUltimoIngresoTaller.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUltimoIngresoTaller.ForeColor = System.Drawing.Color.White;
-            this.lblUltimoIngresoTaller.Location = new System.Drawing.Point(14, 89);
-            this.lblUltimoIngresoTaller.Name = "lblUltimoIngresoTaller";
-            this.lblUltimoIngresoTaller.Size = new System.Drawing.Size(102, 34);
-            this.lblUltimoIngresoTaller.TabIndex = 49;
-            this.lblUltimoIngresoTaller.UseVisualStyleBackColor = false;
-            // 
-            // button17
-            // 
-            this.button17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
-            this.button17.FlatAppearance.BorderSize = 0;
-            this.button17.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button17.Font = new System.Drawing.Font("Century Gothic", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button17.ForeColor = System.Drawing.Color.White;
-            this.button17.Location = new System.Drawing.Point(3, 3);
-            this.button17.Name = "button17";
-            this.button17.Size = new System.Drawing.Size(123, 26);
-            this.button17.TabIndex = 1;
-            this.button17.Text = "Último Ingreso";
-            this.button17.UseVisualStyleBackColor = false;
-            // 
-            // panel5
-            // 
-            this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel5.Controls.Add(this.lblDiasSinAlquilar);
-            this.panel5.Controls.Add(this.button7);
-            this.panel5.Controls.Add(this.pictureBox4);
-            this.panel5.Location = new System.Drawing.Point(22, 184);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(131, 128);
-            this.panel5.TabIndex = 9;
-            // 
-            // lblTotalDiasAlquilado
-            // 
-            this.lblTotalDiasAlquilado.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(187)))), ((int)(((byte)(45)))));
-            this.lblTotalDiasAlquilado.FlatAppearance.BorderColor = System.Drawing.Color.SeaGreen;
-            this.lblTotalDiasAlquilado.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.lblTotalDiasAlquilado.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotalDiasAlquilado.ForeColor = System.Drawing.Color.White;
-            this.lblTotalDiasAlquilado.Location = new System.Drawing.Point(14, 89);
-            this.lblTotalDiasAlquilado.Name = "lblTotalDiasAlquilado";
-            this.lblTotalDiasAlquilado.Size = new System.Drawing.Size(102, 34);
-            this.lblTotalDiasAlquilado.TabIndex = 49;
-            this.lblTotalDiasAlquilado.UseVisualStyleBackColor = false;
-            // 
-            // button7
-            // 
-            this.button7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
-            this.button7.FlatAppearance.BorderSize = 0;
-            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button7.Font = new System.Drawing.Font("Century Gothic", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button7.ForeColor = System.Drawing.Color.White;
-            this.button7.Location = new System.Drawing.Point(3, 3);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(123, 26);
-            this.button7.TabIndex = 1;
-            this.button7.Text = " Días sin Alquilar";
-            this.button7.UseVisualStyleBackColor = false;
-            // 
-            // panel6
-            // 
-            this.panel6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel6.Controls.Add(this.lblMontoRecaudado);
-            this.panel6.Controls.Add(this.button9);
-            this.panel6.Controls.Add(this.pictureBox5);
-            this.panel6.Location = new System.Drawing.Point(354, 184);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(131, 128);
-            this.panel6.TabIndex = 11;
-            // 
-            // lblMontoRecaudado
-            // 
-            this.lblMontoRecaudado.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(187)))), ((int)(((byte)(45)))));
-            this.lblMontoRecaudado.FlatAppearance.BorderColor = System.Drawing.Color.SeaGreen;
-            this.lblMontoRecaudado.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.lblMontoRecaudado.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMontoRecaudado.ForeColor = System.Drawing.Color.White;
-            this.lblMontoRecaudado.Location = new System.Drawing.Point(14, 89);
-            this.lblMontoRecaudado.Name = "lblMontoRecaudado";
-            this.lblMontoRecaudado.Size = new System.Drawing.Size(102, 34);
-            this.lblMontoRecaudado.TabIndex = 49;
-            this.lblMontoRecaudado.UseVisualStyleBackColor = false;
-            // 
-            // button9
-            // 
-            this.button9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
-            this.button9.FlatAppearance.BorderSize = 0;
-            this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button9.Font = new System.Drawing.Font("Century Gothic", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button9.ForeColor = System.Drawing.Color.White;
-            this.button9.Location = new System.Drawing.Point(3, 3);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(123, 26);
-            this.button9.TabIndex = 1;
-            this.button9.Text = "Monto Recaudado";
-            this.button9.UseVisualStyleBackColor = false;
-            // 
-            // panel7
-            // 
-            this.panel7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel7.Controls.Add(this.lblTotalClientesAlquilado);
-            this.panel7.Controls.Add(this.button11);
-            this.panel7.Controls.Add(this.pictureBox6);
-            this.panel7.Location = new System.Drawing.Point(192, 184);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(131, 128);
-            this.panel7.TabIndex = 10;
-            // 
-            // lblTotalClientesAlquilado
-            // 
-            this.lblTotalClientesAlquilado.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(187)))), ((int)(((byte)(45)))));
-            this.lblTotalClientesAlquilado.FlatAppearance.BorderColor = System.Drawing.Color.SeaGreen;
-            this.lblTotalClientesAlquilado.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.lblTotalClientesAlquilado.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotalClientesAlquilado.ForeColor = System.Drawing.Color.White;
-            this.lblTotalClientesAlquilado.Location = new System.Drawing.Point(14, 89);
-            this.lblTotalClientesAlquilado.Name = "lblTotalClientesAlquilado";
-            this.lblTotalClientesAlquilado.Size = new System.Drawing.Size(102, 34);
-            this.lblTotalClientesAlquilado.TabIndex = 49;
-            this.lblTotalClientesAlquilado.UseVisualStyleBackColor = false;
-            // 
-            // button11
-            // 
-            this.button11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
-            this.button11.FlatAppearance.BorderSize = 0;
-            this.button11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button11.Font = new System.Drawing.Font("Century Gothic", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button11.ForeColor = System.Drawing.Color.White;
-            this.button11.Location = new System.Drawing.Point(3, 3);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(123, 26);
-            this.button11.TabIndex = 1;
-            this.button11.Text = "Clientes alquilaron";
-            this.button11.UseVisualStyleBackColor = false;
-            // 
-            // panel4
-            // 
-            this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel4.Controls.Add(this.lblTotalDiasAlquilado);
-            this.panel4.Controls.Add(this.button5);
-            this.panel4.Controls.Add(this.pictureBox3);
-            this.panel4.Location = new System.Drawing.Point(354, 29);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(131, 128);
-            this.panel4.TabIndex = 8;
-            // 
-            // lblDiasSinAlquilar
-            // 
-            this.lblDiasSinAlquilar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(187)))), ((int)(((byte)(45)))));
-            this.lblDiasSinAlquilar.FlatAppearance.BorderColor = System.Drawing.Color.SeaGreen;
-            this.lblDiasSinAlquilar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.lblDiasSinAlquilar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDiasSinAlquilar.ForeColor = System.Drawing.Color.White;
-            this.lblDiasSinAlquilar.Location = new System.Drawing.Point(15, 89);
-            this.lblDiasSinAlquilar.Name = "lblDiasSinAlquilar";
-            this.lblDiasSinAlquilar.Size = new System.Drawing.Size(102, 34);
-            this.lblDiasSinAlquilar.TabIndex = 49;
-            this.lblDiasSinAlquilar.UseVisualStyleBackColor = false;
-            // 
-            // button5
-            // 
-            this.button5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
-            this.button5.FlatAppearance.BorderSize = 0;
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Font = new System.Drawing.Font("Century Gothic", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.ForeColor = System.Drawing.Color.White;
-            this.button5.Location = new System.Drawing.Point(3, 3);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(123, 26);
-            this.button5.TabIndex = 1;
-            this.button5.Text = "Días Alquilado";
-            this.button5.UseVisualStyleBackColor = false;
-            // 
-            // panel3
-            // 
-            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel3.Controls.Add(this.lblUltimoAlquiler);
-            this.panel3.Controls.Add(this.button3);
-            this.panel3.Controls.Add(this.pictureBox2);
-            this.panel3.Location = new System.Drawing.Point(192, 29);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(131, 128);
-            this.panel3.TabIndex = 7;
-            // 
-            // lblUltimoAlquiler
-            // 
-            this.lblUltimoAlquiler.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(187)))), ((int)(((byte)(45)))));
-            this.lblUltimoAlquiler.FlatAppearance.BorderColor = System.Drawing.Color.SeaGreen;
-            this.lblUltimoAlquiler.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.lblUltimoAlquiler.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUltimoAlquiler.ForeColor = System.Drawing.Color.White;
-            this.lblUltimoAlquiler.Location = new System.Drawing.Point(14, 89);
-            this.lblUltimoAlquiler.Name = "lblUltimoAlquiler";
-            this.lblUltimoAlquiler.Size = new System.Drawing.Size(102, 34);
-            this.lblUltimoAlquiler.TabIndex = 49;
-            this.lblUltimoAlquiler.UseVisualStyleBackColor = false;
-            // 
-            // button3
-            // 
-            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Century Gothic", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Location = new System.Drawing.Point(3, 3);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(123, 26);
-            this.button3.TabIndex = 1;
-            this.button3.Text = "Último Alquiler";
-            this.button3.UseVisualStyleBackColor = false;
             // 
             // PanelNuevoMaterial
             // 
@@ -900,6 +590,491 @@
             this.btnGuardarProducto.UseVisualStyleBackColor = false;
             this.btnGuardarProducto.Click += new System.EventHandler(this.btnGuardarProducto_Click);
             // 
+            // lblNuevoProducto
+            // 
+            this.lblNuevoProducto.AutoSize = true;
+            this.lblNuevoProducto.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNuevoProducto.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(187)))), ((int)(((byte)(45)))));
+            this.lblNuevoProducto.Location = new System.Drawing.Point(8, 10);
+            this.lblNuevoProducto.Name = "lblNuevoProducto";
+            this.lblNuevoProducto.Size = new System.Drawing.Size(121, 18);
+            this.lblNuevoProducto.TabIndex = 42;
+            this.lblNuevoProducto.Text = "Nuevo Material";
+            // 
+            // panelInformacion
+            // 
+            this.panelInformacion.Controls.Add(this.label5);
+            this.panelInformacion.Controls.Add(this.label1);
+            this.panelInformacion.Controls.Add(this.panel2);
+            this.panelInformacion.Controls.Add(this.panel8);
+            this.panelInformacion.Controls.Add(this.panel9);
+            this.panelInformacion.Controls.Add(this.panel10);
+            this.panelInformacion.Controls.Add(this.panel5);
+            this.panelInformacion.Controls.Add(this.panel6);
+            this.panelInformacion.Controls.Add(this.panel7);
+            this.panelInformacion.Controls.Add(this.panel4);
+            this.panelInformacion.Controls.Add(this.panel3);
+            this.panelInformacion.Location = new System.Drawing.Point(76, 37);
+            this.panelInformacion.Name = "panelInformacion";
+            this.panelInformacion.Size = new System.Drawing.Size(509, 471);
+            this.panelInformacion.TabIndex = 187;
+            this.panelInformacion.Visible = false;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(187)))), ((int)(((byte)(45)))));
+            this.label5.Location = new System.Drawing.Point(24, 317);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(179, 18);
+            this.label5.TabIndex = 44;
+            this.label5.Text = "Informe Mantenimiento";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(187)))), ((int)(((byte)(45)))));
+            this.label1.Location = new System.Drawing.Point(24, 6);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(126, 18);
+            this.label1.TabIndex = 43;
+            this.label1.Text = "Informe general";
+            // 
+            // panel2
+            // 
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.lblEstado);
+            this.panel2.Controls.Add(this.button1);
+            this.panel2.Controls.Add(this.pictureBox1);
+            this.panel2.Location = new System.Drawing.Point(22, 29);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(131, 128);
+            this.panel2.TabIndex = 6;
+            // 
+            // lblEstado
+            // 
+            this.lblEstado.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(187)))), ((int)(((byte)(45)))));
+            this.lblEstado.FlatAppearance.BorderColor = System.Drawing.Color.SeaGreen;
+            this.lblEstado.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lblEstado.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEstado.ForeColor = System.Drawing.Color.White;
+            this.lblEstado.Location = new System.Drawing.Point(14, 89);
+            this.lblEstado.Name = "lblEstado";
+            this.lblEstado.Size = new System.Drawing.Size(102, 34);
+            this.lblEstado.TabIndex = 49;
+            this.lblEstado.UseVisualStyleBackColor = false;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Century Gothic", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(3, 3);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(123, 26);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "Estado Actual";
+            this.button1.UseVisualStyleBackColor = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Gainsboro;
+            this.pictureBox1.Image = global::ElObrador.Properties.Resources.icons8_actualizaciones_disponibles_30;
+            this.pictureBox1.Location = new System.Drawing.Point(36, 33);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(58, 50);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
+            // panel8
+            // 
+            this.panel8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel8.Controls.Add(this.lblTotalTaller);
+            this.panel8.Controls.Add(this.button13);
+            this.panel8.Controls.Add(this.pictureBox7);
+            this.panel8.Location = new System.Drawing.Point(23, 338);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(131, 128);
+            this.panel8.TabIndex = 12;
+            // 
+            // lblTotalTaller
+            // 
+            this.lblTotalTaller.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(187)))), ((int)(((byte)(45)))));
+            this.lblTotalTaller.FlatAppearance.BorderColor = System.Drawing.Color.SeaGreen;
+            this.lblTotalTaller.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lblTotalTaller.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalTaller.ForeColor = System.Drawing.Color.White;
+            this.lblTotalTaller.Location = new System.Drawing.Point(14, 89);
+            this.lblTotalTaller.Name = "lblTotalTaller";
+            this.lblTotalTaller.Size = new System.Drawing.Size(102, 34);
+            this.lblTotalTaller.TabIndex = 49;
+            this.lblTotalTaller.UseVisualStyleBackColor = false;
+            // 
+            // button13
+            // 
+            this.button13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            this.button13.FlatAppearance.BorderSize = 0;
+            this.button13.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button13.Font = new System.Drawing.Font("Century Gothic", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button13.ForeColor = System.Drawing.Color.White;
+            this.button13.Location = new System.Drawing.Point(3, 3);
+            this.button13.Name = "button13";
+            this.button13.Size = new System.Drawing.Size(123, 26);
+            this.button13.TabIndex = 1;
+            this.button13.Text = "Ingresos a Taller";
+            this.button13.UseVisualStyleBackColor = false;
+            // 
+            // pictureBox7
+            // 
+            this.pictureBox7.Image = global::ElObrador.Properties.Resources.icons8_escudo_de_soldador_30__2_;
+            this.pictureBox7.Location = new System.Drawing.Point(36, 33);
+            this.pictureBox7.Name = "pictureBox7";
+            this.pictureBox7.Size = new System.Drawing.Size(58, 50);
+            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox7.TabIndex = 0;
+            this.pictureBox7.TabStop = false;
+            // 
+            // panel9
+            // 
+            this.panel9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel9.Controls.Add(this.lblCostoTaller);
+            this.panel9.Controls.Add(this.button15);
+            this.panel9.Controls.Add(this.pictureBox8);
+            this.panel9.Location = new System.Drawing.Point(354, 338);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(131, 128);
+            this.panel9.TabIndex = 14;
+            // 
+            // lblCostoTaller
+            // 
+            this.lblCostoTaller.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(187)))), ((int)(((byte)(45)))));
+            this.lblCostoTaller.FlatAppearance.BorderColor = System.Drawing.Color.SeaGreen;
+            this.lblCostoTaller.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lblCostoTaller.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCostoTaller.ForeColor = System.Drawing.Color.White;
+            this.lblCostoTaller.Location = new System.Drawing.Point(14, 89);
+            this.lblCostoTaller.Name = "lblCostoTaller";
+            this.lblCostoTaller.Size = new System.Drawing.Size(102, 34);
+            this.lblCostoTaller.TabIndex = 49;
+            this.lblCostoTaller.UseVisualStyleBackColor = false;
+            // 
+            // button15
+            // 
+            this.button15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            this.button15.FlatAppearance.BorderSize = 0;
+            this.button15.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button15.Font = new System.Drawing.Font("Century Gothic", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button15.ForeColor = System.Drawing.Color.White;
+            this.button15.Location = new System.Drawing.Point(3, 3);
+            this.button15.Name = "button15";
+            this.button15.Size = new System.Drawing.Size(123, 26);
+            this.button15.TabIndex = 1;
+            this.button15.Text = "Costos de servcios";
+            this.button15.UseVisualStyleBackColor = false;
+            // 
+            // pictureBox8
+            // 
+            this.pictureBox8.Image = global::ElObrador.Properties.Resources.icons8_caja_registradora_30;
+            this.pictureBox8.Location = new System.Drawing.Point(36, 33);
+            this.pictureBox8.Name = "pictureBox8";
+            this.pictureBox8.Size = new System.Drawing.Size(58, 50);
+            this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox8.TabIndex = 0;
+            this.pictureBox8.TabStop = false;
+            // 
+            // panel10
+            // 
+            this.panel10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel10.Controls.Add(this.lblUltimoIngresoTaller);
+            this.panel10.Controls.Add(this.button17);
+            this.panel10.Controls.Add(this.pictureBox9);
+            this.panel10.Location = new System.Drawing.Point(192, 338);
+            this.panel10.Name = "panel10";
+            this.panel10.Size = new System.Drawing.Size(131, 128);
+            this.panel10.TabIndex = 13;
+            // 
+            // lblUltimoIngresoTaller
+            // 
+            this.lblUltimoIngresoTaller.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(187)))), ((int)(((byte)(45)))));
+            this.lblUltimoIngresoTaller.FlatAppearance.BorderColor = System.Drawing.Color.SeaGreen;
+            this.lblUltimoIngresoTaller.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lblUltimoIngresoTaller.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUltimoIngresoTaller.ForeColor = System.Drawing.Color.White;
+            this.lblUltimoIngresoTaller.Location = new System.Drawing.Point(14, 89);
+            this.lblUltimoIngresoTaller.Name = "lblUltimoIngresoTaller";
+            this.lblUltimoIngresoTaller.Size = new System.Drawing.Size(102, 34);
+            this.lblUltimoIngresoTaller.TabIndex = 49;
+            this.lblUltimoIngresoTaller.UseVisualStyleBackColor = false;
+            // 
+            // button17
+            // 
+            this.button17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            this.button17.FlatAppearance.BorderSize = 0;
+            this.button17.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button17.Font = new System.Drawing.Font("Century Gothic", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button17.ForeColor = System.Drawing.Color.White;
+            this.button17.Location = new System.Drawing.Point(3, 3);
+            this.button17.Name = "button17";
+            this.button17.Size = new System.Drawing.Size(123, 26);
+            this.button17.TabIndex = 1;
+            this.button17.Text = "Último Ingreso";
+            this.button17.UseVisualStyleBackColor = false;
+            // 
+            // pictureBox9
+            // 
+            this.pictureBox9.Image = global::ElObrador.Properties.Resources.icons8_horas_extras_30;
+            this.pictureBox9.Location = new System.Drawing.Point(36, 33);
+            this.pictureBox9.Name = "pictureBox9";
+            this.pictureBox9.Size = new System.Drawing.Size(58, 50);
+            this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox9.TabIndex = 0;
+            this.pictureBox9.TabStop = false;
+            // 
+            // panel5
+            // 
+            this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel5.Controls.Add(this.lblDiasSinAlquilar);
+            this.panel5.Controls.Add(this.button7);
+            this.panel5.Controls.Add(this.pictureBox4);
+            this.panel5.Location = new System.Drawing.Point(22, 184);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(131, 128);
+            this.panel5.TabIndex = 9;
+            // 
+            // lblDiasSinAlquilar
+            // 
+            this.lblDiasSinAlquilar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(187)))), ((int)(((byte)(45)))));
+            this.lblDiasSinAlquilar.FlatAppearance.BorderColor = System.Drawing.Color.SeaGreen;
+            this.lblDiasSinAlquilar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lblDiasSinAlquilar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDiasSinAlquilar.ForeColor = System.Drawing.Color.White;
+            this.lblDiasSinAlquilar.Location = new System.Drawing.Point(15, 89);
+            this.lblDiasSinAlquilar.Name = "lblDiasSinAlquilar";
+            this.lblDiasSinAlquilar.Size = new System.Drawing.Size(102, 34);
+            this.lblDiasSinAlquilar.TabIndex = 49;
+            this.lblDiasSinAlquilar.UseVisualStyleBackColor = false;
+            // 
+            // button7
+            // 
+            this.button7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            this.button7.FlatAppearance.BorderSize = 0;
+            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button7.Font = new System.Drawing.Font("Century Gothic", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button7.ForeColor = System.Drawing.Color.White;
+            this.button7.Location = new System.Drawing.Point(3, 3);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(123, 26);
+            this.button7.TabIndex = 1;
+            this.button7.Text = " Días sin Alquilar";
+            this.button7.UseVisualStyleBackColor = false;
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Image = global::ElObrador.Properties.Resources.icons8_no_tarifa_ocultos_30;
+            this.pictureBox4.Location = new System.Drawing.Point(36, 33);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(58, 50);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox4.TabIndex = 0;
+            this.pictureBox4.TabStop = false;
+            // 
+            // panel6
+            // 
+            this.panel6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel6.Controls.Add(this.lblMontoRecaudado);
+            this.panel6.Controls.Add(this.button9);
+            this.panel6.Controls.Add(this.pictureBox5);
+            this.panel6.Location = new System.Drawing.Point(354, 184);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(131, 128);
+            this.panel6.TabIndex = 11;
+            // 
+            // lblMontoRecaudado
+            // 
+            this.lblMontoRecaudado.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(187)))), ((int)(((byte)(45)))));
+            this.lblMontoRecaudado.FlatAppearance.BorderColor = System.Drawing.Color.SeaGreen;
+            this.lblMontoRecaudado.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lblMontoRecaudado.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMontoRecaudado.ForeColor = System.Drawing.Color.White;
+            this.lblMontoRecaudado.Location = new System.Drawing.Point(14, 89);
+            this.lblMontoRecaudado.Name = "lblMontoRecaudado";
+            this.lblMontoRecaudado.Size = new System.Drawing.Size(102, 34);
+            this.lblMontoRecaudado.TabIndex = 49;
+            this.lblMontoRecaudado.UseVisualStyleBackColor = false;
+            // 
+            // button9
+            // 
+            this.button9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            this.button9.FlatAppearance.BorderSize = 0;
+            this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button9.Font = new System.Drawing.Font("Century Gothic", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button9.ForeColor = System.Drawing.Color.White;
+            this.button9.Location = new System.Drawing.Point(3, 3);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(123, 26);
+            this.button9.TabIndex = 1;
+            this.button9.Text = "Monto Recaudado";
+            this.button9.UseVisualStyleBackColor = false;
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.Image = global::ElObrador.Properties.Resources.icons8_usd_order_reciept_invoice_bill_accounting_purchase_30;
+            this.pictureBox5.Location = new System.Drawing.Point(36, 33);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(58, 50);
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox5.TabIndex = 0;
+            this.pictureBox5.TabStop = false;
+            // 
+            // panel7
+            // 
+            this.panel7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel7.Controls.Add(this.lblTotalClientesAlquilado);
+            this.panel7.Controls.Add(this.button11);
+            this.panel7.Controls.Add(this.pictureBox6);
+            this.panel7.Location = new System.Drawing.Point(192, 184);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(131, 128);
+            this.panel7.TabIndex = 10;
+            // 
+            // lblTotalClientesAlquilado
+            // 
+            this.lblTotalClientesAlquilado.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(187)))), ((int)(((byte)(45)))));
+            this.lblTotalClientesAlquilado.FlatAppearance.BorderColor = System.Drawing.Color.SeaGreen;
+            this.lblTotalClientesAlquilado.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lblTotalClientesAlquilado.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalClientesAlquilado.ForeColor = System.Drawing.Color.White;
+            this.lblTotalClientesAlquilado.Location = new System.Drawing.Point(14, 89);
+            this.lblTotalClientesAlquilado.Name = "lblTotalClientesAlquilado";
+            this.lblTotalClientesAlquilado.Size = new System.Drawing.Size(102, 34);
+            this.lblTotalClientesAlquilado.TabIndex = 49;
+            this.lblTotalClientesAlquilado.UseVisualStyleBackColor = false;
+            // 
+            // button11
+            // 
+            this.button11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            this.button11.FlatAppearance.BorderSize = 0;
+            this.button11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button11.Font = new System.Drawing.Font("Century Gothic", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button11.ForeColor = System.Drawing.Color.White;
+            this.button11.Location = new System.Drawing.Point(3, 3);
+            this.button11.Name = "button11";
+            this.button11.Size = new System.Drawing.Size(123, 26);
+            this.button11.TabIndex = 1;
+            this.button11.Text = "Clientes alquilaron";
+            this.button11.UseVisualStyleBackColor = false;
+            // 
+            // pictureBox6
+            // 
+            this.pictureBox6.Image = global::ElObrador.Properties.Resources.icons8_gestión_de_clientes_30__2_;
+            this.pictureBox6.Location = new System.Drawing.Point(36, 33);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(58, 50);
+            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox6.TabIndex = 0;
+            this.pictureBox6.TabStop = false;
+            // 
+            // panel4
+            // 
+            this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel4.Controls.Add(this.lblTotalDiasAlquilado);
+            this.panel4.Controls.Add(this.button5);
+            this.panel4.Controls.Add(this.pictureBox3);
+            this.panel4.Location = new System.Drawing.Point(354, 29);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(131, 128);
+            this.panel4.TabIndex = 8;
+            // 
+            // lblTotalDiasAlquilado
+            // 
+            this.lblTotalDiasAlquilado.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(187)))), ((int)(((byte)(45)))));
+            this.lblTotalDiasAlquilado.FlatAppearance.BorderColor = System.Drawing.Color.SeaGreen;
+            this.lblTotalDiasAlquilado.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lblTotalDiasAlquilado.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalDiasAlquilado.ForeColor = System.Drawing.Color.White;
+            this.lblTotalDiasAlquilado.Location = new System.Drawing.Point(14, 89);
+            this.lblTotalDiasAlquilado.Name = "lblTotalDiasAlquilado";
+            this.lblTotalDiasAlquilado.Size = new System.Drawing.Size(102, 34);
+            this.lblTotalDiasAlquilado.TabIndex = 49;
+            this.lblTotalDiasAlquilado.UseVisualStyleBackColor = false;
+            // 
+            // button5
+            // 
+            this.button5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            this.button5.FlatAppearance.BorderSize = 0;
+            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button5.Font = new System.Drawing.Font("Century Gothic", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button5.ForeColor = System.Drawing.Color.White;
+            this.button5.Location = new System.Drawing.Point(3, 3);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(123, 26);
+            this.button5.TabIndex = 1;
+            this.button5.Text = "Días Alquilado";
+            this.button5.UseVisualStyleBackColor = false;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = global::ElObrador.Properties.Resources.icons8_ventas_totales_30;
+            this.pictureBox3.Location = new System.Drawing.Point(36, 33);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(58, 50);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox3.TabIndex = 0;
+            this.pictureBox3.TabStop = false;
+            // 
+            // panel3
+            // 
+            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel3.Controls.Add(this.lblUltimoAlquiler);
+            this.panel3.Controls.Add(this.button3);
+            this.panel3.Controls.Add(this.pictureBox2);
+            this.panel3.Location = new System.Drawing.Point(192, 29);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(131, 128);
+            this.panel3.TabIndex = 7;
+            // 
+            // lblUltimoAlquiler
+            // 
+            this.lblUltimoAlquiler.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(187)))), ((int)(((byte)(45)))));
+            this.lblUltimoAlquiler.FlatAppearance.BorderColor = System.Drawing.Color.SeaGreen;
+            this.lblUltimoAlquiler.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lblUltimoAlquiler.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUltimoAlquiler.ForeColor = System.Drawing.Color.White;
+            this.lblUltimoAlquiler.Location = new System.Drawing.Point(14, 89);
+            this.lblUltimoAlquiler.Name = "lblUltimoAlquiler";
+            this.lblUltimoAlquiler.Size = new System.Drawing.Size(102, 34);
+            this.lblUltimoAlquiler.TabIndex = 49;
+            this.lblUltimoAlquiler.UseVisualStyleBackColor = false;
+            // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            this.button3.FlatAppearance.BorderSize = 0;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.Font = new System.Drawing.Font("Century Gothic", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.ForeColor = System.Drawing.Color.White;
+            this.button3.Location = new System.Drawing.Point(3, 3);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(123, 26);
+            this.button3.TabIndex = 1;
+            this.button3.Text = "Último Alquiler";
+            this.button3.UseVisualStyleBackColor = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::ElObrador.Properties.Resources.icons8_calendario_26_30__1_;
+            this.pictureBox2.Location = new System.Drawing.Point(36, 33);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(58, 50);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 0;
+            this.pictureBox2.TabStop = false;
+            // 
             // btnEditarProducto
             // 
             this.btnEditarProducto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(187)))), ((int)(((byte)(45)))));
@@ -914,181 +1089,6 @@
             this.btnEditarProducto.Text = "Editar Material";
             this.btnEditarProducto.UseVisualStyleBackColor = false;
             this.btnEditarProducto.Click += new System.EventHandler(this.btnEditarProducto_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(187)))), ((int)(((byte)(45)))));
-            this.label1.Location = new System.Drawing.Point(24, 6);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(126, 18);
-            this.label1.TabIndex = 43;
-            this.label1.Text = "Informe general";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(187)))), ((int)(((byte)(45)))));
-            this.label5.Location = new System.Drawing.Point(24, 317);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(179, 18);
-            this.label5.TabIndex = 44;
-            this.label5.Text = "Informe Mantenimiento";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.Gainsboro;
-            this.pictureBox1.Image = global::ElObrador.Properties.Resources.icons8_actualizaciones_disponibles_30;
-            this.pictureBox1.Location = new System.Drawing.Point(36, 33);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(58, 50);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            // 
-            // pictureBox7
-            // 
-            this.pictureBox7.Image = global::ElObrador.Properties.Resources.icons8_escudo_de_soldador_30__2_;
-            this.pictureBox7.Location = new System.Drawing.Point(36, 33);
-            this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(58, 50);
-            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox7.TabIndex = 0;
-            this.pictureBox7.TabStop = false;
-            // 
-            // pictureBox8
-            // 
-            this.pictureBox8.Image = global::ElObrador.Properties.Resources.icons8_caja_registradora_30;
-            this.pictureBox8.Location = new System.Drawing.Point(36, 33);
-            this.pictureBox8.Name = "pictureBox8";
-            this.pictureBox8.Size = new System.Drawing.Size(58, 50);
-            this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox8.TabIndex = 0;
-            this.pictureBox8.TabStop = false;
-            // 
-            // pictureBox9
-            // 
-            this.pictureBox9.Image = global::ElObrador.Properties.Resources.icons8_horas_extras_30;
-            this.pictureBox9.Location = new System.Drawing.Point(36, 33);
-            this.pictureBox9.Name = "pictureBox9";
-            this.pictureBox9.Size = new System.Drawing.Size(58, 50);
-            this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox9.TabIndex = 0;
-            this.pictureBox9.TabStop = false;
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.Image = global::ElObrador.Properties.Resources.icons8_no_tarifa_ocultos_30;
-            this.pictureBox4.Location = new System.Drawing.Point(36, 33);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(58, 50);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox4.TabIndex = 0;
-            this.pictureBox4.TabStop = false;
-            // 
-            // pictureBox5
-            // 
-            this.pictureBox5.Image = global::ElObrador.Properties.Resources.icons8_usd_order_reciept_invoice_bill_accounting_purchase_30;
-            this.pictureBox5.Location = new System.Drawing.Point(36, 33);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(58, 50);
-            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox5.TabIndex = 0;
-            this.pictureBox5.TabStop = false;
-            // 
-            // pictureBox6
-            // 
-            this.pictureBox6.Image = global::ElObrador.Properties.Resources.icons8_gestión_de_clientes_30__2_;
-            this.pictureBox6.Location = new System.Drawing.Point(36, 33);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(58, 50);
-            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox6.TabIndex = 0;
-            this.pictureBox6.TabStop = false;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Image = global::ElObrador.Properties.Resources.icons8_ventas_totales_30;
-            this.pictureBox3.Location = new System.Drawing.Point(36, 33);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(58, 50);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox3.TabIndex = 0;
-            this.pictureBox3.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::ElObrador.Properties.Resources.icons8_calendario_26_30__1_;
-            this.pictureBox2.Location = new System.Drawing.Point(36, 33);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(58, 50);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 0;
-            this.pictureBox2.TabStop = false;
-            // 
-            // ImagenPagina
-            // 
-            this.ImagenPagina.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(187)))), ((int)(((byte)(45)))));
-            this.ImagenPagina.Image = global::ElObrador.Properties.Resources.informe_empresarial_con_crecimiento__1_;
-            this.ImagenPagina.Location = new System.Drawing.Point(10, 1);
-            this.ImagenPagina.Name = "ImagenPagina";
-            this.ImagenPagina.Size = new System.Drawing.Size(32, 32);
-            this.ImagenPagina.TabIndex = 3;
-            this.ImagenPagina.TabStop = false;
-            // 
-            // btnRestaurar
-            // 
-            this.btnRestaurar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnRestaurar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnRestaurar.Image = global::ElObrador.Properties.Resources.restaurar;
-            this.btnRestaurar.Location = new System.Drawing.Point(1170, 3);
-            this.btnRestaurar.Name = "btnRestaurar";
-            this.btnRestaurar.Size = new System.Drawing.Size(25, 25);
-            this.btnRestaurar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btnRestaurar.TabIndex = 6;
-            this.btnRestaurar.TabStop = false;
-            this.btnRestaurar.Visible = false;
-            // 
-            // btnMinimizar
-            // 
-            this.btnMinimizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnMinimizar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnMinimizar.Image = global::ElObrador.Properties.Resources.menos__2_1;
-            this.btnMinimizar.Location = new System.Drawing.Point(1201, 3);
-            this.btnMinimizar.Name = "btnMinimizar";
-            this.btnMinimizar.Size = new System.Drawing.Size(25, 25);
-            this.btnMinimizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btnMinimizar.TabIndex = 4;
-            this.btnMinimizar.TabStop = false;
-            this.btnMinimizar.Visible = false;
-            // 
-            // btnMaximizar
-            // 
-            this.btnMaximizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnMaximizar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnMaximizar.Image = global::ElObrador.Properties.Resources.maximizar1;
-            this.btnMaximizar.Location = new System.Drawing.Point(1232, 3);
-            this.btnMaximizar.Name = "btnMaximizar";
-            this.btnMaximizar.Size = new System.Drawing.Size(25, 25);
-            this.btnMaximizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btnMaximizar.TabIndex = 5;
-            this.btnMaximizar.TabStop = false;
-            this.btnMaximizar.Visible = false;
-            // 
-            // btnCerrar
-            // 
-            this.btnCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCerrar.Image = global::ElObrador.Properties.Resources.cancelar2;
-            this.btnCerrar.Location = new System.Drawing.Point(1263, 3);
-            this.btnCerrar.Name = "btnCerrar";
-            this.btnCerrar.Size = new System.Drawing.Size(25, 25);
-            this.btnCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btnCerrar.TabIndex = 3;
-            this.btnCerrar.TabStop = false;
-            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
             // InformeStockWF
             // 
@@ -1106,36 +1106,36 @@
             this.Load += new System.EventHandler(this.InformeStockWF_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvLista)).EndInit();
-            this.PanelDerecho.ResumeLayout(false);
-            this.PanelDerecho.PerformLayout();
-            this.panelInformacion.ResumeLayout(false);
-            this.panelInformacion.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel8.ResumeLayout(false);
-            this.panel9.ResumeLayout(false);
-            this.panel10.ResumeLayout(false);
-            this.panel5.ResumeLayout(false);
-            this.panel6.ResumeLayout(false);
-            this.panel7.ResumeLayout(false);
-            this.panel4.ResumeLayout(false);
-            this.panel3.ResumeLayout(false);
-            this.PanelNuevoMaterial.ResumeLayout(false);
-            this.PanelNuevoMaterial.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ImagenPagina)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnRestaurar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimizar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMaximizar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLista)).EndInit();
+            this.PanelDerecho.ResumeLayout(false);
+            this.PanelDerecho.PerformLayout();
+            this.PanelNuevoMaterial.ResumeLayout(false);
+            this.PanelNuevoMaterial.PerformLayout();
+            this.panelInformacion.ResumeLayout(false);
+            this.panelInformacion.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panel8.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
+            this.panel9.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
+            this.panel10.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
+            this.panel5.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            this.panel6.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            this.panel7.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
+            this.panel4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            this.panel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
 
         }

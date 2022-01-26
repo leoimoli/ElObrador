@@ -55,8 +55,24 @@ namespace ElObrador
                 PanelNuevoMaterial.Visible = false;
                 panelInformacion.Visible = true;
                 lblNuevoProducto.Text = "Información del Material";
+                InformacionMaterialSeleccionado(idProductoSeleccionado);
             }
         }
+
+        private void InformacionMaterialSeleccionado(int idProductoSeleccionado)
+        {
+            ///// Armo Panel de Informacion
+            string Estado = ReportesDao.BuscarEstadoProducto(idProductoSeleccionado);
+            string UltimoAlquiler = ReportesDao.BuscarUltimoAlquiler(idProductoSeleccionado);
+            int TotalDiasAlquilado = ReportesDao.TotalDiasAlquilado(idProductoSeleccionado);
+            int DiasSinAlquilar = ReportesDao.BuscarDiasSinAlquilar(idProductoSeleccionado);
+            int TotalClientesQueAlquilaron = ReportesDao.TotalClientesQueAlquilaron(idProductoSeleccionado);
+            decimal MontoRecaudado = ReportesDao.MontoRecaudado(idProductoSeleccionado);
+            int TotalIngresosTaller = ReportesDao.TotalIngresosTaller(idProductoSeleccionado);
+            string UltimoIngresoTaller = ReportesDao.UltimoIngresoTaller(idProductoSeleccionado);
+            decimal MontoGastadoEnServicios = ReportesDao.MontoGastadoEnServicios(idProductoSeleccionado);
+        }
+
         private void dgvStock_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
         {
             if (e.ColumnIndex >= 0 && this.dgvLista.Columns[e.ColumnIndex].Name == "Ver" && e.RowIndex >= 0)
