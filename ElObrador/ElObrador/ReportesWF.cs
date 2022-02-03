@@ -53,21 +53,21 @@ namespace ElObrador
             { btnproductoMasVendido.Visible = false; }
             ////// Reportes Botones
             /// Total de Ventas
-            //List<Reporte_Ventas> listaVentas2 = new List<Reporte_Ventas>();
-            //listaVentas2 = ReportesDao.TotalDeVentas();
-            //lblTotalVentas.Text = Convert.ToString(listaVentas2[0].TotalDeVentasGenerales);
-            ///// Caja de Ventas
-            //List<Reporte_Ventas> listaVentas3 = new List<Reporte_Ventas>();
-            //listaVentas3 = ReportesDao.CajaDeVentas();
-            //lblCajaVentas.Text = Convert.ToString(listaVentas3[0].CajaDeVentas);
-            ///// Total de Compras
-            //List<Reporte_Compras> listaCompras = new List<Reporte_Compras>();
-            //listaCompras = ReportesDao.TotalDeCompras();
-            //lblTotalCompras.Text = Convert.ToString(listaCompras[0].TotalDeComprasGenerales);
-            ///// Pagos de Compras
-            //List<Reporte_Compras> listaCompras2 = new List<Reporte_Compras>();
-            //listaCompras2 = ReportesDao.PagosCompras();
-            //lblPagosProveedores.Text = Convert.ToString(listaCompras2[0].CajaDePagos);
+            List<Alquiler> listaVentas2 = new List<Alquiler>();
+            listaVentas2 = ReportesDao.TotalDeAlquileres();
+            lblTotalVentas.Text = Convert.ToString(listaVentas2[0].TotalDeAlquleresGenerales);
+            /// Caja de Ventas
+            List<Alquiler> listaVentas3 = new List<Alquiler>();
+            listaVentas3 = ReportesDao.CajaDeAlquileres();
+            lblCajaVentas.Text = Convert.ToString(listaVentas3[0].CajaDeAlquileres);
+            /// Total de Compras
+            List<Proveedores> listaCompras = new List<Proveedores>();
+            listaCompras = ReportesDao.TotalDeCompras();
+            lblTotalCompras.Text = Convert.ToString(listaCompras[0].TotalDeComprasGenerales);
+            /// Pagos de Compras
+            List<Proveedores> listaCompras2 = new List<Proveedores>();
+            listaCompras2 = ReportesDao.PagosCompras();
+            lblPagosProveedores.Text = Convert.ToString(listaCompras2[0].CajaDePagos);
         }
 
         private void DiseñoGraficoProductosMasAlquilado(List<Alquiler> listaAlquileres)
@@ -169,13 +169,13 @@ namespace ElObrador
 
         private void btnExportar_Click(object sender, EventArgs e)
         {
-            List<Reporte_Ventas> listaVentas = new List<Reporte_Ventas>();
-            listaVentas = ReportesDao.BuscarTodasLasVentas();
+            List<Alquiler> listaVentas = new List<Alquiler>();
+            listaVentas = ReportesDao.BuscarTodasLosAlquileres();
             if (listaVentas.Count > 0)
             {
                 foreach (var item in listaVentas)
                 {
-                    dataGridView1.Rows.Add(item.Fecha, item.Precio);
+                    dataGridView1.Rows.Add(item.FechaDesde, item.Monto);
                 }
             }
             dataGridView1.ClipboardCopyMode = DataGridViewClipboardCopyMode.EnableAlwaysIncludeHeaderText;
@@ -195,6 +195,12 @@ namespace ElObrador
             Microsoft.Office.Interop.Excel.Range CR = (Microsoft.Office.Interop.Excel.Range)xlWorkSheet.Cells[1, 1];
             CR.Select();
             xlWorkSheet.PasteSpecial(CR, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, true);
+        }
+
+        private void btnFiltrar_Click(object sender, EventArgs e)
+        {
+            Reportes_AlquileresWF frm2 = new Reportes_AlquileresWF();
+            frm2.Show();
         }
     }
 }

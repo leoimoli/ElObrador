@@ -112,6 +112,8 @@
     <Compile Include="Entidades\Categoria.cs" />
     <Compile Include="Entidades\Clientes.cs" />
     <Compile Include="Entidades\Grupo.cs" />
+    <Compile Include="Entidades\ListaAlquiler.cs" />
+    <Compile Include="Entidades\ListaAlquilerEstadistica.cs" />
     <Compile Include="Entidades\MenuPorPerfilUsuario.cs" />
     <Compile Include="Entidades\Proveedores.cs" />
     <Compile Include="Entidades\Stock.cs" />
@@ -195,6 +197,12 @@
     <Compile Include="ReportesWF.Designer.cs">
       <DependentUpon>ReportesWF.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reportes_AlquileresWF.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes_AlquileresWF.Designer.cs">
+      <DependentUpon>Reportes_AlquileresWF.cs</DependentUpon>
+    </Compile>
     <Compile Include="StockWF.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -273,6 +281,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ReportesWF.resx">
       <DependentUpon>ReportesWF.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes_AlquileresWF.resx">
+      <DependentUpon>Reportes_AlquileresWF.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="StockWF.resx">
       <DependentUpon>StockWF.cs</DependentUpon>
@@ -419,6 +430,7 @@
     <None Include="Resources\icons8-ms-excel-20 %281%29.png" />
     <None Include="Resources\icons8-ms-excel-20 %281%291.png" />
     <None Include="Resources\icons8-ms-excel-20 %281%292.png" />
+    <None Include="Resources\calendario %281%29.png" />
     <Content Include="Resources\icons8-visible-30.ico" />
     <None Include="Resources\informe-empresarial-con-crecimiento %281%29.png" />
   </ItemGroup>

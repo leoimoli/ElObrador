@@ -29,26 +29,40 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea7 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend7 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series7 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title7 = new System.Windows.Forms.DataVisualization.Charting.Title();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea8 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend8 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series8 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title8 = new System.Windows.Forms.DataVisualization.Charting.Title();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea9 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend9 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series9 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title9 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title4 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title5 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend6 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title6 = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.panel8 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnFiltrar = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.chartVentas = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Remito = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.chartProveedores = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.dataGridView3 = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.chartProductos = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -60,34 +74,20 @@
             this.btnAlquileresCaja = new System.Windows.Forms.Button();
             this.lblTotalVentas = new System.Windows.Forms.Label();
             this.btnAlquileresGenerales = new System.Windows.Forms.Button();
-            this.chartVentas = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.chartProveedores = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.chartProductos = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Remito = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridView3 = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.Fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.btnFiltrar = new System.Windows.Forms.Button();
             this.btnproductoMasVendido = new System.Windows.Forms.Button();
             this.btnExportarComprasProveedores = new System.Windows.Forms.Button();
             this.btnExportar = new System.Windows.Forms.Button();
             this.panel8.SuspendLayout();
             this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
-            this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chartVentas)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chartProveedores)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chartProductos)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartVentas)).BeginInit();
+            this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartProveedores)).BeginInit();
+            this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartProductos)).BeginInit();
             this.SuspendLayout();
             // 
             // panel8
@@ -145,6 +145,83 @@
             this.panel1.Size = new System.Drawing.Size(538, 223);
             this.panel1.TabIndex = 9;
             // 
+            // btnFiltrar
+            // 
+            this.btnFiltrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(187)))), ((int)(((byte)(80)))));
+            this.btnFiltrar.FlatAppearance.BorderColor = System.Drawing.Color.SeaGreen;
+            this.btnFiltrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFiltrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFiltrar.ForeColor = System.Drawing.Color.White;
+            this.btnFiltrar.Image = global::ElObrador.Properties.Resources.calendario__1_;
+            this.btnFiltrar.Location = new System.Drawing.Point(494, 192);
+            this.btnFiltrar.Name = "btnFiltrar";
+            this.btnFiltrar.Size = new System.Drawing.Size(36, 28);
+            this.btnFiltrar.TabIndex = 83;
+            this.btnFiltrar.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.toolTip1.SetToolTip(this.btnFiltrar, "Buscar por filtro");
+            this.btnFiltrar.UseVisualStyleBackColor = false;
+            this.btnFiltrar.Click += new System.EventHandler(this.btnFiltrar_Click);
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Fecha,
+            this.Precio});
+            this.dataGridView1.Location = new System.Drawing.Point(157, 28);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersVisible = false;
+            this.dataGridView1.Size = new System.Drawing.Size(203, 22);
+            this.dataGridView1.TabIndex = 81;
+            this.dataGridView1.Visible = false;
+            // 
+            // Fecha
+            // 
+            this.Fecha.HeaderText = "Fecha";
+            this.Fecha.Name = "Fecha";
+            // 
+            // Precio
+            // 
+            this.Precio.HeaderText = "Precio";
+            this.Precio.Name = "Precio";
+            // 
+            // chartVentas
+            // 
+            this.chartVentas.BackColor = System.Drawing.SystemColors.Control;
+            chartArea4.AxisX.LabelStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(187)))), ((int)(((byte)(80)))));
+            chartArea4.AxisX.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(187)))), ((int)(((byte)(80)))));
+            chartArea4.AxisX.MajorGrid.LineColor = System.Drawing.Color.Transparent;
+            chartArea4.AxisX.MajorTickMark.LineColor = System.Drawing.Color.DarkGreen;
+            chartArea4.AxisX.TitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(187)))), ((int)(((byte)(80)))));
+            chartArea4.AxisY.LabelStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(187)))), ((int)(((byte)(80)))));
+            chartArea4.AxisY.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(187)))), ((int)(((byte)(80)))));
+            chartArea4.AxisY.MajorGrid.LineColor = System.Drawing.Color.Transparent;
+            chartArea4.AxisY.MajorTickMark.LineColor = System.Drawing.Color.DarkSeaGreen;
+            chartArea4.BackColor = System.Drawing.Color.Transparent;
+            chartArea4.Name = "ChartArea1";
+            this.chartVentas.ChartAreas.Add(chartArea4);
+            legend4.Enabled = false;
+            legend4.Name = "Legend1";
+            this.chartVentas.Legends.Add(legend4);
+            this.chartVentas.Location = new System.Drawing.Point(3, 3);
+            this.chartVentas.Name = "chartVentas";
+            this.chartVentas.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SeaGreen;
+            series4.ChartArea = "ChartArea1";
+            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series4.IsValueShownAsLabel = true;
+            series4.LabelForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(187)))), ((int)(((byte)(80)))));
+            series4.Legend = "Legend1";
+            series4.Name = "Series1";
+            this.chartVentas.Series.Add(series4);
+            this.chartVentas.Size = new System.Drawing.Size(523, 183);
+            this.chartVentas.TabIndex = 80;
+            this.chartVentas.Text = "chartVentas";
+            title4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            title4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(187)))), ((int)(((byte)(80)))));
+            title4.Name = "Title1";
+            title4.Text = "Alquileres del Año en curso";
+            this.chartVentas.Titles.Add(title4);
+            // 
             // panel2
             // 
             this.panel2.Controls.Add(this.btnExportarComprasProveedores);
@@ -155,6 +232,75 @@
             this.panel2.Size = new System.Drawing.Size(539, 223);
             this.panel2.TabIndex = 1;
             // 
+            // dataGridView2
+            // 
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2,
+            this.Remito});
+            this.dataGridView2.Location = new System.Drawing.Point(114, 192);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.RowHeadersVisible = false;
+            this.dataGridView2.Size = new System.Drawing.Size(296, 22);
+            this.dataGridView2.TabIndex = 69;
+            this.dataGridView2.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.HeaderText = "Fecha De Factura";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.HeaderText = "Proveedor o Razón Social";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            // 
+            // Remito
+            // 
+            this.Remito.HeaderText = "Nro.Remito";
+            this.Remito.Name = "Remito";
+            // 
+            // chartProveedores
+            // 
+            this.chartProveedores.BackColor = System.Drawing.SystemColors.Control;
+            chartArea5.AxisX.LabelStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(187)))), ((int)(((byte)(80)))));
+            chartArea5.AxisX.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(187)))), ((int)(((byte)(80)))));
+            chartArea5.AxisX.MajorGrid.LineColor = System.Drawing.Color.Transparent;
+            chartArea5.AxisX.MajorTickMark.LineColor = System.Drawing.Color.DarkSeaGreen;
+            chartArea5.AxisX2.MajorTickMark.LineColor = System.Drawing.Color.Transparent;
+            chartArea5.AxisY.LabelStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(187)))), ((int)(((byte)(80)))));
+            chartArea5.AxisY.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(187)))), ((int)(((byte)(80)))));
+            chartArea5.AxisY.MajorGrid.LineColor = System.Drawing.Color.Transparent;
+            chartArea5.AxisY.MajorTickMark.LineColor = System.Drawing.Color.DarkGreen;
+            chartArea5.BackColor = System.Drawing.Color.Transparent;
+            chartArea5.Name = "ChartArea1";
+            this.chartProveedores.ChartAreas.Add(chartArea5);
+            legend5.Enabled = false;
+            legend5.Name = "Legend1";
+            this.chartProveedores.Legends.Add(legend5);
+            this.chartProveedores.Location = new System.Drawing.Point(8, 13);
+            this.chartProveedores.Name = "chartProveedores";
+            this.chartProveedores.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SeaGreen;
+            series5.ChartArea = "ChartArea1";
+            series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.StackedColumn;
+            series5.Color = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(66)))), ((int)(((byte)(95)))));
+            series5.IsValueShownAsLabel = true;
+            series5.IsXValueIndexed = true;
+            series5.LabelForeColor = System.Drawing.Color.White;
+            series5.Legend = "Legend1";
+            series5.Name = "Series1";
+            series5.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SeaGreen;
+            this.chartProveedores.Series.Add(series5);
+            this.chartProveedores.Size = new System.Drawing.Size(523, 173);
+            this.chartProveedores.TabIndex = 3;
+            this.chartProveedores.Text = "chart1";
+            title5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            title5.ForeColor = System.Drawing.Color.SeaGreen;
+            title5.Name = "Title1";
+            title5.Text = "Total de Compras a Proveedores";
+            this.chartProveedores.Titles.Add(title5);
+            // 
             // panel3
             // 
             this.panel3.Controls.Add(this.btnproductoMasVendido);
@@ -164,6 +310,58 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(539, 223);
             this.panel3.TabIndex = 10;
+            // 
+            // dataGridView3
+            // 
+            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView3.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn3,
+            this.dataGridViewTextBoxColumn4});
+            this.dataGridView3.Location = new System.Drawing.Point(156, 192);
+            this.dataGridView3.Name = "dataGridView3";
+            this.dataGridView3.RowHeadersVisible = false;
+            this.dataGridView3.Size = new System.Drawing.Size(206, 22);
+            this.dataGridView3.TabIndex = 70;
+            this.dataGridView3.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.HeaderText = "Producto";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.HeaderText = "Total de Ventas";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            // 
+            // chartProductos
+            // 
+            this.chartProductos.BackColor = System.Drawing.SystemColors.Control;
+            chartArea6.BackColor = System.Drawing.Color.Transparent;
+            chartArea6.Name = "ChartArea1";
+            this.chartProductos.ChartAreas.Add(chartArea6);
+            legend6.Name = "Legend1";
+            this.chartProductos.Legends.Add(legend6);
+            this.chartProductos.Location = new System.Drawing.Point(8, 5);
+            this.chartProductos.Name = "chartProductos";
+            this.chartProductos.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SeaGreen;
+            series6.ChartArea = "ChartArea1";
+            series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
+            series6.Color = System.Drawing.Color.Transparent;
+            series6.IsValueShownAsLabel = true;
+            series6.LabelForeColor = System.Drawing.Color.White;
+            series6.Legend = "Legend1";
+            series6.Name = "Series1";
+            series6.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SeaGreen;
+            this.chartProductos.Series.Add(series6);
+            this.chartProductos.Size = new System.Drawing.Size(523, 173);
+            this.chartProductos.TabIndex = 2;
+            this.chartProductos.Text = "chart1";
+            title6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            title6.ForeColor = System.Drawing.Color.SeaGreen;
+            title6.Name = "Title1";
+            title6.Text = "Productos más Vendidos";
+            this.chartProductos.Titles.Add(title6);
             // 
             // label4
             // 
@@ -312,202 +510,6 @@
             this.btnAlquileresGenerales.TextAlign = System.Drawing.ContentAlignment.TopRight;
             this.btnAlquileresGenerales.UseVisualStyleBackColor = false;
             // 
-            // chartVentas
-            // 
-            this.chartVentas.BackColor = System.Drawing.SystemColors.Control;
-            chartArea7.AxisX.LabelStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(187)))), ((int)(((byte)(80)))));
-            chartArea7.AxisX.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(187)))), ((int)(((byte)(80)))));
-            chartArea7.AxisX.MajorGrid.LineColor = System.Drawing.Color.Transparent;
-            chartArea7.AxisX.MajorTickMark.LineColor = System.Drawing.Color.DarkGreen;
-            chartArea7.AxisX.TitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(187)))), ((int)(((byte)(80)))));
-            chartArea7.AxisY.LabelStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(187)))), ((int)(((byte)(80)))));
-            chartArea7.AxisY.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(187)))), ((int)(((byte)(80)))));
-            chartArea7.AxisY.MajorGrid.LineColor = System.Drawing.Color.Transparent;
-            chartArea7.AxisY.MajorTickMark.LineColor = System.Drawing.Color.DarkSeaGreen;
-            chartArea7.BackColor = System.Drawing.Color.Transparent;
-            chartArea7.Name = "ChartArea1";
-            this.chartVentas.ChartAreas.Add(chartArea7);
-            legend7.Enabled = false;
-            legend7.Name = "Legend1";
-            this.chartVentas.Legends.Add(legend7);
-            this.chartVentas.Location = new System.Drawing.Point(3, 3);
-            this.chartVentas.Name = "chartVentas";
-            this.chartVentas.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SeaGreen;
-            series7.ChartArea = "ChartArea1";
-            series7.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series7.IsValueShownAsLabel = true;
-            series7.LabelForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(187)))), ((int)(((byte)(80)))));
-            series7.Legend = "Legend1";
-            series7.Name = "Series1";
-            this.chartVentas.Series.Add(series7);
-            this.chartVentas.Size = new System.Drawing.Size(523, 183);
-            this.chartVentas.TabIndex = 80;
-            this.chartVentas.Text = "chartVentas";
-            title7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            title7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(187)))), ((int)(((byte)(80)))));
-            title7.Name = "Title1";
-            title7.Text = "Alquileres del Año en curso";
-            this.chartVentas.Titles.Add(title7);
-            // 
-            // chartProveedores
-            // 
-            this.chartProveedores.BackColor = System.Drawing.SystemColors.Control;
-            chartArea8.AxisX.LabelStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(187)))), ((int)(((byte)(80)))));
-            chartArea8.AxisX.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(187)))), ((int)(((byte)(80)))));
-            chartArea8.AxisX.MajorGrid.LineColor = System.Drawing.Color.Transparent;
-            chartArea8.AxisX.MajorTickMark.LineColor = System.Drawing.Color.DarkSeaGreen;
-            chartArea8.AxisX2.MajorTickMark.LineColor = System.Drawing.Color.Transparent;
-            chartArea8.AxisY.LabelStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(187)))), ((int)(((byte)(80)))));
-            chartArea8.AxisY.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(187)))), ((int)(((byte)(80)))));
-            chartArea8.AxisY.MajorGrid.LineColor = System.Drawing.Color.Transparent;
-            chartArea8.AxisY.MajorTickMark.LineColor = System.Drawing.Color.DarkGreen;
-            chartArea8.BackColor = System.Drawing.Color.Transparent;
-            chartArea8.Name = "ChartArea1";
-            this.chartProveedores.ChartAreas.Add(chartArea8);
-            legend8.Enabled = false;
-            legend8.Name = "Legend1";
-            this.chartProveedores.Legends.Add(legend8);
-            this.chartProveedores.Location = new System.Drawing.Point(8, 13);
-            this.chartProveedores.Name = "chartProveedores";
-            this.chartProveedores.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SeaGreen;
-            series8.ChartArea = "ChartArea1";
-            series8.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Bar;
-            series8.Color = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(66)))), ((int)(((byte)(95)))));
-            series8.IsValueShownAsLabel = true;
-            series8.IsXValueIndexed = true;
-            series8.LabelForeColor = System.Drawing.Color.Green;
-            series8.Legend = "Legend1";
-            series8.Name = "Series1";
-            series8.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SeaGreen;
-            this.chartProveedores.Series.Add(series8);
-            this.chartProveedores.Size = new System.Drawing.Size(523, 173);
-            this.chartProveedores.TabIndex = 3;
-            this.chartProveedores.Text = "chart1";
-            title8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            title8.ForeColor = System.Drawing.Color.SeaGreen;
-            title8.Name = "Title1";
-            title8.Text = "Total de Compras a Proveedores";
-            this.chartProveedores.Titles.Add(title8);
-            // 
-            // chartProductos
-            // 
-            this.chartProductos.BackColor = System.Drawing.SystemColors.Control;
-            chartArea9.BackColor = System.Drawing.Color.Transparent;
-            chartArea9.Name = "ChartArea1";
-            this.chartProductos.ChartAreas.Add(chartArea9);
-            legend9.Name = "Legend1";
-            this.chartProductos.Legends.Add(legend9);
-            this.chartProductos.Location = new System.Drawing.Point(8, 5);
-            this.chartProductos.Name = "chartProductos";
-            this.chartProductos.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SeaGreen;
-            series9.ChartArea = "ChartArea1";
-            series9.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
-            series9.Color = System.Drawing.Color.Transparent;
-            series9.IsValueShownAsLabel = true;
-            series9.LabelForeColor = System.Drawing.Color.White;
-            series9.Legend = "Legend1";
-            series9.Name = "Series1";
-            series9.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SeaGreen;
-            this.chartProductos.Series.Add(series9);
-            this.chartProductos.Size = new System.Drawing.Size(523, 173);
-            this.chartProductos.TabIndex = 2;
-            this.chartProductos.Text = "chart1";
-            title9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            title9.ForeColor = System.Drawing.Color.SeaGreen;
-            title9.Name = "Title1";
-            title9.Text = "Productos más Vendidos";
-            this.chartProductos.Titles.Add(title9);
-            // 
-            // dataGridView2
-            // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.Remito});
-            this.dataGridView2.Location = new System.Drawing.Point(114, 192);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.RowHeadersVisible = false;
-            this.dataGridView2.Size = new System.Drawing.Size(296, 22);
-            this.dataGridView2.TabIndex = 69;
-            this.dataGridView2.Visible = false;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.HeaderText = "Fecha De Factura";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.HeaderText = "Proveedor o Razón Social";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            // 
-            // Remito
-            // 
-            this.Remito.HeaderText = "Nro.Remito";
-            this.Remito.Name = "Remito";
-            // 
-            // dataGridView3
-            // 
-            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView3.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn4});
-            this.dataGridView3.Location = new System.Drawing.Point(156, 192);
-            this.dataGridView3.Name = "dataGridView3";
-            this.dataGridView3.RowHeadersVisible = false;
-            this.dataGridView3.Size = new System.Drawing.Size(206, 22);
-            this.dataGridView3.TabIndex = 70;
-            this.dataGridView3.Visible = false;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.HeaderText = "Producto";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.HeaderText = "Total de Ventas";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Fecha,
-            this.Precio});
-            this.dataGridView1.Location = new System.Drawing.Point(157, 28);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.Size = new System.Drawing.Size(203, 22);
-            this.dataGridView1.TabIndex = 81;
-            this.dataGridView1.Visible = false;
-            // 
-            // Fecha
-            // 
-            this.Fecha.HeaderText = "Fecha";
-            this.Fecha.Name = "Fecha";
-            // 
-            // Precio
-            // 
-            this.Precio.HeaderText = "Precio";
-            this.Precio.Name = "Precio";
-            // 
-            // btnFiltrar
-            // 
-            this.btnFiltrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(187)))), ((int)(((byte)(80)))));
-            this.btnFiltrar.FlatAppearance.BorderColor = System.Drawing.Color.SeaGreen;
-            this.btnFiltrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFiltrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFiltrar.ForeColor = System.Drawing.Color.White;
-            this.btnFiltrar.Location = new System.Drawing.Point(494, 192);
-            this.btnFiltrar.Name = "btnFiltrar";
-            this.btnFiltrar.Size = new System.Drawing.Size(36, 28);
-            this.btnFiltrar.TabIndex = 83;
-            this.btnFiltrar.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            this.toolTip1.SetToolTip(this.btnFiltrar, "Buscar por filtro");
-            this.btnFiltrar.UseVisualStyleBackColor = false;
-            // 
             // btnproductoMasVendido
             // 
             this.btnproductoMasVendido.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(187)))), ((int)(((byte)(80)))));
@@ -590,14 +592,14 @@
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
             this.panel1.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
-            this.panel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.chartVentas)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chartProveedores)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chartProductos)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartVentas)).EndInit();
+            this.panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartProveedores)).EndInit();
+            this.panel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartProductos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

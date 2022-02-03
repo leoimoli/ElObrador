@@ -23,5 +23,8 @@ namespace ElObrador.Entidades
         public DateTime Fecha { get; set; }
         public string Proveedor { get; set; }
         public string Remito { get; set; }
+        public int TotalDeComprasGenerales { get; set; }
+        public decimal CajaDePagos { get; set; }
+        public decimal Monto { get; set; }
     }
 }
