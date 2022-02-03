@@ -28,10 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle49 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle50 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle51 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle52 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.idProducto = new System.Windows.Forms.Label();
             this.idCategoria = new System.Windows.Forms.Label();
@@ -112,6 +113,7 @@
             this.button3 = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.btnEditarProducto = new System.Windows.Forms.Button();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ImagenPagina)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnRestaurar)).BeginInit();
@@ -262,14 +264,14 @@
             this.dgvLista.BackgroundColor = System.Drawing.Color.White;
             this.dgvLista.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvLista.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(187)))), ((int)(((byte)(45)))));
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvLista.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle49.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle49.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(187)))), ((int)(((byte)(45)))));
+            dataGridViewCellStyle49.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle49.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle49.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle49.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle49.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvLista.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle49;
             this.dgvLista.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvLista.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idprod,
@@ -277,27 +279,27 @@
             this.Codigo,
             this.Modelo,
             this.Ver});
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.IndianRed;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvLista.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle50.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle50.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle50.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle50.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle50.SelectionBackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle50.SelectionForeColor = System.Drawing.Color.IndianRed;
+            dataGridViewCellStyle50.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvLista.DefaultCellStyle = dataGridViewCellStyle50;
             this.dgvLista.EnableHeadersVisualStyles = false;
             this.dgvLista.Location = new System.Drawing.Point(8, 72);
             this.dgvLista.Name = "dgvLista";
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvLista.RowHeadersDefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle51.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle51.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle51.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle51.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle51.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle51.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvLista.RowHeadersDefaultCellStyle = dataGridViewCellStyle51;
             this.dgvLista.RowHeadersVisible = false;
-            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.Black;
-            this.dgvLista.RowsDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle52.ForeColor = System.Drawing.Color.Black;
+            this.dgvLista.RowsDefaultCellStyle = dataGridViewCellStyle52;
             this.dgvLista.Size = new System.Drawing.Size(558, 512);
             this.dgvLista.TabIndex = 161;
             this.dgvLista.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvStock_CellClick);
@@ -664,6 +666,7 @@
             this.lblEstado.Name = "lblEstado";
             this.lblEstado.Size = new System.Drawing.Size(102, 34);
             this.lblEstado.TabIndex = 49;
+            this.toolTip1.SetToolTip(this.lblEstado, "Estado actual del material");
             this.lblEstado.UseVisualStyleBackColor = false;
             // 
             // button1
@@ -713,6 +716,7 @@
             this.lblTotalTaller.Name = "lblTotalTaller";
             this.lblTotalTaller.Size = new System.Drawing.Size(102, 34);
             this.lblTotalTaller.TabIndex = 49;
+            this.toolTip1.SetToolTip(this.lblTotalTaller, "Total de ingresos a taller");
             this.lblTotalTaller.UseVisualStyleBackColor = false;
             // 
             // button13
@@ -761,6 +765,7 @@
             this.lblCostoTaller.Name = "lblCostoTaller";
             this.lblCostoTaller.Size = new System.Drawing.Size(102, 34);
             this.lblCostoTaller.TabIndex = 49;
+            this.toolTip1.SetToolTip(this.lblCostoTaller, "Gastos en servicio de mantenimiento o reparación");
             this.lblCostoTaller.UseVisualStyleBackColor = false;
             // 
             // button15
@@ -809,6 +814,7 @@
             this.lblUltimoIngresoTaller.Name = "lblUltimoIngresoTaller";
             this.lblUltimoIngresoTaller.Size = new System.Drawing.Size(102, 34);
             this.lblUltimoIngresoTaller.TabIndex = 49;
+            this.toolTip1.SetToolTip(this.lblUltimoIngresoTaller, "Fecha del último ingreso a taller");
             this.lblUltimoIngresoTaller.UseVisualStyleBackColor = false;
             // 
             // button17
@@ -857,6 +863,7 @@
             this.lblDiasSinAlquilar.Name = "lblDiasSinAlquilar";
             this.lblDiasSinAlquilar.Size = new System.Drawing.Size(102, 34);
             this.lblDiasSinAlquilar.TabIndex = 49;
+            this.toolTip1.SetToolTip(this.lblDiasSinAlquilar, "Total de días que el  material no es alquilado");
             this.lblDiasSinAlquilar.UseVisualStyleBackColor = false;
             // 
             // button7
@@ -905,6 +912,7 @@
             this.lblMontoRecaudado.Name = "lblMontoRecaudado";
             this.lblMontoRecaudado.Size = new System.Drawing.Size(102, 34);
             this.lblMontoRecaudado.TabIndex = 49;
+            this.toolTip1.SetToolTip(this.lblMontoRecaudado, "Monto total recaudado en alquiler");
             this.lblMontoRecaudado.UseVisualStyleBackColor = false;
             // 
             // button9
@@ -953,6 +961,7 @@
             this.lblTotalClientesAlquilado.Name = "lblTotalClientesAlquilado";
             this.lblTotalClientesAlquilado.Size = new System.Drawing.Size(102, 34);
             this.lblTotalClientesAlquilado.TabIndex = 49;
+            this.toolTip1.SetToolTip(this.lblTotalClientesAlquilado, "Total de clientes que alquilaron el material");
             this.lblTotalClientesAlquilado.UseVisualStyleBackColor = false;
             // 
             // button11
@@ -1001,6 +1010,7 @@
             this.lblTotalDiasAlquilado.Name = "lblTotalDiasAlquilado";
             this.lblTotalDiasAlquilado.Size = new System.Drawing.Size(102, 34);
             this.lblTotalDiasAlquilado.TabIndex = 49;
+            this.toolTip1.SetToolTip(this.lblTotalDiasAlquilado, "Total de dias que el material fu alquilado");
             this.lblTotalDiasAlquilado.UseVisualStyleBackColor = false;
             // 
             // button5
@@ -1049,6 +1059,7 @@
             this.lblUltimoAlquiler.Name = "lblUltimoAlquiler";
             this.lblUltimoAlquiler.Size = new System.Drawing.Size(102, 34);
             this.lblUltimoAlquiler.TabIndex = 49;
+            this.toolTip1.SetToolTip(this.lblUltimoAlquiler, "Fecha del último alquiler");
             this.lblUltimoAlquiler.UseVisualStyleBackColor = false;
             // 
             // button3
@@ -1222,5 +1233,6 @@
         private System.Windows.Forms.PictureBox pictureBox6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }

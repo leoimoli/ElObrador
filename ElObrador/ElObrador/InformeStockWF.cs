@@ -71,6 +71,81 @@ namespace ElObrador
             int TotalIngresosTaller = ReportesDao.TotalIngresosTaller(idProductoSeleccionado);
             string UltimoIngresoTaller = ReportesDao.UltimoIngresoTaller(idProductoSeleccionado);
             decimal MontoGastadoEnServicios = ReportesDao.MontoGastadoEnServicios(idProductoSeleccionado);
+
+            lblEstado.Text = Estado;
+            lblUltimoAlquiler.Text = UltimoAlquiler;
+
+            if (TotalDiasAlquilado > 9999)
+            {
+                lblTotalDiasAlquilado.Text = "+ 10.000";
+            }
+            if (TotalDiasAlquilado > 99999)
+            {
+                lblTotalDiasAlquilado.Text = "+ 100.000";
+            }
+            if (TotalDiasAlquilado > 999999)
+            {
+                lblTotalDiasAlquilado.Text = "+ 1.000.000";
+            }
+            else
+            {
+                lblTotalDiasAlquilado.Text = Convert.ToString(TotalDiasAlquilado);
+            }
+
+            if (DiasSinAlquilar > 9999)
+            {
+                lblDiasSinAlquilar.Text = "+ 10.000";
+            }
+            if (DiasSinAlquilar > 99999)
+            {
+                lblDiasSinAlquilar.Text = "+ 100.000";
+            }
+            if (DiasSinAlquilar > 999999)
+            {
+                lblDiasSinAlquilar.Text = "+ 1.000.000";
+            }
+            else
+            {
+                lblDiasSinAlquilar.Text = Convert.ToString(DiasSinAlquilar);
+            }
+
+            if (TotalClientesQueAlquilaron > 9999)
+            {
+                lblTotalClientesAlquilado.Text = "+ 10.000";
+            }
+            if (TotalClientesQueAlquilaron > 99999)
+            {
+                lblTotalClientesAlquilado.Text = "+ 100.000";
+            }
+            if (TotalClientesQueAlquilaron > 999999)
+            {
+                lblTotalClientesAlquilado.Text = "+ 1.000.000";
+            }
+            else
+            {
+                lblTotalClientesAlquilado.Text = Convert.ToString(TotalClientesQueAlquilaron);
+            }
+
+            lblMontoRecaudado.Text = Convert.ToString(MontoRecaudado);
+
+            if (TotalIngresosTaller > 9999)
+            {
+                lblTotalTaller.Text = "+ 10.000";
+            }
+            if (TotalIngresosTaller > 99999)
+            {
+                lblTotalTaller.Text = "+ 100.000";
+            }
+            if (TotalIngresosTaller > 999999)
+            {
+                lblTotalTaller.Text = "+ 1.000.000";
+            }
+            else
+            {
+                lblTotalTaller.Text = Convert.ToString(TotalIngresosTaller);
+            }
+            lblUltimoIngresoTaller.Text = UltimoIngresoTaller;
+            lblCostoTaller.Text = Convert.ToString(MontoGastadoEnServicios);                      
         }
 
         private void dgvStock_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)

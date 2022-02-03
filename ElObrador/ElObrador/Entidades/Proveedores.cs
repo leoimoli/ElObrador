@@ -19,5 +19,9 @@ namespace ElObrador.Entidades
         public byte[] Foto { get; set; }
         public DateTime FechaDeAlta { get; set; }
         public int idUsuario { get; set; }
+        public decimal TotalCompras { get; set; }
+        public DateTime Fecha { get; set; }
+        public string Proveedor { get; set; }
+        public string Remito { get; set; }
     }
 }

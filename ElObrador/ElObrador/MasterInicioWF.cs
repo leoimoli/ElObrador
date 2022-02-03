@@ -222,7 +222,6 @@ namespace ElObrador
             tripledes.Clear();
             return Convert.ToBase64String(resultado, 0, resultado.Length); // Convertimos la cadena y la regresamos.
         }
-
         private void btnStock_Click(object sender, EventArgs e)
         {
             AbrirFormEnPanel(new StockWF());
@@ -230,7 +229,6 @@ namespace ElObrador
             ImagenPagina.Image = imagen;
             lblPantalla.Text = "Stock";
         }
-
         private void btnClientes_Click(object sender, EventArgs e)
         {
             AbrirFormEnPanel(new ClientesWF());
@@ -238,7 +236,6 @@ namespace ElObrador
             ImagenPagina.Image = imagen;
             lblPantalla.Text = "Clientes";
         }
-
         private void btnTaller_Click(object sender, EventArgs e)
         {
             AbrirFormEnPanel(new TallerWF());
@@ -246,7 +243,6 @@ namespace ElObrador
             ImagenPagina.Image = imagen;
             lblPantalla.Text = "Taller";
         }
-
         private void btnConfiguaracion_Click(object sender, EventArgs e)
         {
             AbrirFormEnPanel(new ConfiguracionesWF());
@@ -254,13 +250,19 @@ namespace ElObrador
             ImagenPagina.Image = imagen;
             lblPantalla.Text = "Configuraciones";
         }
-
         private void btnAlquiler_Click(object sender, EventArgs e)
         {
             AbrirFormEnPanel(new AlquileresWF());
             var imagen = new Bitmap(ElObrador.Properties.Resources.icons8_mensaje_de_telefono_30__2_);
             ImagenPagina.Image = imagen;
             lblPantalla.Text = "Alquileres";
+        }
+        private void btnReportes_Click(object sender, EventArgs e)
+        {
+            AbrirFormEnPanel(new ReportesWF());
+            var imagen = new Bitmap(ElObrador.Properties.Resources.icons8_mensaje_de_telefono_30__2_);
+            ImagenPagina.Image = imagen;
+            lblPantalla.Text = "Reportes";
         }
     }
 }

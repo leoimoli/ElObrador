@@ -20,5 +20,9 @@ namespace ElObrador.Entidades
         public decimal MontoTotal { get; set; }
         public string Cliente { get; set; }
         public string DniCliente { get; set; }
+        public string mes { get; set; }
+        public int TotalVentasPorMes { get; set; }
+        public string DescripcionProducto { get; set; }
+        public int ProductoMasAlquilado { get; set; }
     }
 }

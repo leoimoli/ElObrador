@@ -55,6 +55,165 @@ namespace ElObrador.Dao
             connection.Close();
             return Estado;
         }
+        public static List<Alquiler> BuscarProductosMasAlquilado()
+        {
+            connection.Close();
+            connection.Open();
+            List<Alquiler> _listaventas = new List<Alquiler>();
+            MySqlCommand cmd = new MySqlCommand();
+            cmd.Connection = connection;
+            DataTable Tabla = new DataTable();
+            MySqlParameter[] oParam = { };
+            string proceso = "ProductoMasAlquilado";
+            MySqlDataAdapter dt = new MySqlDataAdapter(proceso, connection);
+            dt.SelectCommand.CommandType = CommandType.StoredProcedure;
+            dt.SelectCommand.Parameters.AddRange(oParam);
+            dt.Fill(Tabla);
+            if (Tabla.Rows.Count > 0)
+            {
+                foreach (DataRow item in Tabla.Rows)
+                {
+                    Alquiler listaVentas = new Alquiler();
+                    listaVentas.DescripcionProducto = item["Descripcion"].ToString();
+                    listaVentas.ProductoMasAlquilado = Convert.ToInt32(item["TotalAlquileres"].ToString());
+                    _listaventas.Add(listaVentas);
+                }
+            }
+            connection.Close();
+            return _listaventas;
+        }
+
+        public static List<Alquiler> BuscarAlquileresPorMes()
+        {
+            String Año = DateTime.Now.Year.ToString();
+            string FechaArmadaDesde = "01/01/" + Año;
+            DateTime FechaDesde = Convert.ToDateTime(FechaArmadaDesde);
+            string FechaArmadaHasta = "31/12/" + Año;
+            DateTime FechaHasta = Convert.ToDateTime(FechaArmadaHasta);
+            connection.Close();
+            connection.Open();
+            List<Alquiler> _listaVentas = new List<Alquiler>();
+            MySqlCommand cmd = new MySqlCommand();
+            cmd.Connection = connection;
+            DataTable Tabla = new DataTable();
+            MySqlParameter[] oParam = { new MySqlParameter("FechaDesde_in", FechaDesde),
+            new MySqlParameter("FechaHasta_in", FechaHasta)};
+            string proceso = "BuscarAlquilerPorMes";
+            MySqlDataAdapter dt = new MySqlDataAdapter(proceso, connection);
+            dt.SelectCommand.CommandType = CommandType.StoredProcedure;
+            dt.SelectCommand.Parameters.AddRange(oParam);
+            dt.Fill(Tabla);
+            if (Tabla.Rows.Count > 0)
+            {
+                foreach (DataRow item in Tabla.Rows)
+                {
+                    Alquiler listaVentas = new Alquiler();
+                    //listaProveedores.idProveedor = Convert.ToInt32(item["idProducto"].ToString());
+                    listaVentas.mes = item["mes"].ToString();
+                    if (Convert.ToInt32(item["Alquiler"].ToString()) > 0)
+                    {
+                        listaVentas.TotalVentasPorMes = Convert.ToInt32(item["Alquiler"].ToString());
+                    }
+                    else
+                    { listaVentas.TotalVentasPorMes = 0; }
+                    _listaVentas.Add(listaVentas);
+                }
+            }
+            connection.Close();
+            return _listaVentas;
+        }
+
+        public static List<Proveedores> BuscarTotalComprasRealizadasProveedores()
+        {
+            connection.Close();
+            connection.Open();
+            List<Proveedores> _listaProveedores = new List<Proveedores>();
+            MySqlCommand cmd = new MySqlCommand();
+            cmd.Connection = connection;
+            DataTable Tabla = new DataTable();
+            MySqlParameter[] oParam = { };
+            string proceso = "BuscarTotalComprasRealizadasProveedores";
+            MySqlDataAdapter dt = new MySqlDataAdapter(proceso, connection);
+            dt.SelectCommand.CommandType = CommandType.StoredProcedure;
+            dt.SelectCommand.Parameters.AddRange(oParam);
+            dt.Fill(Tabla);
+            if (Tabla.Rows.Count > 0)
+            {
+                foreach (DataRow item in Tabla.Rows)
+                {
+                    Proveedores listaProveedores = new Proveedores();                   
+                    listaProveedores.NombreEmpresa = item["Proveedor"].ToString();
+                    if (Convert.ToDecimal(item["Total"].ToString()) > 0)
+                    {
+                        listaProveedores.TotalCompras = Convert.ToDecimal(item["Total"].ToString());
+                    }
+                    else
+                    {
+                        listaProveedores.TotalCompras = 0;
+                    }
+                    _listaProveedores.Add(listaProveedores);
+                }
+            }
+            connection.Close();
+            return _listaProveedores;
+        }
+        public static List<Alquiler> ListadoProductosMasAlquilados()
+        {
+            connection.Close();
+            connection.Open();
+            List<Alquiler> _listaventas = new List<Alquiler>();
+            MySqlCommand cmd = new MySqlCommand();
+            cmd.Connection = connection;
+            DataTable Tabla = new DataTable();
+            MySqlParameter[] oParam = { };
+            string proceso = "ListadoProductosMasAlquilados";
+            MySqlDataAdapter dt = new MySqlDataAdapter(proceso, connection);
+            dt.SelectCommand.CommandType = CommandType.StoredProcedure;
+            dt.SelectCommand.Parameters.AddRange(oParam);
+            dt.Fill(Tabla);
+            if (Tabla.Rows.Count > 0)
+            {
+                foreach (DataRow item in Tabla.Rows)
+                {
+                    Alquiler listaVentas = new Alquiler();
+                    listaVentas.DescripcionProducto = item["Descripcion"].ToString();
+                    listaVentas.ProductoMasAlquilado = Convert.ToInt32(item["TotalAlquileres"].ToString());
+                    _listaventas.Add(listaVentas);
+                }
+            }
+            connection.Close();
+            return _listaventas;
+        }
+
+        public static List<Proveedores> BuscarMovimientoStock()
+        {
+            connection.Close();
+            connection.Open();
+            List<Proveedores> _listaProveedores = new List<Proveedores>();
+            MySqlCommand cmd = new MySqlCommand();
+            cmd.Connection = connection;
+            DataTable Tabla = new DataTable();
+            MySqlParameter[] oParam = { };
+            string proceso = "BuscarMovimientoStock";
+            MySqlDataAdapter dt = new MySqlDataAdapter(proceso, connection);
+            dt.SelectCommand.CommandType = CommandType.StoredProcedure;
+            dt.SelectCommand.Parameters.AddRange(oParam);
+            dt.Fill(Tabla);
+            if (Tabla.Rows.Count > 0)
+            {
+                foreach (DataRow item in Tabla.Rows)
+                {
+                    Proveedores listaProveedores = new Proveedores();
+                    listaProveedores.Fecha = Convert.ToDateTime(item["FechaCompra"].ToString());
+                    listaProveedores.Proveedor = item["Proveedor"].ToString();
+                    listaProveedores.Remito = item["FacturaRemito"].ToString();
+                    _listaProveedores.Add(listaProveedores);
+                }
+            }
+            connection.Close();
+            return _listaProveedores;
+        }
+
         public static string BuscarUltimoAlquiler(int idProductoSeleccionado)
         {
             string Fecha = "";
@@ -103,7 +262,7 @@ namespace ElObrador.Dao
                     if (item["Monto"].ToString() == null || item["Monto"].ToString() == "")
                     { MontoGastadoEnServicios = 0; }
                     else
-                    { MontoGastadoEnServicios = Convert.ToInt32(item["Monto"].ToString()); }
+                    { MontoGastadoEnServicios = Convert.ToDecimal(item["Monto"].ToString()); }
                 }
             }
             connection.Close();
@@ -183,7 +342,7 @@ namespace ElObrador.Dao
                     if (item["Monto"].ToString() == null || item["Monto"].ToString() == "")
                     { MontoRecaudado = 0; }
                     else
-                    { MontoRecaudado = Convert.ToInt32(item["Monto"].ToString()); }
+                    { MontoRecaudado = Convert.ToDecimal(item["Monto"].ToString()); }
                 }
             }
             connection.Close();

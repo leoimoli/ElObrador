@@ -431,7 +431,6 @@ namespace ElObrador
                                          MessageBoxIcon.Asterisk);
 
         }
-
         private List<Alquiler> CargarEntidad()
         {
             List<Alquiler> _listaAlquiler = new List<Alquiler>();
@@ -453,7 +452,6 @@ namespace ElObrador
             }
             return _listaAlquiler;
         }
-
         private void btnCliente_Click(object sender, EventArgs e)
         {
             try
