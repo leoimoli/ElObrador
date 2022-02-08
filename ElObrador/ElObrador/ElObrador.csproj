@@ -111,6 +111,7 @@
     <Compile Include="Entidades\Alquiler.cs" />
     <Compile Include="Entidades\Categoria.cs" />
     <Compile Include="Entidades\Clientes.cs" />
+    <Compile Include="Entidades\Feriados.cs" />
     <Compile Include="Entidades\Grupo.cs" />
     <Compile Include="Entidades\ListaAlquiler.cs" />
     <Compile Include="Entidades\ListaAlquilerEstadistica.cs" />
@@ -119,6 +120,12 @@
     <Compile Include="Entidades\Stock.cs" />
     <Compile Include="Entidades\Taller.cs" />
     <Compile Include="Entidades\Usuario.cs" />
+    <Compile Include="FeriadosWF.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FeriadosWF.Designer.cs">
+      <DependentUpon>FeriadosWF.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -241,6 +248,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ConsultaClientesWF.resx">
       <DependentUpon>ConsultaClientesWF.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FeriadosWF.resx">
+      <DependentUpon>FeriadosWF.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GrupoWF.resx">
       <DependentUpon>GrupoWF.cs</DependentUpon>
@@ -404,6 +414,8 @@
     <None Include="Resources\cajas-de-carga-de-trabajador %281%29.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\WhatsApp Image 2022-02-07 at 10.55.43 AM1.jpeg" />
+    <None Include="Resources\WhatsApp Image 2022-02-07 at 10.55.43 AM.jpeg" />
     <None Include="Resources\icons8-mantenimiento-20.png" />
     <None Include="Resources\icons8-mantenimiento-30 %281%29.png" />
     <None Include="Resources\icons8-escudo-de-soldador-30 %281%29.png" />
@@ -431,6 +443,10 @@
     <None Include="Resources\icons8-ms-excel-20 %281%291.png" />
     <None Include="Resources\icons8-ms-excel-20 %281%292.png" />
     <None Include="Resources\calendario %281%29.png" />
+    <None Include="Resources\icono_Obrado.png" />
+    <None Include="Resources\icono_Obrado1.png" />
+    <None Include="Resources\icono_Obrado2.png" />
+    <None Include="Resources\icono_Obrado3.png" />
     <Content Include="Resources\icons8-visible-30.ico" />
     <None Include="Resources\informe-empresarial-con-crecimiento %281%29.png" />
   </ItemGroup>

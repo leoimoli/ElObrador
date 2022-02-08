@@ -483,6 +483,7 @@
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.White;
+            this.pictureBox1.Image = global::ElObrador.Properties.Resources.icono_Obrado2;
             this.pictureBox1.Location = new System.Drawing.Point(4, 6);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(72, 81);
@@ -703,7 +704,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "MasterInicioWF";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "MasterInicioWF";
+            this.Text = "El Obrador";
             this.Load += new System.EventHandler(this.MasterInicioWF_Load);
             this.panel14.ResumeLayout(false);
             this.panel14.PerformLayout();

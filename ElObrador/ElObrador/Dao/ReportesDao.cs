@@ -55,6 +55,41 @@ namespace ElObrador.Dao
             connection.Close();
             return Estado;
         }
+        public static List<Feriados> BuscarFeriadosAnioActual(string año)
+        {
+            string desde = "01" + "-" + "01" + "-" + año;
+            DateTime fechaDesde = Convert.ToDateTime(desde);
+
+            string hasta = "31" + "-" + "12" + "-" + año;
+            DateTime fechaHasta = Convert.ToDateTime(hasta);
+
+            connection.Close();
+            connection.Open();
+            List<Feriados> lista = new List<Feriados>();
+            MySqlCommand cmd = new MySqlCommand();
+            cmd.Connection = connection;
+            DataTable Tabla = new DataTable();
+            MySqlParameter[] oParam = {   new MySqlParameter("FechaDesde_in", fechaDesde),
+                                       new MySqlParameter("FechaHasta_in", fechaHasta)};
+            string proceso = "BuscarFeriadosAnio";
+            MySqlDataAdapter dt = new MySqlDataAdapter(proceso, connection);
+            dt.SelectCommand.CommandType = CommandType.StoredProcedure;
+            dt.SelectCommand.Parameters.AddRange(oParam);
+            dt.Fill(Tabla);
+            if (Tabla.Rows.Count > 0)
+            {
+                foreach (DataRow item in Tabla.Rows)
+                {
+                    Feriados listaFeriados = new Feriados();
+                    listaFeriados.idFeriado = Convert.ToInt32(item["idFeriado"].ToString());
+                    DateTime fecha = Convert.ToDateTime(item["Fecha"].ToString());
+                    listaFeriados.FechaString = fecha.ToShortDateString();
+                    listaFeriados.Motivo = item["Motivo"].ToString();
+                    lista.Add(listaFeriados);
+                }
+            }
+            return lista;
+        }
         public static List<ListaAlquiler> ConsultarAlquileresDelDia()
         {
             connection.Close();

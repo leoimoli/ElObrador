@@ -244,6 +244,12 @@ namespace ElObrador
                 _historial.Show();
             }
         }
+
+        private void btnFeriados_Click(object sender, EventArgs e)
+        {
+            FeriadosWF _feriados = new FeriadosWF();
+            _feriados.Show();
+        }
     }
 }
 

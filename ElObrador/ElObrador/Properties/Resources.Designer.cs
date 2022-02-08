@@ -163,6 +163,46 @@ namespace ElObrador.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icono_Obrado {
+            get {
+                object obj = ResourceManager.GetObject("icono_Obrado", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icono_Obrado1 {
+            get {
+                object obj = ResourceManager.GetObject("icono_Obrado1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icono_Obrado2 {
+            get {
+                object obj = ResourceManager.GetObject("icono_Obrado2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icono_Obrado3 {
+            get {
+                object obj = ResourceManager.GetObject("icono_Obrado3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_actualizaciones_disponibles_30 {
             get {
                 object obj = ResourceManager.GetObject("icons8-actualizaciones-disponibles-30", resourceCulture);
@@ -626,6 +666,26 @@ namespace ElObrador.Properties {
         internal static System.Drawing.Bitmap usuario1 {
             get {
                 object obj = ResourceManager.GetObject("usuario1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap WhatsApp_Image_2022_02_07_at_10_55_43_AM {
+            get {
+                object obj = ResourceManager.GetObject("WhatsApp Image 2022-02-07 at 10.55.43 AM", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap WhatsApp_Image_2022_02_07_at_10_551 {
+            get {
+                object obj = ResourceManager.GetObject("WhatsApp Image 2022-02-07 at 10.551", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
