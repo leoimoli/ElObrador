@@ -102,6 +102,7 @@
     <Compile Include="Dao\CategoriaDao.cs" />
     <Compile Include="Dao\ClientesDao.cs" />
     <Compile Include="Dao\ConfiguracionesDao.cs" />
+    <Compile Include="Dao\FeriadosDao.cs" />
     <Compile Include="Dao\GrupoDao.cs" />
     <Compile Include="Dao\ProveedoresDao.cs" />
     <Compile Include="Dao\ReportesDao.cs" />
@@ -178,6 +179,7 @@
     <Compile Include="Negocio\CategoriaNeg.cs" />
     <Compile Include="Negocio\ClientesNeg.cs" />
     <Compile Include="Negocio\ConfiguracionesNeg.cs" />
+    <Compile Include="Negocio\FeriadosNeg.cs" />
     <Compile Include="Negocio\GrupoNeg.cs" />
     <Compile Include="Negocio\ProveedoresNeg.cs" />
     <Compile Include="Negocio\StockNeg.cs" />
