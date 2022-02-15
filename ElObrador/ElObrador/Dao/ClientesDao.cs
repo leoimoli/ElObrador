@@ -207,6 +207,46 @@ namespace ElObrador.Dao
             connection.Close();
             return _listaClientes;
         }
+
+        public static List<Clientes> BuscarClientePorIdAlquiler(int idAlquiler)
+        {
+            connection.Close();
+            connection.Open();
+            List<Entidades.Clientes> lista = new List<Entidades.Clientes>();
+            MySqlCommand cmd = new MySqlCommand();
+            cmd.Connection = connection;
+            DataTable Tabla = new DataTable();
+            MySqlParameter[] oParam = {
+                                      new MySqlParameter("idAlquiler_in", idAlquiler)};
+            string proceso = "BuscarClientePorIdAlquiler";
+            MySqlDataAdapter dt = new MySqlDataAdapter(proceso, connection);
+            dt.SelectCommand.CommandType = CommandType.StoredProcedure;
+            dt.SelectCommand.Parameters.AddRange(oParam);
+            dt.Fill(Tabla);
+            if (Tabla.Rows.Count > 0)
+            {
+                foreach (DataRow item in Tabla.Rows)
+                {
+                    Entidades.Clientes listaCliente = new Entidades.Clientes();
+                    listaCliente.IdCliente = Convert.ToInt32(item["idClientes"].ToString());
+                    listaCliente.Dni = item["Dni"].ToString();
+                    listaCliente.Sexo = item["Sexo"].ToString();
+                    listaCliente.Apellido = item["Apellido"].ToString();
+                    listaCliente.Nombre = item["Nombre"].ToString();
+                    listaCliente.FechaDeAlta = Convert.ToDateTime(item["FechaDeAlta"].ToString());
+                    listaCliente.Email = item["Email"].ToString();
+                    listaCliente.Telefono = item["Telefono"].ToString();
+                    listaCliente.Calle = item["Calle"].ToString();
+                    listaCliente.Altura = item["Altura"].ToString();
+                    listaCliente.NombreProvincia = item["Provincia"].ToString();
+                    listaCliente.NombreLocalidad = item["Localidad"].ToString();
+                    lista.Add(listaCliente);
+                }
+            }
+            connection.Close();
+            return lista;
+        }
+
         public static List<Entidades.Clientes> BuscarClientePorID(int idClienteSeleccionado)
         {
             connection.Close();

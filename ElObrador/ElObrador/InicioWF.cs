@@ -148,6 +148,11 @@ namespace ElObrador
             lblDia.Text = Dia + "," + " " + FechaDia + " " + "de" + " " + Mes + " " + Year;
 
             ///// Completo Grilla con informacion
+            BuscarAlquileresVigentes();           
+        }
+
+        private void BuscarAlquileresVigentes()
+        {
             List<Alquiler> ListaAlquileres = new List<Alquiler>();
             ListaAlquileres = AlquilerNeg.ListarAlquileresActuales();
             if (ListaAlquileres.Count > 0)
@@ -159,6 +164,7 @@ namespace ElObrador
             }
             dgvAlquiler.ReadOnly = true;
         }
+
         private string ValidarDia(string diaDeLaSemana)
         {
             string Dia = "";
@@ -276,6 +282,34 @@ namespace ElObrador
         }
         private void dgvAlquiler_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (dgvAlquiler.CurrentCell.ColumnIndex == 6)
+            {
+                int idAlquiler = 0;
+                int idMaterial = 0;
+                string ApellidoNombre = "";
+                string Domicilio = "";
+                string Telefono = "";
+                string Email = "";
+                string material = this.dgvAlquiler.CurrentRow.Cells[2].Value.ToString();
+                idAlquiler = Convert.ToInt32(this.dgvAlquiler.CurrentRow.Cells[0].Value.ToString());
+
+                string MontoAlquiler = AlquilerDao.BuscaMontoAlquiler(idAlquiler);
+                List<Clientes> _cliente = ClientesDao.BuscarClientePorIdAlquiler(idAlquiler);
+                if (_cliente.Count > 0)
+                {
+                    foreach (var item in _cliente)
+                    {
+                        ApellidoNombre = item.Apellido + " " + item.Nombre;
+                        Domicilio = item.Calle + " " + "N°" + item.Altura + " " + item.NombreProvincia + " " + item.NombreLocalidad;
+                        Telefono = item.Telefono;
+                        Email = item.Email;
+                    }
+                    InformeAlquilerWF _informe = new InformeAlquilerWF(material, MontoAlquiler, ApellidoNombre, Domicilio, Email, Telefono);
+                    _informe.Show();                    
+                }
+
+            }
+
             if (dgvAlquiler.CurrentCell.ColumnIndex == 7)
             {
 
@@ -310,13 +344,13 @@ namespace ElObrador
                         if (result == DialogResult.Cancel)
                         {
                         }
-
+                        BuscarAlquileresVigentes();
                     }
                 }
                 ///// Si la devolucion esta en fecha
                 else
                 {
-                    const string message = "Atención: ¿Usted desea registrar la devolucion del material seleccionado";
+                    const string message = "Atención: ¿Usted desea registrar la devolucion del material seleccionado?";
                     const string caption = "Consulta";
                     var result = MessageBox.Show(message, caption,
                                                  MessageBoxButtons.YesNo,
@@ -334,7 +368,7 @@ namespace ElObrador
                                                          MessageBoxIcon.Asterisk);
                         }
                     }
-
+                    BuscarAlquileresVigentes();
                 }
             }
         }

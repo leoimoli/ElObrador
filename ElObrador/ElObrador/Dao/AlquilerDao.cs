@@ -77,7 +77,7 @@ namespace ElObrador.Dao
                 string proceso2 = "ActualizarEstadoDelMaterial";
                 MySqlCommand cmd2 = new MySqlCommand(proceso2, connection);
                 cmd2.CommandType = CommandType.StoredProcedure;
-                cmd2.Parameters.AddWithValue("idMaterial_in", idMaterial);              
+                cmd2.Parameters.AddWithValue("idMaterial_in", idMaterial);
                 cmd2.ExecuteNonQuery();
                 connection.Close();
             }
@@ -182,6 +182,31 @@ namespace ElObrador.Dao
             exito = true;
             connection.Close();
             return exito;
+        }
+
+        public static string BuscaMontoAlquiler(int idAlquiler)
+        {
+            connection.Close();
+            connection.Open();
+            string MontoAlquiler = "0";
+            MySqlCommand cmd = new MySqlCommand();
+            cmd.Connection = connection;
+            DataTable Tabla = new DataTable();
+            MySqlParameter[] oParam = { new MySqlParameter("idAlquiler_in", idAlquiler) };
+            string proceso = "BuscaMontoAlquiler";
+            MySqlDataAdapter dt = new MySqlDataAdapter(proceso, connection);
+            dt.SelectCommand.CommandType = CommandType.StoredProcedure;
+            dt.SelectCommand.Parameters.AddRange(oParam);
+            dt.Fill(Tabla);
+            if (Tabla.Rows.Count > 0)
+            {
+                foreach (DataRow item in Tabla.Rows)
+                {
+                    MontoAlquiler = item["MontoTotal"].ToString();
+                }
+            }
+            connection.Close();
+            return MontoAlquiler;
         }
     }
 }
