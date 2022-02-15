@@ -145,6 +145,12 @@
     <Compile Include="HistorialPrecioWF.Designer.cs">
       <DependentUpon>HistorialPrecioWF.cs</DependentUpon>
     </Compile>
+    <Compile Include="InformeAlquilerWF.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InformeAlquilerWF.Designer.cs">
+      <DependentUpon>InformeAlquilerWF.cs</DependentUpon>
+    </Compile>
     <Compile Include="InformeStockWF.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -199,6 +205,12 @@
     </Compile>
     <Compile Include="ProveedoresWF.Designer.cs">
       <DependentUpon>ProveedoresWF.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RecargoWF.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RecargoWF.Designer.cs">
+      <DependentUpon>RecargoWF.cs</DependentUpon>
     </Compile>
     <Compile Include="ReportesWF.cs">
       <SubType>Form</SubType>
@@ -260,6 +272,9 @@
     <EmbeddedResource Include="HistorialPrecioWF.resx">
       <DependentUpon>HistorialPrecioWF.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="InformeAlquilerWF.resx">
+      <DependentUpon>InformeAlquilerWF.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="InformeStockWF.resx">
       <DependentUpon>InformeStockWF.cs</DependentUpon>
     </EmbeddedResource>
@@ -290,6 +305,9 @@
     </Compile>
     <EmbeddedResource Include="ProveedoresWF.resx">
       <DependentUpon>ProveedoresWF.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RecargoWF.resx">
+      <DependentUpon>RecargoWF.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ReportesWF.resx">
       <DependentUpon>ReportesWF.cs</DependentUpon>
@@ -449,6 +467,10 @@
     <None Include="Resources\icono_Obrado1.png" />
     <None Include="Resources\icono_Obrado2.png" />
     <None Include="Resources\icono_Obrado3.png" />
+    <None Include="Resources\icons8-mantenimiento-30 %282%29.png" />
+    <None Include="Resources\icons8-grupos-de-usuarios-30 %282%29.png" />
+    <None Include="Resources\icons8-mensaje-de-telefono-30 %283%29.png" />
+    <None Include="Resources\icons8-proveedor-30 %281%29.png" />
     <Content Include="Resources\icons8-visible-30.ico" />
     <None Include="Resources\informe-empresarial-con-crecimiento %281%29.png" />
   </ItemGroup>

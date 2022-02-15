@@ -56,17 +56,20 @@
             this.panel1.Controls.Add(this.btnCerrar);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(500, 35);
+            this.panel1.Size = new System.Drawing.Size(667, 43);
             this.panel1.TabIndex = 6;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // ImagenPagina
             // 
             this.ImagenPagina.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(187)))), ((int)(((byte)(45)))));
             this.ImagenPagina.Image = global::ElObrador.Properties.Resources.icons8_historial_de_pedidos_30;
-            this.ImagenPagina.Location = new System.Drawing.Point(10, 1);
+            this.ImagenPagina.Location = new System.Drawing.Point(13, 1);
+            this.ImagenPagina.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ImagenPagina.Name = "ImagenPagina";
-            this.ImagenPagina.Size = new System.Drawing.Size(32, 32);
+            this.ImagenPagina.Size = new System.Drawing.Size(43, 39);
             this.ImagenPagina.TabIndex = 3;
             this.ImagenPagina.TabStop = false;
             // 
@@ -75,9 +78,10 @@
             this.lblPantalla.AutoSize = true;
             this.lblPantalla.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPantalla.ForeColor = System.Drawing.Color.White;
-            this.lblPantalla.Location = new System.Drawing.Point(48, 8);
+            this.lblPantalla.Location = new System.Drawing.Point(64, 10);
+            this.lblPantalla.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPantalla.Name = "lblPantalla";
-            this.lblPantalla.Size = new System.Drawing.Size(113, 19);
+            this.lblPantalla.Size = new System.Drawing.Size(142, 23);
             this.lblPantalla.TabIndex = 4;
             this.lblPantalla.Text = "Historial Taller";
             // 
@@ -86,9 +90,10 @@
             this.btnCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCerrar.Image = global::ElObrador.Properties.Resources.cancelar2;
-            this.btnCerrar.Location = new System.Drawing.Point(463, 3);
+            this.btnCerrar.Location = new System.Drawing.Point(617, 4);
+            this.btnCerrar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnCerrar.Name = "btnCerrar";
-            this.btnCerrar.Size = new System.Drawing.Size(25, 25);
+            this.btnCerrar.Size = new System.Drawing.Size(33, 31);
             this.btnCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.btnCerrar.TabIndex = 3;
             this.btnCerrar.TabStop = false;
@@ -99,9 +104,10 @@
             this.lblContador.AutoSize = true;
             this.lblContador.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblContador.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(187)))), ((int)(((byte)(45)))));
-            this.lblContador.Location = new System.Drawing.Point(415, 320);
+            this.lblContador.Location = new System.Drawing.Point(553, 394);
+            this.lblContador.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblContador.Name = "lblContador";
-            this.lblContador.Size = new System.Drawing.Size(32, 18);
+            this.lblContador.Size = new System.Drawing.Size(43, 23);
             this.lblContador.TabIndex = 198;
             this.lblContador.Text = "400";
             // 
@@ -110,9 +116,10 @@
             this.lblTotal.AutoSize = true;
             this.lblTotal.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTotal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(187)))), ((int)(((byte)(45)))));
-            this.lblTotal.Location = new System.Drawing.Point(448, 320);
+            this.lblTotal.Location = new System.Drawing.Point(597, 394);
+            this.lblTotal.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTotal.Name = "lblTotal";
-            this.lblTotal.Size = new System.Drawing.Size(39, 18);
+            this.lblTotal.Size = new System.Drawing.Size(52, 23);
             this.lblTotal.TabIndex = 197;
             this.lblTotal.Text = "/400";
             // 
@@ -121,19 +128,21 @@
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.Black;
-            this.label8.Location = new System.Drawing.Point(27, 167);
+            this.label8.Location = new System.Drawing.Point(36, 206);
+            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(116, 17);
+            this.label8.Size = new System.Drawing.Size(137, 20);
             this.label8.TabIndex = 196;
             this.label8.Text = "Descripción(*):";
             // 
             // txtDiagnostico
             // 
-            this.txtDiagnostico.Location = new System.Drawing.Point(30, 187);
+            this.txtDiagnostico.Location = new System.Drawing.Point(40, 230);
+            this.txtDiagnostico.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtDiagnostico.MaxLength = 400;
             this.txtDiagnostico.Multiline = true;
             this.txtDiagnostico.Name = "txtDiagnostico";
-            this.txtDiagnostico.Size = new System.Drawing.Size(457, 127);
+            this.txtDiagnostico.Size = new System.Drawing.Size(608, 155);
             this.txtDiagnostico.TabIndex = 195;
             this.txtDiagnostico.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
@@ -142,25 +151,28 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.Black;
-            this.label7.Location = new System.Drawing.Point(149, 65);
+            this.label7.Location = new System.Drawing.Point(199, 80);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(57, 17);
+            this.label7.Size = new System.Drawing.Size(66, 20);
             this.label7.TabIndex = 194;
             this.label7.Text = "Fecha:";
             // 
             // dtFecha
             // 
-            this.dtFecha.Location = new System.Drawing.Point(152, 85);
+            this.dtFecha.Location = new System.Drawing.Point(203, 105);
+            this.dtFecha.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dtFecha.Name = "dtFecha";
-            this.dtFecha.Size = new System.Drawing.Size(220, 20);
+            this.dtFecha.Size = new System.Drawing.Size(292, 22);
             this.dtFecha.TabIndex = 193;
             // 
             // progressBar1
             // 
             this.progressBar1.ForeColor = System.Drawing.Color.Lime;
-            this.progressBar1.Location = new System.Drawing.Point(72, 355);
+            this.progressBar1.Location = new System.Drawing.Point(96, 437);
+            this.progressBar1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(397, 23);
+            this.progressBar1.Size = new System.Drawing.Size(529, 28);
             this.progressBar1.Step = 50;
             this.progressBar1.TabIndex = 200;
             this.progressBar1.Value = 10;
@@ -173,9 +185,10 @@
             this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardar.ForeColor = System.Drawing.Color.White;
-            this.btnGuardar.Location = new System.Drawing.Point(120, 393);
+            this.btnGuardar.Location = new System.Drawing.Point(160, 484);
+            this.btnGuardar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(289, 38);
+            this.btnGuardar.Size = new System.Drawing.Size(385, 47);
             this.btnGuardar.TabIndex = 199;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = false;
@@ -186,9 +199,10 @@
             this.lblidTaller.AutoSize = true;
             this.lblidTaller.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblidTaller.ForeColor = System.Drawing.Color.Black;
-            this.lblidTaller.Location = new System.Drawing.Point(7, 47);
+            this.lblidTaller.Location = new System.Drawing.Point(9, 58);
+            this.lblidTaller.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblidTaller.Name = "lblidTaller";
-            this.lblidTaller.Size = new System.Drawing.Size(23, 17);
+            this.lblidTaller.Size = new System.Drawing.Size(27, 20);
             this.lblidTaller.TabIndex = 201;
             this.lblidTaller.Text = "@";
             this.lblidTaller.Visible = false;
@@ -198,26 +212,28 @@
             this.lblCosto.AutoSize = true;
             this.lblCosto.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCosto.ForeColor = System.Drawing.Color.Black;
-            this.lblCosto.Location = new System.Drawing.Point(149, 123);
+            this.lblCosto.Location = new System.Drawing.Point(199, 151);
+            this.lblCosto.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCosto.Name = "lblCosto";
-            this.lblCosto.Size = new System.Drawing.Size(161, 17);
+            this.lblCosto.Size = new System.Drawing.Size(187, 20);
             this.lblCosto.TabIndex = 202;
             this.lblCosto.Text = "Costo total de Taller:";
             this.lblCosto.Visible = false;
             // 
             // txtCosto
             // 
-            this.txtCosto.Location = new System.Drawing.Point(152, 143);
+            this.txtCosto.Location = new System.Drawing.Point(203, 176);
+            this.txtCosto.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtCosto.Name = "txtCosto";
-            this.txtCosto.Size = new System.Drawing.Size(220, 20);
+            this.txtCosto.Size = new System.Drawing.Size(292, 22);
             this.txtCosto.TabIndex = 203;
             this.txtCosto.Visible = false;
             // 
             // NuevoHistorialWF
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(500, 450);
+            this.ClientSize = new System.Drawing.Size(667, 554);
             this.Controls.Add(this.txtCosto);
             this.Controls.Add(this.lblCosto);
             this.Controls.Add(this.lblidTaller);
@@ -231,6 +247,7 @@
             this.Controls.Add(this.dtFecha);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "NuevoHistorialWF";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "NuevoHistorialWF";

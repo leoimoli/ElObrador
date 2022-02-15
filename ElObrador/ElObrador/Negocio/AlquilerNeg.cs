@@ -21,5 +21,41 @@ namespace ElObrador.Negocio
             { }
             return idAlquiler;
         }
+        public static List<Alquiler> ListarAlquileresActuales()
+        {
+            List<Alquiler> _listaAlquileres = new List<Alquiler>();
+            try
+            {
+                _listaAlquileres = AlquilerDao.ListarAlquileresActuales();
+            }
+            catch (Exception ex)
+            {
+            }
+            return _listaAlquileres;
+        }
+        public static bool IngresarRecargo(decimal montoRecargo, int idAlquiler, int diasAtraso)
+        {
+            bool exito = false;
+            try
+            {
+                exito = AlquilerDao.IngresarRecargo(montoRecargo, idAlquiler, diasAtraso);
+            }
+            catch (Exception ex)
+            {
+            }
+            return exito;
+        }
+        public static bool ActualizarEstados(int idAlquiler, int idMaterial)
+        {
+            bool exito = false;
+            try
+            {
+                exito = AlquilerDao.ActualizarEstados(idAlquiler, idMaterial);
+            }
+            catch (Exception ex)
+            {
+            }
+            return exito;
+        }
     }
 }

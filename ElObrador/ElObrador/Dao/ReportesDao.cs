@@ -55,6 +55,151 @@ namespace ElObrador.Dao
             connection.Close();
             return Estado;
         }
+
+        public static int ContadorProveedores()
+        {
+            connection.Close();
+            connection.Open();
+            int total = 0;
+            MySqlCommand cmd = new MySqlCommand();
+            cmd.Connection = connection;
+            DataTable Tabla = new DataTable();
+            MySqlParameter[] oParam = { };
+            string proceso = "ContadorProveedores";
+            MySqlDataAdapter dt = new MySqlDataAdapter(proceso, connection);
+            dt.SelectCommand.CommandType = CommandType.StoredProcedure;
+            dt.SelectCommand.Parameters.AddRange(oParam);
+            dt.Fill(Tabla);
+            if (Tabla.Rows.Count > 0)
+            {
+                foreach (DataRow item in Tabla.Rows)
+                {
+                    total = Convert.ToInt32(item["Total"].ToString());
+                }
+            }
+            connection.Close();
+            return total;
+        }
+        public static int ContadorClientes()
+        {
+            connection.Close();
+            connection.Open();
+            int total = 0;
+            MySqlCommand cmd = new MySqlCommand();
+            cmd.Connection = connection;
+            DataTable Tabla = new DataTable();
+            MySqlParameter[] oParam = { };
+            string proceso = "ContadorClientes";
+            MySqlDataAdapter dt = new MySqlDataAdapter(proceso, connection);
+            dt.SelectCommand.CommandType = CommandType.StoredProcedure;
+            dt.SelectCommand.Parameters.AddRange(oParam);
+            dt.Fill(Tabla);
+            if (Tabla.Rows.Count > 0)
+            {
+                foreach (DataRow item in Tabla.Rows)
+                {
+                    total = Convert.ToInt32(item["Total"].ToString());
+                }
+            }
+            connection.Close();
+            return total;
+        }
+        public static int ContadorProductos()
+        {
+            connection.Close();
+            connection.Open();
+            int total = 0;
+            MySqlCommand cmd = new MySqlCommand();
+            cmd.Connection = connection;
+            DataTable Tabla = new DataTable();
+            MySqlParameter[] oParam = { };
+            string proceso = "ContadorProductos";
+            MySqlDataAdapter dt = new MySqlDataAdapter(proceso, connection);
+            dt.SelectCommand.CommandType = CommandType.StoredProcedure;
+            dt.SelectCommand.Parameters.AddRange(oParam);
+            dt.Fill(Tabla);
+            if (Tabla.Rows.Count > 0)
+            {
+                foreach (DataRow item in Tabla.Rows)
+                {
+                    total = Convert.ToInt32(item["Total"].ToString());
+                }
+            }
+            connection.Close();
+            return total;
+        }
+        public static int ContadorAlquileres()
+        {
+            connection.Close();
+            connection.Open();
+            int total = 0;
+            MySqlCommand cmd = new MySqlCommand();
+            cmd.Connection = connection;
+            DataTable Tabla = new DataTable();
+            MySqlParameter[] oParam = { };
+            string proceso = "ContadorAlquileres";
+            MySqlDataAdapter dt = new MySqlDataAdapter(proceso, connection);
+            dt.SelectCommand.CommandType = CommandType.StoredProcedure;
+            dt.SelectCommand.Parameters.AddRange(oParam);
+            dt.Fill(Tabla);
+            if (Tabla.Rows.Count > 0)
+            {
+                foreach (DataRow item in Tabla.Rows)
+                {
+                    total = Convert.ToInt32(item["Total"].ToString());
+                }
+            }
+            connection.Close();
+            return total;
+        }
+        public static int ContadorReparaciones()
+        {
+            connection.Close();
+            connection.Open();
+            int total = 0;
+            MySqlCommand cmd = new MySqlCommand();
+            cmd.Connection = connection;
+            DataTable Tabla = new DataTable();
+            MySqlParameter[] oParam = { };
+            string proceso = "ContadorReparaciones";
+            MySqlDataAdapter dt = new MySqlDataAdapter(proceso, connection);
+            dt.SelectCommand.CommandType = CommandType.StoredProcedure;
+            dt.SelectCommand.Parameters.AddRange(oParam);
+            dt.Fill(Tabla);
+            if (Tabla.Rows.Count > 0)
+            {
+                foreach (DataRow item in Tabla.Rows)
+                {
+                    total = Convert.ToInt32(item["Total"].ToString());
+                }
+            }
+            connection.Close();
+            return total;
+        }
+        public static int ContadorUsuarios()
+        {
+            connection.Close();
+            connection.Open();
+            int total = 0;
+            MySqlCommand cmd = new MySqlCommand();
+            cmd.Connection = connection;
+            DataTable Tabla = new DataTable();
+            MySqlParameter[] oParam = { };
+            string proceso = "ContadorUsuarios";
+            MySqlDataAdapter dt = new MySqlDataAdapter(proceso, connection);
+            dt.SelectCommand.CommandType = CommandType.StoredProcedure;
+            dt.SelectCommand.Parameters.AddRange(oParam);
+            dt.Fill(Tabla);
+            if (Tabla.Rows.Count > 0)
+            {
+                foreach (DataRow item in Tabla.Rows)
+                {
+                    total = Convert.ToInt32(item["Total"].ToString());
+                }
+            }
+            connection.Close();
+            return total;
+        }
         public static List<Feriados> BuscarFeriadosAnioActual(string año)
         {
             string desde = "01" + "-" + "01" + "-" + año;

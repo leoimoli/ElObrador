@@ -37,7 +37,84 @@ namespace ElObrador.Dao
             connection.Close();
             return Existe;
         }
+        public static bool IngresarRecargo(decimal montoRecargo, int idAlquiler, int diasAtraso)
+        {
+            bool exito = false;
+            connection.Close();
+            connection.Open();
+            string proceso = "RegistrarRecargo";
+            MySqlCommand cmd = new MySqlCommand(proceso, connection);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("montoRecargo_in", montoRecargo);
+            cmd.Parameters.AddWithValue("idAlquiler_in", idAlquiler);
+            cmd.Parameters.AddWithValue("diasAtraso_in", diasAtraso);
+            cmd.Parameters.AddWithValue("FechaIngreso_in", DateTime.Now);
+            cmd.Parameters.AddWithValue("idUsuario_in", Sesion.UsuarioLogueado.idUsuario);
+            cmd.ExecuteNonQuery();
+            connection.Close();
+            exito = true;
+            return exito;
+        }
+        public static bool ActualizarEstados(int idAlquiler, int idMaterial)
+        {
+            bool exito = false;
+            connection.Close();
+            connection.Open();
+            ///PROCEDIMIENTO
+            string proceso = "ActualizarCierreDeAlquiler";
+            MySqlCommand cmd = new MySqlCommand(proceso, connection);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("idAlquiler_in", idAlquiler);
+            cmd.Parameters.AddWithValue("FechaDevolucion_in", DateTime.Now);
+            cmd.ExecuteNonQuery();
+            connection.Close();
+            exito = true;
+            if (exito == true)
+            {
+                connection.Close();
+                connection.Open();
+                ///PROCEDIMIENTO
+                string proceso2 = "ActualizarEstadoDelMaterial";
+                MySqlCommand cmd2 = new MySqlCommand(proceso2, connection);
+                cmd2.CommandType = CommandType.StoredProcedure;
+                cmd2.Parameters.AddWithValue("idMaterial_in", idMaterial);              
+                cmd2.ExecuteNonQuery();
+                connection.Close();
+            }
+            return exito;
+        }
 
+        public static List<Alquiler> ListarAlquileresActuales()
+        {
+            connection.Close();
+            connection.Open();
+            List<Alquiler> _listaAlquileres = new List<Alquiler>();
+            MySqlCommand cmd = new MySqlCommand();
+            cmd.Connection = connection;
+            DataTable Tabla = new DataTable();
+            MySqlParameter[] oParam = { };
+            string proceso = "ListarAlquileresActuales";
+            MySqlDataAdapter dt = new MySqlDataAdapter(proceso, connection);
+            dt.SelectCommand.CommandType = CommandType.StoredProcedure;
+            dt.SelectCommand.Parameters.AddRange(oParam);
+            dt.Fill(Tabla);
+            if (Tabla.Rows.Count > 0)
+            {
+                foreach (DataRow item in Tabla.Rows)
+                {
+                    Alquiler listaAlquiler = new Alquiler();
+                    listaAlquiler.idAlquiler = Convert.ToInt32(item["idAlquiler"].ToString());
+                    listaAlquiler.idMaterial = Convert.ToInt32(item["idProducto"].ToString());
+                    listaAlquiler.DescripcionProducto = item["Material"].ToString();
+                    listaAlquiler.Dias = Convert.ToInt32(item["Dias"].ToString());
+                    listaAlquiler.FechaDesde = Convert.ToDateTime(item["FechaDesde"].ToString());
+                    listaAlquiler.FechaHasta = Convert.ToDateTime(item["FechaHasta"].ToString());
+                    _listaAlquileres.Add(listaAlquiler);
+                }
+            }
+            connection.Close();
+            return _listaAlquileres;
+        }
         public static int RegistrarAlquiler(List<Alquiler> listaAlquiler)
         {
             int idAlquiler = 0;
@@ -85,7 +162,7 @@ namespace ElObrador.Dao
                 cmd.ExecuteNonQuery();
                 connection.Close();
             }
-            
+
         }
 
         private static bool RegistrarDetalleAlquiler(List<Alquiler> listaAlquiler, int idAlquiler)

@@ -287,12 +287,29 @@ namespace ElObrador
                     var result2 = MessageBox.Show(message2, caption2,
                                                  MessageBoxButtons.OK,
                                                  MessageBoxIcon.Asterisk);
+                    LimpiarCamposPostExito();
                     ///// Generar Factura
                 }
             }
             catch (Exception ex)
             { }
         }
+
+        private void LimpiarCamposPostExito()
+        {
+            dgvAlquiler.Rows.Clear();
+            dtFechaDesde.Enabled = true;
+            dtFechaHasta.Enabled = true;
+            lblidCliente.Text = "0";
+            lblDniCliente.Text = "0";
+            lblApeNom.Text = "0";
+            lblTotalPagarReal.Text = "0";
+            lblDniCliente.Visible = false;
+            lblApeNom.Visible = false;
+            lblClienteFijo.Visible = false;
+            lblDniFijo.Visible = false;
+        }
+
         public static List<Alquiler> ListaAlquilerStatic;
         private void GenerarFactura(int idAlquiler, List<Alquiler> listaAlquiler)
         {

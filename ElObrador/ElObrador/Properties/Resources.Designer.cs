@@ -333,6 +333,16 @@ namespace ElObrador.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_grupos_de_usuarios_30__2_ {
+            get {
+                object obj = ResourceManager.GetObject("icons8-grupos-de-usuarios-30 (2)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_historial_de_pedidos_30 {
             get {
                 object obj = ResourceManager.GetObject("icons8-historial-de-pedidos-30", resourceCulture);
@@ -393,6 +403,16 @@ namespace ElObrador.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_mantenimiento_30__2_ {
+            get {
+                object obj = ResourceManager.GetObject("icons8-mantenimiento-30 (2)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_mensaje_de_telefono_30 {
             get {
                 object obj = ResourceManager.GetObject("icons8-mensaje-de-telefono-30", resourceCulture);
@@ -416,6 +436,16 @@ namespace ElObrador.Properties {
         internal static System.Drawing.Bitmap icons8_mensaje_de_telefono_30__2_ {
             get {
                 object obj = ResourceManager.GetObject("icons8_mensaje_de_telefono_30__2_", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_mensaje_de_telefono_30__3_ {
+            get {
+                object obj = ResourceManager.GetObject("icons8-mensaje-de-telefono-30 (3)", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -516,6 +546,16 @@ namespace ElObrador.Properties {
         internal static System.Drawing.Bitmap icons8_proveedor_30 {
             get {
                 object obj = ResourceManager.GetObject("icons8-proveedor-30", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_proveedor_30__1_ {
+            get {
+                object obj = ResourceManager.GetObject("icons8-proveedor-30 (1)", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

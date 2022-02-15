@@ -331,5 +331,10 @@ namespace ElObrador
             _stock.idUsuario = idusuarioLogueado;
             return _stock;
         }
+
+        private void PanelDerecho_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

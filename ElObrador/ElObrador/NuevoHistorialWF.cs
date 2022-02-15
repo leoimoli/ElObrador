@@ -116,5 +116,10 @@ namespace ElObrador
         {
             lblContador.Text = Convert.ToString(txtDiagnostico.Text.Length);
         }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

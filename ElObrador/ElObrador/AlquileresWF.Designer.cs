@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -36,6 +37,12 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvAlquiler = new System.Windows.Forms.DataGridView();
+            this.idProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Material = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Dias = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FechaInicio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FechaFin = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ValorAlquiler = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PanelPrecios = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
             this.txtDescipcionBus = new System.Windows.Forms.TextBox();
@@ -67,12 +74,8 @@
             this.lblClienteFijo = new System.Windows.Forms.Label();
             this.lblDniFijo = new System.Windows.Forms.Label();
             this.btnCliente = new System.Windows.Forms.Button();
-            this.idProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Material = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Dias = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FechaInicio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FechaFin = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ValorAlquiler = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.btnDevoluciones = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAlquiler)).BeginInit();
             this.PanelPrecios.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -124,6 +127,43 @@
             this.dgvAlquiler.Size = new System.Drawing.Size(546, 382);
             this.dgvAlquiler.TabIndex = 75;
             this.dgvAlquiler.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dgvAlquiler_KeyDown);
+            // 
+            // idProducto
+            // 
+            this.idProducto.HeaderText = "id";
+            this.idProducto.Name = "idProducto";
+            this.idProducto.Visible = false;
+            this.idProducto.Width = 50;
+            // 
+            // Material
+            // 
+            this.Material.HeaderText = "Material";
+            this.Material.Name = "Material";
+            this.Material.Width = 195;
+            // 
+            // Dias
+            // 
+            this.Dias.HeaderText = "Días";
+            this.Dias.Name = "Dias";
+            this.Dias.Width = 70;
+            // 
+            // FechaInicio
+            // 
+            this.FechaInicio.HeaderText = "Fecha Inicio";
+            this.FechaInicio.Name = "FechaInicio";
+            this.FechaInicio.Width = 95;
+            // 
+            // FechaFin
+            // 
+            this.FechaFin.HeaderText = "Fecha Devolución";
+            this.FechaFin.Name = "FechaFin";
+            this.FechaFin.Width = 95;
+            // 
+            // ValorAlquiler
+            // 
+            this.ValorAlquiler.HeaderText = "Total";
+            this.ValorAlquiler.Name = "ValorAlquiler";
+            this.ValorAlquiler.Width = 90;
             // 
             // PanelPrecios
             // 
@@ -482,48 +522,26 @@
             this.btnCliente.UseVisualStyleBackColor = false;
             this.btnCliente.Click += new System.EventHandler(this.btnCliente_Click);
             // 
-            // idProducto
+            // btnDevoluciones
             // 
-            this.idProducto.HeaderText = "id";
-            this.idProducto.Name = "idProducto";
-            this.idProducto.Visible = false;
-            this.idProducto.Width = 50;
-            // 
-            // Material
-            // 
-            this.Material.HeaderText = "Material";
-            this.Material.Name = "Material";
-            this.Material.Width = 195;
-            // 
-            // Dias
-            // 
-            this.Dias.HeaderText = "Días";
-            this.Dias.Name = "Dias";
-            this.Dias.Width = 70;
-            // 
-            // FechaInicio
-            // 
-            this.FechaInicio.HeaderText = "Fecha Inicio";
-            this.FechaInicio.Name = "FechaInicio";
-            this.FechaInicio.Width = 95;
-            // 
-            // FechaFin
-            // 
-            this.FechaFin.HeaderText = "Fecha Devolución";
-            this.FechaFin.Name = "FechaFin";
-            this.FechaFin.Width = 95;
-            // 
-            // ValorAlquiler
-            // 
-            this.ValorAlquiler.HeaderText = "Total";
-            this.ValorAlquiler.Name = "ValorAlquiler";
-            this.ValorAlquiler.Width = 90;
+            this.btnDevoluciones.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(187)))), ((int)(((byte)(45)))));
+            this.btnDevoluciones.FlatAppearance.BorderColor = System.Drawing.Color.SeaGreen;
+            this.btnDevoluciones.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDevoluciones.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDevoluciones.ForeColor = System.Drawing.Color.White;
+            this.btnDevoluciones.Location = new System.Drawing.Point(921, 523);
+            this.btnDevoluciones.Name = "btnDevoluciones";
+            this.btnDevoluciones.Size = new System.Drawing.Size(107, 38);
+            this.btnDevoluciones.TabIndex = 180;
+            this.btnDevoluciones.Text = "Devoluciones";
+            this.btnDevoluciones.UseVisualStyleBackColor = false;
             // 
             // AlquileresWF
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1099, 564);
+            this.ClientSize = new System.Drawing.Size(1040, 564);
+            this.Controls.Add(this.btnDevoluciones);
             this.Controls.Add(this.btnCliente);
             this.Controls.Add(this.lblDniFijo);
             this.Controls.Add(this.lblClienteFijo);
@@ -591,5 +609,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn FechaInicio;
         private System.Windows.Forms.DataGridViewTextBoxColumn FechaFin;
         private System.Windows.Forms.DataGridViewTextBoxColumn ValorAlquiler;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Button btnDevoluciones;
     }
 }
