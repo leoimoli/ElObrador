@@ -20,12 +20,10 @@ namespace ElObrador
         {
             InitializeComponent();
         }
-
         private void dgvProductos_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
-
         private void InicioWF_Load(object sender, EventArgs e)
         {
             ///// Armo Panel de Informacion
@@ -148,15 +146,15 @@ namespace ElObrador
             lblDia.Text = Dia + "," + " " + FechaDia + " " + "de" + " " + Mes + " " + Year;
 
             ///// Completo Grilla con informacion
-            BuscarAlquileresVigentes();           
+            BuscarAlquileresVigentes();
         }
-
         private void BuscarAlquileresVigentes()
         {
             List<Alquiler> ListaAlquileres = new List<Alquiler>();
             ListaAlquileres = AlquilerNeg.ListarAlquileresActuales();
             if (ListaAlquileres.Count > 0)
             {
+                dgvAlquiler.Rows.Clear();
                 foreach (var item in ListaAlquileres)
                 {
                     dgvAlquiler.Rows.Add(item.idAlquiler, item.idMaterial, item.DescripcionProducto, item.Dias, item.FechaDesde, item.FechaHasta);
@@ -164,7 +162,6 @@ namespace ElObrador
             }
             dgvAlquiler.ReadOnly = true;
         }
-
         private string ValidarDia(string diaDeLaSemana)
         {
             string Dia = "";
@@ -256,7 +253,6 @@ namespace ElObrador
             CheckForIllegalCrossThreadCalls = false;
             lblMaster_FechaHoraReal.Text = Convert.ToString(DateTime.Now.ToString("HH:mm:ss"));
         }
-
         private void dgvAlquiler_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
         {
             if (e.ColumnIndex >= 0 && this.dgvAlquiler.Columns[e.ColumnIndex].Name == "Informe" && e.RowIndex >= 0)
@@ -305,7 +301,7 @@ namespace ElObrador
                         Email = item.Email;
                     }
                     InformeAlquilerWF _informe = new InformeAlquilerWF(material, MontoAlquiler, ApellidoNombre, Domicilio, Email, Telefono);
-                    _informe.Show();                    
+                    _informe.Show();
                 }
 
             }
@@ -372,7 +368,6 @@ namespace ElObrador
                 }
             }
         }
-
         private int CalculosDiasAtrasado(DateTime fechaDevolucion)
         {
             int dias = 0;

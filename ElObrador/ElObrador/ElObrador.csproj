@@ -105,6 +105,7 @@
     <Compile Include="Dao\FeriadosDao.cs" />
     <Compile Include="Dao\GrupoDao.cs" />
     <Compile Include="Dao\ProveedoresDao.cs" />
+    <Compile Include="Dao\ReparacionesDao.cs" />
     <Compile Include="Dao\ReportesDao.cs" />
     <Compile Include="Dao\StockDao.cs" />
     <Compile Include="Dao\TallerDao.cs" />
@@ -118,6 +119,7 @@
     <Compile Include="Entidades\ListaAlquilerEstadistica.cs" />
     <Compile Include="Entidades\MenuPorPerfilUsuario.cs" />
     <Compile Include="Entidades\Proveedores.cs" />
+    <Compile Include="Entidades\Reparaciones.cs" />
     <Compile Include="Entidades\Stock.cs" />
     <Compile Include="Entidades\Taller.cs" />
     <Compile Include="Entidades\Usuario.cs" />
@@ -188,6 +190,7 @@
     <Compile Include="Negocio\FeriadosNeg.cs" />
     <Compile Include="Negocio\GrupoNeg.cs" />
     <Compile Include="Negocio\ProveedoresNeg.cs" />
+    <Compile Include="Negocio\ReparacionesNeg.cs" />
     <Compile Include="Negocio\StockNeg.cs" />
     <Compile Include="Negocio\TallerNeg.cs" />
     <Compile Include="Negocio\UsuarioNeg.cs" />
@@ -211,6 +214,12 @@
     </Compile>
     <Compile Include="RecargoWF.Designer.cs">
       <DependentUpon>RecargoWF.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReparacionesWF.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReparacionesWF.Designer.cs">
+      <DependentUpon>ReparacionesWF.cs</DependentUpon>
     </Compile>
     <Compile Include="ReportesWF.cs">
       <SubType>Form</SubType>
@@ -308,6 +317,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="RecargoWF.resx">
       <DependentUpon>RecargoWF.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReparacionesWF.resx">
+      <DependentUpon>ReparacionesWF.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ReportesWF.resx">
       <DependentUpon>ReportesWF.cs</DependentUpon>

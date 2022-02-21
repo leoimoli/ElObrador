@@ -264,5 +264,13 @@ namespace ElObrador
             ImagenPagina.Image = imagen;
             lblPantalla.Text = "Reportes";
         }
+
+        private void btnReparaciones_Click(object sender, EventArgs e)
+        {
+            AbrirFormEnPanel(new ReparacionesWF());
+            var imagen = new Bitmap(ElObrador.Properties.Resources.icons8_mensaje_de_telefono_30__2_);
+            ImagenPagina.Image = imagen;
+            lblPantalla.Text = "Reparaciones";
+        }
     }
 }

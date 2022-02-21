@@ -94,7 +94,7 @@
             this.panel1.Controls.Add(this.panel4);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.panel3);
-            this.panel1.Location = new System.Drawing.Point(25, 77);
+            this.panel1.Location = new System.Drawing.Point(10, 77);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(734, 144);
             this.panel1.TabIndex = 1;
@@ -330,11 +330,11 @@
             // lblDia
             // 
             this.lblDia.AutoSize = true;
-            this.lblDia.Font = new System.Drawing.Font("Century Gothic", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDia.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDia.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(187)))), ((int)(((byte)(45)))));
-            this.lblDia.Location = new System.Drawing.Point(781, 355);
+            this.lblDia.Location = new System.Drawing.Point(750, 355);
             this.lblDia.Name = "lblDia";
-            this.lblDia.Size = new System.Drawing.Size(96, 33);
+            this.lblDia.Size = new System.Drawing.Size(86, 30);
             this.lblDia.TabIndex = 78;
             this.lblDia.Text = "label9";
             // 
@@ -343,7 +343,7 @@
             this.lblMaster_FechaHoraReal.AutoSize = true;
             this.lblMaster_FechaHoraReal.Font = new System.Drawing.Font("Century Gothic", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMaster_FechaHoraReal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(187)))), ((int)(((byte)(80)))));
-            this.lblMaster_FechaHoraReal.Location = new System.Drawing.Point(803, 277);
+            this.lblMaster_FechaHoraReal.Location = new System.Drawing.Point(787, 277);
             this.lblMaster_FechaHoraReal.Name = "lblMaster_FechaHoraReal";
             this.lblMaster_FechaHoraReal.Size = new System.Drawing.Size(226, 78);
             this.lblMaster_FechaHoraReal.TabIndex = 77;
@@ -354,7 +354,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(187)))), ((int)(((byte)(80)))));
-            this.label1.Location = new System.Drawing.Point(30, 50);
+            this.label1.Location = new System.Drawing.Point(15, 50);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(207, 24);
             this.label1.TabIndex = 79;
@@ -393,7 +393,7 @@
             dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvAlquiler.DefaultCellStyle = dataGridViewCellStyle6;
             this.dgvAlquiler.EnableHeadersVisualStyles = false;
-            this.dgvAlquiler.Location = new System.Drawing.Point(25, 256);
+            this.dgvAlquiler.Location = new System.Drawing.Point(10, 256);
             this.dgvAlquiler.Name = "dgvAlquiler";
             dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
@@ -465,7 +465,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(187)))), ((int)(((byte)(80)))));
-            this.label2.Location = new System.Drawing.Point(30, 230);
+            this.label2.Location = new System.Drawing.Point(15, 230);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(361, 24);
             this.label2.TabIndex = 81;

@@ -415,7 +415,7 @@ namespace ElObrador
                     string dias = Convert.ToString(item.Dias);
                     clDias = new PdfPCell(new Phrase(dias, UltimoRegistro));
                     clDias.BorderWidth = 0;
-                  
+
                     string fechaDesde = Convert.ToString(item.FechaDesde);
                     clFechaDesde = new PdfPCell(new Phrase(fechaDesde, UltimoRegistro));
                     clFechaDesde.BorderWidth = 0;

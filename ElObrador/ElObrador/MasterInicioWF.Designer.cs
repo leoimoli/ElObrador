@@ -181,6 +181,7 @@
             this.btnReparaciones.Text = "Reparaciones";
             this.btnReparaciones.UseVisualStyleBackColor = true;
             this.btnReparaciones.Visible = false;
+            this.btnReparaciones.Click += new System.EventHandler(this.btnReparaciones_Click);
             // 
             // btnPanelTaller
             // 

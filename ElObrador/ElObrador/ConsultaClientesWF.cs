@@ -89,6 +89,7 @@ namespace ElObrador
                 //CODIGO SOLO PERMITE 2 INSTANCIAS DEL FORMULARIO CLIENTES
                 //---------------------------------------------
                 int existe = Application.OpenForms.OfType<AlquileresWF>().Count();
+
                 if (existe <= 2)
                 {
                     AlquileresWF frm2 = Application.OpenForms.OfType<AlquileresWF>().SingleOrDefault();
@@ -102,16 +103,18 @@ namespace ElObrador
                         frm2.lblApeNom.Visible = true;
                         frm2.lblClienteFijo.Visible = true;
                         frm2.lblDniFijo.Visible = true;
-                        Close();
+                        //frm2.Close();
+                        //Close();
                     }
                 }
                 else
                 {
-                    foreach (var item in Application.OpenForms.OfType<TallerWF>())
+                    foreach (var item in Application.OpenForms.OfType<AlquileresWF>())
                     {
-                        item.BringToFront();
+                        item.BringToFront();                       
                     }
                 }
+                this.Close();
             }
         }
         private void txtDni_KeyDown(object sender, KeyEventArgs e)
