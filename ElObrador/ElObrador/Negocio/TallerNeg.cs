@@ -149,5 +149,17 @@ namespace ElObrador.Negocio
             }
             return _listaTaller;
         }
+        public static List<Taller> ListaDeTallerPorDescripcion(string text)
+        {
+            List<Entidades.Taller> _listaTaller = new List<Entidades.Taller>();
+            try
+            {
+                _listaTaller = TallerDao.ListaDeTallerPorDescripcion(text);
+            }
+            catch (Exception ex)
+            {
+            }
+            return _listaTaller;
+        }
     }
 }

@@ -51,6 +51,7 @@ namespace ElObrador
         {
             try
             {
+                txtDescipcionBus.Focus();
                 FuncionListarMaterialesEnTaller();
                 FuncionBuscartexto();
             }
@@ -244,6 +245,29 @@ namespace ElObrador
             Funcion = "Cierre";
             NuevoHistorialWF _historial = new NuevoHistorialWF(idTaller, Funcion);
             _historial.Show();
+        }
+
+        private void txtDescipcionBus_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                FuncionListarMaterialesEnTallerPorDescripcion();
+            }
+        }
+
+        private void FuncionListarMaterialesEnTallerPorDescripcion()
+        {
+            dgvTaller.Rows.Clear();
+            List<Taller> ListaTaller = TallerNeg.ListaDeTallerPorDescripcion(txtDescipcionBus.Text);
+            if (ListaTaller.Count > 0)
+            {
+                foreach (var item in ListaTaller)
+                {
+
+                    dgvTaller.Rows.Add(item.idTaller, item.Material, item.Codigo, item.Modelo);
+                }
+            }
+            dgvTaller.ReadOnly = true;
         }
     }
 }

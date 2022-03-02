@@ -72,6 +72,7 @@
     <Compile Include="Clases_Maestras\AutoCompleteLocalidades.cs" />
     <Compile Include="Clases_Maestras\AutoCompleteMateriales.cs" />
     <Compile Include="Clases_Maestras\AutoCompletePorApellido.cs" />
+    <Compile Include="Clases_Maestras\AutoCompletePorMaterialesReparaciones.cs" />
     <Compile Include="Clases_Maestras\AutoCompleteProducto.cs" />
     <Compile Include="Clases_Maestras\AutoCompleteProveedores.cs" />
     <Compile Include="Clases_Maestras\AutoCompleteProvincias.cs" />
@@ -146,6 +147,12 @@
     </Compile>
     <Compile Include="HistorialPrecioWF.Designer.cs">
       <DependentUpon>HistorialPrecioWF.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HistorialReparacionWF.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HistorialReparacionWF.Designer.cs">
+      <DependentUpon>HistorialReparacionWF.cs</DependentUpon>
     </Compile>
     <Compile Include="InformeAlquilerWF.cs">
       <SubType>Form</SubType>
@@ -280,6 +287,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="HistorialPrecioWF.resx">
       <DependentUpon>HistorialPrecioWF.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HistorialReparacionWF.resx">
+      <DependentUpon>HistorialReparacionWF.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="InformeAlquilerWF.resx">
       <DependentUpon>InformeAlquilerWF.cs</DependentUpon>

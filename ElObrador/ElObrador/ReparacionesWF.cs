@@ -34,13 +34,30 @@ namespace ElObrador
                     var result2 = MessageBox.Show(message2, caption2,
                                                  MessageBoxButtons.OK,
                                                  MessageBoxIcon.Asterisk);
-                    //LimpiarCampos();
-                    //FuncionListarMaterialesEnTaller();
+                    LimpiarCampos();
+                    FuncionListarReparaciones();
                 }
             }
             catch (Exception ex)
             { }
         }
+
+        private void LimpiarCampos()
+        {
+            txtCodigo.Clear();
+            txtModelo.Clear();
+            txtDescripcionProducto.Clear();
+            txtDiagnostico.Enabled = false;
+            dtFecha.Value = DateTime.Now;
+            progressBar1.Value = Convert.ToInt32(null);
+            progressBar1.Visible = false;
+            CargarComboServicio();
+            textBox1.Clear();
+            txtPorDni.Clear();
+            lblidCliente.Text = "0";
+            panel1.Enabled = false;
+        }
+
         private void ProgressBar()
         {
             progressBar1.Visible = true;
@@ -61,7 +78,20 @@ namespace ElObrador
         {
             Reparaciones _taller = new Reparaciones();
             int idusuarioLogueado = Sesion.UsuarioLogueado.idUsuario;
-            _taller.idCliente = Convert.ToInt32(lblidCliente.Text);
+            int idCliente = Convert.ToInt32(lblidCliente.Text);
+            if (idCliente == 0)
+            {
+                const string message = "Atención: Debe seleccionar un cliente";
+                const string caption = "Atención";
+                var result = MessageBox.Show(message, caption,
+                                             MessageBoxButtons.OK,
+                                           MessageBoxIcon.Exclamation);
+                throw new Exception();
+            }
+            else
+            {
+                _taller.idCliente = idCliente;
+            }
             _taller.Material = txtDescripcionProducto.Text;
             _taller.Codigo = txtCodigo.Text;
             _taller.Modelo = txtModelo.Text;
@@ -136,6 +166,8 @@ namespace ElObrador
         private void btnNuevo_Click(object sender, EventArgs e)
         {
             panel1.Enabled = true;
+            panel1.Visible = true;
+            panelVer.Visible = false;
             textBox1.Focus();
             CargarComboServicio();
         }
@@ -160,17 +192,148 @@ namespace ElObrador
         {
             try
             {
-                //FuncionListarClientes();
+                txtDescipcionBus.Focus();
+                FuncionListarReparaciones();
                 FuncionBuscartexto();
             }
             catch (Exception ex)
             { }
         }
+
+        private void FuncionListarReparaciones()
+        {
+            dgvReparaciones.Rows.Clear();
+            List<Reparaciones> ListaReparaciones = ReparacionesNeg.ListaDeReparaciones();
+            if (ListaReparaciones.Count > 0)
+            {
+                foreach (var item in ListaReparaciones)
+                {
+                    dgvReparaciones.Rows.Add(item.idReparaciones, item.Material, item.Codigo, item.Modelo);
+                }
+            }
+            dgvReparaciones.ReadOnly = true;
+        }
+
         private void FuncionBuscartexto()
         {
-            textBox1.AutoCompleteCustomSource = Clases_Maestras.AutoCompletePorApellido.Autocomplete();
-            textBox1.AutoCompleteMode = AutoCompleteMode.Suggest;
-            textBox1.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            txtDescipcionBus.AutoCompleteCustomSource = Clases_Maestras.AutoCompletePorMaterialesReparaciones.Autocomplete();
+            txtDescipcionBus.AutoCompleteMode = AutoCompleteMode.Suggest;
+            txtDescipcionBus.AutoCompleteSource = AutoCompleteSource.CustomSource;
+        }
+
+        public static int idReparacionSeleccionado = 0;
+        public static int idHistorialReparacionSeleccionado = 0;
+        private void dgvReparaciones_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgvReparaciones.CurrentCell.ColumnIndex == 4)
+            {
+                dgvHistorialTaller.Rows.Clear();
+                idReparacionSeleccionado = Convert.ToInt32(this.dgvReparaciones.CurrentRow.Cells[0].Value.ToString());
+                lblidReparacion.Text = Convert.ToString(idReparacionSeleccionado);
+                panel1.Visible = false;
+                panelVer.Visible = true;
+                List<Reparaciones> ListaHistorialTaller = ReparacionesNeg.ListarHistorialReparacion(idReparacionSeleccionado);
+                if (ListaHistorialTaller.Count > 0)
+                {
+                    foreach (var item in ListaHistorialTaller)
+                    {
+                        dgvHistorialTaller.Rows.Add(item.idReparaciones, item.Fecha, item.Usuario);
+                    }
+
+                }
+            }
+        }
+        public static string Funcion;
+        private void btnSalidaTaller_Click(object sender, EventArgs e)
+        {
+            int idTaller = Convert.ToInt32(lblidReparacion.Text);
+            Funcion = "Cierre";
+            HistorialReparacionWF _historial = new HistorialReparacionWF(idTaller, Funcion);
+            _historial.Show();
+        }
+
+        private void btnNuevoHistorial_Click(object sender, EventArgs e)
+        {
+            int idTaller = Convert.ToInt32(lblidReparacion.Text);
+            Funcion = "";
+            HistorialReparacionWF _historial = new HistorialReparacionWF(idTaller, Funcion);
+            _historial.Show();
+        }
+
+        private void dgvHistorialTaller_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgvHistorialTaller.CurrentCell.ColumnIndex == 3)
+            {
+                idHistorialReparacionSeleccionado = Convert.ToInt32(this.dgvHistorialTaller.CurrentRow.Cells[0].Value.ToString());
+                lblidReparacion.Text = Convert.ToString(idHistorialReparacionSeleccionado);
+                List<Reparaciones> ListaHistorialTaller = ReparacionesNeg.BuscarHistorialPorId(idHistorialReparacionSeleccionado);
+                if (ListaHistorialTaller.Count > 0)
+                {
+                    string Material = "";
+                    DateTime Fecha = DateTime.Now;
+                    int idTaller = 0;
+                    string Descripcion = "";
+                    foreach (var item in ListaHistorialTaller)
+                    {
+                        Material = item.Material;
+                        Fecha = item.Fecha;
+                        idTaller = item.idReparaciones;
+                        Descripcion = item.Diagnostico;
+                    }
+                    VisualizarHistorialWF _visualizar = new VisualizarHistorialWF(Material, Fecha, idTaller, Descripcion);
+                    _visualizar.Show();
+                }
+            }
+        }
+
+        private void dgvReparaciones_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
+        {
+            if (e.ColumnIndex >= 0 && this.dgvReparaciones.Columns[e.ColumnIndex].Name == "Ver" && e.RowIndex >= 0)
+            {
+                e.Paint(e.CellBounds, DataGridViewPaintParts.All);
+                DataGridViewButtonCell BotonVer = this.dgvReparaciones.Rows[e.RowIndex].Cells["Ver"] as DataGridViewButtonCell;
+                Icon icoAtomico = new Icon(Environment.CurrentDirectory + "\\" + @"icons8-cursor-30.ico");
+                e.Graphics.DrawIcon(icoAtomico, e.CellBounds.Left + 20, e.CellBounds.Top + 4);
+                this.dgvReparaciones.Rows[e.RowIndex].Height = icoAtomico.Height + 8;
+                this.dgvReparaciones.Columns[e.ColumnIndex].Width = icoAtomico.Width + 50;
+                e.Handled = true;
+            }
+        }
+
+        private void dgvHistorialTaller_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
+        {
+            if (e.ColumnIndex >= 0 && this.dgvHistorialTaller.Columns[e.ColumnIndex].Name == "VerHistorial" && e.RowIndex >= 0)
+            {
+                e.Paint(e.CellBounds, DataGridViewPaintParts.All);
+                DataGridViewButtonCell BotonVer = this.dgvHistorialTaller.Rows[e.RowIndex].Cells["VerHistorial"] as DataGridViewButtonCell;
+                Icon icoAtomico = new Icon(Environment.CurrentDirectory + "\\" + @"icons8-visible-30.ico");
+                e.Graphics.DrawIcon(icoAtomico, e.CellBounds.Left + 20, e.CellBounds.Top + 4);
+                this.dgvHistorialTaller.Rows[e.RowIndex].Height = icoAtomico.Height + 8;
+                this.dgvHistorialTaller.Columns[e.ColumnIndex].Width = icoAtomico.Width + 50;
+                e.Handled = true;
+            }
+        }
+
+        private void txtDescipcionBus_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                FuncionListarMaterialesEnReparacionPorDescripcion();
+            }
+        }
+
+        private void FuncionListarMaterialesEnReparacionPorDescripcion()
+        {
+            dgvReparaciones.Rows.Clear();
+            List<Reparaciones> ListaTaller = ReparacionesNeg.ListaDeReparacionPorDescripcion(txtDescipcionBus.Text);
+            if (ListaTaller.Count > 0)
+            {
+                foreach (var item in ListaTaller)
+                {
+                    dgvReparaciones.Rows.Add(item.idReparaciones, item.Material, item.Codigo, item.Modelo);
+                }
+            }
+            dgvReparaciones.ReadOnly = true;
         }
     }
 }

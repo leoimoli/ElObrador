@@ -32,7 +32,17 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lblidCliente = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.txtPorDni = new System.Windows.Forms.TextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.lblContador = new System.Windows.Forms.Label();
             this.lblTotal = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -60,14 +70,20 @@
             this.txtDescipcionBus = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnNuevo = new System.Windows.Forms.Button();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.txtPorDni = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.lblidCliente = new System.Windows.Forms.Label();
+            this.panelVer = new System.Windows.Forms.Panel();
+            this.btnSalidaTaller = new System.Windows.Forms.Button();
+            this.lblidReparacion = new System.Windows.Forms.Label();
+            this.dgvHistorialTaller = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Usuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.VerHistorial = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.label18 = new System.Windows.Forms.Label();
+            this.btnNuevoHistorial = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvReparaciones)).BeginInit();
+            this.panelVer.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvHistorialTaller)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -97,10 +113,73 @@
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.btnGuardar);
             this.panel1.Enabled = false;
-            this.panel1.Location = new System.Drawing.Point(602, 71);
+            this.panel1.Location = new System.Drawing.Point(598, 71);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(478, 481);
             this.panel1.TabIndex = 84;
+            // 
+            // lblidCliente
+            // 
+            this.lblidCliente.AutoSize = true;
+            this.lblidCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblidCliente.ForeColor = System.Drawing.Color.Black;
+            this.lblidCliente.Location = new System.Drawing.Point(254, 83);
+            this.lblidCliente.Name = "lblidCliente";
+            this.lblidCliente.Size = new System.Drawing.Size(17, 17);
+            this.lblidCliente.TabIndex = 198;
+            this.lblidCliente.Text = "0";
+            this.lblidCliente.Visible = false;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(187)))), ((int)(((byte)(45)))));
+            this.label11.Location = new System.Drawing.Point(13, 4);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(61, 18);
+            this.label11.TabIndex = 197;
+            this.label11.Text = "Cliente";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.Black;
+            this.label9.Location = new System.Drawing.Point(254, 26);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(94, 13);
+            this.label9.TabIndex = 196;
+            this.label9.Text = "Buscar por DNI";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.Color.Black;
+            this.label10.Location = new System.Drawing.Point(13, 26);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(174, 13);
+            this.label10.TabIndex = 195;
+            this.label10.Text = "Buscar por Apellido y Nombre";
+            // 
+            // txtPorDni
+            // 
+            this.txtPorDni.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtPorDni.Location = new System.Drawing.Point(257, 42);
+            this.txtPorDni.Name = "txtPorDni";
+            this.txtPorDni.Size = new System.Drawing.Size(218, 20);
+            this.txtPorDni.TabIndex = 1;
+            this.txtPorDni.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCodigoBus_KeyDown);
+            // 
+            // textBox1
+            // 
+            this.textBox1.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.textBox1.Location = new System.Drawing.Point(15, 42);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(221, 20);
+            this.textBox1.TabIndex = 0;
+            this.textBox1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox1_KeyDown);
             // 
             // lblContador
             // 
@@ -142,7 +221,7 @@
             this.txtDiagnostico.Multiline = true;
             this.txtDiagnostico.Name = "txtDiagnostico";
             this.txtDiagnostico.Size = new System.Drawing.Size(457, 127);
-            this.txtDiagnostico.TabIndex = 188;
+            this.txtDiagnostico.TabIndex = 7;
             this.txtDiagnostico.TextChanged += new System.EventHandler(this.txtDiagnostico_TextChanged);
             // 
             // label7
@@ -161,7 +240,7 @@
             this.dtFecha.Location = new System.Drawing.Point(252, 220);
             this.dtFecha.Name = "dtFecha";
             this.dtFecha.Size = new System.Drawing.Size(220, 20);
-            this.dtFecha.TabIndex = 186;
+            this.dtFecha.TabIndex = 6;
             // 
             // label3
             // 
@@ -180,7 +259,7 @@
             this.cmbTipoServicio.Location = new System.Drawing.Point(16, 219);
             this.cmbTipoServicio.Name = "cmbTipoServicio";
             this.cmbTipoServicio.Size = new System.Drawing.Size(220, 21);
-            this.cmbTipoServicio.TabIndex = 184;
+            this.cmbTipoServicio.TabIndex = 5;
             // 
             // label6
             // 
@@ -221,14 +300,14 @@
             this.txtModelo.Location = new System.Drawing.Point(252, 165);
             this.txtModelo.Name = "txtModelo";
             this.txtModelo.Size = new System.Drawing.Size(220, 20);
-            this.txtModelo.TabIndex = 180;
+            this.txtModelo.TabIndex = 4;
             // 
             // txtCodigo
             // 
             this.txtCodigo.Location = new System.Drawing.Point(16, 165);
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.Size = new System.Drawing.Size(220, 20);
-            this.txtCodigo.TabIndex = 179;
+            this.txtCodigo.TabIndex = 3;
             // 
             // txtDescripcionProducto
             // 
@@ -238,7 +317,7 @@
             this.txtDescripcionProducto.Multiline = true;
             this.txtDescripcionProducto.Name = "txtDescripcionProducto";
             this.txtDescripcionProducto.Size = new System.Drawing.Size(220, 42);
-            this.txtDescripcionProducto.TabIndex = 178;
+            this.txtDescripcionProducto.TabIndex = 2;
             // 
             // progressBar1
             // 
@@ -272,7 +351,7 @@
             this.btnGuardar.Location = new System.Drawing.Point(110, 438);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(289, 38);
-            this.btnGuardar.TabIndex = 13;
+            this.btnGuardar.TabIndex = 8;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = false;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
@@ -322,6 +401,8 @@
             this.dgvReparaciones.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvReparaciones.Size = new System.Drawing.Size(572, 418);
             this.dgvReparaciones.TabIndex = 89;
+            this.dgvReparaciones.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvReparaciones_CellClick);
+            this.dgvReparaciones.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dgvReparaciones_CellPainting);
             // 
             // idProducto
             // 
@@ -371,6 +452,7 @@
             this.txtDescipcionBus.Name = "txtDescipcionBus";
             this.txtDescipcionBus.Size = new System.Drawing.Size(514, 20);
             this.txtDescipcionBus.TabIndex = 85;
+            this.txtDescipcionBus.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtDescipcionBus_KeyDown);
             // 
             // label1
             // 
@@ -398,73 +480,149 @@
             this.btnNuevo.UseVisualStyleBackColor = false;
             this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
-            // label9
+            // panelVer
             // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.Color.Black;
-            this.label9.Location = new System.Drawing.Point(254, 26);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(94, 13);
-            this.label9.TabIndex = 196;
-            this.label9.Text = "Buscar por DNI";
+            this.panelVer.BackColor = System.Drawing.Color.Gainsboro;
+            this.panelVer.Controls.Add(this.btnSalidaTaller);
+            this.panelVer.Controls.Add(this.lblidReparacion);
+            this.panelVer.Controls.Add(this.dgvHistorialTaller);
+            this.panelVer.Controls.Add(this.label18);
+            this.panelVer.Controls.Add(this.btnNuevoHistorial);
+            this.panelVer.Location = new System.Drawing.Point(595, 75);
+            this.panelVer.Name = "panelVer";
+            this.panelVer.Size = new System.Drawing.Size(478, 481);
+            this.panelVer.TabIndex = 199;
+            this.panelVer.Visible = false;
             // 
-            // label10
+            // btnSalidaTaller
             // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.ForeColor = System.Drawing.Color.Black;
-            this.label10.Location = new System.Drawing.Point(13, 26);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(174, 13);
-            this.label10.TabIndex = 195;
-            this.label10.Text = "Buscar por Apellido y Nombre";
+            this.btnSalidaTaller.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(187)))), ((int)(((byte)(45)))));
+            this.btnSalidaTaller.FlatAppearance.BorderColor = System.Drawing.Color.SeaGreen;
+            this.btnSalidaTaller.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSalidaTaller.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSalidaTaller.ForeColor = System.Drawing.Color.White;
+            this.btnSalidaTaller.Location = new System.Drawing.Point(63, 428);
+            this.btnSalidaTaller.Name = "btnSalidaTaller";
+            this.btnSalidaTaller.Size = new System.Drawing.Size(159, 38);
+            this.btnSalidaTaller.TabIndex = 98;
+            this.btnSalidaTaller.Text = "Salida de Taller";
+            this.btnSalidaTaller.UseVisualStyleBackColor = false;
+            this.btnSalidaTaller.Click += new System.EventHandler(this.btnSalidaTaller_Click);
             // 
-            // txtPorDni
+            // lblidReparacion
             // 
-            this.txtPorDni.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtPorDni.Location = new System.Drawing.Point(257, 42);
-            this.txtPorDni.Name = "txtPorDni";
-            this.txtPorDni.Size = new System.Drawing.Size(218, 20);
-            this.txtPorDni.TabIndex = 194;
-            this.txtPorDni.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCodigoBus_KeyDown);
+            this.lblidReparacion.AutoSize = true;
+            this.lblidReparacion.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblidReparacion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(187)))), ((int)(((byte)(45)))));
+            this.lblidReparacion.Location = new System.Drawing.Point(227, 7);
+            this.lblidReparacion.Name = "lblidReparacion";
+            this.lblidReparacion.Size = new System.Drawing.Size(19, 18);
+            this.lblidReparacion.TabIndex = 97;
+            this.lblidReparacion.Text = "@";
+            this.lblidReparacion.Visible = false;
             // 
-            // textBox1
+            // dgvHistorialTaller
             // 
-            this.textBox1.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.textBox1.Location = new System.Drawing.Point(15, 42);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(221, 20);
-            this.textBox1.TabIndex = 193;
-            this.textBox1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox1_KeyDown);
+            this.dgvHistorialTaller.AllowUserToAddRows = false;
+            this.dgvHistorialTaller.BackgroundColor = System.Drawing.Color.White;
+            this.dgvHistorialTaller.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvHistorialTaller.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(187)))), ((int)(((byte)(45)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvHistorialTaller.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            this.dgvHistorialTaller.ColumnHeadersHeight = 30;
+            this.dgvHistorialTaller.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dgvHistorialTaller.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2,
+            this.Usuario,
+            this.VerHistorial});
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.IndianRed;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvHistorialTaller.DefaultCellStyle = dataGridViewCellStyle6;
+            this.dgvHistorialTaller.EnableHeadersVisualStyles = false;
+            this.dgvHistorialTaller.Location = new System.Drawing.Point(16, 38);
+            this.dgvHistorialTaller.Name = "dgvHistorialTaller";
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvHistorialTaller.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            this.dgvHistorialTaller.RowHeadersVisible = false;
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Black;
+            this.dgvHistorialTaller.RowsDefaultCellStyle = dataGridViewCellStyle8;
+            this.dgvHistorialTaller.Size = new System.Drawing.Size(469, 341);
+            this.dgvHistorialTaller.TabIndex = 96;
+            this.dgvHistorialTaller.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHistorialTaller_CellClick);
+            this.dgvHistorialTaller.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dgvHistorialTaller_CellPainting);
             // 
-            // label11
+            // dataGridViewTextBoxColumn1
             // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(187)))), ((int)(((byte)(45)))));
-            this.label11.Location = new System.Drawing.Point(13, 4);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(61, 18);
-            this.label11.TabIndex = 197;
-            this.label11.Text = "Cliente";
+            this.dataGridViewTextBoxColumn1.HeaderText = "Nro.Historial";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.Width = 90;
             // 
-            // lblidCliente
+            // dataGridViewTextBoxColumn2
             // 
-            this.lblidCliente.AutoSize = true;
-            this.lblidCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblidCliente.ForeColor = System.Drawing.Color.Black;
-            this.lblidCliente.Location = new System.Drawing.Point(254, 83);
-            this.lblidCliente.Name = "lblidCliente";
-            this.lblidCliente.Size = new System.Drawing.Size(23, 17);
-            this.lblidCliente.TabIndex = 198;
-            this.lblidCliente.Text = "@";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Fecha";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.Width = 190;
+            // 
+            // Usuario
+            // 
+            this.Usuario.HeaderText = "Usuario";
+            this.Usuario.Name = "Usuario";
+            // 
+            // VerHistorial
+            // 
+            this.VerHistorial.HeaderText = "Ver";
+            this.VerHistorial.Name = "VerHistorial";
+            this.VerHistorial.Width = 70;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(187)))), ((int)(((byte)(45)))));
+            this.label18.Location = new System.Drawing.Point(24, 7);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(196, 18);
+            this.label18.TabIndex = 42;
+            this.label18.Text = "Historial de Reparaciones";
+            // 
+            // btnNuevoHistorial
+            // 
+            this.btnNuevoHistorial.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(187)))), ((int)(((byte)(45)))));
+            this.btnNuevoHistorial.FlatAppearance.BorderColor = System.Drawing.Color.SeaGreen;
+            this.btnNuevoHistorial.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNuevoHistorial.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNuevoHistorial.ForeColor = System.Drawing.Color.White;
+            this.btnNuevoHistorial.Location = new System.Drawing.Point(283, 428);
+            this.btnNuevoHistorial.Name = "btnNuevoHistorial";
+            this.btnNuevoHistorial.Size = new System.Drawing.Size(159, 38);
+            this.btnNuevoHistorial.TabIndex = 13;
+            this.btnNuevoHistorial.Text = "Nuevo Historial";
+            this.btnNuevoHistorial.UseVisualStyleBackColor = false;
+            this.btnNuevoHistorial.Click += new System.EventHandler(this.btnNuevoHistorial_Click);
             // 
             // ReparacionesWF
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1099, 564);
+            this.Controls.Add(this.panelVer);
             this.Controls.Add(this.dgvReparaciones);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.txtDescipcionBus);
@@ -479,6 +637,9 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvReparaciones)).EndInit();
+            this.panelVer.ResumeLayout(false);
+            this.panelVer.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvHistorialTaller)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -505,11 +666,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.DataGridView dgvReparaciones;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idProducto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn RazonSocial;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Domicilio;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Telefono;
-        private System.Windows.Forms.DataGridViewButtonColumn Ver;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtDescipcionBus;
         private System.Windows.Forms.Label label1;
@@ -520,5 +676,20 @@
         private System.Windows.Forms.TextBox txtPorDni;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label lblidCliente;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idProducto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RazonSocial;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Domicilio;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Telefono;
+        private System.Windows.Forms.DataGridViewButtonColumn Ver;
+        private System.Windows.Forms.Panel panelVer;
+        private System.Windows.Forms.Button btnSalidaTaller;
+        private System.Windows.Forms.Label lblidReparacion;
+        private System.Windows.Forms.DataGridView dgvHistorialTaller;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Button btnNuevoHistorial;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Usuario;
+        private System.Windows.Forms.DataGridViewButtonColumn VerHistorial;
     }
 }

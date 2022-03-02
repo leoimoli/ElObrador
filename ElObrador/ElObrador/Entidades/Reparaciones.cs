@@ -8,7 +8,7 @@ namespace ElObrador.Entidades
 {
     public class Reparaciones
     {
-        public int idTaller { get; set; }
+        public int idReparaciones { get; set; }
         public int idCliente { get; set; }
         public DateTime Fecha { get; set; }
         public int idMaterial { get; set; }

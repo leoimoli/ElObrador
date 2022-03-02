@@ -47,7 +47,7 @@ namespace ElObrador.Dao
             bool exito = false;
             connection.Close();
             connection.Open();
-            string proceso = "RegistrarHistorialDeTaller";
+            string proceso = "RegistrarHistorialDeReparacion";
             MySqlCommand cmd = new MySqlCommand(proceso, connection);
             cmd.CommandType = CommandType.StoredProcedure;
             if (idTaller > 0)
@@ -81,7 +81,7 @@ namespace ElObrador.Dao
             string proceso = "ActualizarEstadoCierreTaller";
             MySqlCommand cmd = new MySqlCommand(proceso, connection);
             cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("idProducto_in", idMaterial);          
+            cmd.Parameters.AddWithValue("idProducto_in", idMaterial);
             cmd.ExecuteNonQuery();
             exito = true;
             connection.Close();
@@ -122,9 +122,9 @@ namespace ElObrador.Dao
             cmd.Parameters.AddWithValue("idUsuario_in", taller.idUsuario);
             cmd.ExecuteNonQuery();
             exito = true;
-            connection.Close();         
+            connection.Close();
             return exito;
-        }        
+        }
         private static void ActualizarEstadoMaterial(Taller taller)
         {
             connection.Close();
@@ -162,6 +162,41 @@ namespace ElObrador.Dao
             connection.Close();
             return Existe;
         }
+        public static List<Taller> ListaDeTallerPorDescripcion(string text)
+        {
+            connection.Close();
+            connection.Open();
+            List<Entidades.Taller> _listaTaller = new List<Entidades.Taller>();
+            MySqlCommand cmd = new MySqlCommand();
+            cmd.Connection = connection;
+            DataTable Tabla = new DataTable();
+            MySqlParameter[] oParam = { new MySqlParameter("Material_in", text) };
+            string proceso = "ListaDeTallerPorDescripcion";
+            MySqlDataAdapter dt = new MySqlDataAdapter(proceso, connection);
+            dt.SelectCommand.CommandType = CommandType.StoredProcedure;
+            dt.SelectCommand.Parameters.AddRange(oParam);
+            dt.Fill(Tabla);
+            DataSet ds = new DataSet();
+            if (Tabla.Rows.Count > 0)
+            {
+                foreach (DataRow item in Tabla.Rows)
+                {
+                    Entidades.Taller listaTaller = new Entidades.Taller();
+                    listaTaller.idMaterial = Convert.ToInt32(item["idProducto"].ToString());
+                    listaTaller.idTaller = Convert.ToInt32(item["idTaller"].ToString());
+                    listaTaller.TipoServicio = item["TipoServicio"].ToString();
+                    listaTaller.Diagnostico = item["Diagnostico"].ToString();
+                    listaTaller.Fecha = Convert.ToDateTime(item["FechaInicio"].ToString());
+                    listaTaller.Material = item["Material"].ToString();
+                    listaTaller.Codigo = item["Codigo"].ToString();
+                    listaTaller.Modelo = item["Modelo"].ToString();
+                    _listaTaller.Add(listaTaller);
+                }
+            }
+            connection.Close();
+            return _listaTaller;
+        }
+
         public static List<Taller> ListaDeTaller()
         {
             connection.Close();
