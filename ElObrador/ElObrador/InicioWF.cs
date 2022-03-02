@@ -26,6 +26,8 @@ namespace ElObrador
         }
         private void InicioWF_Load(object sender, EventArgs e)
         {
+            txtBuscarEnGrilla.Focus();
+            FuncionBuscartexto();
             ///// Armo Panel de Informacion
             int totalProvedores = ReportesDao.ContadorProveedores();
             int totalClientes = ReportesDao.ContadorClientes();
@@ -148,6 +150,14 @@ namespace ElObrador
             ///// Completo Grilla con informacion
             BuscarAlquileresVigentes();
         }
+
+        private void FuncionBuscartexto()
+        {
+            txtBuscarEnGrilla.AutoCompleteCustomSource = Clases_Maestras.AutoCompleteMateriales.Autocomplete();
+            txtBuscarEnGrilla.AutoCompleteMode = AutoCompleteMode.Suggest;
+            txtBuscarEnGrilla.AutoCompleteSource = AutoCompleteSource.CustomSource;
+        }
+
         private void BuscarAlquileresVigentes()
         {
             List<Alquiler> ListaAlquileres = new List<Alquiler>();
@@ -375,6 +385,38 @@ namespace ElObrador
             if (difFechas.Days > 0)
             { dias = Convert.ToInt32(difFechas.Days); }
             return dias;
+        }
+
+        private void txtBuscarEnGrilla_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                FuncionListarAlquileres();
+            }
+        }
+        private void FuncionListarAlquileres()
+        {
+            string Valor = txtBuscarEnGrilla.Text;
+            if (Valor != "")
+            {
+                BuscarAlquileresVigentesPorDescripcion(Valor);
+            }
+            else
+            { BuscarAlquileresVigentes(); }
+        }
+        private void BuscarAlquileresVigentesPorDescripcion(string Valor)
+        {
+            List<Alquiler> ListaAlquileres = new List<Alquiler>();
+            ListaAlquileres = AlquilerNeg.ListarAlquileresActualesPorDescripcion(Valor);
+            if (ListaAlquileres.Count > 0)
+            {
+                dgvAlquiler.Rows.Clear();
+                foreach (var item in ListaAlquileres)
+                {
+                    dgvAlquiler.Rows.Add(item.idAlquiler, item.idMaterial, item.DescripcionProducto, item.Dias, item.FechaDesde, item.FechaHasta);
+                }
+            }
+            dgvAlquiler.ReadOnly = true;
         }
     }
 }

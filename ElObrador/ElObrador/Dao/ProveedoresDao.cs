@@ -95,6 +95,7 @@ namespace ElObrador.Dao
             connection.Close();
             return Existe;
         }
+        
         public static List<Proveedores> BuscarProvedorPorNombre(string nombreProveedor)
         {
             connection.Close();
@@ -211,7 +212,7 @@ namespace ElObrador.Dao
             {
                 foreach (DataRow item in Tabla.Rows)
                 {
-                    idProveedor = Convert.ToInt32(item["idProveedores"].ToString());                    
+                    idProveedor = Convert.ToInt32(item["idProveedores"].ToString());
                 }
             }
             connection.Close();

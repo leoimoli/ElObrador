@@ -102,5 +102,18 @@ namespace ElObrador.Negocio
             }
             return _listaProveedores;
         }
+
+        public static List<Proveedores> ListaDeProveedoresPorDescripcion(string text)
+        {
+            List<Entidades.Proveedores> _listaProveedores = new List<Entidades.Proveedores>();
+            try
+            {
+                _listaProveedores = ProveedoresDao.BuscarProvedorPorNombre(text);
+            }
+            catch (Exception ex)
+            {
+            }
+            return _listaProveedores;
+        }
     }
 }

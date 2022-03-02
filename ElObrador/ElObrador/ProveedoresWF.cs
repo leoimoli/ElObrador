@@ -258,8 +258,25 @@ namespace ElObrador
         {
             if (e.KeyCode == Keys.Enter)
             {
-                FuncionListarproveedores();
+                FuncionListarproveedoresPorDescripcion();
             }
+        }
+        private void FuncionListarproveedoresPorDescripcion()
+        {
+            FuncionBuscartexto();
+            dgvProveedores.Rows.Clear();
+            List<Proveedores> ListaProveedores = ProveedoresNeg.ListaDeProveedoresPorDescripcion(txtDescipcionBus.Text);
+            if (ListaProveedores.Count > 0)
+            {
+                foreach (var item in ListaProveedores)
+                {
+                    string Calle = item.Calle;
+                    string Altura = item.Altura;
+                    string Domicilio = Calle + " " + "N° " + item.Altura;
+                    dgvProveedores.Rows.Add(item.idProveedor, item.NombreEmpresa, Domicilio, item.Telefono);
+                }
+            }
+            dgvProveedores.ReadOnly = true;
         }
     }
 }
