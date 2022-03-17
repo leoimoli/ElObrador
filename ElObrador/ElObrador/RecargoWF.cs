@@ -40,26 +40,32 @@ namespace ElObrador
         {
             try
             {
-                decimal MontoRecargo = Convert.ToDecimal(txtMonto.Text);
-                bool Exito = AlquilerNeg.IngresarRecargo(MontoRecargo, idAlquiler, diasAtraso);
-                if (Exito == true)
-                {
-                    Exito = AlquilerNeg.ActualizarEstados(idAlquiler, idMaterial);
-                }
-                if (Exito == true)
-                {
-                    ProgressBar();
-                    const string message2 = "Se registro el Recargo y la devolución exitosamente.";
-                    const string caption2 = "Éxito";
-                    var result2 = MessageBox.Show(message2, caption2,
-                                                 MessageBoxButtons.OK,
-                                                 MessageBoxIcon.Asterisk);
-                    Close();
-                }
+                AsignarRecargo();               
             }
             catch (Exception ex)
             { }
         }
+
+        private void AsignarRecargo()
+        {
+            decimal MontoRecargo = Convert.ToDecimal(txtMonto.Text);
+            bool Exito = AlquilerNeg.IngresarRecargo(MontoRecargo, idAlquiler, diasAtraso);
+            if (Exito == true)
+            {
+                Exito = AlquilerNeg.ActualizarEstados(idAlquiler, idMaterial);
+            }
+            if (Exito == true)
+            {
+                ProgressBar();
+                const string message2 = "Se registro el Recargo y la devolución exitosamente.";
+                const string caption2 = "Éxito";
+                var result2 = MessageBox.Show(message2, caption2,
+                                             MessageBoxButtons.OK,
+                                             MessageBoxIcon.Asterisk);
+                Close();
+            }
+        }
+
         private void ProgressBar()
         {
             progressBar1.Visible = true;
@@ -75,6 +81,16 @@ namespace ElObrador
         private void Caluculate(int i)
         {
             double pow = Math.Pow(i, i);
+        }
+
+        private void txtMonto_KeyDown(object sender, KeyEventArgs e)
+        {
+            try
+            {
+                AsignarRecargo();
+            }
+            catch (Exception ex)
+            { }
         }
     }
 }

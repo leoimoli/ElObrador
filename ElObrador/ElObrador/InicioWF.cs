@@ -345,13 +345,24 @@ namespace ElObrador
                         }
                         if (result == DialogResult.No)
                         {
+                            idAlquiler = Convert.ToInt32(this.dgvAlquiler.CurrentRow.Cells[0].Value.ToString());
+                            idMaterial = Convert.ToInt32(this.dgvAlquiler.CurrentRow.Cells[1].Value.ToString());
                             bool Exito = AlquilerNeg.ActualizarEstados(idAlquiler, idMaterial);
+                            if (Exito == true)
+                            {
+                                const string message2 = "Se registro la devolución exitosamente.";
+                                const string caption2 = "Éxito";
+                                var result2 = MessageBox.Show(message2, caption2,
+                                                             MessageBoxButtons.OK,
+                                                             MessageBoxIcon.Asterisk);
+                            }
                         }
                         if (result == DialogResult.Cancel)
                         {
                         }
                         BuscarAlquileresVigentes();
                     }
+                    BuscarAlquileresVigentes();
                 }
                 ///// Si la devolucion esta en fecha
                 else

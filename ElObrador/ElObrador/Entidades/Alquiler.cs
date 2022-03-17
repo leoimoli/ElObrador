@@ -12,6 +12,8 @@ namespace ElObrador.Entidades
         public int idMaterial { get; set; }
         public int idCliente { get; set; }
         public string Material { get; set; }
+        public string Codigo { get; set; }
+        public string Modelo { get; set; }
         public int Dias { get; set; }
         public int Estado { get; set; }
         public DateTime FechaDesde { get; set; }

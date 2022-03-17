@@ -12,6 +12,21 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -33,16 +48,39 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="itextsharp">
-      <HintPath>..\..\..\SicoNew\Sico\Sico\bin\Debug\itextsharp.dll</HintPath>
+    <Reference Include="iTextSharp, Version=4.1.6.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca">
+      <HintPath>..\packages\iTextSharp-LGPL.4.1.6\lib\iTextSharp.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\Desktop\Pablo\PoryectoReporte\PoryectoReporte\bin\Debug\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\Desktop\Pablo\PoryectoReporte\PoryectoReporte\bin\Debug\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1484.0\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\Desktop\Pablo\PoryectoReporte\PoryectoReporte\bin\Debug\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\Desktop\Pablo\PoryectoReporte\PoryectoReporte\bin\Debug\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.1016.290\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
+    </Reference>
     <Reference Include="MySql.Data">
-      <HintPath>..\..\..\Stock\Stock\Stock\bin\Debug\MySql.Data.dll</HintPath>
+      <HintPath>..\..\..\..\..\Desktop\Instaladores\MySql.Data.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
@@ -207,7 +245,7 @@
     <Compile Include="NuevoHistorialWF.Designer.cs">
       <DependentUpon>NuevoHistorialWF.cs</DependentUpon>
     </Compile>
-    <Compile Include="PDF.cs" />
+    <Compile Include="Persona.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ProveedoresWF.cs">
@@ -240,6 +278,13 @@
     <Compile Include="Reportes_AlquileresWF.Designer.cs">
       <DependentUpon>Reportes_AlquileresWF.cs</DependentUpon>
     </Compile>
+    <Compile Include="ReportViewerAlquilerWF.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportViewerAlquilerWF.Designer.cs">
+      <DependentUpon>ReportViewerAlquilerWF.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="StockWF.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -258,6 +303,10 @@
     <Compile Include="UsuariosWF.Designer.cs">
       <DependentUpon>UsuariosWF.cs</DependentUpon>
     </Compile>
+    <Compile Include="utilidades\Comun.cs" />
+    <Compile Include="utilidades\Reporte.cs" />
+    <Compile Include="utilidades\ReporteColumna.cs" />
+    <Compile Include="utilidades\ReportePagina.cs" />
     <Compile Include="VisualizarHistorialWF.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -279,6 +328,8 @@
     <EmbeddedResource Include="ConsultaClientesWF.resx">
       <DependentUpon>ConsultaClientesWF.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Factura.rdlc" />
+    <EmbeddedResource Include="FacturaNEW.rdlc" />
     <EmbeddedResource Include="FeriadosWF.resx">
       <DependentUpon>FeriadosWF.cs</DependentUpon>
     </EmbeddedResource>
@@ -328,14 +379,25 @@
     <EmbeddedResource Include="RecargoWF.resx">
       <DependentUpon>RecargoWF.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ReciboElObrador.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
     <EmbeddedResource Include="ReparacionesWF.resx">
       <DependentUpon>ReparacionesWF.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report.rdlc" />
+    <EmbeddedResource Include="Reporte.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="ReportesWF.resx">
       <DependentUpon>ReportesWF.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\Report1.rdlc" />
     <EmbeddedResource Include="Reportes_AlquileresWF.resx">
       <DependentUpon>Reportes_AlquileresWF.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportViewerAlquilerWF.resx">
+      <DependentUpon>ReportViewerAlquilerWF.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="StockWF.resx">
       <DependentUpon>StockWF.cs</DependentUpon>
@@ -349,6 +411,8 @@
     <EmbeddedResource Include="VisualizarHistorialWF.resx">
       <DependentUpon>VisualizarHistorialWF.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\DataSources\ElObrador.Entidades.Alquiler.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -456,6 +520,20 @@
     <None Include="Resources\cajas-de-carga-de-trabajador %281%29.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="imagen\icono_Obrado1.png" />
+    <Content Include="SqlServerTypes\readme.htm" />
+    <Content Include="SqlServerTypes\x64\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <None Include="Resources\WhatsApp Image 2022-02-07 at 10.55.43 AM1.jpeg" />
     <None Include="Resources\WhatsApp Image 2022-02-07 at 10.55.43 AM.jpeg" />
     <None Include="Resources\icons8-mantenimiento-20.png" />
@@ -495,6 +573,19 @@
     <None Include="Resources\icons8-proveedor-30 %281%29.png" />
     <Content Include="Resources\icons8-visible-30.ico" />
     <None Include="Resources\informe-empresarial-con-crecimiento %281%29.png" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.6.1 %28x86 y x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

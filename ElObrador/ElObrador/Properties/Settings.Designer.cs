@@ -12,7 +12,7 @@ namespace ElObrador.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "15.9.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "17.0.3.0")]
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -25,8 +25,8 @@ namespace ElObrador.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("server=25.59.35.12;Port=3307;User Id=root;password=admin;database=obrador_desarro" +
-            "llo;Persist Security Info=True")]
+        [global::System.Configuration.DefaultSettingValueAttribute("server=localhost; Port=3306;User Id=root;password=admin;database=obrador_desarrol" +
+            "lo;Persist Security Info=True")]
         public string db {
             get {
                 return ((string)(this["db"]));
