@@ -462,7 +462,7 @@ namespace waiTextSharp.utilidades
                     tblTextoAlquiler.TotalWidth = recTmp.Width - document.LeftMargin - document.RightMargin;
                     //tblTextoAlquiler.DefaultCell.PaddingTop = 20;
                     //tblTextoAlquiler.WriteSelectedRows(0, -1, document.LeftMargin, recTmp.Height - document.TopMargin + tblTextoAlquiler.TotalHeight, writer.DirectContent);
-                    tblTextoAlquiler.WriteSelectedRows(0, -1, document.LeftMargin, document.Top - 50, writer.DirectContent);
+                    tblTextoAlquiler.WriteSelectedRows(0, 100, document.LeftMargin, document.Top + 50, writer.DirectContent);
 
                     //table.WriteSelectedRows(0, 50, pdfRepor.Left + 30, pdfRepor.Top - 310, writer.DirectContent);
 

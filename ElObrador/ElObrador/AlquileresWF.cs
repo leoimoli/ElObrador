@@ -466,8 +466,8 @@ namespace ElObrador
 
         private void CargarReporte(int idAlquiler, List<Alquiler> listaAlquiler)
         {
-            ReportViewerAlquilerWF _report = new ReportViewerAlquilerWF(idAlquiler, listaAlquiler);
-            _report.Show();
+            //ReportViewerAlquilerWF _report = new ReportViewerAlquilerWF(idAlquiler, listaAlquiler);
+            //_report.Show();
 
         }
 
