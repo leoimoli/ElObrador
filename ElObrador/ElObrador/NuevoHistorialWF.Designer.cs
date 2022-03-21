@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NuevoHistorialWF));
             this.panel1 = new System.Windows.Forms.Panel();
             this.ImagenPagina = new System.Windows.Forms.PictureBox();
             this.lblPantalla = new System.Windows.Forms.Label();
@@ -56,7 +57,7 @@
             this.panel1.Controls.Add(this.btnCerrar);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(667, 43);
             this.panel1.TabIndex = 6;
@@ -67,7 +68,7 @@
             this.ImagenPagina.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(187)))), ((int)(((byte)(45)))));
             this.ImagenPagina.Image = global::ElObrador.Properties.Resources.icons8_historial_de_pedidos_30;
             this.ImagenPagina.Location = new System.Drawing.Point(13, 1);
-            this.ImagenPagina.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ImagenPagina.Margin = new System.Windows.Forms.Padding(4);
             this.ImagenPagina.Name = "ImagenPagina";
             this.ImagenPagina.Size = new System.Drawing.Size(43, 39);
             this.ImagenPagina.TabIndex = 3;
@@ -91,7 +92,7 @@
             this.btnCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCerrar.Image = global::ElObrador.Properties.Resources.cancelar2;
             this.btnCerrar.Location = new System.Drawing.Point(617, 4);
-            this.btnCerrar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCerrar.Margin = new System.Windows.Forms.Padding(4);
             this.btnCerrar.Name = "btnCerrar";
             this.btnCerrar.Size = new System.Drawing.Size(33, 31);
             this.btnCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -138,7 +139,7 @@
             // txtDiagnostico
             // 
             this.txtDiagnostico.Location = new System.Drawing.Point(40, 230);
-            this.txtDiagnostico.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtDiagnostico.Margin = new System.Windows.Forms.Padding(4);
             this.txtDiagnostico.MaxLength = 400;
             this.txtDiagnostico.Multiline = true;
             this.txtDiagnostico.Name = "txtDiagnostico";
@@ -161,7 +162,7 @@
             // dtFecha
             // 
             this.dtFecha.Location = new System.Drawing.Point(203, 105);
-            this.dtFecha.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dtFecha.Margin = new System.Windows.Forms.Padding(4);
             this.dtFecha.Name = "dtFecha";
             this.dtFecha.Size = new System.Drawing.Size(292, 22);
             this.dtFecha.TabIndex = 193;
@@ -170,7 +171,7 @@
             // 
             this.progressBar1.ForeColor = System.Drawing.Color.Lime;
             this.progressBar1.Location = new System.Drawing.Point(96, 437);
-            this.progressBar1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.progressBar1.Margin = new System.Windows.Forms.Padding(4);
             this.progressBar1.Name = "progressBar1";
             this.progressBar1.Size = new System.Drawing.Size(529, 28);
             this.progressBar1.Step = 50;
@@ -186,7 +187,7 @@
             this.btnGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardar.ForeColor = System.Drawing.Color.White;
             this.btnGuardar.Location = new System.Drawing.Point(160, 484);
-            this.btnGuardar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnGuardar.Margin = new System.Windows.Forms.Padding(4);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(385, 47);
             this.btnGuardar.TabIndex = 199;
@@ -223,7 +224,7 @@
             // txtCosto
             // 
             this.txtCosto.Location = new System.Drawing.Point(203, 176);
-            this.txtCosto.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtCosto.Margin = new System.Windows.Forms.Padding(4);
             this.txtCosto.Name = "txtCosto";
             this.txtCosto.Size = new System.Drawing.Size(292, 22);
             this.txtCosto.TabIndex = 203;
@@ -247,7 +248,8 @@
             this.Controls.Add(this.dtFecha);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "NuevoHistorialWF";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "NuevoHistorialWF";

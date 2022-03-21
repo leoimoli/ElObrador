@@ -42,6 +42,7 @@ namespace waiTextSharp.utilidades
         private string m_Encabezado;
         private string m_Subencabezado;
         private string m_TextoAlquiler;
+        private string m_Prueba;
         private string m_PiePagina;
         private ArrayList m_EncabezadoColumnas;
         private readonly string m_Logo;
@@ -62,6 +63,7 @@ namespace waiTextSharp.utilidades
         /// <param name="encabezado">Encabezado a mostrar</param>
         /// <param name="subencabezado">Subencabezado a mostrar</param>
         /// <param name="TextoAlquiler">Texto a mostrar</param>
+        /// <param name="Prueba">Texto a mostrar</param>
         /// <param name="piePagina">Pie de página a mostrar</param>
         /// <param name="encabezadocolumnas">Arreglo de columnas que contiene el reporte</param>
         /// <param name="logoNombre">Ruta y nombre del Logotipo</param>
@@ -74,6 +76,7 @@ namespace waiTextSharp.utilidades
                 m_Encabezado = encabezado;
                 m_Subencabezado = subencabezado;
                 m_TextoAlquiler = TextoAlquiler;
+                //m_Prueba = Prueba;
                 m_PiePagina = piePagina;
                 m_EncabezadoColumnas = encabezadocolumnas;
                 m_Logo = logotipo;
@@ -140,6 +143,12 @@ namespace waiTextSharp.utilidades
             set { m_TextoAlquiler = value; }
         }
 
+        //public string Prueba
+        //{
+        //    get { return m_Prueba; }
+        //    set { m_Prueba = value; }
+        //}
+
         public string PiePagina
         {
             get { return m_PiePagina; }
@@ -201,6 +210,7 @@ namespace waiTextSharp.utilidades
             PdfPTable tblEncabezado = new PdfPTable(2);
             PdfPTable tblSubencabezado = new PdfPTable(1);
             PdfPTable tblTextoAlquiler = new PdfPTable(1);
+            //PdfPTable tblPrueba = new PdfPTable(2);
             PdfPTable tblEncabezadoColumnas = new PdfPTable((m_EncabezadoColumnas.Count == 0) ? 1 : m_EncabezadoColumnas.Count);
             PdfPTable tblLogotipo = new PdfPTable(1);
             PdfPTable tblPiePagina = new PdfPTable(3);
@@ -214,6 +224,7 @@ namespace waiTextSharp.utilidades
             Font fEncabezado;
             Font fSubEncabezado;
             Font fTextoAlquiler;
+            //Font fPrueba;
             Font fPiePagina;
             Font fEncabezadoColumnas;
             Font fTamanio2;
@@ -221,7 +232,7 @@ namespace waiTextSharp.utilidades
             //Rectangle recTmp2;
             //
             string tPagina = "Impreso el " + DateTime.Now.ToShortDateString() + " Página " + writer.PageNumber.ToString() + " de ";
-            float sLongitud = m_bfTmp.GetWidthPoint(tPagina, 7);
+            float sLongitud = m_bfTmp.GetWidthPoint(tPagina, 8);
             try
             {
                 // verificar
@@ -229,14 +240,18 @@ namespace waiTextSharp.utilidades
                 {
                     // definir encabezado, subencabezado, logotipo y pie de página
                     tblEncabezado.WidthPercentage = 100;
+
                     tblSubencabezado.WidthPercentage = 100;
                     tblTextoAlquiler.WidthPercentage = 100;
-                    tblEncabezadoColumnas.WidthPercentage = 50;
+                    //tblPrueba.WidthPercentage = 100;
+                    tblEncabezadoColumnas.WidthPercentage = 100;
                     tblLogotipo.WidthPercentage = 100;
                     tblPiePagina.WidthPercentage = 100;
 
+
                     // columnas encabezado, subencabezado, logotipo y pie de página
                     tblEncabezado.SetWidths(new int[] { 20, 80 });
+
                     tblSubencabezado.SetWidths(new int[] { 100 });
                     tblTextoAlquiler.SetWidths(new int[] { 100 });
                     tblLogotipo.SetWidths(new int[] { 100 });
@@ -244,11 +259,11 @@ namespace waiTextSharp.utilidades
 
                     // definir fuentes
                     fEncabezado = new Font();
-                    fEncabezado = FontFactory.GetFont(FontFactory.TIMES_ROMAN, 10, Font.BOLD);
+                    fEncabezado = FontFactory.GetFont(FontFactory.TIMES_ROMAN, 12, Font.BOLD);
                     fSubEncabezado = new Font();
                     fSubEncabezado = FontFactory.GetFont(FontFactory.TIMES_ROMAN, 10, Font.BOLD);
                     fTextoAlquiler = new Font();
-                    fTextoAlquiler = FontFactory.GetFont(FontFactory.TIMES_ROMAN, 10, Font.BOLD);
+                    fTextoAlquiler = FontFactory.GetFont(FontFactory.TIMES_ROMAN, 8, Font.NORMAL);
                     fTamanio2 = new Font();
                     fTamanio2 = FontFactory.GetFont(FontFactory.TIMES_ROMAN, 2, Font.NORMAL);
 
@@ -321,7 +336,6 @@ namespace waiTextSharp.utilidades
                     };
                     tblTextoAlquiler.AddCell(cellTmp);
 
-                    // adicionar logotipo
                     cellTmp = new PdfPCell(tblLogotipo)
                     {
                         Border = (int)CeldaBorde.ninguno,
@@ -375,12 +389,10 @@ namespace waiTextSharp.utilidades
                                 Border = PdfPCell.NO_BORDER,
                                 HorizontalAlignment = udtCIDCuerpo.AlineacionEtiqueta,
                                 VerticalAlignment = Element.ALIGN_MIDDLE,
-                                //PaddingTop = 40,
 
                             };
-                            //cellTmp.PaddingTop = 200;
+                            cellTmp.Top = 200;
 
-                            tblEncabezadoColumnas.AddCell(cellTmp);
 
                             // resetear
                             udtCIDCuerpo = null;
@@ -396,7 +408,7 @@ namespace waiTextSharp.utilidades
                             VerticalAlignment = Element.ALIGN_MIDDLE,
                         };
 
-                        tblEncabezado.AddCell(cellTmp);
+                        //tblPrueba.AddCell(cellTmp);
 
                     }
                     else
@@ -411,9 +423,13 @@ namespace waiTextSharp.utilidades
                             HorizontalAlignment = Element.ALIGN_CENTER,
                             VerticalAlignment = Element.ALIGN_MIDDLE
                         };
-                        tblEncabezado.AddCell(cellTmp);
+                        //tblEncabezado.AddCell(cellTmp);
+                        //tblPrueba.AddCell(cellTmp);
 
                     }
+                    Rectangle rectangle2 = new Rectangle(200, 200);
+
+
 
                     // pie de página
                     fPiePagina = new Font();
@@ -457,21 +473,11 @@ namespace waiTextSharp.utilidades
                     tblEncabezado.WriteSelectedRows(0, -1, document.LeftMargin, recTmp.Height - document.TopMargin + tblEncabezado.TotalHeight, writer.DirectContent);
 
 
-                    // establecer Texto
+                    //// establecer Texto
                     recTmp = document.PageSize;
                     tblTextoAlquiler.TotalWidth = recTmp.Width - document.LeftMargin - document.RightMargin;
-                    //tblTextoAlquiler.DefaultCell.PaddingTop = 20;
-                    //tblTextoAlquiler.WriteSelectedRows(0, -1, document.LeftMargin, recTmp.Height - document.TopMargin + tblTextoAlquiler.TotalHeight, writer.DirectContent);
-                    tblTextoAlquiler.WriteSelectedRows(0, 100, document.LeftMargin, document.Top + 50, writer.DirectContent);
+                    tblTextoAlquiler.WriteSelectedRows(0, -1, document.LeftMargin, document.Top - 10, writer.DirectContent);
 
-                    //table.WriteSelectedRows(0, 50, pdfRepor.Left + 30, pdfRepor.Top - 310, writer.DirectContent);
-
-
-                    //// establecer Grilla
-                    //recTmp = document.PageSize;
-                    //tblEncabezadoColumnas.TotalWidth = recTmp.Width - document.LeftMargin - document.RightMargin;
-                    ////tblTextoAlquiler.WriteSelectedRows(0, -1, document.LeftMargin, recTmp.Height - document.TopMargin + tblTextoAlquiler.TotalHeight, writer.DirectContent);
-                    //tblEncabezadoColumnas.WriteSelectedRows(0, -1, document.LeftMargin +30, document.Top - 100, writer.DirectContent);
 
                     // establecer pie de página
                     recTmp = document.PageSize;

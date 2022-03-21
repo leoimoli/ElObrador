@@ -31,6 +31,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HistorialPrecioWF));
             this.panel1 = new System.Windows.Forms.Panel();
             this.ImagenPagina = new System.Windows.Forms.PictureBox();
             this.lblPantalla = new System.Windows.Forms.Label();
@@ -57,17 +58,19 @@
             this.panel1.Controls.Add(this.btnCerrar);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(518, 35);
+            this.panel1.Size = new System.Drawing.Size(691, 43);
             this.panel1.TabIndex = 6;
             // 
             // ImagenPagina
             // 
             this.ImagenPagina.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(187)))), ((int)(((byte)(45)))));
             this.ImagenPagina.Image = global::ElObrador.Properties.Resources.icons8_precio_bajo_301;
-            this.ImagenPagina.Location = new System.Drawing.Point(10, 1);
+            this.ImagenPagina.Location = new System.Drawing.Point(13, 1);
+            this.ImagenPagina.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ImagenPagina.Name = "ImagenPagina";
-            this.ImagenPagina.Size = new System.Drawing.Size(32, 32);
+            this.ImagenPagina.Size = new System.Drawing.Size(43, 39);
             this.ImagenPagina.TabIndex = 3;
             this.ImagenPagina.TabStop = false;
             // 
@@ -76,9 +79,10 @@
             this.lblPantalla.AutoSize = true;
             this.lblPantalla.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPantalla.ForeColor = System.Drawing.Color.White;
-            this.lblPantalla.Location = new System.Drawing.Point(48, 8);
+            this.lblPantalla.Location = new System.Drawing.Point(64, 10);
+            this.lblPantalla.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPantalla.Name = "lblPantalla";
-            this.lblPantalla.Size = new System.Drawing.Size(209, 19);
+            this.lblPantalla.Size = new System.Drawing.Size(265, 23);
             this.lblPantalla.TabIndex = 4;
             this.lblPantalla.Text = "Historial Precio de Alquiler";
             // 
@@ -87,9 +91,10 @@
             this.btnCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCerrar.Image = global::ElObrador.Properties.Resources.cancelar2;
-            this.btnCerrar.Location = new System.Drawing.Point(481, 3);
+            this.btnCerrar.Location = new System.Drawing.Point(641, 4);
+            this.btnCerrar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnCerrar.Name = "btnCerrar";
-            this.btnCerrar.Size = new System.Drawing.Size(25, 25);
+            this.btnCerrar.Size = new System.Drawing.Size(33, 31);
             this.btnCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.btnCerrar.TabIndex = 3;
             this.btnCerrar.TabStop = false;
@@ -108,6 +113,7 @@
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dataGridView1.ColumnHeadersHeight = 29;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idMaterial,
@@ -123,35 +129,42 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.EnableHeadersVisualStyles = false;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 81);
+            this.dataGridView1.Location = new System.Drawing.Point(16, 100);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersVisible = false;
+            this.dataGridView1.RowHeadersWidth = 51;
             dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
             this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle3;
-            this.dataGridView1.Size = new System.Drawing.Size(495, 252);
+            this.dataGridView1.Size = new System.Drawing.Size(660, 310);
             this.dataGridView1.TabIndex = 170;
             // 
             // idMaterial
             // 
             this.idMaterial.HeaderText = "idHistorial";
+            this.idMaterial.MinimumWidth = 6;
             this.idMaterial.Name = "idMaterial";
             this.idMaterial.Visible = false;
+            this.idMaterial.Width = 125;
             // 
             // Mat
             // 
             this.Mat.HeaderText = "Monto";
+            this.Mat.MinimumWidth = 6;
             this.Mat.Name = "Mat";
             this.Mat.Width = 170;
             // 
             // Codigo
             // 
             this.Codigo.HeaderText = "Fecha";
+            this.Codigo.MinimumWidth = 6;
             this.Codigo.Name = "Codigo";
             this.Codigo.Width = 150;
             // 
             // Modelo
             // 
             this.Modelo.HeaderText = "Usuario";
+            this.Modelo.MinimumWidth = 6;
             this.Modelo.Name = "Modelo";
             this.Modelo.Width = 170;
             // 
@@ -162,9 +175,10 @@
             this.btnVolver.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnVolver.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnVolver.ForeColor = System.Drawing.Color.White;
-            this.btnVolver.Location = new System.Drawing.Point(111, 381);
+            this.btnVolver.Location = new System.Drawing.Point(148, 469);
+            this.btnVolver.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnVolver.Name = "btnVolver";
-            this.btnVolver.Size = new System.Drawing.Size(289, 38);
+            this.btnVolver.Size = new System.Drawing.Size(385, 47);
             this.btnVolver.TabIndex = 207;
             this.btnVolver.Text = "Volver";
             this.btnVolver.UseVisualStyleBackColor = false;
@@ -175,9 +189,10 @@
             this.lblidMaterial.AutoSize = true;
             this.lblidMaterial.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblidMaterial.ForeColor = System.Drawing.Color.Black;
-            this.lblidMaterial.Location = new System.Drawing.Point(29, 52);
+            this.lblidMaterial.Location = new System.Drawing.Point(39, 64);
+            this.lblidMaterial.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblidMaterial.Name = "lblidMaterial";
-            this.lblidMaterial.Size = new System.Drawing.Size(23, 17);
+            this.lblidMaterial.Size = new System.Drawing.Size(27, 20);
             this.lblidMaterial.TabIndex = 208;
             this.lblidMaterial.Text = "@";
             this.lblidMaterial.Visible = false;
@@ -187,23 +202,26 @@
             this.lblMaterial.AutoSize = true;
             this.lblMaterial.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMaterial.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(187)))), ((int)(((byte)(45)))));
-            this.lblMaterial.Location = new System.Drawing.Point(162, 52);
+            this.lblMaterial.Location = new System.Drawing.Point(216, 64);
+            this.lblMaterial.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblMaterial.Name = "lblMaterial";
-            this.lblMaterial.Size = new System.Drawing.Size(23, 16);
+            this.lblMaterial.Size = new System.Drawing.Size(27, 20);
             this.lblMaterial.TabIndex = 209;
             this.lblMaterial.Text = "@";
             // 
             // HistorialPrecioWF
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(518, 450);
+            this.ClientSize = new System.Drawing.Size(691, 554);
             this.Controls.Add(this.lblMaterial);
             this.Controls.Add(this.lblidMaterial);
             this.Controls.Add(this.btnVolver);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "HistorialPrecioWF";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "HistorialPrecioWF";

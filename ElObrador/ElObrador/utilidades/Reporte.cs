@@ -71,12 +71,13 @@ namespace waiTextSharp.utilidades
                     throw new System.Exception("No hay información para imprimir.");
                 }
 
+
                 // asignar documento y evento
                 m_writerTmp = PdfWriter.GetInstance(docTmp, fsTmp);
-                m_peTmp = new ReportePagina(Encabezado, SubEncabezado, TextoAlquiler, PiePagina, EncabezadoColumnas, m_Logotipo, true);                
+                m_peTmp = new ReportePagina(Encabezado, SubEncabezado, TextoAlquiler, PiePagina, EncabezadoColumnas, m_Logotipo, true);
 
 
-                m_writerTmp.PageEvent = m_peTmp;              
+                m_writerTmp.PageEvent = m_peTmp;
 
                 // adicionar propiedades
                 docTmp.AddTitle(Comun.AppNombre());
@@ -88,8 +89,9 @@ namespace waiTextSharp.utilidades
 
                 // asignar ancho
                 tablaTmp.WidthPercentage = 100;
+
                 //tablaTmp.DefaultCell.PaddingTop = 100;
-              
+
 
                 // obtener ancho de columnas
                 for (int i = 0; i <= EncabezadoColumnas.Count - 1; i++)
@@ -106,7 +108,7 @@ namespace waiTextSharp.utilidades
 
                 // fijar ancho de columnas
                 tablaTmp.SetWidths(iTamanio);
-
+                bool EsEncabezado = true;
                 // por cada registro
                 foreach (DataRow drwTmp in dtbDatos.Rows)
                 {
@@ -123,17 +125,17 @@ namespace waiTextSharp.utilidades
                         // asignar información
                         if (udtCIDTmp.Formato.Length > 0)
                         {
-                          
+
                             // con formato
                             if (!Convert.IsDBNull(drwTmp[i]))
                             {
                                 celdaTmp = new PdfPCell(new Phrase(String.Format("{0:" + udtCIDTmp.Formato + "}", drwTmp[i]), fuenteTmp));
-                                //celdaTmp.PaddingTop = 100;
+                                //celdaTmp.PaddingTop = 40;
                             }
                             else
                             {
                                 celdaTmp = new PdfPCell(new Phrase(" ", fuenteTmp));
-                                //celdaTmp.PaddingTop = 100;
+                                //celdaTmp.PaddingTop = 40;
                             }
                         }
                         else
@@ -142,24 +144,35 @@ namespace waiTextSharp.utilidades
                             if (!Convert.IsDBNull(drwTmp[i]))
                             {
                                 celdaTmp = new PdfPCell(new Phrase(drwTmp[i].ToString(), fuenteTmp));
-                                //celdaTmp.PaddingTop = 100;
+                                //celdaTmp.PaddingTop = 40;
                             }
                             else
                             {
                                 celdaTmp = new PdfPCell(new Phrase(" ", fuenteTmp));
-                                //celdaTmp.PaddingTop = 100;
+                                //celdaTmp.PaddingTop = 40;
                             }
                         }
 
                         // adicionar
-                        celdaTmp.Border = PdfPCell.NO_BORDER;
-                        celdaTmp.HorizontalAlignment = udtCIDTmp.AlineacionValor;
-                        celdaTmp.VerticalAlignment = Element.ALIGN_MIDDLE;
+                        if (EsEncabezado == false)
+                        {
+                            celdaTmp.Border = PdfPCell.NO_BORDER;
+                            celdaTmp.HorizontalAlignment = udtCIDTmp.AlineacionValor;
+                            celdaTmp.VerticalAlignment = Element.ALIGN_MIDDLE;
+                        }
+                        else
+                        {
+                            celdaTmp.BackgroundColor = Color.LIGHT_GRAY;
+
+                            celdaTmp.HorizontalAlignment = udtCIDTmp.AlineacionValor;
+                            celdaTmp.VerticalAlignment = Element.ALIGN_MIDDLE;
+                        }
                         tablaTmp.AddCell(celdaTmp);
 
                         // resetear
                         udtCIDTmp = null;
                     }
+                    EsEncabezado = false;
                 }
                 // adicionar línea en blanco
                 celdaTmp = new PdfPCell(new Phrase(" ", fuenteTmp))
@@ -169,11 +182,11 @@ namespace waiTextSharp.utilidades
                     HorizontalAlignment = Element.ALIGN_RIGHT,
                     VerticalAlignment = Element.ALIGN_TOP
                 };
-                tablaTmp.AddCell(celdaTmp);
-
+                //tablaTmp.AddCell(celdaTmp);
+                tablaTmp.TotalWidth = 500;
                 // adicionar tabla con la información
-               
-                docTmp.Add(tablaTmp);
+                tablaTmp.WriteSelectedRows(0, -1, docTmp.LeftMargin + 30, docTmp.Top - 40, m_writerTmp.DirectContent);
+                //docTmp.Add(tablaTmp);
             }
             catch (Exception Ex)
             {

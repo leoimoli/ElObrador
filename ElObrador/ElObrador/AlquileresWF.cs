@@ -19,6 +19,10 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using waiTextSharp.utilidades;
 using Rectangle = iTextSharp.text.Rectangle;
+
+
+
+
 ///// Estado de los productos
 ///// 1 Habilitado
 ///// 2 en Taller
@@ -127,8 +131,11 @@ namespace ElObrador
         }
         private void txtDescipcionBus_KeyDown(object sender, KeyEventArgs e)
         {
-            string Material = txtDescipcionBus.Text;
-            ListaMateriales(Material);
+            if (e.KeyCode == Keys.Enter)
+            {
+                string Material = txtDescipcionBus.Text;
+                ListaMateriales(Material);
+            }
         }
 
         private void ListaMateriales(string material)
@@ -174,7 +181,7 @@ namespace ElObrador
                 {
                     foreach (var item in ListaValoresObtenidos)
                     {
-                        dgvAlquiler.Rows.Add(item.idMaterial, item.Descripcion, item.CantidadDiasAlquiler, dtFechaDesde.Value, dtFechaHasta.Value, item.MontoAlquiler);
+                        dgvAlquiler.Rows.Add(item.idMaterial, item.Descripcion, item.CantidadDiasAlquiler, dtFechaDesde.Value, dtFechaHasta.Value, item.MontoAlquiler, item.Codigo, item.Modelo);
                     }
                     decimal PrecioTotalFinal = 0;
                     foreach (DataGridViewRow row in dgvAlquiler.Rows)
@@ -186,6 +193,8 @@ namespace ElObrador
                     lblTotalPagarReal.Text = Convert.ToString(PrecioTotalFinal);
                     dtFechaDesde.Enabled = false;
                     dtFechaHasta.Enabled = false;
+                    txtDescipcionBus.Clear();
+                    dataGridView1.Rows.Clear();
                 }
             }
             catch (Exception ex)
@@ -248,6 +257,8 @@ namespace ElObrador
                 {
                     _lista.idMaterial = Convert.ToInt32(row.Cells[1].Value.ToString());
                     _lista.Descripcion = row.Cells[2].Value.ToString();
+                    _lista.Codigo = row.Cells[3].Value.ToString();
+                    _lista.Modelo = row.Cells[4].Value.ToString();
                     _lista.MontoAlquiler = Convert.ToDecimal(row.Cells[5].Value.ToString());
                     Lista.Add(_lista);
                 }
@@ -286,18 +297,19 @@ namespace ElObrador
                 if (idAlquiler > 0)
                 {
                     ListaAlquilerStatic = _listaAlquiler;
-                    GenerarReporte(idAlquiler, _listaAlquiler);
                     const string message2 = "Se registro la venta exitosamente.";
                     const string caption2 = "Éxito";
                     var result2 = MessageBox.Show(message2, caption2,
                                                  MessageBoxButtons.OK,
                                                  MessageBoxIcon.Asterisk);
+                    GenerarReporte(idAlquiler, _listaAlquiler);
                     LimpiarCamposPostExito();
                 }
             }
             catch (Exception ex)
             { }
         }
+
 
         #region "variables"
 
@@ -308,7 +320,18 @@ namespace ElObrador
 
         /// <summary>
         /// Obtener la ruta donde se crea y guarda el reporte (archivo) PDF
-        /// </summary>
+
+        //SqlConnection conTmp = new SqlConnection();
+        SqlCommand cmdTmp = new SqlCommand();
+        //SqlDataAdapter daTmp;
+        DataSet dstTmp = new DataSet();
+        string ArchivoNombre;
+        string Encabezado;
+        string Subencabezado = "";
+        string Texto = "";
+        string PiePagina = "";
+        ArrayList arlColumnas = new ArrayList();
+        Rectangle PapelTamanio = iTextSharp.text.PageSize.LETTER;        /// </summary>
         public string RutaReporte = Comun.AppRuta() + Comun.AppRutaReporte;
 
         /// <summary>
@@ -321,17 +344,6 @@ namespace ElObrador
         private void GenerarReporte(int idAlquiler, List<Alquiler> listaAlquiler)
         {
 
-            //SqlConnection conTmp = new SqlConnection();
-            SqlCommand cmdTmp = new SqlCommand();
-            //SqlDataAdapter daTmp;
-            DataSet dstTmp = new DataSet();
-            string ArchivoNombre;
-            string Encabezado;
-            string Subencabezado = "";
-            string Texto = "";
-            string PiePagina = "";
-            ArrayList arlColumnas = new ArrayList();
-            Rectangle PapelTamanio = iTextSharp.text.PageSize.LETTER;
 
             string TablaImnprimir = "Nro.Alquiler '" + idAlquiler + "'";
             try
@@ -357,16 +369,17 @@ namespace ElObrador
                 PapelTamanio = iTextSharp.text.PageSize.LETTER;
 
                 // encabezado
-                Subencabezado = "Comprobante de Alquiler";
+                Subencabezado = "Comprobante de Alquiler" + Environment.NewLine + "(No valido como factura)";
+
 
 
                 // Texto
-                Texto = "Por la presente se deja constancia que el cliente '" + listaAlquiler[0].Cliente + "', con Número de documento '" + listaAlquiler[0].DniCliente + "' se lleva en forma de alquiler los materiales que se detallan a continucacion.";
+                Texto = "Por la presente se deja constancia que el cliente '" + listaAlquiler[0].Cliente + "', con Número de documento '" + listaAlquiler[0].DniCliente + "' se lleva en forma de alquiler con fecha de devolución estipulada para el día '" + listaAlquiler[0].FechaHasta + "' los materiales que se detallan a continuacción.";
 
 
                 // columnas
                 arlColumnas.Add(new ReporteColumna("Material", 30, true, Element.ALIGN_CENTER, Element.ALIGN_CENTER, "", FontFactory.TIMES_ROMAN, 8));
-                arlColumnas.Add(new ReporteColumna("Modelo", 50, true, Element.ALIGN_CENTER, Element.ALIGN_LEFT, "", FontFactory.TIMES_ROMAN, 8));
+                arlColumnas.Add(new ReporteColumna("Modelo", 30, true, Element.ALIGN_CENTER, Element.ALIGN_CENTER, "", FontFactory.TIMES_ROMAN, 8));
                 arlColumnas.Add(new ReporteColumna("Código", 20, true, Element.ALIGN_CENTER, Element.ALIGN_CENTER, "", FontFactory.TIMES_ROMAN, 8));
 
                 // pie de página
@@ -380,15 +393,19 @@ namespace ElObrador
                 //
                 DataTable dt = new DataTable();
 
-                dt.Columns.Add("Material");           
+                dt.Columns.Add("Material");
                 dt.Columns.Add("Modelo");
                 dt.Columns.Add("Código");
+
+                dt.Rows.Add("Material", "Modelo", "Código");
+
 
                 foreach (var item in listaAlquiler)
                 {
                     dt.Rows.Add(item.Material, item.Modelo, item.Codigo);
                 }
 
+                //string Prueba = "Hola Mundo";
                 // crear reporte
                 udtReporte.Generar(ArchivoNombre, PapelTamanio, Encabezado, Subencabezado, Texto, PiePagina, arlColumnas, dt);
 
@@ -614,8 +631,11 @@ namespace ElObrador
             Alquiler _Alquiler = new Alquiler();
             foreach (DataGridViewRow row in dgvAlquiler.Rows)
             {
+                _Alquiler = new Alquiler();
                 _Alquiler.idMaterial = Convert.ToInt32(row.Cells["idProducto"].Value.ToString());
                 _Alquiler.Material = row.Cells["Material"].Value.ToString();
+                _Alquiler.Codigo = row.Cells["Cod"].Value.ToString();
+                _Alquiler.Modelo = row.Cells["Mod"].Value.ToString();
                 _Alquiler.Dias = Convert.ToInt32(row.Cells["Dias"].Value.ToString());
                 _Alquiler.FechaDesde = Convert.ToDateTime(row.Cells["FechaInicio"].Value.ToString());
                 _Alquiler.FechaHasta = Convert.ToDateTime(row.Cells["FechaFin"].Value.ToString());
@@ -627,11 +647,11 @@ namespace ElObrador
                 _Alquiler.Estado = 1;
                 _listaAlquiler.Add(_Alquiler);
             }
-            foreach (DataGridViewRow row in dataGridView1.Rows)
-            {
-                _Alquiler.Codigo = row.Cells["Codigo"].Value.ToString();
-                _Alquiler.Modelo = row.Cells["Modelo"].Value.ToString();
-            }
+            //foreach (DataGridViewRow row in dataGridView1.Rows)
+            //{
+            //    _Alquiler.Codigo = row.Cells["Codigo"].Value.ToString();
+            //    _Alquiler.Modelo = row.Cells["Modelo"].Value.ToString();
+            //}
             return _listaAlquiler;
         }
         private void btnCliente_Click(object sender, EventArgs e)

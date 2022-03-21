@@ -80,6 +80,39 @@ namespace ElObrador.Dao
             connection.Close();
             return total;
         }
+
+        public static List<Alquiler> CajaDeRecargos()
+        {
+            connection.Close();
+            connection.Open();
+            List<Alquiler> _listaventas = new List<Alquiler>();
+            MySqlCommand cmd = new MySqlCommand();
+            cmd.Connection = connection;
+            DataTable Tabla = new DataTable();
+            MySqlParameter[] oParam = { };
+            string proceso = "CajaDeRecargos";
+            MySqlDataAdapter dt = new MySqlDataAdapter(proceso, connection);
+            dt.SelectCommand.CommandType = CommandType.StoredProcedure;
+            dt.SelectCommand.Parameters.AddRange(oParam);
+            dt.Fill(Tabla);
+            if (Tabla.Rows.Count > 0)
+            {
+                foreach (DataRow item in Tabla.Rows)
+                {
+                    Alquiler listaVentas = new Alquiler();
+                    if (item["Total"].ToString() != null && item["Total"].ToString() != "" && Convert.ToDecimal(item["Total"].ToString()) > 0)
+                    {
+                        listaVentas.CajaDeAlquileres = Convert.ToDecimal(item["Total"].ToString());
+                    }
+                    else
+                    { listaVentas.CajaDeAlquileres = 0; }
+                    _listaventas.Add(listaVentas);
+                }
+            }
+            connection.Close();
+            return _listaventas;
+        }
+
         public static int ContadorClientes()
         {
             connection.Close();
@@ -254,12 +287,22 @@ namespace ElObrador.Dao
                 foreach (DataRow item in Tabla.Rows)
                 {
                     ListaAlquiler listaVenta = new ListaAlquiler();
-                    listaVenta.idAlquiler = Convert.ToInt32(item["idventas"].ToString());
-                    DateTime fechaReal = Convert.ToDateTime(item["FechaDesde"].ToString());
+                    listaVenta.idAlquiler = Convert.ToInt32(item["idAlquiler"].ToString());
+                    DateTime fechaReal = Convert.ToDateTime(item["Fechadesde"].ToString());
                     listaVenta.Fecha = Convert.ToDateTime(fechaReal.ToShortDateString());
                     listaVenta.Precio = Convert.ToDecimal(item["MontoTotal"].ToString());
                     var usuario = item["Apellido"].ToString() + " " + item["Nombre"].ToString();
                     listaVenta.usuario = usuario;
+                    decimal Recargo = 0;
+                    if (item["Recargo"].ToString() == "" || item["Recargo"].ToString() == null)
+                    {
+                        Recargo = 0;
+                    }
+                    else
+                    {
+                        Recargo = Convert.ToDecimal(item["Recargo"].ToString());
+                    }
+                    listaVenta.Recargo = Recargo;
                     lista.Add(listaVenta);
                 }
             }
@@ -290,6 +333,16 @@ namespace ElObrador.Dao
                     listaVenta.Precio = Convert.ToDecimal(item["MontoTotal"].ToString());
                     var usuario = item["Apellido"].ToString() + " " + item["Nombre"].ToString();
                     listaVenta.usuario = usuario;
+                    decimal Recargo = 0;
+                    if (item["Recargo"].ToString() == "" || item["Recargo"].ToString() == null)
+                    {
+                        Recargo = 0;
+                    }
+                    else
+                    {
+                        Recargo = Convert.ToDecimal(item["Recargo"].ToString());
+                    }
+                    listaVenta.Recargo = Recargo;
                     lista.Add(listaVenta);
                 }
             }
@@ -321,6 +374,16 @@ namespace ElObrador.Dao
                     listaVenta.Precio = Convert.ToDecimal(item["MontoTotal"].ToString());
                     var usuario = item["Apellido"].ToString() + " " + item["Nombre"].ToString();
                     listaVenta.usuario = usuario;
+                    decimal Recargo = 0;
+                    if (item["Recargo"].ToString() == "" || item["Recargo"].ToString() == null)
+                    {
+                        Recargo = 0;
+                    }
+                    else
+                    {
+                        Recargo = Convert.ToDecimal(item["Recargo"].ToString());
+                    }
+                    listaVenta.Recargo = Recargo;
                     lista.Add(listaVenta);
                 }
             }
@@ -351,6 +414,16 @@ namespace ElObrador.Dao
                     listaVenta.Precio = Convert.ToDecimal(item["MontoTotal"].ToString());
                     var usuario = item["Apellido"].ToString() + " " + item["Nombre"].ToString();
                     listaVenta.usuario = usuario;
+                    decimal Recargo = 0;
+                    if (item["Recargo"].ToString() == "" || item["Recargo"].ToString() == null)
+                    {
+                        Recargo = 0;
+                    }
+                    else
+                    {
+                        Recargo = Convert.ToDecimal(item["Recargo"].ToString());
+                    }
+                    listaVenta.Recargo = Recargo;
                     lista.Add(listaVenta);
                 }
             }
@@ -383,6 +456,7 @@ namespace ElObrador.Dao
                     listaVenta.Precio = Convert.ToDecimal(item["MontoTotal"].ToString());
                     var usuario = item["Apellido"].ToString() + " " + item["Nombre"].ToString();
                     listaVenta.usuario = usuario;
+                    listaVenta.Recargo = Convert.ToDecimal(item["Recargo"].ToString());
                     lista.Add(listaVenta);
                 }
             }
@@ -415,6 +489,16 @@ namespace ElObrador.Dao
                     listaVenta.Precio = Convert.ToDecimal(item["MontoTotal"].ToString());
                     var usuario = item["Apellido"].ToString() + " " + item["Nombre"].ToString();
                     listaVenta.usuario = usuario;
+                    decimal Recargo = 0;
+                    if (item["Recargo"].ToString() == "" || item["Recargo"].ToString() == null)
+                    {
+                        Recargo = 0;
+                    }
+                    else
+                    {
+                        Recargo = Convert.ToDecimal(item["Recargo"].ToString());
+                    }
+                    listaVenta.Recargo = Recargo;
                     lista.Add(listaVenta);
                 }
             }
@@ -447,6 +531,16 @@ namespace ElObrador.Dao
                     listaVenta.Precio = Convert.ToDecimal(item["MontoTotal"].ToString());
                     var usuario = item["Apellido"].ToString() + " " + item["Nombre"].ToString();
                     listaVenta.usuario = usuario;
+                    decimal Recargo = 0;
+                    if (item["Recargo"].ToString() == "" || item["Recargo"].ToString() == null)
+                    {
+                        Recargo = 0;
+                    }
+                    else
+                    {
+                        Recargo = Convert.ToDecimal(item["Recargo"].ToString());
+                    }
+                    listaVenta.Recargo = Recargo;
                     lista.Add(listaVenta);
                 }
             }

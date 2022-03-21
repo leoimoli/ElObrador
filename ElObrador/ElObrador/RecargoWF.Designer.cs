@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RecargoWF));
             this.panel1 = new System.Windows.Forms.Panel();
             this.ImagenPagina = new System.Windows.Forms.PictureBox();
             this.lblHistorial = new System.Windows.Forms.Label();
@@ -53,7 +54,7 @@
             this.panel1.Controls.Add(this.btnCerrar);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(523, 43);
             this.panel1.TabIndex = 9;
@@ -63,7 +64,7 @@
             this.ImagenPagina.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(187)))), ((int)(((byte)(45)))));
             this.ImagenPagina.Image = global::ElObrador.Properties.Resources.icons8_gestión_de_clientes_30__1_;
             this.ImagenPagina.Location = new System.Drawing.Point(13, 1);
-            this.ImagenPagina.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ImagenPagina.Margin = new System.Windows.Forms.Padding(4);
             this.ImagenPagina.Name = "ImagenPagina";
             this.ImagenPagina.Size = new System.Drawing.Size(43, 39);
             this.ImagenPagina.TabIndex = 3;
@@ -87,7 +88,7 @@
             this.btnCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCerrar.Image = global::ElObrador.Properties.Resources.cancelar2;
             this.btnCerrar.Location = new System.Drawing.Point(473, 4);
-            this.btnCerrar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCerrar.Margin = new System.Windows.Forms.Padding(4);
             this.btnCerrar.Name = "btnCerrar";
             this.btnCerrar.Size = new System.Drawing.Size(33, 31);
             this.btnCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -99,7 +100,7 @@
             // 
             this.progressBar1.ForeColor = System.Drawing.Color.Lime;
             this.progressBar1.Location = new System.Drawing.Point(108, 250);
-            this.progressBar1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.progressBar1.Margin = new System.Windows.Forms.Padding(4);
             this.progressBar1.Name = "progressBar1";
             this.progressBar1.Size = new System.Drawing.Size(301, 28);
             this.progressBar1.Step = 50;
@@ -115,7 +116,7 @@
             this.btnGuardarProducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardarProducto.ForeColor = System.Drawing.Color.White;
             this.btnGuardarProducto.Location = new System.Drawing.Point(69, 304);
-            this.btnGuardarProducto.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnGuardarProducto.Margin = new System.Windows.Forms.Padding(4);
             this.btnGuardarProducto.Name = "btnGuardarProducto";
             this.btnGuardarProducto.Size = new System.Drawing.Size(385, 47);
             this.btnGuardarProducto.TabIndex = 191;
@@ -139,7 +140,7 @@
             // 
             this.txtMonto.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtMonto.Location = new System.Drawing.Point(195, 188);
-            this.txtMonto.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtMonto.Margin = new System.Windows.Forms.Padding(4);
             this.txtMonto.Name = "txtMonto";
             this.txtMonto.Size = new System.Drawing.Size(292, 22);
             this.txtMonto.TabIndex = 189;
@@ -162,7 +163,7 @@
             this.txtMaterial.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtMaterial.Enabled = false;
             this.txtMaterial.Location = new System.Drawing.Point(195, 76);
-            this.txtMaterial.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtMaterial.Margin = new System.Windows.Forms.Padding(4);
             this.txtMaterial.Name = "txtMaterial";
             this.txtMaterial.Size = new System.Drawing.Size(292, 22);
             this.txtMaterial.TabIndex = 193;
@@ -184,7 +185,7 @@
             this.txtDias.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtDias.Enabled = false;
             this.txtDias.Location = new System.Drawing.Point(195, 134);
-            this.txtDias.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtDias.Margin = new System.Windows.Forms.Padding(4);
             this.txtDias.Name = "txtDias";
             this.txtDias.Size = new System.Drawing.Size(292, 22);
             this.txtDias.TabIndex = 195;
@@ -204,7 +205,8 @@
             this.Controls.Add(this.txtMonto);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "RecargoWF";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "RecargoWF";

@@ -92,28 +92,58 @@ namespace ElObrador.Dao
             bool exito = false;
             connection.Close();
             connection.Open();
+            connection.Close();
+            connection.Open();
             ///PROCEDIMIENTO
-            string proceso = "ActualizarCierreDeAlquiler";
-            MySqlCommand cmd = new MySqlCommand(proceso, connection);
-            cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("idAlquiler_in", idAlquiler);
-            cmd.Parameters.AddWithValue("FechaDevolucion_in", DateTime.Now);
-            cmd.ExecuteNonQuery();
+            string proceso2 = "ActualizarEstadoDelMaterial";
+            MySqlCommand cmd2 = new MySqlCommand(proceso2, connection);
+            cmd2.CommandType = CommandType.StoredProcedure;
+            cmd2.Parameters.AddWithValue("idMaterial_in", idMaterial);
+            cmd2.ExecuteNonQuery();
             connection.Close();
             exito = true;
-            if (exito == true)
+
+            ////Valido si el alquiler tiene mas materiales asociados.
+            int ValidarCierreAlquiler = ValidarEstadoAlquiler(idAlquiler);
+
+            if (exito == true && ValidarCierreAlquiler == 0)
             {
-                connection.Close();
-                connection.Open();
                 ///PROCEDIMIENTO
-                string proceso2 = "ActualizarEstadoDelMaterial";
-                MySqlCommand cmd2 = new MySqlCommand(proceso2, connection);
-                cmd2.CommandType = CommandType.StoredProcedure;
-                cmd2.Parameters.AddWithValue("idMaterial_in", idMaterial);
-                cmd2.ExecuteNonQuery();
+                string proceso = "ActualizarCierreDeAlquiler";
+                MySqlCommand cmd = new MySqlCommand(proceso, connection);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("idAlquiler_in", idAlquiler);
+                cmd.Parameters.AddWithValue("FechaDevolucion_in", DateTime.Now);
+                cmd.ExecuteNonQuery();
                 connection.Close();
+                exito = true;
             }
             return exito;
+        }
+
+        private static int ValidarEstadoAlquiler(int idAlquiler)
+        {
+            connection.Close();
+            connection.Open();
+            int idMaterial = 0;
+            MySqlCommand cmd = new MySqlCommand();
+            cmd.Connection = connection;
+            DataTable Tabla = new DataTable();
+            MySqlParameter[] oParam = { new MySqlParameter("idAlquiler_in", idAlquiler) };
+            string proceso = "ValidarEstadoAlquiler";
+            MySqlDataAdapter dt = new MySqlDataAdapter(proceso, connection);
+            dt.SelectCommand.CommandType = CommandType.StoredProcedure;
+            dt.SelectCommand.Parameters.AddRange(oParam);
+            dt.Fill(Tabla);
+            if (Tabla.Rows.Count > 0)
+            {
+                foreach (DataRow item in Tabla.Rows)
+                {
+                    idMaterial = Convert.ToInt32(item["idProducto"].ToString());
+                }
+            }
+            connection.Close();
+            return idMaterial;
         }
 
         public static List<Alquiler> ListarAlquileresActuales()

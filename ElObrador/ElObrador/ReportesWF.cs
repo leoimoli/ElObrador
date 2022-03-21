@@ -58,12 +58,19 @@ namespace ElObrador
             lblTotalVentas.Text = Convert.ToString(listaVentas2[0].TotalDeAlquleresGenerales);
             /// Caja de Ventas
             List<Alquiler> listaVentas3 = new List<Alquiler>();
+            List<Alquiler> listaRecargo = new List<Alquiler>();
             listaVentas3 = ReportesDao.CajaDeAlquileres();
-            lblCajaVentas.Text = Convert.ToString(listaVentas3[0].CajaDeAlquileres);
+            listaRecargo = ReportesDao.CajaDeRecargos();
+            decimal totalCaja = listaVentas3[0].CajaDeAlquileres + listaRecargo[0].CajaDeAlquileres;
+            lblCajaVentas.Text = Convert.ToString(totalCaja);
+            ToolTip tool = new ToolTip();
+            toolTip2.SetToolTip(btnAlquileresCaja, "Caja de Alquiler = '" + listaVentas3[0].CajaDeAlquileres + "' Recargos = '" + listaRecargo[0].CajaDeAlquileres + "'");
             /// Total de Compras
             List<Proveedores> listaCompras = new List<Proveedores>();
             listaCompras = ReportesDao.TotalDeCompras();
-            lblTotalCompras.Text = Convert.ToString(listaCompras[0].TotalDeComprasGenerales);
+            lblTotalCompras.Text = Convert.ToString(listaCompras[0].TotalDeComprasGenerales);         
+          
+
             /// Pagos de Compras
             List<Proveedores> listaCompras2 = new List<Proveedores>();
             listaCompras2 = ReportesDao.PagosCompras();

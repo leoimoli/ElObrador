@@ -47,6 +47,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>icono_Obrado1.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="iTextSharp, Version=4.1.6.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca">
       <HintPath>..\packages\iTextSharp-LGPL.4.1.6\lib\iTextSharp.dll</HintPath>
@@ -278,12 +281,6 @@
     <Compile Include="Reportes_AlquileresWF.Designer.cs">
       <DependentUpon>Reportes_AlquileresWF.cs</DependentUpon>
     </Compile>
-    <Compile Include="ReportViewerAlquilerWF.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ReportViewerAlquilerWF.Designer.cs">
-      <DependentUpon>ReportViewerAlquilerWF.cs</DependentUpon>
-    </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="StockWF.cs">
       <SubType>Form</SubType>
@@ -329,7 +326,6 @@
       <DependentUpon>ConsultaClientesWF.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Factura.rdlc" />
-    <EmbeddedResource Include="FacturaNEW.rdlc" />
     <EmbeddedResource Include="FeriadosWF.resx">
       <DependentUpon>FeriadosWF.cs</DependentUpon>
     </EmbeddedResource>
@@ -379,25 +375,15 @@
     <EmbeddedResource Include="RecargoWF.resx">
       <DependentUpon>RecargoWF.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ReciboElObrador.rdlc">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
     <EmbeddedResource Include="ReparacionesWF.resx">
       <DependentUpon>ReparacionesWF.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Report.rdlc" />
-    <EmbeddedResource Include="Reporte.rdlc">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
     <EmbeddedResource Include="ReportesWF.resx">
       <DependentUpon>ReportesWF.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reportes\Report1.rdlc" />
     <EmbeddedResource Include="Reportes_AlquileresWF.resx">
       <DependentUpon>Reportes_AlquileresWF.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ReportViewerAlquilerWF.resx">
-      <DependentUpon>ReportViewerAlquilerWF.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="StockWF.resx">
       <DependentUpon>StockWF.cs</DependentUpon>
@@ -521,6 +507,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="imagen\icono_Obrado1.png" />
+    <Content Include="icono_Obrado1.ico" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -574,7 +561,9 @@
     <Content Include="Resources\icons8-visible-30.ico" />
     <None Include="Resources\informe-empresarial-con-crecimiento %281%29.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Reportes\" />
+  </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
       <Visible>False</Visible>

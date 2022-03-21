@@ -12,5 +12,6 @@ namespace ElObrador.Entidades
         public DateTime Fecha { get; set; }
         public decimal Precio { get; set; }
         public string usuario { get; set; }
+        public decimal Recargo { get; set; }
     }
 }

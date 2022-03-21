@@ -55,8 +55,8 @@ namespace ElObrador
             foreach (var item in resultado)
             {
                 string fecha = item.Fecha.ToShortDateString();
-                TotalVentas = Convert.ToDecimal(TotalVentas + item.Precio);
-                dgvVentas.Rows.Add(item.idAlquiler, fecha, item.Precio);
+                TotalVentas = Convert.ToDecimal(TotalVentas + item.Precio);                
+                dgvVentas.Rows.Add(item.idAlquiler, fecha, item.Precio, item.Recargo);
             }
             /// Total de Alquileres                 
             lblTotalVentas.Text = Convert.ToString(resultado.Count);
@@ -244,6 +244,11 @@ namespace ElObrador
             Microsoft.Office.Interop.Excel.Range CR = (Microsoft.Office.Interop.Excel.Range)xlWorkSheet.Cells[1, 1];
             CR.Select();
             xlWorkSheet.PasteSpecial(CR, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, true);
+        }
+
+        private void btnCerrar_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

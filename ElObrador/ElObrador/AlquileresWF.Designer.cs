@@ -36,6 +36,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AlquileresWF));
             this.dgvAlquiler = new System.Windows.Forms.DataGridView();
             this.idProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Material = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -43,6 +44,8 @@
             this.FechaInicio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FechaFin = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ValorAlquiler = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cod = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Mod = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PanelPrecios = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
             this.txtDescipcionBus = new System.Windows.Forms.TextBox();
@@ -103,7 +106,9 @@
             this.Dias,
             this.FechaInicio,
             this.FechaFin,
-            this.ValorAlquiler});
+            this.ValorAlquiler,
+            this.Cod,
+            this.Mod});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -173,6 +178,22 @@
             this.ValorAlquiler.MinimumWidth = 6;
             this.ValorAlquiler.Name = "ValorAlquiler";
             this.ValorAlquiler.Width = 90;
+            // 
+            // Cod
+            // 
+            this.Cod.HeaderText = "Codigo";
+            this.Cod.MinimumWidth = 6;
+            this.Cod.Name = "Cod";
+            this.Cod.Visible = false;
+            this.Cod.Width = 125;
+            // 
+            // Mod
+            // 
+            this.Mod.HeaderText = "Modelo";
+            this.Mod.MinimumWidth = 6;
+            this.Mod.Name = "Mod";
+            this.Mod.Visible = false;
+            this.Mod.Width = 125;
             // 
             // PanelPrecios
             // 
@@ -584,6 +605,7 @@
             // 
             this.reportViewer1.Location = new System.Drawing.Point(0, 0);
             this.reportViewer1.Name = "ReportViewer";
+            this.reportViewer1.ServerReport.BearerToken = null;
             this.reportViewer1.Size = new System.Drawing.Size(396, 246);
             this.reportViewer1.TabIndex = 0;
             // 
@@ -607,6 +629,7 @@
             this.Controls.Add(this.PanelPrecios);
             this.Controls.Add(this.dgvAlquiler);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "AlquileresWF";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -655,14 +678,16 @@
         public System.Windows.Forms.Label lblClienteFijo;
         public System.Windows.Forms.Label lblDniFijo;
         private System.Windows.Forms.Button btnCliente;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Button btnDevoluciones;
+        private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
         private System.Windows.Forms.DataGridViewTextBoxColumn idProducto;
         private System.Windows.Forms.DataGridViewTextBoxColumn Material;
         private System.Windows.Forms.DataGridViewTextBoxColumn Dias;
         private System.Windows.Forms.DataGridViewTextBoxColumn FechaInicio;
         private System.Windows.Forms.DataGridViewTextBoxColumn FechaFin;
         private System.Windows.Forms.DataGridViewTextBoxColumn ValorAlquiler;
-        private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.Button btnDevoluciones;
-        private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Cod;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Mod;
     }
 }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CategoriaWF));
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblPantalla = new System.Windows.Forms.Label();
             this.btnCerrar = new System.Windows.Forms.PictureBox();
@@ -48,8 +49,9 @@
             this.panel1.Controls.Add(this.btnCerrar);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(328, 35);
+            this.panel1.Size = new System.Drawing.Size(437, 43);
             this.panel1.TabIndex = 15;
             // 
             // lblPantalla
@@ -57,9 +59,10 @@
             this.lblPantalla.AutoSize = true;
             this.lblPantalla.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPantalla.ForeColor = System.Drawing.Color.White;
-            this.lblPantalla.Location = new System.Drawing.Point(7, 7);
+            this.lblPantalla.Location = new System.Drawing.Point(9, 9);
+            this.lblPantalla.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPantalla.Name = "lblPantalla";
-            this.lblPantalla.Size = new System.Drawing.Size(142, 19);
+            this.lblPantalla.Size = new System.Drawing.Size(178, 23);
             this.lblPantalla.TabIndex = 4;
             this.lblPantalla.Text = "Nuevo Categoría";
             // 
@@ -68,9 +71,10 @@
             this.btnCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCerrar.Image = global::ElObrador.Properties.Resources.cancelar2;
-            this.btnCerrar.Location = new System.Drawing.Point(295, 3);
+            this.btnCerrar.Location = new System.Drawing.Point(393, 4);
+            this.btnCerrar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnCerrar.Name = "btnCerrar";
-            this.btnCerrar.Size = new System.Drawing.Size(25, 25);
+            this.btnCerrar.Size = new System.Drawing.Size(33, 31);
             this.btnCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.btnCerrar.TabIndex = 3;
             this.btnCerrar.TabStop = false;
@@ -81,18 +85,20 @@
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.Black;
-            this.label9.Location = new System.Drawing.Point(-1, 110);
+            this.label9.Location = new System.Drawing.Point(-1, 135);
+            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(87, 17);
+            this.label9.Size = new System.Drawing.Size(101, 20);
             this.label9.TabIndex = 188;
             this.label9.Text = "Nombre(*):";
             // 
             // txtCategoria
             // 
             this.txtCategoria.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtCategoria.Location = new System.Drawing.Point(86, 109);
+            this.txtCategoria.Location = new System.Drawing.Point(115, 134);
+            this.txtCategoria.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtCategoria.Name = "txtCategoria";
-            this.txtCategoria.Size = new System.Drawing.Size(220, 20);
+            this.txtCategoria.Size = new System.Drawing.Size(292, 22);
             this.txtCategoria.TabIndex = 187;
             // 
             // label2
@@ -100,18 +106,20 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(10, 63);
+            this.label2.Location = new System.Drawing.Point(13, 78);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(76, 17);
+            this.label2.Size = new System.Drawing.Size(87, 20);
             this.label2.TabIndex = 190;
             this.label2.Text = "Grupo(*):";
             // 
             // cmbGrupo
             // 
             this.cmbGrupo.FormattingEnabled = true;
-            this.cmbGrupo.Location = new System.Drawing.Point(86, 62);
+            this.cmbGrupo.Location = new System.Drawing.Point(115, 76);
+            this.cmbGrupo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cmbGrupo.Name = "cmbGrupo";
-            this.cmbGrupo.Size = new System.Drawing.Size(220, 21);
+            this.cmbGrupo.Size = new System.Drawing.Size(292, 24);
             this.cmbGrupo.TabIndex = 189;
             // 
             // btnGuardarProducto
@@ -121,9 +129,10 @@
             this.btnGuardarProducto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGuardarProducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardarProducto.ForeColor = System.Drawing.Color.White;
-            this.btnGuardarProducto.Location = new System.Drawing.Point(17, 178);
+            this.btnGuardarProducto.Location = new System.Drawing.Point(23, 219);
+            this.btnGuardarProducto.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnGuardarProducto.Name = "btnGuardarProducto";
-            this.btnGuardarProducto.Size = new System.Drawing.Size(289, 38);
+            this.btnGuardarProducto.Size = new System.Drawing.Size(385, 47);
             this.btnGuardarProducto.TabIndex = 191;
             this.btnGuardarProducto.Text = "Guardar";
             this.btnGuardarProducto.UseVisualStyleBackColor = false;
@@ -132,9 +141,10 @@
             // progressBar1
             // 
             this.progressBar1.ForeColor = System.Drawing.Color.Lime;
-            this.progressBar1.Location = new System.Drawing.Point(49, 149);
+            this.progressBar1.Location = new System.Drawing.Point(65, 183);
+            this.progressBar1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(226, 23);
+            this.progressBar1.Size = new System.Drawing.Size(301, 28);
             this.progressBar1.Step = 50;
             this.progressBar1.TabIndex = 192;
             this.progressBar1.Value = 10;
@@ -142,9 +152,9 @@
             // 
             // CategoriaWF
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(328, 217);
+            this.ClientSize = new System.Drawing.Size(437, 267);
             this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.btnGuardarProducto);
             this.Controls.Add(this.label2);
@@ -153,6 +163,8 @@
             this.Controls.Add(this.txtCategoria);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "CategoriaWF";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CategoriaWF";

@@ -40,7 +40,7 @@ namespace ElObrador
         {
             try
             {
-                AsignarRecargo();               
+                AsignarRecargo();
             }
             catch (Exception ex)
             { }
@@ -87,7 +87,10 @@ namespace ElObrador
         {
             try
             {
-                AsignarRecargo();
+                if (e.KeyCode == Keys.Enter)
+                {
+                    AsignarRecargo();
+                }
             }
             catch (Exception ex)
             { }
