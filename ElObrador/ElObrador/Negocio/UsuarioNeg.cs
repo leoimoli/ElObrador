@@ -60,7 +60,20 @@ namespace ElObrador.Negocio
             try
             {
                 ValidarDatos(usuario);
-                exito = UsuarioDao.EditarUsuario(usuario, idUsuarioSeleccionado);
+                bool UsuarioExistente = ValidarUsuarioExistente(usuario.Dni);
+                if (UsuarioExistente == true)
+                {
+                    const string message = "Ya existe un usuario registrado con el dni ingresado.";
+                    const string caption = "Error";
+                    var result = MessageBox.Show(message, caption,
+                                                 MessageBoxButtons.OK,
+                                               MessageBoxIcon.Exclamation);
+                    throw new Exception();
+                }
+                else
+                {
+                    exito = UsuarioDao.EditarUsuario(usuario, idUsuarioSeleccionado);
+                }             
             }
             catch (Exception ex)
             {

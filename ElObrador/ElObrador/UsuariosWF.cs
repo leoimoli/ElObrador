@@ -347,6 +347,10 @@ namespace ElObrador
                 chcActivo.Checked = false;
             }
         }
+        private void SoloNumeros(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsNumber(e.KeyChar) && e.KeyChar != Convert.ToChar(Keys.Back);
+        }
         #endregion              
     }
 }

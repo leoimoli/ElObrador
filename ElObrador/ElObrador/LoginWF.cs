@@ -39,9 +39,18 @@ namespace ElObrador
                 contraseña = cifrar;
                 usuarios = UsuarioNeg.LoginUsuario(usuario, contraseña);
                 if (usuarios.Count == 0)
+
                 {
                     const string message2 = "Usuario/contraseña ingresado incorrecta.";
                     const string caption2 = "Error";
+                    var result2 = MessageBox.Show(message2, caption2,
+                                                 MessageBoxButtons.OK,
+                                                 MessageBoxIcon.Exclamation);
+                }
+                if (usuarios[0].Estado == 0)
+                {
+                    const string message2 = "Atención: El Usuario ingresado se encuentra inactivo. Consultelo con el administrador.";
+                    const string caption2 = "Atención";
                     var result2 = MessageBox.Show(message2, caption2,
                                                  MessageBoxButtons.OK,
                                                  MessageBoxIcon.Exclamation);

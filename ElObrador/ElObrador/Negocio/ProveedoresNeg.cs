@@ -41,7 +41,20 @@ namespace ElObrador.Negocio
             try
             {
                 ValidarDatos(proveedor);
-                exito = ProveedoresDao.EditarProveedor(proveedor, idProveedorSeleccionado);
+                bool ProveedorExistente = ValidarProveedorExistente(proveedor.NombreEmpresa);
+                if (ProveedorExistente == true)
+                {
+                    const string message = "Ya existe un proveedor registrado con el nombre ingresado.";
+                    const string caption = "Error";
+                    var result = MessageBox.Show(message, caption,
+                                                 MessageBoxButtons.OK,
+                                               MessageBoxIcon.Exclamation);
+                    throw new Exception();
+                }
+                else
+                {
+                    exito = ProveedoresDao.EditarProveedor(proveedor, idProveedorSeleccionado);
+                }               
             }
             catch (Exception ex)
             {
@@ -82,7 +95,7 @@ namespace ElObrador.Negocio
         {
             if (String.IsNullOrEmpty(_proveedor.NombreEmpresa))
             {
-                const string message = "El campo nombre es obligatorio.";
+                const string message = "El campo Razón Social es obligatorio.";
                 const string caption = "Error";
                 var result = MessageBox.Show(message, caption,
                                              MessageBoxButtons.OK,

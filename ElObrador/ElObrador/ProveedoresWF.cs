@@ -42,7 +42,20 @@ namespace ElObrador
                 {
                     string Calle = item.Calle;
                     string Altura = item.Altura;
-                    string Domicilio = Calle + " " + "N° " + item.Altura;
+                    string Domicilio = "";
+                    if (Calle == "" && Altura == "")
+                    {
+                        Domicilio = "";
+                    }
+                    else
+                    {
+                        Domicilio = Calle + " " + "N° " + item.Altura;
+                    }
+
+                    if (item.Telefono == "" || item.Telefono == "-")
+                    {
+                        item.Telefono = "";
+                    }
                     dgvProveedores.Rows.Add(item.idProveedor, item.NombreEmpresa, Domicilio, item.Telefono);
                 }
             }
@@ -276,7 +289,16 @@ namespace ElObrador
                     dgvProveedores.Rows.Add(item.idProveedor, item.NombreEmpresa, Domicilio, item.Telefono);
                 }
             }
+            else
+            {
+                const string message2 = "Atención: No se encontraron resultados con la razón social ingresada.";
+                const string caption2 = "Atención:";
+                var result2 = MessageBox.Show(message2, caption2,
+                                             MessageBoxButtons.OK,
+                                             MessageBoxIcon.Exclamation);
+            }
             dgvProveedores.ReadOnly = true;
-        }
+        }               
+               
     }
 }

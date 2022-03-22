@@ -25,8 +25,8 @@ namespace ElObrador.Dao
             DataTable Tabla = new DataTable();
             MySqlParameter[] oParam = {
                                       new MySqlParameter("Dni_in", usuario),
-                                       new MySqlParameter("Contrasenia_in", contraseña),
-             new MySqlParameter("Estado_in", estado)};
+                                       new MySqlParameter("Contrasenia_in", contraseña)};
+             //};
             string proceso = "LoginUsuario";
             MySqlDataAdapter dt = new MySqlDataAdapter(proceso, connection);
             dt.SelectCommand.CommandType = CommandType.StoredProcedure;
