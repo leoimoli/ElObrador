@@ -103,5 +103,11 @@ namespace ElObrador
         {
             this.WindowState = FormWindowState.Minimized;
         }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+            ConexionesWF _cone = new ConexionesWF();
+            _cone.Show();
+        }
     }
 }

@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.28307.1169
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ElObrador", "ElObrador\ElObrador.csproj", "{F4D4190D-DDC4-4D22-AEA6-27192E7BCFB6}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Obrador-Setup", "Obrador-Setup\Obrador-Setup.vdproj", "{601101A3-6BC9-4F5C-854A-179F5C403709}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,8 @@ Global
 		{F4D4190D-DDC4-4D22-AEA6-27192E7BCFB6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F4D4190D-DDC4-4D22-AEA6-27192E7BCFB6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F4D4190D-DDC4-4D22-AEA6-27192E7BCFB6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{601101A3-6BC9-4F5C-854A-179F5C403709}.Debug|Any CPU.ActiveCfg = Debug
+		{601101A3-6BC9-4F5C-854A-179F5C403709}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

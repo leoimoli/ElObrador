@@ -108,6 +108,8 @@ namespace ElObrador.Dao
 
             if (exito == true && ValidarCierreAlquiler == 0)
             {
+                connection.Close();
+                connection.Open();
                 ///PROCEDIMIENTO
                 string proceso = "ActualizarCierreDeAlquiler";
                 MySqlCommand cmd = new MySqlCommand(proceso, connection);

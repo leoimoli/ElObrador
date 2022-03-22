@@ -76,9 +76,6 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\Desktop\Pablo\PoryectoReporte\PoryectoReporte\bin\Debug\Microsoft.ReportViewer.WinForms.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.1016.290\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
-    </Reference>
     <Reference Include="MySql.Data">
       <HintPath>..\..\..\..\..\Desktop\Instaladores\MySql.Data.dll</HintPath>
     </Reference>
@@ -127,6 +124,12 @@
     </Compile>
     <Compile Include="ClientesWF.Designer.cs">
       <DependentUpon>ClientesWF.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ConexionesWF.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConexionesWF.Designer.cs">
+      <DependentUpon>ConexionesWF.cs</DependentUpon>
     </Compile>
     <Compile Include="ConfiguracionesWF.cs">
       <SubType>Form</SubType>
@@ -281,7 +284,6 @@
     <Compile Include="Reportes_AlquileresWF.Designer.cs">
       <DependentUpon>Reportes_AlquileresWF.cs</DependentUpon>
     </Compile>
-    <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="StockWF.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -318,6 +320,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ClientesWF.resx">
       <DependentUpon>ClientesWF.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ConexionesWF.resx">
+      <DependentUpon>ConexionesWF.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ConfiguracionesWF.resx">
       <DependentUpon>ConfiguracionesWF.cs</DependentUpon>
@@ -508,19 +513,6 @@
   <ItemGroup>
     <None Include="imagen\icono_Obrado1.png" />
     <Content Include="icono_Obrado1.ico" />
-    <Content Include="SqlServerTypes\readme.htm" />
-    <Content Include="SqlServerTypes\x64\msvcr120.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="SqlServerTypes\x86\msvcr120.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <None Include="Resources\WhatsApp Image 2022-02-07 at 10.55.43 AM1.jpeg" />
     <None Include="Resources\WhatsApp Image 2022-02-07 at 10.55.43 AM.jpeg" />
     <None Include="Resources\icons8-mantenimiento-20.png" />
