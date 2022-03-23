@@ -314,7 +314,8 @@
             this.txtProvincia.Name = "txtProvincia";
             this.txtProvincia.Size = new System.Drawing.Size(200, 20);
             this.txtProvincia.TabIndex = 7;
-            this.txtProvincia.TextChanged += new System.EventHandler(this.txtProvincia_TextChanged);
+            this.txtProvincia.Click += new System.EventHandler(this.txtProvincia_Click);
+            this.txtProvincia.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtProvincia_KeyDown);
             // 
             // label10
             // 

@@ -38,7 +38,21 @@ namespace ElObrador
                     string Apellido = item.Apellido;
                     string Nombre = item.Nombre;
                     string Persona = Apellido + "," + Nombre;
-                    string Domicilio = item.Calle + "N°" + item.Altura;
+                    string Domicilio = "";
+
+                    if (item.Calle == "" && item.Altura == "")
+                    {
+                        Domicilio = "";
+                    }
+                    else
+                    {
+                        Domicilio = item.Calle + "N°" + item.Altura;
+                    }
+
+                    if (item.Telefono == "" || item.Telefono == "-")
+                    {
+                        item.Telefono = "";
+                    }
                     //string Calle = item.Calle;
                     //string Altura = item.Altura;
                     //string Domicilio = Calle + " " + "N° " + item.Altura + ", " + item.NombreProvincia + ", " + item.NombreLocalidad;
@@ -68,7 +82,22 @@ namespace ElObrador
                     string Apellido = item.Apellido;
                     string Nombre = item.Nombre;
                     string Persona = Apellido + "," + Nombre;
-                    string Domicilio = item.Calle + "N°" + item.Altura;
+                    //string Domicilio = item.Calle + "N°" + item.Altura;
+                    string Domicilio = "";
+
+                    if (item.Calle == "" && item.Altura == "")
+                    {
+                        Domicilio = "";
+                    }
+                    else
+                    {
+                        Domicilio = item.Calle + "N°" + item.Altura;
+                    }
+
+                    if (item.Telefono == "" || item.Telefono == "-")
+                    {
+                        item.Telefono = "";
+                    }
                     dgvClientes.Rows.Add(item.IdCliente, Persona, Domicilio, item.Email, item.Telefono);
                 }
             }
@@ -93,7 +122,22 @@ namespace ElObrador
                     string Apellido = item.Apellido;
                     string Nombre = item.Nombre;
                     string Persona = Apellido + "," + Nombre;
-                    string Domicilio = item.Calle + "N°" + item.Altura;
+                    //string Domicilio = item.Calle + "N°" + item.Altura;
+                    string Domicilio = "";
+
+                    if (item.Calle == "" && item.Altura == "")
+                    {
+                        Domicilio = "";
+                    }
+                    else
+                    {
+                        Domicilio = item.Calle + "N°" + item.Altura;
+                    }
+
+                    if (item.Telefono == "" || item.Telefono == "-")
+                    {
+                        item.Telefono = "";
+                    }
                     dgvClientes.Rows.Add(item.IdCliente, Persona, Domicilio, item.Email, item.Telefono);
                 }
             }
@@ -330,7 +374,7 @@ namespace ElObrador
             txtCalle.Enabled = true;
             txtAltura.Enabled = true;
             txtProvincia.Enabled = true;
-            txtLocalidad.Enabled = true;           
+            txtLocalidad.Enabled = true;
         }
         private void btnBuscar_Click(object sender, EventArgs e)
         {
@@ -348,23 +392,23 @@ namespace ElObrador
             e.Handled = !char.IsNumber(e.KeyChar) && e.KeyChar != Convert.ToChar(Keys.Back);
         }
         public static int idProvinciaSeleccionada;
-        private void txtProvincia_TextChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                string provincia = txtProvincia.Text;
-                if (provincia != "")
-                {
-                    int idProvincia = ClientesNeg.BuscarIdProvincia(provincia);
-                    CargarLocalidades(idProvincia);
-                    idProvinciaSeleccionada = idProvincia;
-                }
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
+        //private void txtProvincia_TextChanged(object sender, EventArgs e)
+        //{
+        //    try
+        //    {
+        //        string provincia = txtProvincia.Text;
+        //        if (provincia != "")
+        //        {
+        //            int idProvincia = ClientesNeg.BuscarIdProvincia(provincia);
+        //            CargarLocalidades(idProvincia);
+        //            idProvinciaSeleccionada = idProvincia;
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        throw ex;
+        //    }
+        //}
         private void CargarLocalidades(int idProvincia)
         {
             txtLocalidad.AutoCompleteCustomSource = Clases_Maestras.AutoCompleteLocalidades.Autocomplete(idProvincia);
@@ -381,7 +425,7 @@ namespace ElObrador
                 {
                     List<Clientes> Localidad = new List<Clientes>();
                     Localidad = ClientesNeg.BuscarInformacionLocalidad(localidad, idProvinciaSeleccionada);
-                    var loc = Localidad.First();                   
+                    var loc = Localidad.First();
                     idLocalidadSeleccionada = loc.idLocalidad;
                 }
             }
@@ -399,6 +443,42 @@ namespace ElObrador
             }
             catch (Exception ex)
             { }
+        }
+
+        private void txtProvincia_KeyDown(object sender, KeyEventArgs e)
+        {
+            try
+            {
+                string provincia = txtProvincia.Text;
+                if (provincia != "")
+                {
+                    int idProvincia = ClientesNeg.BuscarIdProvincia(provincia);
+                    CargarLocalidades(idProvincia);
+                    idProvinciaSeleccionada = idProvincia;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        private void txtProvincia_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string provincia = txtProvincia.Text;
+                if (provincia != "")
+                {
+                    int idProvincia = ClientesNeg.BuscarIdProvincia(provincia);
+                    CargarLocalidades(idProvincia);
+                    idProvinciaSeleccionada = idProvincia;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
     }
 }

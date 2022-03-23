@@ -64,6 +64,7 @@ namespace ElObrador
                 txtApellido.Text = Ape;
                 txtNombre.Text = Nom;
                 txtDni.Text = dgvUsuarios.CurrentRow.Cells[2].Value.ToString();
+                txtDni.Enabled = false;
                 txtContraseña.Enabled = false;
                 txtRepitaContraseña.Enabled = false;
                 chcActivo.Visible = true;
@@ -137,25 +138,32 @@ namespace ElObrador
         {
             if (e.KeyCode == Keys.Enter)
             {
-                dgvUsuarios.Rows.Clear();
-                string Descripcion = txtDescipcionBus.Text;
-                string Ape = Descripcion.Split(',')[0];
-                string Nom = Descripcion.Split(',')[1];
-                List<Usuario> Lista = UsuarioNeg.BuscarUsuarioPorApellidoNombre(Ape, Nom);
-                if (Lista.Count > 0)
+                if (txtDescipcionBus.Text != "")
                 {
-                    foreach (var item in Lista)
+                    dgvUsuarios.Rows.Clear();
+                    string Descripcion = txtDescipcionBus.Text;
+                    if (Descripcion.Contains(","))
                     {
-                        string Perfil = "";
-                        string Apellido = item.Apellido;
-                        string Nombre = item.Nombre;
-                        string Persona = Apellido + "," + Nombre;
-                        string Dni = item.Dni;
-                        if (item.idPerfil == 2)
-                        { Perfil = "Administrador"; }
-                        if (item.idPerfil == 3)
-                        { Perfil = "Operador"; }
-                        dgvUsuarios.Rows.Add(item.idUsuario, Persona, Dni, Perfil);
+
+                        string Ape = Descripcion.Split(',')[0];
+                        string Nom = Descripcion.Split(',')[1];
+                        List<Usuario> Lista = UsuarioNeg.BuscarUsuarioPorApellidoNombre(Ape, Nom);
+                        if (Lista.Count > 0)
+                        {
+                            foreach (var item in Lista)
+                            {
+                                string Perfil = "";
+                                string Apellido = item.Apellido;
+                                string Nombre = item.Nombre;
+                                string Persona = Apellido + "," + Nombre;
+                                string Dni = item.Dni;
+                                if (item.idPerfil == 2)
+                                { Perfil = "Administrador"; }
+                                if (item.idPerfil == 3)
+                                { Perfil = "Operador"; }
+                                dgvUsuarios.Rows.Add(item.idUsuario, Persona, Dni, Perfil);
+                            }
+                        }
                     }
                 }
                 dgvUsuarios.ReadOnly = true;

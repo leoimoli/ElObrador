@@ -26,7 +26,7 @@ namespace ElObrador.Dao
             MySqlParameter[] oParam = {
                                       new MySqlParameter("Dni_in", usuario),
                                        new MySqlParameter("Contrasenia_in", contraseña)};
-             //};
+            //};
             string proceso = "LoginUsuario";
             MySqlDataAdapter dt = new MySqlDataAdapter(proceso, connection);
             dt.SelectCommand.CommandType = CommandType.StoredProcedure;
@@ -71,6 +71,35 @@ namespace ElObrador.Dao
             connection.Close();
             return exito;
         }
+
+        public static bool ValidarUsuarioExistenteParaEdicion(string dni, string nombre, string apellido, int idUsuarioSeleccionado)
+        {
+            connection.Close();
+            bool Existe = false;
+            connection.Open();
+            List<Usuario> lista = new List<Usuario>();
+            MySqlCommand cmd = new MySqlCommand();
+            cmd.Connection = connection;
+            DataTable Tabla = new DataTable();
+            MySqlParameter[] oParam = {
+                                      new MySqlParameter("Dni_in", dni),
+                                      new MySqlParameter("Nombre_in", nombre),
+                                      new MySqlParameter("Apellido_in", apellido),
+             new MySqlParameter("idUsuarioSeleccionado_in", idUsuarioSeleccionado) };
+            string proceso = "ValidarUsuarioExistenteParaEdicion";
+            MySqlDataAdapter dt = new MySqlDataAdapter(proceso, connection);
+            dt.SelectCommand.CommandType = CommandType.StoredProcedure;
+            dt.SelectCommand.Parameters.AddRange(oParam);
+            dt.Fill(Tabla);
+            DataSet ds = new DataSet();
+            if (Tabla.Rows.Count > 0)
+            {
+                Existe = true;
+            }
+            connection.Close();
+            return Existe;
+        }
+
         public static List<string> CargarComboPerfiles()
         {
             connection.Close();
@@ -160,7 +189,7 @@ namespace ElObrador.Dao
                     listaUsuarios.Dni = item["Dni"].ToString();
                     listaUsuarios.FechaDeAlta = Convert.ToDateTime(item["FechaDeAlta"].ToString());
                     listaUsuarios.Contraseña = item["Contrasena"].ToString();
-                    listaUsuarios.Perfil = item["idPerfil"].ToString();
+                    listaUsuarios.idPerfil = Convert.ToInt32(item["idPerfil"].ToString());
                     listaUsuarios.Estado = Convert.ToInt32(item["Estado"].ToString());
                     _listaUsuarios.Add(listaUsuarios);
                 }

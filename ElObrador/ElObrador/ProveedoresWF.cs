@@ -215,6 +215,7 @@ namespace ElObrador
             Funcion = 2;
             if (this.dgvProveedores.RowCount > 0)
             {
+                txtNombreEmpresa.Enabled = false;
                 List<Entidades.Proveedores> _proveedor = new List<Entidades.Proveedores>();
                 idProveedorSeleccionado = Convert.ToInt32(this.dgvProveedores.CurrentRow.Cells[0].Value);
                 _proveedor = ProveedoresNeg.BuscarProveedorPorID(idProveedorSeleccionado);
@@ -285,7 +286,20 @@ namespace ElObrador
                 {
                     string Calle = item.Calle;
                     string Altura = item.Altura;
-                    string Domicilio = Calle + " " + "N° " + item.Altura;
+                    string Domicilio = "";
+                    if (Calle == "" && Altura == "")
+                    {
+                        Domicilio = "";
+                    }
+                    else
+                    {
+                        Domicilio = Calle + " " + "N° " + item.Altura;
+                    }
+
+                    if (item.Telefono == "" || item.Telefono == "-")
+                    {
+                        item.Telefono = "";
+                    }
                     dgvProveedores.Rows.Add(item.idProveedor, item.NombreEmpresa, Domicilio, item.Telefono);
                 }
             }

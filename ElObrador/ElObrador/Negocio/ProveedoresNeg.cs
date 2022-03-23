@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace ElObrador.Negocio
 {
-   public class ProveedoresNeg
+    public class ProveedoresNeg
     {
         public static List<Proveedores> ListaDeProveedores()
         {
@@ -41,20 +41,20 @@ namespace ElObrador.Negocio
             try
             {
                 ValidarDatos(proveedor);
-                bool ProveedorExistente = ValidarProveedorExistente(proveedor.NombreEmpresa);
-                if (ProveedorExistente == true)
-                {
-                    const string message = "Ya existe un proveedor registrado con el nombre ingresado.";
-                    const string caption = "Error";
-                    var result = MessageBox.Show(message, caption,
-                                                 MessageBoxButtons.OK,
-                                               MessageBoxIcon.Exclamation);
-                    throw new Exception();
-                }
-                else
-                {
-                    exito = ProveedoresDao.EditarProveedor(proveedor, idProveedorSeleccionado);
-                }               
+                //bool ProveedorExistente = ValidarProveedorExistente(proveedor.NombreEmpresa);
+                //if (ProveedorExistente == true)
+                //{
+                //    const string message = "Ya existe un proveedor registrado con el nombre ingresado.";
+                //    const string caption = "Error";
+                //    var result = MessageBox.Show(message, caption,
+                //                                 MessageBoxButtons.OK,
+                //                               MessageBoxIcon.Exclamation);
+                //    throw new Exception();
+                //}
+                //else
+                //{
+                exito = ProveedoresDao.EditarProveedor(proveedor, idProveedorSeleccionado);
+                //}               
             }
             catch (Exception ex)
             {

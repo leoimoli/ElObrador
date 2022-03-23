@@ -60,26 +60,32 @@ namespace ElObrador.Negocio
             try
             {
                 ValidarDatos(usuario);
-                bool UsuarioExistente = ValidarUsuarioExistente(usuario.Dni);
-                if (UsuarioExistente == true)
-                {
-                    const string message = "Ya existe un usuario registrado con el dni ingresado.";
-                    const string caption = "Error";
-                    var result = MessageBox.Show(message, caption,
-                                                 MessageBoxButtons.OK,
-                                               MessageBoxIcon.Exclamation);
-                    throw new Exception();
-                }
-                else
-                {
+                //bool UsuarioExistente = ValidarUsuarioExistente(usuario.Dni);
+                //if (UsuarioExistente == true)
+                //{
+                //    const string message = "Ya existe un usuario registrado con el dni ingresado.";
+                //    const string caption = "Error";
+                //    var result = MessageBox.Show(message, caption,
+                //                                 MessageBoxButtons.OK,
+                //                               MessageBoxIcon.Exclamation);
+                //    throw new Exception();
+                //}
+                //else
+                //{
                     exito = UsuarioDao.EditarUsuario(usuario, idUsuarioSeleccionado);
-                }             
+                //}             
             }
             catch (Exception ex)
             {
 
             }
             return exito;
+        }
+
+        private static bool ValidarUsuarioExistenteParaEdicion(string dni, string nombre, string apellido, int idUsuarioSeleccionado)
+        {
+            bool existe = UsuarioDao.ValidarUsuarioExistenteParaEdicion(dni, nombre, apellido, idUsuarioSeleccionado);
+            return existe;
         }
         private static void ValidarDatos(Usuario usuario)
         {
