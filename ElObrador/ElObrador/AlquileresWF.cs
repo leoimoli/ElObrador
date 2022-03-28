@@ -176,25 +176,45 @@ namespace ElObrador
             try
             {
                 List<Stock> ListaValoresObtenidos = ObtenerValores();
-                CalcularMontos(ListaValoresObtenidos);
-                if (ListaValoresObtenidos.Count > 0)
+                if (ListaValoresObtenidos.Count == 0)
                 {
-                    foreach (var item in ListaValoresObtenidos)
+                    const string message2 = "Atención: Debe seleccionar el material que quiere agregar a lista del alquiler.";
+                    const string caption2 = "Atención";
+                    var result2 = MessageBox.Show(message2, caption2,
+                                                 MessageBoxButtons.OK,
+                                                 MessageBoxIcon.Exclamation);
+                }
+                if (ListaValoresObtenidos[0].MontoAlquiler == 0)
+                {
+                    const string message2 = "Atención: El material seleccionado no tiene un precio de alquiler asignado.";
+                    const string caption2 = "Atención";
+                    var result2 = MessageBox.Show(message2, caption2,
+                                                 MessageBoxButtons.OK,
+                                                 MessageBoxIcon.Exclamation);
+                }
+                else
+                {
+                    CalcularMontos(ListaValoresObtenidos);
+                    if (ListaValoresObtenidos.Count > 0)
                     {
-                        dgvAlquiler.Rows.Add(item.idMaterial, item.Descripcion, item.CantidadDiasAlquiler, dtFechaDesde.Value, dtFechaHasta.Value, item.MontoAlquiler, item.Codigo, item.Modelo);
-                    }
-                    decimal PrecioTotalFinal = 0;
-                    foreach (DataGridViewRow row in dgvAlquiler.Rows)
-                    {
-                        if (row.Cells[5].Value != null)
-                            PrecioTotalFinal += Convert.ToDecimal(row.Cells[5].Value.ToString());
-                    }
+                        foreach (var item in ListaValoresObtenidos)
+                        {
+                            dgvAlquiler.Rows.Add(item.idMaterial, item.Descripcion, item.CantidadDiasAlquiler, dtFechaDesde.Value, dtFechaHasta.Value, item.MontoAlquiler, item.Codigo, item.Modelo);
+                        }
+                        decimal PrecioTotalFinal = 0;
+                        foreach (DataGridViewRow row in dgvAlquiler.Rows)
+                        {
+                            if (row.Cells[5].Value != null)
+                                PrecioTotalFinal += Convert.ToDecimal(row.Cells[5].Value.ToString());
+                        }
 
-                    lblTotalPagarReal.Text = Convert.ToString(PrecioTotalFinal);
-                    dtFechaDesde.Enabled = false;
-                    dtFechaHasta.Enabled = false;
-                    txtDescipcionBus.Clear();
-                    dataGridView1.Rows.Clear();
+                        lblTotalPagarReal.Text = Convert.ToString(PrecioTotalFinal);
+                        dtFechaDesde.Enabled = false;
+                        dtFechaHasta.Enabled = false;
+                        txtDescipcionBus.Clear();
+                        dataGridView1.Rows.Clear();
+
+                    }
                 }
             }
             catch (Exception ex)

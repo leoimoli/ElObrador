@@ -101,7 +101,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(575, 35);
+            this.panel1.Size = new System.Drawing.Size(673, 35);
             this.panel1.TabIndex = 8;
             // 
             // ImagenPagina
@@ -130,7 +130,7 @@
             this.btnCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCerrar.Image = global::ElObrador.Properties.Resources.cancelar2;
-            this.btnCerrar.Location = new System.Drawing.Point(538, 3);
+            this.btnCerrar.Location = new System.Drawing.Point(636, 3);
             this.btnCerrar.Name = "btnCerrar";
             this.btnCerrar.Size = new System.Drawing.Size(25, 25);
             this.btnCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -184,7 +184,7 @@
             this.dgvClientes.RowHeadersWidth = 51;
             dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
             this.dgvClientes.RowsDefaultCellStyle = dataGridViewCellStyle4;
-            this.dgvClientes.Size = new System.Drawing.Size(553, 337);
+            this.dgvClientes.Size = new System.Drawing.Size(651, 337);
             this.dgvClientes.TabIndex = 77;
             this.dgvClientes.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvClientes_CellClick);
             this.dgvClientes.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dgvClientes_CellPainting);
@@ -289,7 +289,7 @@
             this.panelAltaClientes.Controls.Add(this.progressBar1);
             this.panelAltaClientes.Controls.Add(this.label2);
             this.panelAltaClientes.Controls.Add(this.btnGuardar);
-            this.panelAltaClientes.Location = new System.Drawing.Point(10, 76);
+            this.panelAltaClientes.Location = new System.Drawing.Point(98, 108);
             this.panelAltaClientes.Name = "panelAltaClientes";
             this.panelAltaClientes.Size = new System.Drawing.Size(553, 444);
             this.panelAltaClientes.TabIndex = 208;
@@ -672,7 +672,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(575, 566);
+            this.ClientSize = new System.Drawing.Size(673, 566);
             this.Controls.Add(this.btnCrearPersona);
             this.Controls.Add(this.txtDni);
             this.Controls.Add(this.label12);

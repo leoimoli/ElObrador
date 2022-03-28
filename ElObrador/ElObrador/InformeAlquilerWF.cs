@@ -16,16 +16,18 @@ namespace ElObrador
         private string montoAlquiler;
         private string apellidoNombre;
         private string domicilio;
+        private string ProvLoc;
         private string email;
         private string telefono;
 
-        public InformeAlquilerWF(string material, string montoAlquiler, string apellidoNombre, string domicilio, string email, string telefono)
+        public InformeAlquilerWF(string material, string montoAlquiler, string apellidoNombre, string domicilio, string ProvLoc, string email, string telefono)
         {
             InitializeComponent();
             this.material = material;
             this.montoAlquiler = montoAlquiler;
             this.apellidoNombre = apellidoNombre;
             this.domicilio = domicilio;
+            this.ProvLoc = ProvLoc;
             this.email = email;
             this.telefono = telefono;
         }
@@ -39,13 +41,16 @@ namespace ElObrador
         {
             Close();
         }
-
         private void InformeAlquilerWF_Load(object sender, EventArgs e)
         {
             lblMaterial.Text = material;
             lblMonto.Text = montoAlquiler;
             lblApellido.Text = apellidoNombre;
-            lblDomicilio.Text = domicilio;
+            if (domicilio == " N°")
+            { lblDomicilio.Text = "N/E"; }
+            else
+            { lblDomicilio.Text = domicilio; }
+            lblProvLoc.Text = ProvLoc;
             lblTelefono.Text = telefono;
             lblEmail.Text = email;
         }

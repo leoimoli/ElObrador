@@ -89,7 +89,19 @@ namespace ElObrador
                 //CODIGO SOLO PERMITE 2 INSTANCIAS DEL FORMULARIO CLIENTES
                 //---------------------------------------------
                 int existe = Application.OpenForms.OfType<AlquileresWF>().Count();
+                if (existe >= 2)
+                {
+                    Application.OpenForms["AlquileresWF"].Close();
+                }
+                //Form existeNew = Application.OpenForms.OfType<Form>().Where(pre => pre.Name == "frmName").SingleOrDefault<Form>();
 
+                //if (existeNew != null)
+
+                //{
+
+                //    MessageBox.Show("El Formulario 2 esta abierto");
+
+                //}
                 if (existe <= 2)
                 {
                     AlquileresWF frm2 = Application.OpenForms.OfType<AlquileresWF>().SingleOrDefault();
@@ -103,7 +115,7 @@ namespace ElObrador
                         frm2.lblApeNom.Visible = true;
                         frm2.lblClienteFijo.Visible = true;
                         frm2.lblDniFijo.Visible = true;
-                        //frm2.Close();
+                        this.Close();
                         //Close();
                     }
                 }
@@ -111,7 +123,7 @@ namespace ElObrador
                 {
                     foreach (var item in Application.OpenForms.OfType<AlquileresWF>())
                     {
-                        item.BringToFront();                       
+                        item.BringToFront();
                     }
                 }
                 this.Close();

@@ -294,6 +294,7 @@ namespace ElObrador
                 int idMaterial = 0;
                 string ApellidoNombre = "";
                 string Domicilio = "";
+                string ProvLoc = "";
                 string Telefono = "";
                 string Email = "";
                 string material = this.dgvAlquiler.CurrentRow.Cells[2].Value.ToString();
@@ -306,11 +307,12 @@ namespace ElObrador
                     foreach (var item in _cliente)
                     {
                         ApellidoNombre = item.Apellido + " " + item.Nombre;
-                        Domicilio = item.Calle + " " + "N°" + item.Altura + " " + item.NombreProvincia + " " + item.NombreLocalidad;
+                        Domicilio = item.Calle + " " + "N°" + item.Altura;
+                        ProvLoc = item.NombreProvincia + " " + item.NombreLocalidad;
                         Telefono = item.Telefono;
                         Email = item.Email;
                     }
-                    InformeAlquilerWF _informe = new InformeAlquilerWF(material, MontoAlquiler, ApellidoNombre, Domicilio, Email, Telefono);
+                    InformeAlquilerWF _informe = new InformeAlquilerWF(material, MontoAlquiler, ApellidoNombre, Domicilio, ProvLoc, Email, Telefono);
                     _informe.Show();
                 }
 

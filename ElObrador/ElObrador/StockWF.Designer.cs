@@ -163,9 +163,9 @@
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(187)))), ((int)(((byte)(45)))));
             this.label5.Location = new System.Drawing.Point(18, 74);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(139, 13);
+            this.label5.Size = new System.Drawing.Size(128, 13);
             this.label5.TabIndex = 73;
-            this.label5.Text = "Buscar por Descripción";
+            this.label5.Text = "Buscar por Categoría";
             // 
             // txtDescipcionBus
             // 

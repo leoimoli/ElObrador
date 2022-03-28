@@ -447,19 +447,22 @@ namespace ElObrador
 
         private void txtProvincia_KeyDown(object sender, KeyEventArgs e)
         {
-            try
+            if (e.KeyCode == Keys.Enter)
             {
-                string provincia = txtProvincia.Text;
-                if (provincia != "")
+                try
                 {
-                    int idProvincia = ClientesNeg.BuscarIdProvincia(provincia);
-                    CargarLocalidades(idProvincia);
-                    idProvinciaSeleccionada = idProvincia;
+                    string provincia = txtProvincia.Text;
+                    if (provincia != "")
+                    {
+                        int idProvincia = ClientesNeg.BuscarIdProvincia(provincia);
+                        CargarLocalidades(idProvincia);
+                        idProvinciaSeleccionada = idProvincia;
+                    }
                 }
-            }
-            catch (Exception ex)
-            {
-                throw ex;
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
             }
         }
 
