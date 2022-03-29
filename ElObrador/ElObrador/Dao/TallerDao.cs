@@ -47,7 +47,7 @@ namespace ElObrador.Dao
             bool exito = false;
             connection.Close();
             connection.Open();
-            string proceso = "RegistrarHistorialDeReparacion";
+            string proceso = "RegistrarHistorialDeTaller";
             MySqlCommand cmd = new MySqlCommand(proceso, connection);
             cmd.CommandType = CommandType.StoredProcedure;
             if (idTaller > 0)
@@ -61,11 +61,11 @@ namespace ElObrador.Dao
             exito = true;
             if (exito == true)
             {
-                if (taller.CostoTotal > 0)
+                exito = ActualizarCosto(taller);
+                if (exito == true)
                 {
-                    exito = ActualizarCosto(taller);
+                    exito = SalidaDeTallerParaMaterial(taller);
                 }
-                exito = SalidaDeTallerParaMaterial(taller);
             }
             connection.Close();
             return exito;
@@ -137,7 +137,30 @@ namespace ElObrador.Dao
             cmd.ExecuteNonQuery();
             connection.Close();
         }
-
+        public static bool ValidarEstadoTaller(int idTallerSeleccionado)
+        {
+            connection.Close();
+            bool Existe = false;
+            connection.Open();
+            List<Usuario> lista = new List<Usuario>();
+            MySqlCommand cmd = new MySqlCommand();
+            cmd.Connection = connection;
+            DataTable Tabla = new DataTable();
+            MySqlParameter[] oParam = {
+                                      new MySqlParameter("idTallerSeleccionado_in", idTallerSeleccionado) };
+            string proceso = "ValidarEstadoTaller";
+            MySqlDataAdapter dt = new MySqlDataAdapter(proceso, connection);
+            dt.SelectCommand.CommandType = CommandType.StoredProcedure;
+            dt.SelectCommand.Parameters.AddRange(oParam);
+            dt.Fill(Tabla);
+            DataSet ds = new DataSet();
+            if (Tabla.Rows.Count > 0)
+            {
+                Existe = true;
+            }
+            connection.Close();
+            return Existe;
+        }
         public static bool ValidarEstadoDelMaterial(int idMaterial)
         {
             connection.Close();

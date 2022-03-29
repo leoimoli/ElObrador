@@ -1,4 +1,5 @@
 ﻿using ElObrador.Clases_Maestras;
+using ElObrador.Dao;
 using ElObrador.Entidades;
 using ElObrador.Negocio;
 using System;
@@ -51,6 +52,7 @@ namespace ElObrador
         {
             try
             {
+                panelVer.Enabled = true;
                 txtDescipcionBus.Focus();
                 FuncionListarMaterialesEnTaller();
                 FuncionBuscartexto();
@@ -161,17 +163,31 @@ namespace ElObrador
             {
                 dgvHistorialTaller.Rows.Clear();
                 idTallerSeleccionado = Convert.ToInt32(this.dgvTaller.CurrentRow.Cells[0].Value.ToString());
-                lblidTaller.Text = Convert.ToString(idTallerSeleccionado);
-                panel1.Visible = false;
-                panelVer.Visible = true;
-                List<Taller> ListaHistorialTaller = TallerNeg.ListarHistorialTaller(idTallerSeleccionado);
-                if (ListaHistorialTaller.Count > 0)
+                bool TallerAbierto = TallerDao.ValidarEstadoTaller(idTallerSeleccionado);
+                if (TallerAbierto == true)
                 {
-                    foreach (var item in ListaHistorialTaller)
+                    panelVer.Enabled = true;
+                    lblidTaller.Text = Convert.ToString(idTallerSeleccionado);
+                    panel1.Visible = false;
+                    panelVer.Visible = true;
+                    List<Taller> ListaHistorialTaller = TallerNeg.ListarHistorialTaller(idTallerSeleccionado);
+                    if (ListaHistorialTaller.Count > 0)
                     {
-                        dgvHistorialTaller.Rows.Add(item.idTaller, item.Fecha, item.Usuario);
-                    }
+                        foreach (var item in ListaHistorialTaller)
+                        {
+                            dgvHistorialTaller.Rows.Add(item.idTaller, item.Fecha, item.Usuario);
+                        }
 
+                    }
+                }
+                else
+                {
+                    panelVer.Enabled = false;
+                    const string message2 = "Atención: El taller seleccionado se encuentra cerrado.";
+                    const string caption2 = "Atención";
+                    var result2 = MessageBox.Show(message2, caption2,
+                                                 MessageBoxButtons.OK,
+                                                 MessageBoxIcon.Asterisk);
                 }
             }
         }
@@ -241,6 +257,7 @@ namespace ElObrador
         public static string Funcion;
         private void btnSalidaTaller_Click(object sender, EventArgs e)
         {
+            //panelVer.Enabled = false;
             int idTaller = Convert.ToInt32(lblidTaller.Text);
             Funcion = "Cierre";
             NuevoHistorialWF _historial = new NuevoHistorialWF(idTaller, Funcion);

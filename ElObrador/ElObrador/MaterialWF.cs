@@ -131,7 +131,11 @@ namespace ElObrador
 
                 //CODIGO SOLO PERMITE 2 INSTANCIAS DEL FORMULARIO CLIENTES
                 //---------------------------------------------
-                int existe = Application.OpenForms.OfType<TallerWF>().Count();
+                int existe = Application.OpenForms.OfType<TallerWF>().Count();              
+                if (existe >= 2)
+                {
+                    Application.OpenForms["TallerWF"].Close();
+                }
                 if (existe <= 2)
                 {
                     TallerWF frm2 = Application.OpenForms.OfType<TallerWF>().SingleOrDefault();
