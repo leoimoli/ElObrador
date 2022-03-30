@@ -227,8 +227,6 @@ namespace ElObrador
                 e.Handled = true;
             }
         }
-
-
         private void dgvHistorialTaller_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (dgvHistorialTaller.CurrentCell.ColumnIndex == 3)
@@ -259,11 +257,16 @@ namespace ElObrador
         {
             //panelVer.Enabled = false;
             int idTaller = Convert.ToInt32(lblidTaller.Text);
-            Funcion = "Cierre";
-            NuevoHistorialWF _historial = new NuevoHistorialWF(idTaller, Funcion);
-            _historial.Show();
+            bool TallerAbierto = TallerDao.ValidarEstadoTaller(idTaller);
+            if (TallerAbierto == true)
+            {
+                Funcion = "Cierre";
+                NuevoHistorialWF _historial = new NuevoHistorialWF(idTaller, Funcion);
+                _historial.Show();
+            }
+            else
+            { FuncionListarMaterialesEnTaller(); }
         }
-
         private void txtDescipcionBus_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
@@ -271,7 +274,6 @@ namespace ElObrador
                 FuncionListarMaterialesEnTallerPorDescripcion();
             }
         }
-
         private void FuncionListarMaterialesEnTallerPorDescripcion()
         {
             dgvTaller.Rows.Clear();

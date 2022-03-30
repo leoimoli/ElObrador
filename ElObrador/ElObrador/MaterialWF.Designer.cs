@@ -61,19 +61,17 @@
             this.panel1.Controls.Add(this.btnCerrar);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(780, 43);
+            this.panel1.Size = new System.Drawing.Size(585, 35);
             this.panel1.TabIndex = 5;
             // 
             // ImagenPagina
             // 
             this.ImagenPagina.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(187)))), ((int)(((byte)(45)))));
             this.ImagenPagina.Image = global::ElObrador.Properties.Resources.icons8_mantenimiento_30__1_;
-            this.ImagenPagina.Location = new System.Drawing.Point(13, 1);
-            this.ImagenPagina.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ImagenPagina.Location = new System.Drawing.Point(10, 1);
             this.ImagenPagina.Name = "ImagenPagina";
-            this.ImagenPagina.Size = new System.Drawing.Size(43, 39);
+            this.ImagenPagina.Size = new System.Drawing.Size(32, 32);
             this.ImagenPagina.TabIndex = 3;
             this.ImagenPagina.TabStop = false;
             // 
@@ -82,10 +80,9 @@
             this.lblPantalla.AutoSize = true;
             this.lblPantalla.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPantalla.ForeColor = System.Drawing.Color.White;
-            this.lblPantalla.Location = new System.Drawing.Point(64, 10);
-            this.lblPantalla.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblPantalla.Location = new System.Drawing.Point(48, 8);
             this.lblPantalla.Name = "lblPantalla";
-            this.lblPantalla.Size = new System.Drawing.Size(111, 23);
+            this.lblPantalla.Size = new System.Drawing.Size(88, 19);
             this.lblPantalla.TabIndex = 4;
             this.lblPantalla.Text = "Materiales";
             // 
@@ -94,10 +91,9 @@
             this.btnCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCerrar.Image = global::ElObrador.Properties.Resources.cancelar2;
-            this.btnCerrar.Location = new System.Drawing.Point(731, 4);
-            this.btnCerrar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCerrar.Location = new System.Drawing.Point(548, 3);
             this.btnCerrar.Name = "btnCerrar";
-            this.btnCerrar.Size = new System.Drawing.Size(33, 31);
+            this.btnCerrar.Size = new System.Drawing.Size(25, 25);
             this.btnCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.btnCerrar.TabIndex = 3;
             this.btnCerrar.TabStop = false;
@@ -108,44 +104,42 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(127, 114);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Location = new System.Drawing.Point(95, 93);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(117, 20);
+            this.label3.Size = new System.Drawing.Size(101, 17);
             this.label3.TabIndex = 178;
             this.label3.Text = "Categoria(*):";
             // 
             // cmbCategoria
             // 
             this.cmbCategoria.FormattingEnabled = true;
-            this.cmbCategoria.Location = new System.Drawing.Point(265, 114);
-            this.cmbCategoria.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmbCategoria.Location = new System.Drawing.Point(199, 93);
             this.cmbCategoria.Name = "cmbCategoria";
-            this.cmbCategoria.Size = new System.Drawing.Size(292, 24);
+            this.cmbCategoria.Size = new System.Drawing.Size(220, 21);
             this.cmbCategoria.TabIndex = 177;
             this.cmbCategoria.SelectedIndexChanged += new System.EventHandler(this.cmbCategoria_SelectedIndexChanged);
+            this.cmbCategoria.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cmbCategoria_KeyPress);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(160, 68);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(120, 55);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(87, 20);
+            this.label2.Size = new System.Drawing.Size(76, 17);
             this.label2.TabIndex = 176;
             this.label2.Text = "Grupo(*):";
             // 
             // cmbGrupo
             // 
             this.cmbGrupo.FormattingEnabled = true;
-            this.cmbGrupo.Location = new System.Drawing.Point(265, 66);
-            this.cmbGrupo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmbGrupo.Location = new System.Drawing.Point(199, 54);
             this.cmbGrupo.Name = "cmbGrupo";
-            this.cmbGrupo.Size = new System.Drawing.Size(292, 24);
+            this.cmbGrupo.Size = new System.Drawing.Size(220, 21);
             this.cmbGrupo.TabIndex = 175;
             this.cmbGrupo.SelectedIndexChanged += new System.EventHandler(this.cmbGrupo_SelectedIndexChanged);
+            this.cmbGrupo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cmbGrupo_KeyPress);
             // 
             // dgvLista
             // 
@@ -177,8 +171,7 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvLista.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvLista.EnableHeadersVisualStyles = false;
-            this.dgvLista.Location = new System.Drawing.Point(13, 148);
-            this.dgvLista.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvLista.Location = new System.Drawing.Point(10, 120);
             this.dgvLista.Name = "dgvLista";
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
@@ -191,7 +184,7 @@
             this.dgvLista.RowHeadersWidth = 51;
             dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
             this.dgvLista.RowsDefaultCellStyle = dataGridViewCellStyle4;
-            this.dgvLista.Size = new System.Drawing.Size(751, 370);
+            this.dgvLista.Size = new System.Drawing.Size(563, 301);
             this.dgvLista.TabIndex = 179;
             this.dgvLista.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLista_CellClick);
             this.dgvLista.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dgvStock_CellPainting);
@@ -233,9 +226,9 @@
             // 
             // MaterialWF
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(780, 554);
+            this.ClientSize = new System.Drawing.Size(585, 450);
             this.Controls.Add(this.dgvLista);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.cmbCategoria);
@@ -244,7 +237,6 @@
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "MaterialWF";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MaterialWF";

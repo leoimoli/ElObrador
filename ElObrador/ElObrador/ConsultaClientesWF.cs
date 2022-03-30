@@ -347,5 +347,9 @@ namespace ElObrador
             FuncionListarClientes();
             btnVolver.Visible = true;
         }
+        private void cmbSexo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
+        }
     }
 }

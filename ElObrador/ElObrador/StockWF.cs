@@ -355,7 +355,18 @@ namespace ElObrador
             if (e.KeyCode == Keys.Enter)
             {
                 string Categoria = txtDescipcionBus.Text;
-                FuncionListarStock(Categoria);
+                if (Categoria != "")
+                {
+                    FuncionListarStock(Categoria);
+                }
+                {
+                    const string message = "Atención: Debe ingresar una categoria para realizar la busqueda..";
+                    const string caption = "Atención";
+                    var result = MessageBox.Show(message, caption,
+                                                 MessageBoxButtons.OK,
+                                               MessageBoxIcon.Exclamation);
+                }
+               
             }
         }
     }

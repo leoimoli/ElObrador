@@ -38,6 +38,11 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TallerWF));
             this.dgvTaller = new System.Windows.Forms.DataGridView();
+            this.idProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RazonSocial = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Domicilio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Telefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ver = new System.Windows.Forms.DataGridViewButtonColumn();
             this.label5 = new System.Windows.Forms.Label();
             this.txtDescipcionBus = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -71,11 +76,6 @@
             this.VerHistorial = new System.Windows.Forms.DataGridViewButtonColumn();
             this.label18 = new System.Windows.Forms.Label();
             this.btnNuevoHistorial = new System.Windows.Forms.Button();
-            this.idProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RazonSocial = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Domicilio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Telefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Ver = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTaller)).BeginInit();
             this.panel1.SuspendLayout();
             this.panelVer.SuspendLayout();
@@ -130,6 +130,42 @@
             this.dgvTaller.TabIndex = 82;
             this.dgvTaller.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTaller_CellClick);
             this.dgvTaller.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dgvTaller_CellPainting);
+            // 
+            // idProducto
+            // 
+            this.idProducto.HeaderText = "id";
+            this.idProducto.MinimumWidth = 6;
+            this.idProducto.Name = "idProducto";
+            this.idProducto.Visible = false;
+            this.idProducto.Width = 50;
+            // 
+            // RazonSocial
+            // 
+            this.RazonSocial.HeaderText = "Material";
+            this.RazonSocial.MinimumWidth = 6;
+            this.RazonSocial.Name = "RazonSocial";
+            this.RazonSocial.Width = 230;
+            // 
+            // Domicilio
+            // 
+            this.Domicilio.HeaderText = "Codigo";
+            this.Domicilio.MinimumWidth = 6;
+            this.Domicilio.Name = "Domicilio";
+            this.Domicilio.Width = 120;
+            // 
+            // Telefono
+            // 
+            this.Telefono.HeaderText = "Modelo";
+            this.Telefono.MinimumWidth = 6;
+            this.Telefono.Name = "Telefono";
+            this.Telefono.Width = 140;
+            // 
+            // Ver
+            // 
+            this.Ver.HeaderText = "Seleccionar";
+            this.Ver.MinimumWidth = 6;
+            this.Ver.Name = "Ver";
+            this.Ver.Width = 80;
             // 
             // label5
             // 
@@ -407,6 +443,7 @@
             this.panelVer.Size = new System.Drawing.Size(478, 481);
             this.panelVer.TabIndex = 84;
             this.panelVer.Visible = false;
+            //this.panelVer.Paint += new System.Windows.Forms.PaintEventHandler(this.panelVer_Paint);
             // 
             // btnSalidaTaller
             // 
@@ -536,42 +573,6 @@
             this.btnNuevoHistorial.Text = "Nuevo Historial";
             this.btnNuevoHistorial.UseVisualStyleBackColor = false;
             this.btnNuevoHistorial.Click += new System.EventHandler(this.btnNuevoHistorial_Click);
-            // 
-            // idProducto
-            // 
-            this.idProducto.HeaderText = "id";
-            this.idProducto.MinimumWidth = 6;
-            this.idProducto.Name = "idProducto";
-            this.idProducto.Visible = false;
-            this.idProducto.Width = 50;
-            // 
-            // RazonSocial
-            // 
-            this.RazonSocial.HeaderText = "Material";
-            this.RazonSocial.MinimumWidth = 6;
-            this.RazonSocial.Name = "RazonSocial";
-            this.RazonSocial.Width = 230;
-            // 
-            // Domicilio
-            // 
-            this.Domicilio.HeaderText = "Codigo";
-            this.Domicilio.MinimumWidth = 6;
-            this.Domicilio.Name = "Domicilio";
-            this.Domicilio.Width = 120;
-            // 
-            // Telefono
-            // 
-            this.Telefono.HeaderText = "Modelo";
-            this.Telefono.MinimumWidth = 6;
-            this.Telefono.Name = "Telefono";
-            this.Telefono.Width = 140;
-            // 
-            // Ver
-            // 
-            this.Ver.HeaderText = "Seleccionar";
-            this.Ver.MinimumWidth = 6;
-            this.Ver.Name = "Ver";
-            this.Ver.Width = 80;
             // 
             // TallerWF
             // 

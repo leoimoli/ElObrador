@@ -35,7 +35,10 @@ namespace ElObrador
                 bool Exito = false;
                 Taller _taller = CargarEntidad();
                 if (funcion == "Cierre")
-                { Exito = TallerNeg.RegistrarCierreHistorialDeTaller(_taller); }
+                {
+                    Exito = TallerNeg.RegistrarCierreHistorialDeTaller(_taller);
+
+                }
                 else
                 { Exito = TallerNeg.RegistrarHistorialDeTaller(_taller); }
 
@@ -47,7 +50,9 @@ namespace ElObrador
                     var result2 = MessageBox.Show(message2, caption2,
                                                  MessageBoxButtons.OK,
                                                  MessageBoxIcon.Asterisk);
-                    LimpiarCampos();
+                    if (funcion == "Cierre")
+                    { this.Close(); }
+                    else { LimpiarCampos(); }
                 }
             }
             catch (Exception ex)

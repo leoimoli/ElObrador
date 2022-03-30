@@ -347,6 +347,7 @@
             this.cmbSexo.Name = "cmbSexo";
             this.cmbSexo.Size = new System.Drawing.Size(200, 21);
             this.cmbSexo.TabIndex = 1;
+            this.cmbSexo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cmbSexo_KeyPress);
             // 
             // txtAltura
             // 

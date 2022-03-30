@@ -195,6 +195,7 @@
             this.cmbPerfil.Name = "cmbPerfil";
             this.cmbPerfil.Size = new System.Drawing.Size(200, 21);
             this.cmbPerfil.TabIndex = 5;
+            this.cmbPerfil.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cmbPerfil_KeyPress);
             // 
             // label4
             // 

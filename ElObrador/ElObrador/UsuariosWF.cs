@@ -359,6 +359,11 @@ namespace ElObrador
         {
             e.Handled = !char.IsNumber(e.KeyChar) && e.KeyChar != Convert.ToChar(Keys.Back);
         }
-        #endregion              
+        #endregion
+
+        private void cmbPerfil_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
+        }
     }
 }

@@ -317,13 +317,13 @@ namespace ElObrador
                 if (idAlquiler > 0)
                 {
                     ListaAlquilerStatic = _listaAlquiler;
-                    const string message2 = "Se registro la venta exitosamente.";
+                    const string message2 = "Se registro el alquiler exitosamente.";
                     const string caption2 = "Éxito";
                     var result2 = MessageBox.Show(message2, caption2,
                                                  MessageBoxButtons.OK,
                                                  MessageBoxIcon.Asterisk);
-                    GenerarReporte(idAlquiler, _listaAlquiler);
                     LimpiarCamposPostExito();
+                    GenerarReporte(idAlquiler, _listaAlquiler);
                 }
             }
             catch (Exception ex)
@@ -352,12 +352,12 @@ namespace ElObrador
         string PiePagina = "";
         ArrayList arlColumnas = new ArrayList();
         Rectangle PapelTamanio = iTextSharp.text.PageSize.LETTER;        /// </summary>
-        public string RutaReporte = Comun.AppRuta() + Comun.AppRutaReporte;
+        //public string RutaReporte = Comun.AppRuta() + Comun.AppRutaReporte;
 
         /// <summary>
         /// Obtener la cadena de conexión desde App.config, para conexíón con SQL Server 
         /// </summary>
-       // public string CadenaConexion = System.Configuration.ConfigurationManager.ConnectionStrings["csMSQLServer"].ConnectionString;
+        // public string CadenaConexion = System.Configuration.ConfigurationManager.ConnectionStrings["csMSQLServer"].ConnectionString;
 
         #endregion
 
@@ -378,6 +378,14 @@ namespace ElObrador
                 // mensaje
                 MensajeMostrar(" - [ Reporte en proceso... ]");
 
+
+                string folderPath = "C:\\Obrador-Archivos\\PDFs\\Comprobante-Alquiler\\";
+                if (!Directory.Exists(folderPath))
+                {
+                    Directory.CreateDirectory(folderPath);
+                }
+
+                string RutaReporte = folderPath;
                 // ruta y nombre del archivo con extensión
                 ArchivoNombre = RutaReporte + "rpt" + TablaImnprimir + DateTime.Now.ToFileTime().ToString() + ".pdf";
 

@@ -483,5 +483,9 @@ namespace ElObrador
                 throw ex;
             }
         }
+        private void cmbSexo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
+        }
     }
 }
