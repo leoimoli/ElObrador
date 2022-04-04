@@ -4,6 +4,7 @@ using System.IO;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
 using System.Collections;
+using System.Windows.Forms;
 
 namespace waiTextSharp.utilidades
 {
@@ -53,46 +54,155 @@ namespace waiTextSharp.utilidades
         /// <param name="dtbDatos"><see cref="DataTable"/> con la información a imprimir</param>
         public void Generar(string ReporteNombre, Rectangle PapelTamanio, string Encabezado, string SubEncabezado, string TextoAlquiler, string PiePagina, ArrayList EncabezadoColumnas, DataTable dtbDatos)
         {
-            FileStream fsTmp = new FileStream(ReporteNombre, FileMode.Create);
+
+            //try
+            //{
+            FileStream fsTmp;
+            int[] iTamanio;
+            PdfPTable tablaTmp;
+            try
+            {
+                fsTmp = new FileStream(ReporteNombre, FileMode.Create);
+            }
+            catch (Exception Ex)
+            {
+                const string message = "Error FileStream.";
+                const string caption = "Error";
+                var result = MessageBox.Show(message, caption,
+                                             MessageBoxButtons.OK,
+                                           MessageBoxIcon.Exclamation);
+                throw new Exception();
+                //// heredar
+                //throw Ex;
+            }
             Document docTmp = new Document(PapelTamanio, 36, 36, 72, 27);
             PdfWriter m_writerTmp;
             IPdfPageEvent m_peTmp;
-            PdfPTable tablaTmp = new PdfPTable(EncabezadoColumnas.Count);
             PdfPCell celdaTmp;
             Font fuenteTmp = new Font();
-            int[] iTamanio = new int[EncabezadoColumnas.Count];
             ReporteColumna udtCIDTmp;
             try
             {
-
+                tablaTmp = new PdfPTable(EncabezadoColumnas.Count);
+            }
+            catch (Exception Ex)
+            {
+                const string message = "Error PdfPTable.";
+                const string caption = "Error";
+                var result = MessageBox.Show(message, caption,
+                                             MessageBoxButtons.OK,
+                                           MessageBoxIcon.Exclamation);
+                throw new Exception();
+                //// heredar
+                //throw Ex;
+            }
+            try
+            {
+                iTamanio = new int[EncabezadoColumnas.Count];
+            }
+            catch (Exception Ex)
+            {
+                const string message = "Error iTamanio.";
+                const string caption = "Error";
+                var result = MessageBox.Show(message, caption,
+                                             MessageBoxButtons.OK,
+                                           MessageBoxIcon.Exclamation);
+                throw new Exception();
+                //// heredar
+                //throw Ex;
+            }
+            //try
+            //{
+            try
+            {
                 // No hay información a imprimir.
                 if (dtbDatos.Rows.Count == 0)
                 {
                     throw new System.Exception("No hay información para imprimir.");
                 }
-
-
+            }
+            catch (Exception Ex)
+            {
+                const string message = "Error No hay información a imprimir.";
+                const string caption = "Error";
+                var result = MessageBox.Show(message, caption,
+                                             MessageBoxButtons.OK,
+                                           MessageBoxIcon.Exclamation);
+                throw new Exception();
+                //// heredar
+                //throw Ex;
+            }
+            try
+            {
                 // asignar documento y evento
                 m_writerTmp = PdfWriter.GetInstance(docTmp, fsTmp);
                 m_peTmp = new ReportePagina(Encabezado, SubEncabezado, TextoAlquiler, PiePagina, EncabezadoColumnas, m_Logotipo, true);
-
-
                 m_writerTmp.PageEvent = m_peTmp;
-
+            }
+            catch (Exception Ex)
+            {
+                const string message = "Error asignar documento y evento.";
+                const string caption = "Error";
+                var result = MessageBox.Show(message, caption,
+                                             MessageBoxButtons.OK,
+                                           MessageBoxIcon.Exclamation);
+                throw new Exception();
+                //// heredar
+                //throw Ex;
+            }
+            try
+            {
                 // adicionar propiedades
                 docTmp.AddTitle(Comun.AppNombre());
                 docTmp.AddAuthor("Vidal TI Consultor");
                 docTmp.AddCreator(Comun.AppNombre());
-
-                // abrir documento
+            }
+            catch (Exception Ex)
+            {
+                const string message = "Error adicionar propiedades.";
+                const string caption = "Error";
+                var result = MessageBox.Show(message, caption,
+                                             MessageBoxButtons.OK,
+                                           MessageBoxIcon.Exclamation);
+                throw new Exception();
+                //// heredar
+                //throw Ex;
+            }
+            // abrir documento
+            try
+            {
                 docTmp.Open();
-
-                // asignar ancho
+            }
+            catch (Exception Ex)
+            {
+                const string message = "Error docTmp.Open.";
+                const string caption = "Error";
+                var result = MessageBox.Show(message, caption,
+                                             MessageBoxButtons.OK,
+                                           MessageBoxIcon.Exclamation);
+                throw new Exception();
+                //// heredar
+                //throw Ex;
+            }
+            // asignar ancho
+            try
+            {
                 tablaTmp.WidthPercentage = 100;
-
-                //tablaTmp.DefaultCell.PaddingTop = 100;
-
-
+            }
+            catch (Exception Ex)
+            {
+                const string message = "Error tablaTmpWidthPercentage.";
+                const string caption = "Error";
+                var result = MessageBox.Show(message, caption,
+                                             MessageBoxButtons.OK,
+                                           MessageBoxIcon.Exclamation);
+                throw new Exception();
+                //// heredar
+                //throw Ex;
+            }
+            //tablaTmp.DefaultCell.PaddingTop = 100;
+            try
+            {
                 // obtener ancho de columnas
                 for (int i = 0; i <= EncabezadoColumnas.Count - 1; i++)
                 {
@@ -105,10 +215,38 @@ namespace waiTextSharp.utilidades
                     // destruir
                     udtCIDTmp = null;
                 }
-
-                // fijar ancho de columnas
-                tablaTmp.SetWidths(iTamanio);
-                bool EsEncabezado = true;
+            }
+            catch (Exception Ex)
+            {
+                const string message = "Error foreach.";
+                const string caption = "Error";
+                var result = MessageBox.Show(message, caption,
+                                             MessageBoxButtons.OK,
+                                           MessageBoxIcon.Exclamation);
+                throw new Exception();
+                //// heredar
+                //throw Ex;
+            }
+            // fijar ancho de columnas
+           
+            try
+            {
+                tablaTmp.SetWidths(iTamanio);             
+            }
+            catch (Exception Ex)
+            {
+                const string message = "Error tablaTmpEsEncabezado.";
+                const string caption = "Error";
+                var result = MessageBox.Show(message, caption,
+                                             MessageBoxButtons.OK,
+                                           MessageBoxIcon.Exclamation);
+                throw new Exception();
+                //// heredar
+                //throw Ex;
+            }
+            bool EsEncabezado = true;
+            try
+            {
                 // por cada registro
                 foreach (DataRow drwTmp in dtbDatos.Rows)
                 {
@@ -174,6 +312,20 @@ namespace waiTextSharp.utilidades
                     }
                     EsEncabezado = false;
                 }
+            }
+            catch (Exception Ex)
+            {
+                const string message = "Erro foreach de datos.";
+                const string caption = "Error";
+                var result = MessageBox.Show(message, caption,
+                                             MessageBoxButtons.OK,
+                                           MessageBoxIcon.Exclamation);
+                throw new Exception();
+                //// heredar
+                //throw Ex;
+            }
+            try
+            {
                 // adicionar línea en blanco
                 celdaTmp = new PdfPCell(new Phrase(" ", fuenteTmp))
                 {
@@ -182,23 +334,82 @@ namespace waiTextSharp.utilidades
                     HorizontalAlignment = Element.ALIGN_RIGHT,
                     VerticalAlignment = Element.ALIGN_TOP
                 };
-                //tablaTmp.AddCell(celdaTmp);
-                tablaTmp.TotalWidth = 500;
-                // adicionar tabla con la información
-                tablaTmp.WriteSelectedRows(0, -1, docTmp.LeftMargin + 30, docTmp.Top - 40, m_writerTmp.DirectContent);
-                //docTmp.Add(tablaTmp);
             }
             catch (Exception Ex)
             {
-                // heredar
-                throw Ex;
+                const string message = "Erro celdaTmp.";
+                const string caption = "Error";
+                var result = MessageBox.Show(message, caption,
+                                             MessageBoxButtons.OK,
+                                           MessageBoxIcon.Exclamation);
+                throw new Exception();
+                //// heredar
+                //throw Ex;
             }
+            //tablaTmp.AddCell(celdaTmp);
+            try
+            {
+                tablaTmp.TotalWidth = 500;
+            }
+            catch (Exception Ex)
+            {
+                const string message = "Erro tablaTmpTotalWidth.";
+                const string caption = "Error";
+                var result = MessageBox.Show(message, caption,
+                                             MessageBoxButtons.OK,
+                                           MessageBoxIcon.Exclamation);
+                throw new Exception();
+                //// heredar
+                //throw Ex;
+            }
+            try
+            {
+                // adicionar tabla con la información
+                tablaTmp.WriteSelectedRows(0, -1, docTmp.LeftMargin + 30, docTmp.Top - 40, m_writerTmp.DirectContent);
+            }
+            catch (Exception Ex)
+            {
+                const string message = "Erro tablaTmp.";
+                const string caption = "Error";
+                var result = MessageBox.Show(message, caption,
+                                             MessageBoxButtons.OK,
+                                           MessageBoxIcon.Exclamation);
+                throw new Exception();
+                //// heredar
+                //throw Ex;
+            }
+            //docTmp.Add(tablaTmp);
+            // }
+            //catch (Exception Ex)
+            //{
+            //    const string message = "Erro al generar el comprobante.";
+            //    const string caption = "Error";
+            //    var result = MessageBox.Show(message, caption,
+            //                                 MessageBoxButtons.OK,
+            //                               MessageBoxIcon.Exclamation);
+            //    throw new Exception();
+            //    //// heredar
+            //    //throw Ex;
+            //}
             finally
             {
                 // cerrar
                 if (docTmp.IsOpen()) docTmp.Close();
                 fsTmp.Close();
             }
+            //}
+            //catch (Exception Ex)
+            //{
+            //    string mensaje = "Error generico variable.";
+            //    string message = mensaje;
+            //    const string caption = "Error";
+            //    var result = MessageBox.Show(message, caption,
+            //                                 MessageBoxButtons.OK,
+            //                               MessageBoxIcon.Exclamation);
+            //    throw new Exception();
+            //    //// heredar
+            //    //throw Ex;
+            //}
         }
 
         #endregion

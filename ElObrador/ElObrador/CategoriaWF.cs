@@ -106,5 +106,10 @@ namespace ElObrador
 
             }
         }
+
+        private void cmbGrupo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
+        }
     }
 }

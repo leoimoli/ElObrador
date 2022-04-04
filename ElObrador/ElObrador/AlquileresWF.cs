@@ -317,13 +317,14 @@ namespace ElObrador
                 if (idAlquiler > 0)
                 {
                     ListaAlquilerStatic = _listaAlquiler;
+                    GenerarReporte(idAlquiler, _listaAlquiler);
                     const string message2 = "Se registro el alquiler exitosamente.";
                     const string caption2 = "Éxito";
                     var result2 = MessageBox.Show(message2, caption2,
                                                  MessageBoxButtons.OK,
                                                  MessageBoxIcon.Asterisk);
+
                     LimpiarCamposPostExito();
-                    GenerarReporte(idAlquiler, _listaAlquiler);
                 }
             }
             catch (Exception ex)
@@ -372,11 +373,11 @@ namespace ElObrador
                 // cambiar puntero del ratón
                 Cursor.Current = Cursors.WaitCursor;
 
-                // mensaje inicializar
-                MensajeLimpiar();
+                //// mensaje inicializar
+                //MensajeLimpiar();
 
-                // mensaje
-                MensajeMostrar(" - [ Reporte en proceso... ]");
+                //// mensaje
+                //MensajeMostrar(" - [ Reporte en proceso... ]");
 
 
                 string folderPath = "C:\\Obrador-Archivos\\PDFs\\Comprobante-Alquiler\\";
@@ -435,9 +436,21 @@ namespace ElObrador
 
                 //string Prueba = "Hola Mundo";
                 // crear reporte
-                udtReporte.Generar(ArchivoNombre, PapelTamanio, Encabezado, Subencabezado, Texto, PiePagina, arlColumnas, dt);
+                try
+                {
+                    udtReporte.Generar(ArchivoNombre, PapelTamanio, Encabezado, Subencabezado, Texto, PiePagina, arlColumnas, dt);
+                }
+                catch (Exception ex)
+                {
 
-                // entregar el reporte con la aplicación asociada
+                    string message = ex.Message;
+                    const string caption = "Error";
+                    var result = MessageBox.Show(message, caption,
+                                                 MessageBoxButtons.OK,
+                                               MessageBoxIcon.Exclamation);
+                    throw new Exception();
+                }
+                //entregar el reporte con la aplicación asociada
                 System.Diagnostics.Process.Start(ArchivoNombre);
 
                 // mensaje
@@ -714,6 +727,15 @@ namespace ElObrador
             {
 
             }
+        }
+        private void cmbGrupo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
+        }
+
+        private void cmbCategoria_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
         }
     }
 }
