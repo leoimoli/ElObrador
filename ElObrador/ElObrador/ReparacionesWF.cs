@@ -335,5 +335,14 @@ namespace ElObrador
             }
             dgvReparaciones.ReadOnly = true;
         }
+        private void cmbTipoServicio_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
+        }
+
+        private void label18_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

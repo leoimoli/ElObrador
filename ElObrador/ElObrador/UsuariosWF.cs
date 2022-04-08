@@ -365,5 +365,10 @@ namespace ElObrador
         {
             e.Handled = true;
         }
+
+        private void cmbPerfil_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

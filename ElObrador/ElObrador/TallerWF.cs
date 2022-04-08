@@ -288,5 +288,15 @@ namespace ElObrador
             }
             dgvTaller.ReadOnly = true;
         }
+        
+        private void cmbTipoServicio_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
+        }
+
+        private void panelVer_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

@@ -63,6 +63,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_4E450A08144A46758D863DE7126AB9EC"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_5CE1D27630B54B0BBF42E561FF8CB8DF"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -136,13 +142,7 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_B8C2673F4943BD6758F696206788BE13"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_6C4FAEE7D94749E4A51FD52F57F62D1D"
+        "OwnerKey" = "8:_A6E5BB5E90737E5A43B7FBC5FD57DB74"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -154,19 +154,19 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_37CEE55238463E76319512B0B6DA356F"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_38EACA39F209EDD49064BC007C269B26"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_A6E5BB5E90737E5A43B7FBC5FD57DB74"
+        "OwnerKey" = "8:_37CEE55238463E76319512B0B6DA356F"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_6C4FAEE7D94749E4A51FD52F57F62D1D"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -193,6 +193,12 @@
         "OwnerKey" = "8:_B1118F9EE6D31577BAF864535F3283EC"
         "MsmSig" = "8:_UNDEFINED"
         }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_B8C2673F4943BD6758F696206788BE13"
+        "MsmSig" = "8:_UNDEFINED"
+        }
     }
     "Configurations"
     {
@@ -211,6 +217,22 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.6.1"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.6.1 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.6.1"
+                    }
+                }
+            }
         }
         "Release"
         {
@@ -227,6 +249,14 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+            }
         }
     }
     "Deployable"
@@ -424,6 +454,26 @@
             {
             "SourcePath" = "8:..\\ElObrador\\bin\\Debug\\icons8-cursor-30.ico"
             "TargetName" = "8:icons8-cursor-30.ico"
+            "Tag" = "8:"
+            "Folder" = "8:_CC6832B46D33440D948D5B3974F0E511"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_4E450A08144A46758D863DE7126AB9EC"
+            {
+            "SourcePath" = "8:C:\\Program Files (x86)\\JliCode\\Obrador-Setup\\imagen\\icono_Obrado1.png"
+            "TargetName" = "8:icono_Obrado1.png"
             "Tag" = "8:"
             "Folder" = "8:_CC6832B46D33440D948D5B3974F0E511"
             "Condition" = "8:"
@@ -732,7 +782,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Obrador-Setup"
         "ProductCode" = "8:{002E9BEC-4138-480C-B15E-0EDE87EDD36C}"
-        "PackageCode" = "8:{ACA11BC5-6C6A-4D1C-A7D7-402E19913AD3}"
+        "PackageCode" = "8:{4CE030D7-5C96-437E-A180-0434F5F3FD28}"
         "UpgradeCode" = "8:{58C08B89-EABC-4078-AD1E-F36C2E549CED}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"

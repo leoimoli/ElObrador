@@ -62,11 +62,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.dgvReparaciones = new System.Windows.Forms.DataGridView();
-            this.idProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RazonSocial = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Domicilio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Telefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Ver = new System.Windows.Forms.DataGridViewButtonColumn();
             this.label5 = new System.Windows.Forms.Label();
             this.txtDescipcionBus = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -81,6 +76,11 @@
             this.VerHistorial = new System.Windows.Forms.DataGridViewButtonColumn();
             this.label18 = new System.Windows.Forms.Label();
             this.btnNuevoHistorial = new System.Windows.Forms.Button();
+            this.idProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RazonSocial = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Domicilio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Telefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ver = new System.Windows.Forms.DataGridViewButtonColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvReparaciones)).BeginInit();
             this.panelVer.SuspendLayout();
@@ -115,7 +115,7 @@
             this.panel1.Controls.Add(this.btnGuardar);
             this.panel1.Enabled = false;
             this.panel1.Location = new System.Drawing.Point(797, 87);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(637, 592);
             this.panel1.TabIndex = 84;
@@ -173,7 +173,7 @@
             // 
             this.txtPorDni.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtPorDni.Location = new System.Drawing.Point(343, 52);
-            this.txtPorDni.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtPorDni.Margin = new System.Windows.Forms.Padding(4);
             this.txtPorDni.Name = "txtPorDni";
             this.txtPorDni.Size = new System.Drawing.Size(289, 22);
             this.txtPorDni.TabIndex = 1;
@@ -183,7 +183,7 @@
             // 
             this.textBox1.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.textBox1.Location = new System.Drawing.Point(20, 52);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(4);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(293, 22);
             this.textBox1.TabIndex = 0;
@@ -228,7 +228,7 @@
             // txtDiagnostico
             // 
             this.txtDiagnostico.Location = new System.Drawing.Point(20, 320);
-            this.txtDiagnostico.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtDiagnostico.Margin = new System.Windows.Forms.Padding(4);
             this.txtDiagnostico.MaxLength = 400;
             this.txtDiagnostico.Multiline = true;
             this.txtDiagnostico.Name = "txtDiagnostico";
@@ -251,7 +251,7 @@
             // dtFecha
             // 
             this.dtFecha.Location = new System.Drawing.Point(336, 271);
-            this.dtFecha.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dtFecha.Margin = new System.Windows.Forms.Padding(4);
             this.dtFecha.Name = "dtFecha";
             this.dtFecha.Size = new System.Drawing.Size(292, 22);
             this.dtFecha.TabIndex = 6;
@@ -272,10 +272,11 @@
             // 
             this.cmbTipoServicio.FormattingEnabled = true;
             this.cmbTipoServicio.Location = new System.Drawing.Point(21, 270);
-            this.cmbTipoServicio.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmbTipoServicio.Margin = new System.Windows.Forms.Padding(4);
             this.cmbTipoServicio.Name = "cmbTipoServicio";
             this.cmbTipoServicio.Size = new System.Drawing.Size(292, 24);
             this.cmbTipoServicio.TabIndex = 5;
+            this.cmbTipoServicio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cmbTipoServicio_KeyPress);
             // 
             // label6
             // 
@@ -317,7 +318,7 @@
             // 
             this.txtModelo.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.txtModelo.Location = new System.Drawing.Point(336, 203);
-            this.txtModelo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtModelo.Margin = new System.Windows.Forms.Padding(4);
             this.txtModelo.Name = "txtModelo";
             this.txtModelo.Size = new System.Drawing.Size(292, 22);
             this.txtModelo.TabIndex = 4;
@@ -325,7 +326,7 @@
             // txtCodigo
             // 
             this.txtCodigo.Location = new System.Drawing.Point(21, 203);
-            this.txtCodigo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtCodigo.Margin = new System.Windows.Forms.Padding(4);
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.Size = new System.Drawing.Size(292, 22);
             this.txtCodigo.TabIndex = 3;
@@ -334,7 +335,7 @@
             // 
             this.txtDescripcionProducto.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtDescripcionProducto.Location = new System.Drawing.Point(21, 127);
-            this.txtDescripcionProducto.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtDescripcionProducto.Margin = new System.Windows.Forms.Padding(4);
             this.txtDescripcionProducto.MaxLength = 50;
             this.txtDescripcionProducto.Multiline = true;
             this.txtDescripcionProducto.Name = "txtDescripcionProducto";
@@ -345,7 +346,7 @@
             // 
             this.progressBar1.ForeColor = System.Drawing.Color.Lime;
             this.progressBar1.Location = new System.Drawing.Point(83, 507);
-            this.progressBar1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.progressBar1.Margin = new System.Windows.Forms.Padding(4);
             this.progressBar1.Name = "progressBar1";
             this.progressBar1.Size = new System.Drawing.Size(529, 28);
             this.progressBar1.Step = 50;
@@ -373,7 +374,7 @@
             this.btnGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardar.ForeColor = System.Drawing.Color.White;
             this.btnGuardar.Location = new System.Drawing.Point(147, 539);
-            this.btnGuardar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnGuardar.Margin = new System.Windows.Forms.Padding(4);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(385, 47);
             this.btnGuardar.TabIndex = 8;
@@ -413,7 +414,7 @@
             this.dgvReparaciones.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvReparaciones.EnableHeadersVisualStyles = false;
             this.dgvReparaciones.Location = new System.Drawing.Point(16, 124);
-            this.dgvReparaciones.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvReparaciones.Margin = new System.Windows.Forms.Padding(4);
             this.dgvReparaciones.Name = "dgvReparaciones";
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
@@ -431,42 +432,6 @@
             this.dgvReparaciones.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvReparaciones_CellClick);
             this.dgvReparaciones.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dgvReparaciones_CellPainting);
             // 
-            // idProducto
-            // 
-            this.idProducto.HeaderText = "id";
-            this.idProducto.MinimumWidth = 6;
-            this.idProducto.Name = "idProducto";
-            this.idProducto.Visible = false;
-            this.idProducto.Width = 50;
-            // 
-            // RazonSocial
-            // 
-            this.RazonSocial.HeaderText = "Material";
-            this.RazonSocial.MinimumWidth = 6;
-            this.RazonSocial.Name = "RazonSocial";
-            this.RazonSocial.Width = 240;
-            // 
-            // Domicilio
-            // 
-            this.Domicilio.HeaderText = "Codigo";
-            this.Domicilio.MinimumWidth = 6;
-            this.Domicilio.Name = "Domicilio";
-            this.Domicilio.Width = 125;
-            // 
-            // Telefono
-            // 
-            this.Telefono.HeaderText = "Modelo";
-            this.Telefono.MinimumWidth = 6;
-            this.Telefono.Name = "Telefono";
-            this.Telefono.Width = 150;
-            // 
-            // Ver
-            // 
-            this.Ver.HeaderText = "Seleccionar";
-            this.Ver.MinimumWidth = 6;
-            this.Ver.Name = "Ver";
-            this.Ver.Width = 80;
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -483,7 +448,7 @@
             // 
             this.txtDescipcionBus.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtDescipcionBus.Location = new System.Drawing.Point(93, 96);
-            this.txtDescipcionBus.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtDescipcionBus.Margin = new System.Windows.Forms.Padding(4);
             this.txtDescipcionBus.Name = "txtDescipcionBus";
             this.txtDescipcionBus.Size = new System.Drawing.Size(684, 22);
             this.txtDescipcionBus.TabIndex = 85;
@@ -509,7 +474,7 @@
             this.btnNuevo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNuevo.ForeColor = System.Drawing.Color.White;
             this.btnNuevo.Location = new System.Drawing.Point(27, 650);
-            this.btnNuevo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnNuevo.Margin = new System.Windows.Forms.Padding(4);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(103, 34);
             this.btnNuevo.TabIndex = 86;
@@ -525,8 +490,8 @@
             this.panelVer.Controls.Add(this.dgvHistorialTaller);
             this.panelVer.Controls.Add(this.label18);
             this.panelVer.Controls.Add(this.btnNuevoHistorial);
-            this.panelVer.Location = new System.Drawing.Point(793, 92);
-            this.panelVer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelVer.Location = new System.Drawing.Point(797, 87);
+            this.panelVer.Margin = new System.Windows.Forms.Padding(4);
             this.panelVer.Name = "panelVer";
             this.panelVer.Size = new System.Drawing.Size(637, 592);
             this.panelVer.TabIndex = 199;
@@ -540,7 +505,7 @@
             this.btnSalidaTaller.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSalidaTaller.ForeColor = System.Drawing.Color.White;
             this.btnSalidaTaller.Location = new System.Drawing.Point(84, 527);
-            this.btnSalidaTaller.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSalidaTaller.Margin = new System.Windows.Forms.Padding(4);
             this.btnSalidaTaller.Name = "btnSalidaTaller";
             this.btnSalidaTaller.Size = new System.Drawing.Size(212, 47);
             this.btnSalidaTaller.TabIndex = 98;
@@ -592,7 +557,7 @@
             this.dgvHistorialTaller.DefaultCellStyle = dataGridViewCellStyle6;
             this.dgvHistorialTaller.EnableHeadersVisualStyles = false;
             this.dgvHistorialTaller.Location = new System.Drawing.Point(21, 47);
-            this.dgvHistorialTaller.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvHistorialTaller.Margin = new System.Windows.Forms.Padding(4);
             this.dgvHistorialTaller.Name = "dgvHistorialTaller";
             dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
@@ -649,6 +614,7 @@
             this.label18.Size = new System.Drawing.Size(246, 23);
             this.label18.TabIndex = 42;
             this.label18.Text = "Historial de Reparaciones";
+            this.label18.Click += new System.EventHandler(this.label18_Click);
             // 
             // btnNuevoHistorial
             // 
@@ -658,13 +624,49 @@
             this.btnNuevoHistorial.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNuevoHistorial.ForeColor = System.Drawing.Color.White;
             this.btnNuevoHistorial.Location = new System.Drawing.Point(377, 527);
-            this.btnNuevoHistorial.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnNuevoHistorial.Margin = new System.Windows.Forms.Padding(4);
             this.btnNuevoHistorial.Name = "btnNuevoHistorial";
             this.btnNuevoHistorial.Size = new System.Drawing.Size(212, 47);
             this.btnNuevoHistorial.TabIndex = 13;
             this.btnNuevoHistorial.Text = "Nuevo Historial";
             this.btnNuevoHistorial.UseVisualStyleBackColor = false;
             this.btnNuevoHistorial.Click += new System.EventHandler(this.btnNuevoHistorial_Click);
+            // 
+            // idProducto
+            // 
+            this.idProducto.HeaderText = "id";
+            this.idProducto.MinimumWidth = 6;
+            this.idProducto.Name = "idProducto";
+            this.idProducto.Visible = false;
+            this.idProducto.Width = 50;
+            // 
+            // RazonSocial
+            // 
+            this.RazonSocial.HeaderText = "Material";
+            this.RazonSocial.MinimumWidth = 6;
+            this.RazonSocial.Name = "RazonSocial";
+            this.RazonSocial.Width = 240;
+            // 
+            // Domicilio
+            // 
+            this.Domicilio.HeaderText = "Codigo";
+            this.Domicilio.MinimumWidth = 6;
+            this.Domicilio.Name = "Domicilio";
+            this.Domicilio.Width = 125;
+            // 
+            // Telefono
+            // 
+            this.Telefono.HeaderText = "Modelo";
+            this.Telefono.MinimumWidth = 6;
+            this.Telefono.Name = "Telefono";
+            this.Telefono.Width = 130;
+            // 
+            // Ver
+            // 
+            this.Ver.HeaderText = "Seleccionar";
+            this.Ver.MinimumWidth = 6;
+            this.Ver.Name = "Ver";
+            this.Ver.Width = 80;
             // 
             // ReparacionesWF
             // 
@@ -680,7 +682,7 @@
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ReparacionesWF";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ReparacionesWF";
@@ -727,11 +729,6 @@
         private System.Windows.Forms.TextBox txtPorDni;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label lblidCliente;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idProducto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn RazonSocial;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Domicilio;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Telefono;
-        private System.Windows.Forms.DataGridViewButtonColumn Ver;
         private System.Windows.Forms.Panel panelVer;
         private System.Windows.Forms.Button btnSalidaTaller;
         private System.Windows.Forms.Label lblidReparacion;
@@ -742,5 +739,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Usuario;
         private System.Windows.Forms.DataGridViewButtonColumn VerHistorial;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idProducto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RazonSocial;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Domicilio;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Telefono;
+        private System.Windows.Forms.DataGridViewButtonColumn Ver;
     }
 }
