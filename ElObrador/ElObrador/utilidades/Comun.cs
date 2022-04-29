@@ -83,7 +83,7 @@ namespace waiTextSharp.utilidades
       try
       {
         // nombre de la aplicación
-        return "El Obrador Maquinas y Herramientas";
+        return "ORDEN DE TRABAJO";
       }
       catch (Exception Ex)
       {

@@ -303,9 +303,11 @@
       <DependentUpon>UsuariosWF.cs</DependentUpon>
     </Compile>
     <Compile Include="utilidades\Comun.cs" />
+    <Compile Include="utilidades\OrdenDeTrabajoReparaciones.cs" />
     <Compile Include="utilidades\Reporte.cs" />
     <Compile Include="utilidades\ReporteColumna.cs" />
     <Compile Include="utilidades\ReportePagina.cs" />
+    <Compile Include="utilidades\ReportePaginaOrdenTrabajo.cs" />
     <Compile Include="VisualizarHistorialWF.cs">
       <SubType>Form</SubType>
     </Compile>

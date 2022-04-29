@@ -1,15 +1,24 @@
 ﻿using ElObrador.Clases_Maestras;
 using ElObrador.Entidades;
 using ElObrador.Negocio;
+using ElObrador.utilidades;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
+using Microsoft.Reporting.WinForms;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using waiTextSharp.utilidades;
+using Rectangle = iTextSharp.text.Rectangle;
 
 namespace ElObrador
 {
@@ -25,8 +34,8 @@ namespace ElObrador
             {
                 Reparaciones _taller = CargarEntidad();
 
-                bool Exito = ReparacionesNeg.RegistrarIngresoEnTaller(_taller);
-                if (Exito == true)
+                int Exito = ReparacionesNeg.RegistrarIngresoEnTaller(_taller);
+                if (Exito > 0)
                 {
                     ProgressBar();
                     const string message2 = "Se registro el ingreso a taller exitosamente.";
@@ -34,6 +43,7 @@ namespace ElObrador
                     var result2 = MessageBox.Show(message2, caption2,
                                                  MessageBoxButtons.OK,
                                                  MessageBoxIcon.Asterisk);
+                    GenerarReporte(Exito, _taller);
                     LimpiarCampos();
                     FuncionListarReparaciones();
                 }
@@ -41,7 +51,188 @@ namespace ElObrador
             catch (Exception ex)
             { }
         }
+        #region "variables"
 
+        /// <summary>
+        /// Obtener la ruta y nombre logotipo 
+        /// </summary>
+        public string ArchivoLogotipo = Comun.AppRuta() + Comun.AppLogotipo;
+
+        /// <summary>
+        /// Obtener la ruta donde se crea y guarda el reporte (archivo) PDF
+
+        //SqlConnection conTmp = new SqlConnection();
+        SqlCommand cmdTmp = new SqlCommand();
+        //SqlDataAdapter daTmp;
+        DataSet dstTmp = new DataSet();
+        string ArchivoNombre;
+        string Encabezado;
+        string Subencabezado = "";
+        string DiasHorariosLaborales = "";
+        string Texto = "";
+        string TextoLineaDos = "";
+        string TextoLey = "";
+        string PiePagina = "";
+        ArrayList arlColumnas = new ArrayList();
+        Rectangle PapelTamanio = iTextSharp.text.PageSize.LETTER;        /// </summary>
+        //public string RutaReporte = Comun.AppRuta() + Comun.AppRutaReporte;
+
+        /// <summary>
+        /// Obtener la cadena de conexión desde App.config, para conexíón con SQL Server 
+        /// </summary>
+        // public string CadenaConexion = System.Configuration.ConfigurationManager.ConnectionStrings["csMSQLServer"].ConnectionString;
+
+        #endregion
+        private void GenerarReporte(int Exito, Reparaciones _taller)
+        {
+
+
+            string TablaImnprimir = "Nro.Alquiler '" + Exito + "'";
+            try
+            {
+
+                // cambiar puntero del ratón
+                Cursor.Current = Cursors.WaitCursor;
+
+                //// mensaje inicializar
+                //MensajeLimpiar();
+
+                //// mensaje
+                //MensajeMostrar(" - [ Reporte en proceso... ]");
+
+
+                string folderPath = "C:\\Obrador-Archivos\\PDFs\\Comprobante-Reparaciones\\";
+                if (!Directory.Exists(folderPath))
+                {
+                    Directory.CreateDirectory(folderPath);
+                }
+
+                string RutaReporte = folderPath;
+                // ruta y nombre del archivo con extensión
+                ArchivoNombre = RutaReporte + "rpt" + TablaImnprimir + DateTime.Now.ToFileTime().ToString() + ".pdf";
+
+                // Encabezado
+                Encabezado = Comun.AppNombre();
+
+
+                // tamaño de la hoja
+                PapelTamanio = iTextSharp.text.PageSize.LETTER;
+
+                // encabezado
+                //Subencabezado = "Comprobante de Alquiler" + Environment.NewLine + "(No valido como factura)";
+                Subencabezado = "Fecha de Ingreso:" + _taller.Fecha.ToShortDateString() + "";
+
+                // Jornada Laboral                
+                DiasHorariosLaborales = "Días y Horario de Atención: Lunes a Viernes de 8hs a 17hs / Sábados de 8hs a 13hs";
+
+
+                // Texto
+                var espacios = "";
+                string Blancos = espacios.PadRight(80);
+                string BlancosDos = espacios.PadRight(20);
+
+
+                string txtApellido = lblApellido.Text;
+                string txtTelefono = lblTelefono.Text;
+                string txtNroReferencia = Convert.ToString(Exito);
+                string txSeña = txtSeña.Text;
+                if (txtSeña.Text == "")
+                {
+                    txSeña = "0";
+                }
+                else
+                { txSeña = txtSeña.Text; }
+                string txFechaEstimada = dtFechaEstimadaEntrega.Value.ToShortDateString();
+
+                Texto = "Cliente: '" + txtApellido + "'; Teléfono: '" + txtTelefono + "'; Referencia: '" + txtNroReferencia + "';" + "Seña: '" + txSeña + "';" + "Fecha Estimada de Entrega: '" + txFechaEstimada + "'";
+
+                //TextoLineaDos = " Referencia: '" + Exito + "'" + BlancosDos +  "Seña: '" + txtSeña.Text + "'" + BlancosDos + "Fecha Estimada de Entrega: '" + dtFechaEstimadaEntrega.Value + "'";
+
+                // Texto Ley
+                TextoLey = "IMPORTANTE " + Environment.NewLine + " 1) Sera requisito indispensable presentar este comprobante para retirar el equipo. " + Environment.NewLine + " 2) Si pasados los 90 días de terminado el arreglo, el material no es retirado, quedara en propiedad de este service, entendiendose que el titular renuncia al mismo de acuerdo a los Art.872/3 del Código Civil. " + Environment.NewLine + " 3) Los tiempos de reparación estarán sujetos a disponibilidad y/o stock de los repuestos. " + Environment.NewLine + " 4) Las reparaciones gozarán de 90 días de garantía sobre el arreglo específico. " + Environment.NewLine + " 5) Los equipos dejado a presupuestar que no tengan una confirmación dentro de los 60 días una vez cotizado el trabajo, quedarán a disposición del El obrador, perdiendo el propietario todo derecho a reclamo alguno.";
+
+                // columnas
+                arlColumnas.Add(new ReporteColumna("Código", 20, true, Element.ALIGN_CENTER, Element.ALIGN_CENTER, "", FontFactory.TIMES_ROMAN, 8));
+                arlColumnas.Add(new ReporteColumna("Material", 30, true, Element.ALIGN_CENTER, Element.ALIGN_CENTER, "", FontFactory.TIMES_ROMAN, 8));
+                arlColumnas.Add(new ReporteColumna("Modelo", 30, true, Element.ALIGN_CENTER, Element.ALIGN_CENTER, "", FontFactory.TIMES_ROMAN, 8));
+
+
+                // pie de página
+                PiePagina = "";
+
+                // instanciar reporte
+                OrdenDeTrabajoReparaciones udtReporte = new OrdenDeTrabajoReparaciones(ArchivoLogotipo);
+
+                //
+                // Se define la estructura del DataTable
+                //
+                DataTable dt = new DataTable();
+
+                dt.Columns.Add("Código");
+                dt.Columns.Add("Material");
+                dt.Columns.Add("Modelo");
+
+
+                dt.Rows.Add("Código", "Material", "Modelo");
+                dt.Rows.Add(_taller.Codigo, _taller.Material, _taller.Modelo);
+
+                //foreach (var item in _taller)
+                //{
+                //    dt.Rows.Add(item.Material, item.Modelo, item.Codigo);
+                //}
+
+                //string Prueba = "Hola Mundo";
+                // crear reporte
+                try
+                {
+                    udtReporte.Generar(ArchivoNombre, PapelTamanio, Encabezado, Subencabezado, DiasHorariosLaborales, Texto, TextoLey, PiePagina, arlColumnas, dt);
+                }
+                catch (Exception ex)
+                {
+
+                    string message = ex.Message;
+                    const string caption = "Error";
+                    var result = MessageBox.Show(message, caption,
+                                                 MessageBoxButtons.OK,
+                                               MessageBoxIcon.Exclamation);
+                    throw new Exception();
+                }
+                //entregar el reporte con la aplicación asociada
+                System.Diagnostics.Process.Start(ArchivoNombre);
+
+                // mensaje
+                //MensajeMostrar(" - [ Reporte terminado... ]");
+
+                // cambiar puntero ratón
+                Cursor.Current = Cursors.Default;
+            }
+            catch (Exception Ex)
+            {
+                // heredar
+                throw Ex;
+            }
+            finally
+            {
+                // cerrar y destruir
+                //cmdTmp.Dispose();
+                //conTmp.Close();
+                //conTmp.Dispose();
+            }
+        }
+
+        private void SoloNumerosyDecimales(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+            // solo 1 punto decimal
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+            //e.Handled = !char.IsNumber(e.KeyChar) && e.KeyChar != Convert.ToChar(Keys.Back);
+        }
         private void LimpiarCampos()
         {
             txtCodigo.Clear();
@@ -98,6 +289,11 @@ namespace ElObrador
             _taller.TipoServicio = cmbTipoServicio.Text;
             _taller.Fecha = dtFecha.Value;
             _taller.Diagnostico = txtDiagnostico.Text;
+            if (txtSeña.Text != "")
+            {
+                _taller.Seña = Convert.ToDecimal(txtSeña.Text);
+            }
+            _taller.FechaEstimadaEntrega = dtFechaEstimadaEntrega.Value;
             _taller.idUsuario = idusuarioLogueado;
             return _taller;
         }
@@ -120,12 +316,32 @@ namespace ElObrador
                 foreach (var item in ListaClientes)
                 {
                     lblidCliente.Text = Convert.ToString(item.IdCliente);
+                    string Apellido = item.Apellido;
+                    string Nombre = item.Nombre;
+                    lblApellido.Text = Apellido + "," + Nombre;
+                    lblTelefono.Text = item.Telefono;
+                    lblApellido.Visible = true;
+                    txtPorDni.Text = item.Dni;
+                    txtPorDni.Enabled = false;
                     //string Apellido = item.Apellido;
                     //string Nombre = item.Nombre;
                     //string Persona = Apellido + "," + Nombre;
                     //string Domicilio = item.Calle + "N°" + item.Altura;
                     //dgvReparaciones.Rows.Add(item.IdCliente, Persona, Domicilio, item.Email, item.Telefono);
                 }
+            }
+            else
+            {
+                const string message2 = "No existe ningun cliente con el Apellido y Nombre ingresado.";
+                const string caption2 = "Atención";
+                var result2 = MessageBox.Show(message2, caption2,
+                                             MessageBoxButtons.OK,
+                                             MessageBoxIcon.Exclamation);
+                txtPorDni.Clear();
+                textBox1.Clear();
+                lblApellido.Text = "";
+                lblApellido.Visible = false;
+
             }
             dgvReparaciones.ReadOnly = true;
         }
@@ -146,9 +362,11 @@ namespace ElObrador
                 foreach (var item in ListaClientes)
                 {
                     lblidCliente.Text = Convert.ToString(item.IdCliente);
-                    //string Apellido = item.Apellido;
-                    //string Nombre = item.Nombre;
-                    //string Persona = Apellido + "," + Nombre;
+                    string Apellido = item.Apellido;
+                    string Nombre = item.Nombre;
+                    lblApellido.Text = Apellido + "," + Nombre;
+                    lblApellido.Visible = true;
+                    lblTelefono.Text = item.Telefono;
                     //string Domicilio = item.Calle + "N°" + item.Altura;
                     //dgvReparaciones.Rows.Add(item.IdCliente, Persona, Domicilio, item.Email, item.Telefono);
                 }
@@ -160,6 +378,11 @@ namespace ElObrador
                 var result2 = MessageBox.Show(message2, caption2,
                                              MessageBoxButtons.OK,
                                              MessageBoxIcon.Exclamation);
+                txtPorDni.Clear();
+                textBox1.Clear();
+                lblApellido.Text = "";
+                lblApellido.Visible = false;
+
             }
             dgvReparaciones.ReadOnly = true;
         }
@@ -169,7 +392,19 @@ namespace ElObrador
             panel1.Visible = true;
             panelVer.Visible = false;
             textBox1.Focus();
+            txtPorDni.Enabled = true;
             CargarComboServicio();
+            FuncionBuscartextoCliente();
+            txtPorDni.Clear();
+            textBox1.Clear();
+            lblApellido.Text = "";
+            lblApellido.Visible = false;
+        }
+        private void FuncionBuscartextoCliente()
+        {
+            textBox1.AutoCompleteCustomSource = Clases_Maestras.AutoCompletePorApellido.Autocomplete();
+            textBox1.AutoCompleteMode = AutoCompleteMode.Suggest;
+            textBox1.AutoCompleteSource = AutoCompleteSource.CustomSource;
         }
         private void CargarComboServicio()
         {

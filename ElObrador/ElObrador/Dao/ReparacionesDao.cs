@@ -13,7 +13,7 @@ namespace ElObrador.Dao
     {
         private static MySql.Data.MySqlClient.MySqlConnection connection = new MySqlConnection(Properties.Settings.Default.db);
 
-        public static bool RegistrarIngresoEnReparacion(Reparaciones taller)
+        public static int RegistrarIngresoEnReparacion(Reparaciones taller)
         {
             int idReparacion = 0;
             bool exito = false;
@@ -30,6 +30,8 @@ namespace ElObrador.Dao
             cmd.Parameters.AddWithValue("Diagnostico_in", taller.Diagnostico);
             cmd.Parameters.AddWithValue("idUsuario_in", taller.idUsuario);
             cmd.Parameters.AddWithValue("idCliente_in", taller.idCliente);
+            cmd.Parameters.AddWithValue("FechaEstimadaEntrega_in", taller.FechaEstimadaEntrega);
+            cmd.Parameters.AddWithValue("Senia_in", taller.Seña);
             MySqlDataReader r = cmd.ExecuteReader();
             while (r.Read())
             {
@@ -41,7 +43,7 @@ namespace ElObrador.Dao
             {
                 exito = RegistrarHistorial(taller, idReparacion);
             }
-            return exito;
+            return idReparacion;
         }
         public static bool RegistrarHistorial(Reparaciones taller, int idReparacion)
         {

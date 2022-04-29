@@ -11,9 +11,9 @@ namespace ElObrador.Negocio
 {
     public class ReparacionesNeg
     {
-        public static bool RegistrarIngresoEnTaller(Reparaciones taller)
+        public static int RegistrarIngresoEnTaller(Reparaciones taller)
         {
-            bool exito = false;
+            int exito = 0;
             try
             {
                 ValidarDatos(taller);
