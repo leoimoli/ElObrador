@@ -14,8 +14,9 @@ namespace ElObrador.Dao
     {
         private static MySql.Data.MySqlClient.MySqlConnection connection = new MySqlConnection(Properties.Settings.Default.db);
 
-        public static bool InsertarCategoria(Categoria categoria)
+        public static bool InsertarCategoria(Categoria categoria, string CodigoCategoria)
         {
+            int idCategoria = 0;
             bool exito = false;
             connection.Close();
             connection.Open();
@@ -26,12 +27,59 @@ namespace ElObrador.Dao
             cmd.Parameters.AddWithValue("FechaAlta_in", categoria.FechaAlta);
             cmd.Parameters.AddWithValue("idGrupo_in", categoria.idGrupo);
             cmd.Parameters.AddWithValue("idUsuario_in", categoria.idUsuario);
-            cmd.ExecuteNonQuery();
+            cmd.Parameters.AddWithValue("CodigoCategoria_in", CodigoCategoria);
+            MySqlDataReader r = cmd.ExecuteReader();
+            while (r.Read())
+            {
+                idCategoria = Convert.ToInt32(r["ID"].ToString());
+            }
+            if (idCategoria > 0)
+            {
+                exito = RegistrarPrimerValorDeCodigo(CodigoCategoria, idCategoria);
+            }
             exito = true;
             connection.Close();
             return exito;
         }
 
+        private static bool RegistrarPrimerValorDeCodigo(string codigoCategoria, int idCategoria)
+        {
+            bool exito = false;
+            connection.Close();
+            connection.Open();
+            string proceso = "RegistrarPrimerValorDeCodigo";
+            MySqlCommand cmd = new MySqlCommand(proceso, connection);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("LetraCodigo_in", codigoCategoria);
+            cmd.Parameters.AddWithValue("idCategoria_in", idCategoria);
+            exito = true;
+            connection.Close();
+            return exito;
+        }
+
+        public static bool ValidarCodigoCategoriaExistente(string codigo)
+        {
+            connection.Close();
+            bool Existe = false;
+            connection.Open();
+            MySqlCommand cmd = new MySqlCommand();
+            cmd.Connection = connection;
+            DataTable Tabla = new DataTable();
+            MySqlParameter[] oParam = {
+                                       new MySqlParameter("Codigo_in", codigo)};
+            string proceso = "ValidarCodigoCategoriaExistente";
+            MySqlDataAdapter dt = new MySqlDataAdapter(proceso, connection);
+            dt.SelectCommand.CommandType = CommandType.StoredProcedure;
+            dt.SelectCommand.Parameters.AddRange(oParam);
+            dt.Fill(Tabla);
+            DataSet ds = new DataSet();
+            if (Tabla.Rows.Count > 0)
+            {
+                Existe = true;
+            }
+            connection.Close();
+            return Existe;
+        }
         public static bool ValidarCategoriaExistente(string nombre, int idGrupo)
         {
             connection.Close();

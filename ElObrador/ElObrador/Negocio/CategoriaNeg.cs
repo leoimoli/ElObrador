@@ -17,6 +17,7 @@ namespace ElObrador.Negocio
             try
             {
                 ValidarDatos(categoria);
+                string CodigoCategoria = "";
                 bool CategoriaExistente = CategoriaDao.ValidarCategoriaExistente(categoria.Nombre, categoria.idGrupo);
                 if (CategoriaExistente == true)
                 {
@@ -29,7 +30,17 @@ namespace ElObrador.Negocio
                 }
                 else
                 {
-                    exito = CategoriaDao.InsertarCategoria(categoria);
+                    //string Codigo = categoria.Nombre.Substring(0, 3);
+                    //bool CodigoExistente = CategoriaDao.ValidarCodigoCategoriaExistente(Codigo);
+                    int contador = 2;
+                    for (int i = 0; i < 10; i++)
+                    {
+                        CodigoCategoria = categoria.Nombre.Substring(0, contador + 1);
+                        bool CodigoExistente = CategoriaDao.ValidarCodigoCategoriaExistente(CodigoCategoria);
+                        if (CodigoExistente == false)
+                        { break; }
+                    }                 
+                    exito = CategoriaDao.InsertarCategoria(categoria, CodigoCategoria);
                 }
             }
             catch (Exception ex)
