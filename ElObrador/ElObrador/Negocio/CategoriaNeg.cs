@@ -35,11 +35,12 @@ namespace ElObrador.Negocio
                     int contador = 2;
                     for (int i = 0; i < 10; i++)
                     {
+                        contador = contador + 1;
                         CodigoCategoria = categoria.Nombre.Substring(0, contador + 1);
                         bool CodigoExistente = CategoriaDao.ValidarCodigoCategoriaExistente(CodigoCategoria);
                         if (CodigoExistente == false)
                         { break; }
-                    }                 
+                    }
                     exito = CategoriaDao.InsertarCategoria(categoria, CodigoCategoria);
                 }
             }

@@ -379,5 +379,13 @@ namespace ElObrador
         {
             e.Handled = true;
         }
+
+        private void cmbCategoria_SelectedIndexChanged(object sender, EventArgs e)
+        {            
+            string Categoria = cmbCategoria.Text;        
+            string Codigo = CategoriaDao.BuscarCodigoSiguiente(idGrupoSeleccionado, Categoria);
+           
+           
+        }
     }
 }

@@ -52,6 +52,7 @@ namespace ElObrador.Dao
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.AddWithValue("LetraCodigo_in", codigoCategoria);
             cmd.Parameters.AddWithValue("idCategoria_in", idCategoria);
+            cmd.ExecuteNonQuery();
             exito = true;
             connection.Close();
             return exito;
@@ -153,6 +154,11 @@ namespace ElObrador.Dao
             }
             connection.Close();
             return idGrupo;
+        }
+
+        internal static string BuscarCodigoSiguiente(int idGrupoSeleccionado, string categoria)
+        {
+            throw new NotImplementedException();
         }
     }
 }
