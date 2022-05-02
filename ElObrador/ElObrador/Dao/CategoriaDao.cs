@@ -156,9 +156,39 @@ namespace ElObrador.Dao
             return idGrupo;
         }
 
-        internal static string BuscarCodigoSiguiente(int idGrupoSeleccionado, string categoria)
+        public static string BuscarCodigoSiguiente(int idGrupoSeleccionado, string categoria)
         {
-            throw new NotImplementedException();
+            connection.Close();
+            connection.Open();
+            string codigo = "";
+            string codigoLetra = "";
+            string codigoNro = "";
+            MySqlCommand cmd = new MySqlCommand();
+            cmd.Connection = connection;
+            DataTable Tabla = new DataTable();
+            MySqlParameter[] oParam = {
+                                       new MySqlParameter("idGrupoSeleccionado_in", idGrupoSeleccionado),
+             new MySqlParameter("categoria_in", categoria)};
+            string proceso = "BuscarCodigoSiguiente";
+            MySqlDataAdapter dt = new MySqlDataAdapter(proceso, connection);
+            dt.SelectCommand.CommandType = CommandType.StoredProcedure;
+            dt.SelectCommand.Parameters.AddRange(oParam);
+            dt.Fill(Tabla);
+            if (Tabla.Rows.Count > 0)
+            {
+                foreach (DataRow item in Tabla.Rows)
+                {
+                    codigoLetra = item["LetraCodigo"].ToString();
+                    codigoNro = item["NroCodigo"].ToString();
+                }
+            }
+            if (codigoLetra != "" && codigoNro != "")
+            {
+                codigo = codigoLetra + "-" + codigoNro;
+            }
+
+            connection.Close();
+            return codigo;
         }
     }
 }

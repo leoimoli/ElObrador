@@ -11,6 +11,8 @@ namespace ElObrador.Entidades
         public int idAlquiler { get; set; }
         public int idMaterial { get; set; }
         public int idCliente { get; set; }
+        public string TelefonoCliente { get; set; }
+        public string EmailCliente { get; set; }
         public string Material { get; set; }
         public string Codigo { get; set; }
         public string Modelo { get; set; }

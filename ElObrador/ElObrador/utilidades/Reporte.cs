@@ -5,6 +5,7 @@ using iTextSharp.text;
 using iTextSharp.text.pdf;
 using System.Collections;
 using System.Windows.Forms;
+using ElObrador.utilidades;
 
 namespace waiTextSharp.utilidades
 {
@@ -52,7 +53,7 @@ namespace waiTextSharp.utilidades
         /// <param name="PiePagina">Pie de página del reporte</param>
         /// <param name="EncabezadoColumnas">Arreglo de columnas que contiene el reporte</param>
         /// <param name="dtbDatos"><see cref="DataTable"/> con la información a imprimir</param>
-        public void Generar(string ReporteNombre, Rectangle PapelTamanio, string Encabezado, string SubEncabezado, string TextoAlquiler, string PiePagina, ArrayList EncabezadoColumnas, DataTable dtbDatos)
+        public void Generar(string ReporteNombre, Rectangle PapelTamanio, string Encabezado, string SubEncabezado, string DiasHorariosLaborales, string TextoAlquiler, string TextoLey, string PiePagina, ArrayList EncabezadoColumnas, DataTable dtbDatos)
         {
 
             //try
@@ -136,7 +137,7 @@ namespace waiTextSharp.utilidades
             {
                 // asignar documento y evento
                 m_writerTmp = PdfWriter.GetInstance(docTmp, fsTmp);
-                m_peTmp = new ReportePagina(Encabezado, SubEncabezado, TextoAlquiler, PiePagina, EncabezadoColumnas, m_Logotipo, true);
+                m_peTmp = new ReportePaginaAlquiler(Encabezado, SubEncabezado, DiasHorariosLaborales, TextoAlquiler, TextoLey, PiePagina, EncabezadoColumnas, m_Logotipo, true);
                 m_writerTmp.PageEvent = m_peTmp;
             }
             catch (Exception Ex)
@@ -365,7 +366,7 @@ namespace waiTextSharp.utilidades
             try
             {
                 // adicionar tabla con la información
-                tablaTmp.WriteSelectedRows(0, -1, docTmp.LeftMargin + 30, docTmp.Top - 40, m_writerTmp.DirectContent);
+                tablaTmp.WriteSelectedRows(0, -1, docTmp.LeftMargin + 30, docTmp.Top - 60, m_writerTmp.DirectContent);
             }
             catch (Exception Ex)
             {

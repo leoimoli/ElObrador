@@ -53,14 +53,14 @@
             this.txtProveedor = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.txtFacturaRemito = new System.Windows.Forms.TextBox();
+            this.txtCodigoLetra = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.txtMonto = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.dtFechaCompra = new System.Windows.Forms.DateTimePicker();
             this.label6 = new System.Windows.Forms.Label();
             this.txtModelo = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.txtCodigo = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.cmbCategoria = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -74,6 +74,8 @@
             this.lblNuevoProducto = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.txtCodigoNumero = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStock)).BeginInit();
             this.PanelDerecho.SuspendLayout();
             this.PanelNuevoMaterial.SuspendLayout();
@@ -214,6 +216,8 @@
             // 
             // PanelNuevoMaterial
             // 
+            this.PanelNuevoMaterial.Controls.Add(this.label11);
+            this.PanelNuevoMaterial.Controls.Add(this.txtCodigoNumero);
             this.PanelNuevoMaterial.Controls.Add(this.btnCrearCodigo);
             this.PanelNuevoMaterial.Controls.Add(this.btnCrerarProveedor);
             this.PanelNuevoMaterial.Controls.Add(this.btnCrearCategoria);
@@ -222,7 +226,7 @@
             this.PanelNuevoMaterial.Controls.Add(this.txtProveedor);
             this.PanelNuevoMaterial.Controls.Add(this.label9);
             this.PanelNuevoMaterial.Controls.Add(this.txtFacturaRemito);
-            this.PanelNuevoMaterial.Controls.Add(this.txtCodigo);
+            this.PanelNuevoMaterial.Controls.Add(this.txtCodigoLetra);
             this.PanelNuevoMaterial.Controls.Add(this.label4);
             this.PanelNuevoMaterial.Controls.Add(this.label8);
             this.PanelNuevoMaterial.Controls.Add(this.txtMonto);
@@ -348,6 +352,25 @@
             this.txtFacturaRemito.Size = new System.Drawing.Size(220, 20);
             this.txtFacturaRemito.TabIndex = 183;
             // 
+            // txtCodigoLetra
+            // 
+            this.txtCodigoLetra.Enabled = false;
+            this.txtCodigoLetra.Location = new System.Drawing.Point(161, 83);
+            this.txtCodigoLetra.Name = "txtCodigoLetra";
+            this.txtCodigoLetra.Size = new System.Drawing.Size(73, 20);
+            this.txtCodigoLetra.TabIndex = 175;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.Black;
+            this.label4.Location = new System.Drawing.Point(77, 84);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(81, 17);
+            this.label4.TabIndex = 176;
+            this.label4.Text = "Código(*):";
+            // 
             // label8
             // 
             this.label8.AutoSize = true;
@@ -403,24 +426,6 @@
             this.txtModelo.Name = "txtModelo";
             this.txtModelo.Size = new System.Drawing.Size(220, 20);
             this.txtModelo.TabIndex = 177;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(77, 84);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(81, 17);
-            this.label4.TabIndex = 176;
-            this.label4.Text = "Código(*):";
-            // 
-            // txtCodigo
-            // 
-            this.txtCodigo.Location = new System.Drawing.Point(161, 83);
-            this.txtCodigo.Name = "txtCodigo";
-            this.txtCodigo.Size = new System.Drawing.Size(220, 20);
-            this.txtCodigo.TabIndex = 175;
             // 
             // label3
             // 
@@ -547,6 +552,24 @@
             this.lblNuevoProducto.TabIndex = 42;
             this.lblNuevoProducto.Text = "Nuevo Material";
             // 
+            // txtCodigoNumero
+            // 
+            this.txtCodigoNumero.Location = new System.Drawing.Point(250, 83);
+            this.txtCodigoNumero.Name = "txtCodigoNumero";
+            this.txtCodigoNumero.Size = new System.Drawing.Size(131, 20);
+            this.txtCodigoNumero.TabIndex = 191;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.Color.Black;
+            this.label11.Location = new System.Drawing.Point(235, 85);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(14, 17);
+            this.label11.TabIndex = 192;
+            this.label11.Text = "-";
+            // 
             // StockWF
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -597,7 +620,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtModelo;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txtCodigo;
+        private System.Windows.Forms.TextBox txtCodigoLetra;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox txtMonto;
         private System.Windows.Forms.Label label7;
@@ -616,5 +639,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Material;
         private System.Windows.Forms.DataGridViewTextBoxColumn Stock;
         private System.Windows.Forms.DataGridViewButtonColumn Ver;
+        private System.Windows.Forms.TextBox txtCodigoNumero;
+        private System.Windows.Forms.Label label11;
     }
 }

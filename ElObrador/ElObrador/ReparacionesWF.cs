@@ -87,7 +87,7 @@ namespace ElObrador
         {
 
 
-            string TablaImnprimir = "Nro.Alquiler '" + Exito + "'";
+            string TablaImnprimir = "Nro.Reparacion '" + Exito + "'";
             try
             {
 
@@ -146,7 +146,7 @@ namespace ElObrador
 
                 Texto = "Cliente: '" + txtApellido + "'; Teléfono: '" + txtTelefono + "'; Referencia: '" + txtNroReferencia + "';" + "Seña: '" + txSeña + "';" + "Fecha Estimada de Entrega: '" + txFechaEstimada + "'";
 
-                //TextoLineaDos = " Referencia: '" + Exito + "'" + BlancosDos +  "Seña: '" + txtSeña.Text + "'" + BlancosDos + "Fecha Estimada de Entrega: '" + dtFechaEstimadaEntrega.Value + "'";
+            
 
                 // Texto Ley
                 TextoLey = "IMPORTANTE " + Environment.NewLine + " 1) Sera requisito indispensable presentar este comprobante para retirar el equipo. " + Environment.NewLine + " 2) Si pasados los 90 días de terminado el arreglo, el material no es retirado, quedara en propiedad de este service, entendiendose que el titular renuncia al mismo de acuerdo a los Art.872/3 del Código Civil. " + Environment.NewLine + " 3) Los tiempos de reparación estarán sujetos a disponibilidad y/o stock de los repuestos. " + Environment.NewLine + " 4) Las reparaciones gozarán de 90 días de garantía sobre el arreglo específico. " + Environment.NewLine + " 5) Los equipos dejado a presupuestar que no tengan una confirmación dentro de los 60 días una vez cotizado el trabajo, quedarán a disposición del El obrador, perdiendo el propietario todo derecho a reclamo alguno.";

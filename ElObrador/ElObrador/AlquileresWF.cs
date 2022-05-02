@@ -2,6 +2,7 @@
 using ElObrador.Dao;
 using ElObrador.Entidades;
 using ElObrador.Negocio;
+using ElObrador.utilidades;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
 using Microsoft.Reporting.WinForms;
@@ -337,7 +338,7 @@ namespace ElObrador
         /// <summary>
         /// Obtener la ruta y nombre logotipo 
         /// </summary>
-        public string ArchivoLogotipo = Comun.AppRuta() + Comun.AppLogotipo;
+        public string ArchivoLogotipo = Comun.AppRuta() + ComunAlquiler.AppLogotipo;
 
         /// <summary>
         /// Obtener la ruta donde se crea y guarda el reporte (archivo) PDF
@@ -349,7 +350,9 @@ namespace ElObrador
         string ArchivoNombre;
         string Encabezado;
         string Subencabezado = "";
+        string DiasHorariosLaborales = "";
         string Texto = "";
+        string TextoLey = "";
         string PiePagina = "";
         ArrayList arlColumnas = new ArrayList();
         Rectangle PapelTamanio = iTextSharp.text.PageSize.LETTER;        /// </summary>
@@ -391,25 +394,43 @@ namespace ElObrador
                 ArchivoNombre = RutaReporte + "rpt" + TablaImnprimir + DateTime.Now.ToFileTime().ToString() + ".pdf";
 
                 // Encabezado
-                Encabezado = Comun.AppNombre();
+                Encabezado = ComunAlquiler.AppNombre();
 
 
                 // tamaño de la hoja
                 PapelTamanio = iTextSharp.text.PageSize.LETTER;
 
                 // encabezado
-                Subencabezado = "Comprobante de Alquiler" + Environment.NewLine + "(No valido como factura)";
+                Subencabezado = "N°Alquiler: '" + idAlquiler + "'";
 
 
+                // Jornada Laboral                
+                DiasHorariosLaborales = "Días y Horario de Atención: Lunes a Viernes de 8hs a 17hs / Sábados de 8hs a 13hs";
+
+
+
+                string txtApellido = listaAlquiler[0].Cliente;
+                string DNI = listaAlquiler[0].DniCliente;
+                string Telefono = listaAlquiler[0].TelefonoCliente;
+                string Email = listaAlquiler[0].EmailCliente;
+                string NroCliente = Convert.ToString(listaAlquiler[0].idCliente);
+                string FechaActual = DateTime.Now.ToShortDateString();
+                string Devolucion = listaAlquiler[0].FechaHasta.ToShortDateString();
+                //string txtNroReferencia = Convert.ToString(Exito);
+                //string txSeña = txtSeña.Text;
 
                 // Texto
-                Texto = "Por la presente se deja constancia que el cliente '" + listaAlquiler[0].Cliente + "', con Número de documento '" + listaAlquiler[0].DniCliente + "' se lleva en forma de alquiler con fecha de devolución estipulada para el día '" + listaAlquiler[0].FechaHasta + "' los materiales que se detallan a continuacción.";
+                Texto = "Cliente: '" + txtApellido + "'; Telefono: '" + Telefono + "'; Email: '" + Email + "';" + "NroCliente: '" + NroCliente + "';" + "Fecha: '" + FechaActual + "';" + "Fecha Estimada de Entrega: '" + Devolucion + "'";
+
+                // Texto Ley
+                TextoLey = "IMPORTANTE " + Environment.NewLine + " 1) Sera requisito indispensable presentar este comprobante para retirar el equipo. " + Environment.NewLine + " 2) Si pasados los 90 días de terminado el arreglo, el material no es retirado, quedara en propiedad de este service, entendiendose que el titular renuncia al mismo de acuerdo a los Art.872/3 del Código Civil. " + Environment.NewLine + " 3) Los tiempos de reparación estarán sujetos a disponibilidad y/o stock de los repuestos. " + Environment.NewLine + " 4) Las reparaciones gozarán de 90 días de garantía sobre el arreglo específico. " + Environment.NewLine + " 5) Los equipos dejado a presupuestar que no tengan una confirmación dentro de los 60 días una vez cotizado el trabajo, quedarán a disposición del El obrador, perdiendo el propietario todo derecho a reclamo alguno.";
 
 
                 // columnas
+                arlColumnas.Add(new ReporteColumna("Código de Herramieta", 20, true, Element.ALIGN_CENTER, Element.ALIGN_CENTER, "", FontFactory.TIMES_ROMAN, 8));
                 arlColumnas.Add(new ReporteColumna("Material", 30, true, Element.ALIGN_CENTER, Element.ALIGN_CENTER, "", FontFactory.TIMES_ROMAN, 8));
-                arlColumnas.Add(new ReporteColumna("Modelo", 30, true, Element.ALIGN_CENTER, Element.ALIGN_CENTER, "", FontFactory.TIMES_ROMAN, 8));
-                arlColumnas.Add(new ReporteColumna("Código", 20, true, Element.ALIGN_CENTER, Element.ALIGN_CENTER, "", FontFactory.TIMES_ROMAN, 8));
+                arlColumnas.Add(new ReporteColumna("Fecha de Devolución", 30, true, Element.ALIGN_CENTER, Element.ALIGN_CENTER, "", FontFactory.TIMES_ROMAN, 8));
+                arlColumnas.Add(new ReporteColumna("Días de alquiler estimado", 20, true, Element.ALIGN_CENTER, Element.ALIGN_CENTER, "", FontFactory.TIMES_ROMAN, 8));
 
                 // pie de página
                 PiePagina = "";
@@ -422,23 +443,24 @@ namespace ElObrador
                 //
                 DataTable dt = new DataTable();
 
+                dt.Columns.Add("Código de Herramieta");
                 dt.Columns.Add("Material");
-                dt.Columns.Add("Modelo");
-                dt.Columns.Add("Código");
+                dt.Columns.Add("Fecha de Devolución");
+                dt.Columns.Add("Días de alquiler estimado");
 
-                dt.Rows.Add("Material", "Modelo", "Código");
+                dt.Rows.Add("Código de Herramieta", "Material", "Fecha de Devolución", "Días de alquiler estimado");
 
 
                 foreach (var item in listaAlquiler)
                 {
-                    dt.Rows.Add(item.Material, item.Modelo, item.Codigo);
+                    dt.Rows.Add(item.Codigo, item.Material, item.FechaHasta, item.Dias);
                 }
 
                 //string Prueba = "Hola Mundo";
                 // crear reporte
                 try
                 {
-                    udtReporte.Generar(ArchivoNombre, PapelTamanio, Encabezado, Subencabezado, Texto, PiePagina, arlColumnas, dt);
+                    udtReporte.Generar(ArchivoNombre, PapelTamanio, Encabezado, Subencabezado, DiasHorariosLaborales, Texto, TextoLey, PiePagina, arlColumnas, dt);
                 }
                 catch (Exception ex)
                 {

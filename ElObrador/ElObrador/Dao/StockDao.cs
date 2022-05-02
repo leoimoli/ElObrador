@@ -335,10 +335,30 @@ namespace ElObrador.Dao
             cmd.Parameters.AddWithValue("Estado_in", 1);
             cmd.ExecuteNonQuery();
             exito = true;
+            if (exito == true)
+            { exito = RegistrarHistorialDeCodigos(stock.idCategoria, stock.Codigo); }
             connection.Close();
             return exito;
         }
 
+        private static bool RegistrarHistorialDeCodigos(int idCategoria, string codigo)
+        {
+            bool exito = false;
+          
+            string CodLetra = codigo.Split('-')[0];
+            string CodNro = codigo.Split('-')[1];
+            connection.Close();
+            connection.Open();
+            string proceso = "RegistrarHistorialDeCodigos";
+            MySqlCommand cmd = new MySqlCommand(proceso, connection);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("idCategoria_in", idCategoria);
+            cmd.Parameters.AddWithValue("CodLetra_in", CodLetra);
+            cmd.Parameters.AddWithValue("CodNro_in", CodNro);
+            cmd.ExecuteNonQuery();
+            exito = true;
+            return exito;
+        }
         public static List<Stock> ListarStock()
         {
             connection.Close();

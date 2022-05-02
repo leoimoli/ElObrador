@@ -14,7 +14,7 @@ namespace waiTextSharp.utilidades
     /// <summary>
     /// Ruta y nombre del logotipo 
     /// </summary>
-    public static string AppLogotipo = System.Configuration.ConfigurationManager.AppSettings["AppLogotipo"];
+    public static string AppLogotipo = System.Configuration.ConfigurationManager.AppSettings["AppLogotipoRepaciones"];
 
     /// <summary>
     /// Ruta donde se guarda el reporte 

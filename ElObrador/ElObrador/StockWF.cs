@@ -125,7 +125,6 @@ namespace ElObrador
                 }
             }
         }
-
         private void btnGuardarProducto_Click(object sender, EventArgs e)
         {
             try
@@ -147,13 +146,13 @@ namespace ElObrador
             catch (Exception ex)
             { }
         }
-
         private void LimpiarCampos()
         {
             CargarComboGrupo();
             CargarComboCategoria(0);
             txtDescripcionProducto.Clear();
-            txtCodigo.Clear();
+            txtCodigoLetra.Clear();
+            txtCodigoNumero.Clear();
             txtMonto.Clear();
             txtModelo.Clear();
             dtFechaCompra.Value = DateTime.Now;
@@ -162,7 +161,6 @@ namespace ElObrador
             progressBar1.Value = Convert.ToInt32(null);
             progressBar1.Visible = false;
         }
-
         private void ProgressBar()
         {
             progressBar1.Visible = true;
@@ -214,7 +212,8 @@ namespace ElObrador
             _stock.idCategoria = idCategoria;
             _stock.Descripcion = txtDescripcionProducto.Text;
             _stock.Modelo = txtModelo.Text;
-            _stock.Codigo = txtCodigo.Text;
+            String Codigo = txtCodigoLetra.Text + "-" + txtCodigoNumero.Text;
+            _stock.Codigo = Codigo;
             _stock.FechaDeCompra = dtFechaCompra.Value;
             if (txtMonto.Text != "")
             {
@@ -228,8 +227,7 @@ namespace ElObrador
             _stock.FechaDeAlta = fechaActual;
             _stock.idUsuario = idusuarioLogueado;
             return _stock;
-        }
-        private void btnCrearCodigo_Click(object sender, EventArgs e)
+        }        private void btnCrearCodigo_Click(object sender, EventArgs e)
         {
             string Codigo = "";
             int cadena = 100;
@@ -249,7 +247,7 @@ namespace ElObrador
                 }
                 else
                 {
-                    txtCodigo.Text = Codigo;
+                    txtCodigoLetra.Text = Codigo;
                     break;
                 }
             }
@@ -366,7 +364,7 @@ namespace ElObrador
                                                  MessageBoxButtons.OK,
                                                MessageBoxIcon.Exclamation);
                 }
-               
+
             }
         }
 
@@ -381,11 +379,26 @@ namespace ElObrador
         }
 
         private void cmbCategoria_SelectedIndexChanged(object sender, EventArgs e)
-        {            
-            string Categoria = cmbCategoria.Text;        
-            string Codigo = CategoriaDao.BuscarCodigoSiguiente(idGrupoSeleccionado, Categoria);
-           
-           
+        {
+            string Categoria = cmbCategoria.Text;
+            if (Categoria != "Seleccione")
+            {
+                string Codigo = CategoriaDao.BuscarCodigoSiguiente(idGrupoSeleccionado, Categoria);
+                if (Codigo != "")
+                {
+                    txtCodigoLetra.Text = Codigo.Split('-')[0];
+                    int valorNumero = Convert.ToInt32(Codigo.Split('-')[1]);
+                    txtCodigoNumero.Text = Convert.ToString(valorNumero + 1);
+                }
+                else
+                {
+                    const string message = "Atención: No se encontro un código para la categoria seleccionada.";
+                    const string caption = "Atención";
+                    var result = MessageBox.Show(message, caption,
+                                                 MessageBoxButtons.OK,
+                                               MessageBoxIcon.Exclamation);
+                }
+            }
         }
     }
 }
