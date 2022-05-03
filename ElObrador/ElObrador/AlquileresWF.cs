@@ -200,19 +200,20 @@ namespace ElObrador
                     {
                         foreach (var item in ListaValoresObtenidos)
                         {
-                            dgvAlquiler.Rows.Add(item.idMaterial, item.Descripcion, item.CantidadDiasAlquiler, dtFechaDesde.Value, dtFechaHasta.Value, item.MontoAlquiler, item.Codigo, item.Modelo);
+                            dgvAlquiler.Rows.Add(item.idMaterial, item.Descripcion, item.CantidadDiasAlquiler, dtFechaDesde.Value, dtFechaHasta.Value, txtObservaciones.Text, item.MontoAlquiler, item.Codigo, item.Modelo);
                         }
                         decimal PrecioTotalFinal = 0;
                         foreach (DataGridViewRow row in dgvAlquiler.Rows)
                         {
-                            if (row.Cells[5].Value != null)
-                                PrecioTotalFinal += Convert.ToDecimal(row.Cells[5].Value.ToString());
+                            if (row.Cells[6].Value != null)
+                                PrecioTotalFinal += Convert.ToDecimal(row.Cells[6].Value.ToString());
                         }
 
                         lblTotalPagarReal.Text = Convert.ToString(PrecioTotalFinal);
                         dtFechaDesde.Enabled = false;
                         dtFechaHasta.Enabled = false;
                         txtDescipcionBus.Clear();
+                        txtObservaciones.Clear();
                         dataGridView1.Rows.Clear();
 
                     }
@@ -352,6 +353,10 @@ namespace ElObrador
         string Subencabezado = "";
         string DiasHorariosLaborales = "";
         string Texto = "";
+        string Nota = "";
+        string TextoNota = "";
+        string FirmaAclaracion = "";
+        string DniFirmante = "";
         string TextoLey = "";
         string PiePagina = "";
         ArrayList arlColumnas = new ArrayList();
@@ -422,6 +427,14 @@ namespace ElObrador
                 // Texto
                 Texto = "Cliente: '" + txtApellido + "'; Telefono: '" + Telefono + "'; Email: '" + Email + "';" + "NroCliente: '" + NroCliente + "';" + "Fecha: '" + FechaActual + "';" + "Fecha Estimada de Entrega: '" + Devolucion + "'";
 
+                Nota = "Notas";
+
+                TextoNota = "- La casa no se responsabiliza por lesiones o daños generados por el uso de la herramienta. " + Environment.NewLine + "- El cliente retira la herramienta en excelente estado de funcionamiento, cualquier observación o rotura que sufriera la misma por mal uso o negligencia sera reparada a cargo del cliente." + Environment.NewLine + " - Los períodos de alquiler son de días(24 horas) salvo indicaciones contraria, indicada en observaciones, contados a partir del retiro de la herramienta, pasado ese plazo se factura uno nuevo. " + Environment.NewLine + " - Junto con la firma del presente se firmará un pagaré en concepto de garantía por eventuales roturas, extavios de la herramientay falta de cumplimiento en el pago del alquiler de la misma, el cual será devuelto al momento que se devuelva la herramienta y el titular no posea deuda alguna.";
+
+                FirmaAclaracion = "Firma y Aclaración";
+
+                DniFirmante = "DNI";
+
                 // Texto Ley
                 TextoLey = "IMPORTANTE " + Environment.NewLine + " 1) Sera requisito indispensable presentar este comprobante para retirar el equipo. " + Environment.NewLine + " 2) Si pasados los 90 días de terminado el arreglo, el material no es retirado, quedara en propiedad de este service, entendiendose que el titular renuncia al mismo de acuerdo a los Art.872/3 del Código Civil. " + Environment.NewLine + " 3) Los tiempos de reparación estarán sujetos a disponibilidad y/o stock de los repuestos. " + Environment.NewLine + " 4) Las reparaciones gozarán de 90 días de garantía sobre el arreglo específico. " + Environment.NewLine + " 5) Los equipos dejado a presupuestar que no tengan una confirmación dentro de los 60 días una vez cotizado el trabajo, quedarán a disposición del El obrador, perdiendo el propietario todo derecho a reclamo alguno.";
 
@@ -431,6 +444,7 @@ namespace ElObrador
                 arlColumnas.Add(new ReporteColumna("Material", 30, true, Element.ALIGN_CENTER, Element.ALIGN_CENTER, "", FontFactory.TIMES_ROMAN, 8));
                 arlColumnas.Add(new ReporteColumna("Fecha de Devolución", 30, true, Element.ALIGN_CENTER, Element.ALIGN_CENTER, "", FontFactory.TIMES_ROMAN, 8));
                 arlColumnas.Add(new ReporteColumna("Días de alquiler estimado", 20, true, Element.ALIGN_CENTER, Element.ALIGN_CENTER, "", FontFactory.TIMES_ROMAN, 8));
+                arlColumnas.Add(new ReporteColumna("Observaciones", 30, true, Element.ALIGN_CENTER, Element.ALIGN_CENTER, "", FontFactory.TIMES_ROMAN, 8));
 
                 // pie de página
                 PiePagina = "";
@@ -447,20 +461,21 @@ namespace ElObrador
                 dt.Columns.Add("Material");
                 dt.Columns.Add("Fecha de Devolución");
                 dt.Columns.Add("Días de alquiler estimado");
+                dt.Columns.Add("Observaciones");
 
-                dt.Rows.Add("Código de Herramieta", "Material", "Fecha de Devolución", "Días de alquiler estimado");
+                dt.Rows.Add("Código de Herramieta", "Material", "Fecha de Devolución", "Días de alquiler estimado", "Observaciones");
 
 
                 foreach (var item in listaAlquiler)
                 {
-                    dt.Rows.Add(item.Codigo, item.Material, item.FechaHasta, item.Dias);
+                    dt.Rows.Add(item.Codigo, item.Material, item.FechaHasta, item.Dias, item.Observacion);
                 }
 
                 //string Prueba = "Hola Mundo";
                 // crear reporte
                 try
                 {
-                    udtReporte.Generar(ArchivoNombre, PapelTamanio, Encabezado, Subencabezado, DiasHorariosLaborales, Texto, TextoLey, PiePagina, arlColumnas, dt);
+                    udtReporte.Generar(ArchivoNombre, PapelTamanio, Encabezado, Subencabezado, DiasHorariosLaborales, Texto, Nota, TextoNota, FirmaAclaracion, DniFirmante, TextoLey, PiePagina, arlColumnas, dt);
                 }
                 catch (Exception ex)
                 {
@@ -701,12 +716,15 @@ namespace ElObrador
                 _Alquiler.Modelo = row.Cells["Mod"].Value.ToString();
                 _Alquiler.Dias = Convert.ToInt32(row.Cells["Dias"].Value.ToString());
                 _Alquiler.FechaDesde = Convert.ToDateTime(row.Cells["FechaInicio"].Value.ToString());
+                _Alquiler.Observacion = row.Cells["Observacion"].Value.ToString();
                 _Alquiler.FechaHasta = Convert.ToDateTime(row.Cells["FechaFin"].Value.ToString());
                 _Alquiler.Monto = Convert.ToDecimal(row.Cells["ValorAlquiler"].Value.ToString());
                 _Alquiler.MontoTotal = Convert.ToDecimal(lblTotalPagarReal.Text);
                 _Alquiler.idCliente = Convert.ToInt32(lblidCliente.Text);
                 _Alquiler.Cliente = lblApeNom.Text;
                 _Alquiler.DniCliente = lblDniCliente.Text;
+                _Alquiler.TelefonoCliente = lblTelefono.Text;
+                _Alquiler.EmailCliente = lblEmail.Text;
                 _Alquiler.Estado = 1;
                 _listaAlquiler.Add(_Alquiler);
             }

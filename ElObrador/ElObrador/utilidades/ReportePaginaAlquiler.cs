@@ -40,6 +40,10 @@ namespace ElObrador.utilidades
         private string m_Subencabezado;
         private string m_DiasHorariosLaborales;
         private string m_TextoAlquiler;
+        private string m_Nota;
+        private string m_TextoNota;
+        private string m_FirmaAclaracion;
+        private string m_DniFirmante;
         private string m_TextoLey;
         private string m_PiePagina;
         private ArrayList m_EncabezadoColumnas;
@@ -66,7 +70,7 @@ namespace ElObrador.utilidades
         /// <param name="encabezadocolumnas">Arreglo de columnas que contiene el reporte</param>
         /// <param name="logoNombre">Ruta y nombre del Logotipo</param>
         /// <param name="blnDetalle">true = Para mostrar lo títulos de las columnas, false = Para no mostrar los títulos de la columnas</param>
-        public ReportePaginaAlquiler(string encabezado, string subencabezado, string DiasHorariosLaborales, string TextoAlquiler, string TextoLey, string piePagina, ArrayList encabezadocolumnas, string logotipo, bool blnDetalle)
+        public ReportePaginaAlquiler(string encabezado, string subencabezado, string DiasHorariosLaborales, string TextoAlquiler, string Nota, string TextoNota, string FirmaAclaracion, string DniFirmante, string TextoLey, string piePagina, ArrayList encabezadocolumnas, string logotipo, bool blnDetalle)
         {
             try
             {
@@ -75,6 +79,10 @@ namespace ElObrador.utilidades
                 m_Subencabezado = subencabezado;
                 m_DiasHorariosLaborales = DiasHorariosLaborales;
                 m_TextoAlquiler = TextoAlquiler;
+                m_Nota = Nota;
+                m_TextoNota = TextoNota;
+                m_FirmaAclaracion = FirmaAclaracion;
+                m_DniFirmante = DniFirmante;
                 m_TextoLey = TextoLey;
                 //m_Prueba = Prueba;
                 m_PiePagina = piePagina;
@@ -148,7 +156,27 @@ namespace ElObrador.utilidades
             get { return m_TextoAlquiler; }
             set { m_TextoAlquiler = value; }
         }
+        public string Nota
+        {
+            get { return m_Nota; }
+            set { m_Nota = value; }
+        }
+        public string TextoNota
+        {
+            get { return m_TextoNota; }
+            set { m_TextoNota = value; }
+        }
+        public string FirmaAclaracion
+        {
+            get { return m_FirmaAclaracion; }
+            set { m_FirmaAclaracion = value; }
+        }
 
+        public string DniFirmante
+        {
+            get { return m_DniFirmante; }
+            set { m_DniFirmante = value; }
+        }
         public string TextoLey
         {
             get { return m_TextoLey; }
@@ -226,6 +254,10 @@ namespace ElObrador.utilidades
             PdfPTable tblTextoAlquiler3 = new PdfPTable(1);
             PdfPTable tblTextoAlquiler4 = new PdfPTable(1);
             PdfPTable tblTextoAlquiler5 = new PdfPTable(1);
+            PdfPTable tblNota = new PdfPTable(1);
+            PdfPTable tblTextoNota = new PdfPTable(1);
+            PdfPTable tblFirmaAclaracion = new PdfPTable(1);
+            PdfPTable tblDniFirmante = new PdfPTable(1);
             PdfPTable tblTextoLey = new PdfPTable(1);
             //PdfPTable tblPrueba = new PdfPTable(2);
             PdfPTable tblEncabezadoColumnas = new PdfPTable((m_EncabezadoColumnas.Count == 0) ? 1 : m_EncabezadoColumnas.Count);
@@ -242,7 +274,10 @@ namespace ElObrador.utilidades
             Font fSubEncabezado;
             Font fDiasHorariosLaborales;
             Font fTextoAlquiler;
+            Font fNota;
+            Font fTextoNota;
             Font fTextoLey;
+            Font fFirmanteDNI;
             //Font fPrueba;
             Font fPiePagina;
             Font fEncabezadoColumnas;
@@ -269,6 +304,10 @@ namespace ElObrador.utilidades
                     tblTextoAlquiler3.WidthPercentage = 50;
                     tblTextoAlquiler4.WidthPercentage = 50;
                     tblTextoAlquiler5.WidthPercentage = 50;
+                    tblNota.WidthPercentage = 100;
+                    tblTextoNota.WidthPercentage = 100;
+                    tblFirmaAclaracion.WidthPercentage = 100;
+                    tblDniFirmante.WidthPercentage = 100;
                     tblTextoLey.WidthPercentage = 100;
                     //tblPrueba.WidthPercentage = 100;
                     tblEncabezadoColumnas.WidthPercentage = 100;
@@ -286,6 +325,10 @@ namespace ElObrador.utilidades
                     tblTextoAlquiler3.SetWidths(new int[] { 33 });
                     tblTextoAlquiler4.SetWidths(new int[] { 33 });
                     tblTextoAlquiler5.SetWidths(new int[] { 33 });
+                    tblNota.SetWidths(new int[] { 100 });
+                    tblTextoNota.SetWidths(new int[] { 100 });
+                    tblFirmaAclaracion.SetWidths(new int[] { 100 });
+                    tblDniFirmante.SetWidths(new int[] { 100 });
                     tblTextoLey.SetWidths(new int[] { 100 });
                     tblLogotipo.SetWidths(new int[] { 100 });
                     tblPiePagina.SetWidths(new int[] { 7, 15, 10 });
@@ -299,6 +342,12 @@ namespace ElObrador.utilidades
                     fDiasHorariosLaborales = FontFactory.GetFont(FontFactory.TIMES_ROMAN, 7, Font.NORMAL);
                     fTextoAlquiler = new Font();
                     fTextoAlquiler = FontFactory.GetFont(FontFactory.TIMES_ROMAN, 10, Font.NORMAL);
+                    fNota = new Font();
+                    fNota = FontFactory.GetFont(FontFactory.TIMES_ROMAN, 9, Font.BOLD);
+                    fTextoNota = new Font();
+                    fTextoNota = FontFactory.GetFont(FontFactory.TIMES_ROMAN, 8, Font.NORMAL);
+                    fFirmanteDNI = new Font();
+                    fFirmanteDNI = FontFactory.GetFont(FontFactory.TIMES_ROMAN, 8, Font.BOLD);
                     fTextoLey = new Font();
                     fTextoLey = FontFactory.GetFont(FontFactory.TIMES_ROMAN, 8, Font.NORMAL);
                     fTamanio2 = new Font();
@@ -382,13 +431,13 @@ namespace ElObrador.utilidades
                     string Email = DatoInicial.Split(';')[2];
                     string NroCliente = DatoInicial.Split(';')[3];
                     string Fecha = DatoInicial.Split(';')[4];
-                    string FechaEstimada = DatoInicial.Split(';')[5];          
+                    string FechaEstimada = DatoInicial.Split(';')[5];
 
 
-                    // verificar
+                    ///////////////////////////////////////// adicionar textoAlquiler
                     if (m_TextoAlquiler.Length > 0)
                     {
-                        // adicionar textoAlquiler
+                       
                         var ApellidoNombre = new PdfPCell(new Phrase(Persona, fTextoAlquiler))
                         {
                             Border = (int)CeldaBorde.ninguno,
@@ -444,11 +493,116 @@ namespace ElObrador.utilidades
                         Colspan = 2,
                         HorizontalAlignment = Element.ALIGN_LEFT
                     };
+
+                    ///////////////////////////////////////// Nota
+                    tblNota.AddCell(cellTmp);                  
+                    if (m_Nota.Length > 0)
+                    {
+                        
+                        cellTmp = new PdfPCell(new Phrase(m_Nota, fNota))
+                        {
+                            Border = (int)CeldaBorde.ninguno,
+                            BorderWidthTop = 1,
+                            BorderWidthBottom = 1,                        
+                            HorizontalAlignment = Element.ALIGN_CENTER,
+                            VerticalAlignment = Element.ALIGN_BOTTOM
+                        };
+                        tblNota.AddCell(cellTmp);
+                    }
+
+                    // linea en blanco
+                    cellTmp = new PdfPCell(new Phrase(" ", fNota))
+                    {
+                        Border = (int)CeldaBorde.ninguno,
+                        Colspan = 2,
+                        HorizontalAlignment = Element.ALIGN_LEFT
+                    };
+                    tblNota.AddCell(cellTmp);
+
+
+                    ///////////////////////////////////////// Texto Nota
+                    tblTextoNota.AddCell(cellTmp);
+                    // verificar
+                    if (m_TextoNota.Length > 0)
+                    {
+                        // adicionar textoLey
+                        cellTmp = new PdfPCell(new Phrase(m_TextoNota, fTextoNota))
+                        {
+                            Border = (int)CeldaBorde.ninguno,
+                           // BorderWidthTop = 2,
+                            HorizontalAlignment = Element.ALIGN_LEFT,
+                            VerticalAlignment = Element.ALIGN_BOTTOM
+                        };
+                        tblTextoNota.AddCell(cellTmp);
+                    }
+
+                    // linea en blanco
+                    cellTmp = new PdfPCell(new Phrase(" ", fTextoNota))
+                    {
+                        Border = (int)CeldaBorde.ninguno,
+                        Colspan = 2,
+                        HorizontalAlignment = Element.ALIGN_LEFT
+                    };
+                    tblTextoNota.AddCell(cellTmp);
+
+                    ///////////////////////////////////////// Texto Firma y Aclaracion
+                    tblFirmaAclaracion.AddCell(cellTmp);
+                    // verificar
+                    if (m_FirmaAclaracion.Length > 0)
+                    {
+                        // adicionar textoLey
+                        cellTmp = new PdfPCell(new Phrase(m_FirmaAclaracion, fFirmanteDNI))
+                        {
+                            Border = (int)CeldaBorde.ninguno,
+                            // BorderWidthTop = 2,
+                            HorizontalAlignment = Element.ALIGN_LEFT,
+                            VerticalAlignment = Element.ALIGN_BOTTOM
+                        };
+                        tblFirmaAclaracion.AddCell(cellTmp);
+                    }
+
+                    // linea en blanco
+                    cellTmp = new PdfPCell(new Phrase(" ", fFirmanteDNI))
+                    {
+                        Border = (int)CeldaBorde.ninguno,
+                        Colspan = 2,
+                        HorizontalAlignment = Element.ALIGN_LEFT
+                    };
+                    tblFirmaAclaracion.AddCell(cellTmp);
+
+
+                    ///////////////////////////////////////// Dni Firmante
+                    tblDniFirmante.AddCell(cellTmp);
+                    // verificar
+                    if (m_DniFirmante.Length > 0)
+                    {
+                        // adicionar textoLey
+                        cellTmp = new PdfPCell(new Phrase(m_DniFirmante, fFirmanteDNI))
+                        {
+                            Border = (int)CeldaBorde.ninguno,
+                            // BorderWidthTop = 2,
+                            HorizontalAlignment = Element.ALIGN_LEFT,
+                            VerticalAlignment = Element.ALIGN_BOTTOM
+                        };
+                        tblDniFirmante.AddCell(cellTmp);
+                    }
+
+                    // linea en blanco
+                    cellTmp = new PdfPCell(new Phrase(" ", fFirmanteDNI))
+                    {
+                        Border = (int)CeldaBorde.ninguno,
+                        Colspan = 2,
+                        HorizontalAlignment = Element.ALIGN_LEFT
+                    };
+                    tblDniFirmante.AddCell(cellTmp);
+
+
+
+                    ///////////////////////////////////////// Texto Ley
                     tblTextoAlquiler.AddCell(cellTmp);
                     // verificar
                     if (m_TextoLey.Length > 0)
-                    {
-                        // adicionar textoLey
+                    {                    
                         cellTmp = new PdfPCell(new Phrase(m_TextoLey, fTextoLey))
                         {
                             Border = (int)CeldaBorde.ninguno,
@@ -636,6 +790,26 @@ namespace ElObrador.utilidades
                     recTmp = document.PageSize;
                     tblTextoAlquiler5.TotalWidth = 200;
                     tblTextoAlquiler5.WriteSelectedRows(0, -1, document.LeftMargin, document.Top - 40, writer.DirectContent);
+
+                    //// establecer Nota
+                    recTmp = document.PageSize;
+                    tblNota.TotalWidth = recTmp.Width - document.LeftMargin - document.RightMargin;
+                    tblNota.WriteSelectedRows(0, -1, document.LeftMargin, document.BottomMargin + 500, writer.DirectContent);
+
+                    //// establecer TextoNota
+                    recTmp = document.PageSize;
+                    tblTextoNota.TotalWidth = recTmp.Width - document.LeftMargin - document.RightMargin;
+                    tblTextoNota.WriteSelectedRows(0, -1, document.LeftMargin, document.BottomMargin + 480, writer.DirectContent);
+
+                    //// establecer Firma y Aclaracion
+                    recTmp = document.PageSize;
+                    tblFirmaAclaracion.TotalWidth = recTmp.Width - document.LeftMargin - document.RightMargin;
+                    tblFirmaAclaracion.WriteSelectedRows(0, -1, document.LeftMargin + 350, document.BottomMargin + 410, writer.DirectContent);
+
+                    //// establecer Dni Firmante
+                    recTmp = document.PageSize;
+                    tblDniFirmante.TotalWidth = recTmp.Width - document.LeftMargin - document.RightMargin;
+                    tblDniFirmante.WriteSelectedRows(0, -1, document.LeftMargin + 350, document.BottomMargin + 400, writer.DirectContent);
 
                     //// establecer TextoLey
                     recTmp = document.PageSize;

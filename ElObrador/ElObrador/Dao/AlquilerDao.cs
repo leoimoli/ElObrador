@@ -241,6 +241,7 @@ namespace ElObrador.Dao
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("idMaterial_in", item.idMaterial);
                 cmd.Parameters.AddWithValue("idAlquiler_in", idAlquiler);
+                cmd.Parameters.AddWithValue("Observacion_in", item.Observacion);
                 cmd.ExecuteNonQuery();
             }
             exito = true;

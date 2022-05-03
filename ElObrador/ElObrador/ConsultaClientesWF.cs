@@ -85,6 +85,8 @@ namespace ElObrador
                 int idCliente = Convert.ToInt32(this.dgvClientes.CurrentRow.Cells[0].Value.ToString());
                 string dni = this.dgvClientes.CurrentRow.Cells[1].Value.ToString();
                 string ApellidoNombre = this.dgvClientes.CurrentRow.Cells[2].Value.ToString();
+                string telefono = this.dgvClientes.CurrentRow.Cells[5].Value.ToString();
+                string email = this.dgvClientes.CurrentRow.Cells[4].Value.ToString();
 
                 //CODIGO SOLO PERMITE 2 INSTANCIAS DEL FORMULARIO CLIENTES
                 //---------------------------------------------
@@ -108,6 +110,8 @@ namespace ElObrador
                     if (frm2 != null)
                     {
                         frm2.lblidCliente.Text = Convert.ToString(idCliente);
+                        frm2.lblTelefono.Text = telefono;
+                        frm2.lblEmail.Text = email;
                         frm2.lblDniCliente.Text = dni;
                         frm2.lblApeNom.Text = ApellidoNombre;
                         // frm2.IniciarPantalla();
