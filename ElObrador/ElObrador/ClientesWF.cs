@@ -1,4 +1,5 @@
 ﻿using ElObrador.Clases_Maestras;
+using ElObrador.Dao;
 using ElObrador.Entidades;
 using ElObrador.Negocio;
 using System;
@@ -186,6 +187,7 @@ namespace ElObrador
         }
         private void LimpiarCampos()
         {
+            lblFaltaDocumentacion.Visible = false;
             txtDni.Clear();
             txtApellido.Clear();
             txtNombre.Clear();
@@ -210,6 +212,14 @@ namespace ElObrador
             progressBar1.Value = Convert.ToInt32(null);
             progressBar1.Visible = false;
             cmbSexo.Enabled = false;
+            chcFotocopiaDNI.Checked = false;
+            chcFacturas.Checked = false;
+            chcAgua.Checked = false;
+            chcGas.Checked = false;
+            chcLuz.Checked = false;
+            chcTelefono.Checked = false;
+            chcOtros.Checked = false;
+            grbTipoFactura.Visible = false;
             CargarCombo();
             CargarProvincias();
         }
@@ -282,6 +292,62 @@ namespace ElObrador
             _clientes.Altura = txtAltura.Text;
             _clientes.idProvincia = idProvinciaSeleccionada;
             _clientes.idLocalidad = idLocalidadSeleccionada;
+            if (chcFotocopiaDNI.Checked == true)
+            {
+                _clientes.chcDni = 1;
+            }
+            else
+            { _clientes.chcDni = 0; }
+
+            if (chcFacturas.Checked == true)
+            {
+                _clientes.chcFacturas = 1;
+            }
+            else
+            { _clientes.chcFacturas = 0; }
+
+            if (_clientes.chcFacturas == 1)
+            {
+                if (chcLuz.Checked == false && chcGas.Checked == false && chcAgua.Checked == false && chcTelefono.Checked == false && chcOtros.Checked == false)
+                {
+                    const string message = "Atención: Debe seleccionar algún tipo de comprobante de factura.";
+                    const string caption = "Atención";
+                    var result = MessageBox.Show(message, caption,
+                                                 MessageBoxButtons.OK,
+                                               MessageBoxIcon.Exclamation);
+                    throw new Exception();
+                }
+                else
+                {
+                    List<String> Lista = new List<string>();
+                    if (chcLuz.Checked == true)
+                    {
+                        _clientes.chcTipoFactura = "Factura de Luz";
+                        Lista.Add(_clientes.chcTipoFactura);
+                    }
+                    if (chcGas.Checked == true)
+                    {
+                        _clientes.chcTipoFactura = "Factura de Gas";
+                        Lista.Add(_clientes.chcTipoFactura);
+                    }
+                    if (chcAgua.Checked == true)
+                    {
+                        _clientes.chcTipoFactura = "Factura de Agua";
+                        Lista.Add(_clientes.chcTipoFactura);
+                    }
+                    if (chcTelefono.Checked == true)
+                    {
+                        _clientes.chcTipoFactura = "Factura de Teléfono";
+                        Lista.Add(_clientes.chcTipoFactura);
+                    }
+                    if (chcOtros.Checked == true)
+                    {
+                        _clientes.chcTipoFactura = "Factura de Otros";
+                        Lista.Add(_clientes.chcTipoFactura);
+                    }
+                    _clientes.ListaComprobantes = Lista;
+                }
+            }
             _clientes.FechaDeAlta = fechaActual;
             return _clientes;
         }
@@ -314,8 +380,89 @@ namespace ElObrador
             _clientes.Telefono = txtCodArea.Text + "-" + txtTelefono.Text;
             _clientes.Calle = txtCalle.Text;
             _clientes.Altura = txtAltura.Text;
+            ObtenerProvincia();
+            ObtenerLocalidad();
             _clientes.idProvincia = idProvinciaSeleccionada;
             _clientes.idLocalidad = idLocalidadSeleccionada;
+            if (chcFotocopiaDNI.Checked == true)
+            {
+                _clientes.chcDni = 1;
+            }
+            else
+            { _clientes.chcDni = 0; }
+
+            if (chcFacturas.Checked == true)
+            {
+                _clientes.chcFacturas = 1;
+            }
+            else
+            { _clientes.chcFacturas = 0; }
+
+            if (_clientes.chcFacturas == 1)
+            {
+                if (chcLuz.Checked == false && chcGas.Checked == false && chcAgua.Checked == false && chcTelefono.Checked == false && chcOtros.Checked == false)
+                {
+                    const string message = "Atención: Debe seleccionar algún tipo de comprobante de factura.";
+                    const string caption = "Atención";
+                    var result = MessageBox.Show(message, caption,
+                                                 MessageBoxButtons.OK,
+                                               MessageBoxIcon.Exclamation);
+                    throw new Exception();
+                }
+                else
+                {
+                    List<String> Lista = new List<string>();
+                    if (chcLuz.Checked == true)
+                    {
+                        _clientes.chcTipoFactura = "Factura de Luz";
+                        if (chcLuz.Enabled == true)
+                        {
+                            Lista.Add(_clientes.chcTipoFactura);
+                        }
+                    }
+                    if (chcGas.Checked == true)
+                    {
+                        _clientes.chcTipoFactura = "Factura de Gas";
+                        if (chcGas.Enabled == true)
+                        {
+                            Lista.Add(_clientes.chcTipoFactura);
+                        }
+                    }
+                    if (chcAgua.Checked == true)
+                    {
+                        _clientes.chcTipoFactura = "Factura de Agua";
+                        if (chcAgua.Enabled == true)
+                        {
+                            Lista.Add(_clientes.chcTipoFactura);
+                        }
+                    }
+                    if (chcTelefono.Checked == true)
+                    {
+                        _clientes.chcTipoFactura = "Factura de Teléfono";
+                        if (chcTelefono.Enabled == true)
+                        {
+                            Lista.Add(_clientes.chcTipoFactura);
+                        }
+                    }
+                    if (chcOtros.Checked == true)
+                    {
+                        _clientes.chcTipoFactura = "Factura de Otros";
+                        if (chcOtros.Enabled == true)
+                        {
+                            Lista.Add(_clientes.chcTipoFactura);
+                        }
+                    }
+                    _clientes.ListaComprobantes = Lista;
+                }
+            }
+            if (_clientes.ListaComprobantes.Count > 0)
+            {
+                _clientes.ActualizaComprobanteFactura = 1;
+            }
+            else
+            {
+                _clientes.ActualizaComprobanteFactura = 0;
+            }
             return _clientes;
         }
         private void btnEditar_Click(object sender, EventArgs e)
@@ -337,6 +484,7 @@ namespace ElObrador
                                              MessageBoxIcon.Asterisk);
             }
         }
+        public static List<string> ListaTotalComprobantes = new List<string>();
         private void HabilitarCamposClienteSeleccionado(List<Clientes> _cliente)
         {
             CargarCombo();
@@ -375,6 +523,93 @@ namespace ElObrador
             txtAltura.Enabled = true;
             txtProvincia.Enabled = true;
             txtLocalidad.Enabled = true;
+
+            if (cliente.chcDni == 1)
+            {
+                chcFotocopiaDNI.Checked = true;
+                chcFotocopiaDNI.Enabled = false;
+                cliente.ActualizaComprobanteDNI = 0;
+                lblFaltaDocumentacion.Visible = false;
+            }
+            else
+            {
+                chcFotocopiaDNI.Checked = false;
+                chcFotocopiaDNI.Enabled = true;
+                cliente.ActualizaComprobanteDNI = 1;
+                lblFaltaDocumentacion.Visible = true;
+            }
+            if (cliente.chcFacturas == 1)
+            {
+                lblFaltaDocumentacion.Visible = false;
+                chcFacturas.Checked = true;
+                chcFacturas.Enabled = false;
+                grbTipoFactura.Visible = true;
+                List<string> ListaComprobantes = new List<string>();
+                ListaComprobantes = ClientesDao.ListaComprobantesDeFactura(cliente.IdCliente);
+                ListaTotalComprobantes = ListaComprobantes;
+                foreach (var item in ListaComprobantes)
+                {
+                    if (item.ToString() == "Factura de Gas")
+                    {
+                        chcGas.Checked = true;
+                        chcGas.Enabled = false;
+                    }
+                    else
+                    {
+                        chcGas.Checked = false;
+                        chcGas.Enabled = true;
+                    }
+                    if (item.ToString() == "Factura de Agua")
+                    {
+                        chcAgua.Checked = true;
+                        chcAgua.Enabled = false;
+                    }
+                    else
+                    {
+                        chcAgua.Checked = false;
+                        chcAgua.Enabled = true;
+                    }
+                    if (item.ToString() == "Factura de Luz")
+                    {
+                        chcLuz.Checked = true;
+                        chcLuz.Enabled = false;
+                    }
+                    else
+                    {
+                        chcLuz.Checked = false;
+                        chcLuz.Enabled = true;
+                    }
+                    if (item.ToString() == "Factura de Teléfono")
+                    {
+                        chcTelefono.Checked = true;
+                        chcTelefono.Enabled = false;
+                    }
+                    else
+                    {
+                        chcTelefono.Checked = false;
+                        chcTelefono.Enabled = true;
+                    }
+                    if (item.ToString() == "Factura de Otros")
+                    {
+                        chcOtros.Checked = true;
+                        chcOtros.Enabled = false;
+                    }
+                    else
+                    {
+                        chcOtros.Checked = false;
+                        chcOtros.Enabled = true;
+                    }
+                }
+            }
+            else
+            {
+                chcFotocopiaDNI.Checked = false;
+                chcFotocopiaDNI.Enabled = true;
+                grbTipoFactura.Visible = false;
+                cliente.ActualizaComprobanteFactura = 1;
+                lblFaltaDocumentacion.Visible = true;
+
+            }
         }
         private void btnBuscar_Click(object sender, EventArgs e)
         {
@@ -420,17 +655,22 @@ namespace ElObrador
         {
             try
             {
-                string localidad = txtLocalidad.Text;
-                if (localidad != "")
-                {
-                    List<Clientes> Localidad = new List<Clientes>();
-                    Localidad = ClientesNeg.BuscarInformacionLocalidad(localidad, idProvinciaSeleccionada);
-                    var loc = Localidad.First();
-                    idLocalidadSeleccionada = loc.idLocalidad;
-                }
+                ObtenerLocalidad();               
             }
             catch (Exception ex)
             {
+            }
+        }
+
+        private void ObtenerLocalidad()
+        {
+            string localidad = txtLocalidad.Text;
+            if (localidad != "")
+            {
+                List<Clientes> Localidad = new List<Clientes>();
+                Localidad = ClientesNeg.BuscarInformacionLocalidad(localidad, idProvinciaSeleccionada);
+                var loc = Localidad.First();
+                idLocalidadSeleccionada = loc.idLocalidad;
             }
         }
 
@@ -470,22 +710,40 @@ namespace ElObrador
         {
             try
             {
-                string provincia = txtProvincia.Text;
-                if (provincia != "")
-                {
-                    int idProvincia = ClientesNeg.BuscarIdProvincia(provincia);
-                    CargarLocalidades(idProvincia);
-                    idProvinciaSeleccionada = idProvincia;
-                }
+                ObtenerProvincia();               
             }
             catch (Exception ex)
             {
                 throw ex;
             }
         }
+
+        private void ObtenerProvincia()
+        {
+            string provincia = txtProvincia.Text;
+            if (provincia != "")
+            {
+                int idProvincia = ClientesNeg.BuscarIdProvincia(provincia);
+                CargarLocalidades(idProvincia);
+                idProvinciaSeleccionada = idProvincia;
+            }
+        }
+
         private void cmbSexo_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = true;
+        }
+
+        private void chcFacturas_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chcFacturas.Checked == true)
+            {
+                grbTipoFactura.Visible = true;
+            }
+            else
+            {
+                grbTipoFactura.Visible = false;
+            }
         }
     }
 }

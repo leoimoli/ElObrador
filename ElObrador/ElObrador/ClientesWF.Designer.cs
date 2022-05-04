@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ClientesWF));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ClientesWF));
             this.btnHistorial = new System.Windows.Forms.Button();
             this.btnNuevo = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
@@ -42,12 +42,6 @@
             this.txtDescipcionBus = new System.Windows.Forms.TextBox();
             this.btnEditar = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.txt1 = new System.Windows.Forms.PictureBox();
-            this.btnAdjuntar1 = new System.Windows.Forms.Button();
             this.txtLocalidad = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.txtProvincia = new System.Windows.Forms.TextBox();
@@ -80,10 +74,19 @@
             this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Telefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.btnLibreDeuda = new System.Windows.Forms.Button();
+            this.chcFotocopiaDNI = new System.Windows.Forms.CheckBox();
+            this.grbTipoFactura = new System.Windows.Forms.GroupBox();
+            this.chcLuz = new System.Windows.Forms.CheckBox();
+            this.chcAgua = new System.Windows.Forms.CheckBox();
+            this.chcGas = new System.Windows.Forms.CheckBox();
+            this.chcTelefono = new System.Windows.Forms.CheckBox();
+            this.chcFacturas = new System.Windows.Forms.CheckBox();
+            this.chcOtros = new System.Windows.Forms.CheckBox();
+            this.lblFaltaDocumentacion = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txt1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).BeginInit();
+            this.grbTipoFactura.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnHistorial
@@ -93,7 +96,7 @@
             this.btnHistorial.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnHistorial.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnHistorial.ForeColor = System.Drawing.Color.White;
-            this.btnHistorial.Location = new System.Drawing.Point(180, 534);
+            this.btnHistorial.Location = new System.Drawing.Point(280, 534);
             this.btnHistorial.Name = "btnHistorial";
             this.btnHistorial.Size = new System.Drawing.Size(77, 28);
             this.btnHistorial.TabIndex = 68;
@@ -174,12 +177,10 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Gainsboro;
-            this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Controls.Add(this.button1);
-            this.panel1.Controls.Add(this.label16);
-            this.panel1.Controls.Add(this.label15);
-            this.panel1.Controls.Add(this.txt1);
-            this.panel1.Controls.Add(this.btnAdjuntar1);
+            this.panel1.Controls.Add(this.lblFaltaDocumentacion);
+            this.panel1.Controls.Add(this.chcFacturas);
+            this.panel1.Controls.Add(this.grbTipoFactura);
+            this.panel1.Controls.Add(this.chcFotocopiaDNI);
             this.panel1.Controls.Add(this.txtLocalidad);
             this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.txtProvincia);
@@ -208,82 +209,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(466, 481);
             this.panel1.TabIndex = 61;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Location = new System.Drawing.Point(248, 342);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(161, 76);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 167;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Visible = false;
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(187)))), ((int)(((byte)(45)))));
-            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.SeaGreen;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.Location = new System.Drawing.Point(415, 364);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(30, 26);
-            this.button1.TabIndex = 12;
-            this.toolTip1.SetToolTip(this.button1, "Adjuntar Archivo");
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Visible = false;
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.ForeColor = System.Drawing.Color.Black;
-            this.label16.Location = new System.Drawing.Point(242, 322);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(128, 17);
-            this.label16.TabIndex = 165;
-            this.label16.Text = "Adjuntar Archivo";
-            this.label16.Visible = false;
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.ForeColor = System.Drawing.Color.Black;
-            this.label15.Location = new System.Drawing.Point(13, 322);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(128, 17);
-            this.label15.TabIndex = 164;
-            this.label15.Text = "Adjuntar Archivo";
-            this.label15.Visible = false;
-            // 
-            // txt1
-            // 
-            this.txt1.Location = new System.Drawing.Point(13, 342);
-            this.txt1.Name = "txt1";
-            this.txt1.Size = new System.Drawing.Size(164, 76);
-            this.txt1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.txt1.TabIndex = 160;
-            this.txt1.TabStop = false;
-            this.txt1.Visible = false;
-            // 
-            // btnAdjuntar1
-            // 
-            this.btnAdjuntar1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(187)))), ((int)(((byte)(45)))));
-            this.btnAdjuntar1.FlatAppearance.BorderColor = System.Drawing.Color.SeaGreen;
-            this.btnAdjuntar1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAdjuntar1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAdjuntar1.ForeColor = System.Drawing.Color.White;
-            this.btnAdjuntar1.Image = ((System.Drawing.Image)(resources.GetObject("btnAdjuntar1.Image")));
-            this.btnAdjuntar1.Location = new System.Drawing.Point(183, 364);
-            this.btnAdjuntar1.Name = "btnAdjuntar1";
-            this.btnAdjuntar1.Size = new System.Drawing.Size(30, 26);
-            this.btnAdjuntar1.TabIndex = 11;
-            this.toolTip1.SetToolTip(this.btnAdjuntar1, "Adjuntar Archivo");
-            this.btnAdjuntar1.UseVisualStyleBackColor = false;
-            this.btnAdjuntar1.Visible = false;
             // 
             // txtLocalidad
             // 
@@ -501,7 +426,7 @@
             // progressBar1
             // 
             this.progressBar1.ForeColor = System.Drawing.Color.Lime;
-            this.progressBar1.Location = new System.Drawing.Point(57, 239);
+            this.progressBar1.Location = new System.Drawing.Point(56, 253);
             this.progressBar1.Name = "progressBar1";
             this.progressBar1.Size = new System.Drawing.Size(397, 23);
             this.progressBar1.Step = 50;
@@ -629,11 +554,133 @@
             this.Telefono.Name = "Telefono";
             this.Telefono.Width = 150;
             // 
+            // btnLibreDeuda
+            // 
+            this.btnLibreDeuda.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(187)))), ((int)(((byte)(45)))));
+            this.btnLibreDeuda.FlatAppearance.BorderColor = System.Drawing.Color.SeaGreen;
+            this.btnLibreDeuda.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLibreDeuda.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLibreDeuda.ForeColor = System.Drawing.Color.White;
+            this.btnLibreDeuda.Location = new System.Drawing.Point(181, 534);
+            this.btnLibreDeuda.Name = "btnLibreDeuda";
+            this.btnLibreDeuda.Size = new System.Drawing.Size(93, 28);
+            this.btnLibreDeuda.TabIndex = 77;
+            this.btnLibreDeuda.Text = "Libre Deuda";
+            this.btnLibreDeuda.UseVisualStyleBackColor = false;
+            // 
+            // chcFotocopiaDNI
+            // 
+            this.chcFotocopiaDNI.AutoSize = true;
+            this.chcFotocopiaDNI.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chcFotocopiaDNI.ForeColor = System.Drawing.Color.Black;
+            this.chcFotocopiaDNI.Location = new System.Drawing.Point(13, 322);
+            this.chcFotocopiaDNI.Name = "chcFotocopiaDNI";
+            this.chcFotocopiaDNI.Size = new System.Drawing.Size(177, 21);
+            this.chcFotocopiaDNI.TabIndex = 117;
+            this.chcFotocopiaDNI.Text = "Comprobante de DNI";
+            this.chcFotocopiaDNI.UseVisualStyleBackColor = true;
+            // 
+            // grbTipoFactura
+            // 
+            this.grbTipoFactura.Controls.Add(this.chcOtros);
+            this.grbTipoFactura.Controls.Add(this.chcTelefono);
+            this.grbTipoFactura.Controls.Add(this.chcGas);
+            this.grbTipoFactura.Controls.Add(this.chcAgua);
+            this.grbTipoFactura.Controls.Add(this.chcLuz);
+            this.grbTipoFactura.Location = new System.Drawing.Point(16, 362);
+            this.grbTipoFactura.Name = "grbTipoFactura";
+            this.grbTipoFactura.Size = new System.Drawing.Size(406, 64);
+            this.grbTipoFactura.TabIndex = 78;
+            this.grbTipoFactura.TabStop = false;
+            this.grbTipoFactura.Text = "Tipo de Comprobante";
+            this.grbTipoFactura.Visible = false;
+            // 
+            // chcLuz
+            // 
+            this.chcLuz.AutoSize = true;
+            this.chcLuz.ForeColor = System.Drawing.Color.Black;
+            this.chcLuz.Location = new System.Drawing.Point(10, 19);
+            this.chcLuz.Name = "chcLuz";
+            this.chcLuz.Size = new System.Drawing.Size(97, 17);
+            this.chcLuz.TabIndex = 120;
+            this.chcLuz.Text = "Factura de Luz";
+            this.chcLuz.UseVisualStyleBackColor = true;
+            // 
+            // chcAgua
+            // 
+            this.chcAgua.AutoSize = true;
+            this.chcAgua.ForeColor = System.Drawing.Color.Black;
+            this.chcAgua.Location = new System.Drawing.Point(148, 19);
+            this.chcAgua.Name = "chcAgua";
+            this.chcAgua.Size = new System.Drawing.Size(105, 17);
+            this.chcAgua.TabIndex = 121;
+            this.chcAgua.Text = "Factura de Agua";
+            this.chcAgua.UseVisualStyleBackColor = true;
+            // 
+            // chcGas
+            // 
+            this.chcGas.AutoSize = true;
+            this.chcGas.ForeColor = System.Drawing.Color.Black;
+            this.chcGas.Location = new System.Drawing.Point(301, 19);
+            this.chcGas.Name = "chcGas";
+            this.chcGas.Size = new System.Drawing.Size(99, 17);
+            this.chcGas.TabIndex = 122;
+            this.chcGas.Text = "Factura de Gas";
+            this.chcGas.UseVisualStyleBackColor = true;
+            // 
+            // chcTelefono
+            // 
+            this.chcTelefono.AutoSize = true;
+            this.chcTelefono.ForeColor = System.Drawing.Color.Black;
+            this.chcTelefono.Location = new System.Drawing.Point(10, 47);
+            this.chcTelefono.Name = "chcTelefono";
+            this.chcTelefono.Size = new System.Drawing.Size(122, 17);
+            this.chcTelefono.TabIndex = 123;
+            this.chcTelefono.Text = "Factura de Teléfono";
+            this.chcTelefono.UseVisualStyleBackColor = true;
+            // 
+            // chcFacturas
+            // 
+            this.chcFacturas.AutoSize = true;
+            this.chcFacturas.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chcFacturas.ForeColor = System.Drawing.Color.Black;
+            this.chcFacturas.Location = new System.Drawing.Point(244, 322);
+            this.chcFacturas.Name = "chcFacturas";
+            this.chcFacturas.Size = new System.Drawing.Size(209, 21);
+            this.chcFacturas.TabIndex = 124;
+            this.chcFacturas.Text = "Comprobante de Servicio";
+            this.chcFacturas.UseVisualStyleBackColor = true;
+            this.chcFacturas.CheckedChanged += new System.EventHandler(this.chcFacturas_CheckedChanged);
+            // 
+            // chcOtros
+            // 
+            this.chcOtros.AutoSize = true;
+            this.chcOtros.ForeColor = System.Drawing.Color.Black;
+            this.chcOtros.Location = new System.Drawing.Point(148, 47);
+            this.chcOtros.Name = "chcOtros";
+            this.chcOtros.Size = new System.Drawing.Size(51, 17);
+            this.chcOtros.TabIndex = 124;
+            this.chcOtros.Text = "Otros";
+            this.chcOtros.UseVisualStyleBackColor = true;
+            // 
+            // lblFaltaDocumentacion
+            // 
+            this.lblFaltaDocumentacion.AutoSize = true;
+            this.lblFaltaDocumentacion.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFaltaDocumentacion.ForeColor = System.Drawing.Color.Red;
+            this.lblFaltaDocumentacion.Location = new System.Drawing.Point(131, 7);
+            this.lblFaltaDocumentacion.Name = "lblFaltaDocumentacion";
+            this.lblFaltaDocumentacion.Size = new System.Drawing.Size(320, 18);
+            this.lblFaltaDocumentacion.TabIndex = 125;
+            this.lblFaltaDocumentacion.Text = "Atención: Debe presentar documentación";
+            this.lblFaltaDocumentacion.Visible = false;
+            // 
             // ClientesWF
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1040, 564);
+            this.Controls.Add(this.btnLibreDeuda);
             this.Controls.Add(this.dgvClientes);
             this.Controls.Add(this.btnHistorial);
             this.Controls.Add(this.btnNuevo);
@@ -652,9 +699,9 @@
             this.Load += new System.EventHandler(this.ClientesWF_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txt1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).EndInit();
+            this.grbTipoFactura.ResumeLayout(false);
+            this.grbTipoFactura.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -696,17 +743,21 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txtProvincia;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.PictureBox txt1;
-        private System.Windows.Forms.Button btnAdjuntar1;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.DataGridViewTextBoxColumn idProducto;
         private System.Windows.Forms.DataGridViewTextBoxColumn RazonSocial;
         private System.Windows.Forms.DataGridViewTextBoxColumn Domicilio;
         private System.Windows.Forms.DataGridViewTextBoxColumn Email;
         private System.Windows.Forms.DataGridViewTextBoxColumn Telefono;
+        private System.Windows.Forms.Button btnLibreDeuda;
+        private System.Windows.Forms.GroupBox grbTipoFactura;
+        private System.Windows.Forms.CheckBox chcTelefono;
+        private System.Windows.Forms.CheckBox chcGas;
+        private System.Windows.Forms.CheckBox chcAgua;
+        private System.Windows.Forms.CheckBox chcLuz;
+        private System.Windows.Forms.CheckBox chcFotocopiaDNI;
+        private System.Windows.Forms.CheckBox chcFacturas;
+        private System.Windows.Forms.CheckBox chcOtros;
+        private System.Windows.Forms.Label lblFaltaDocumentacion;
     }
 }

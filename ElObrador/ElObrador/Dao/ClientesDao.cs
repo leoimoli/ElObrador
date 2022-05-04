@@ -14,6 +14,7 @@ namespace ElObrador.Dao
         private static MySql.Data.MySqlClient.MySqlConnection connection = new MySqlConnection(Properties.Settings.Default.db);
         public static bool InsertCliente(Clientes _cliente)
         {
+            int idCliente = 0;
             bool exito = false;
             connection.Close();
             connection.Open();
@@ -32,8 +33,41 @@ namespace ElObrador.Dao
             cmd.Parameters.AddWithValue("idProvincia_in", _cliente.idProvincia);
             cmd.Parameters.AddWithValue("idLocalidad_in", _cliente.idLocalidad);
             cmd.Parameters.AddWithValue("idUsuario_in", _cliente.idUsuario);
-            cmd.ExecuteNonQuery();
-            exito = true;
+            cmd.Parameters.AddWithValue("chcDni_in", _cliente.chcDni);
+            cmd.Parameters.AddWithValue("chcFacturas_in", _cliente.chcFacturas);
+            MySqlDataReader r = cmd.ExecuteReader();
+            if (_cliente.chcFacturas == 1)
+            {
+                while (r.Read())
+                {
+                    idCliente = Convert.ToInt32(r["ID"].ToString());
+                }
+                exito = RegistrarHistorialComprobantes(idCliente, _cliente.ListaComprobantes);
+            }
+            else
+            {
+                exito = true;
+            }
+
+            connection.Close();
+            return exito;
+        }
+        private static bool RegistrarHistorialComprobantes(int idCliente, List<string> chcTipoFactura)
+        {
+            bool exito = false;
+            foreach (var item in chcTipoFactura)
+            {
+                connection.Close();
+                connection.Open();
+                string Actualizar = "RegistrarHistorialComprobantes";
+                MySqlCommand cmd = new MySqlCommand(Actualizar, connection);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("idCliente_in", idCliente);
+                cmd.Parameters.AddWithValue("chcTipoFactura_in", item);
+                cmd.ExecuteNonQuery();
+                exito = true;
+            }
             connection.Close();
             return exito;
         }
@@ -56,7 +90,35 @@ namespace ElObrador.Dao
             cmd.Parameters.AddWithValue("idProvincia_in", _cliente.idProvincia);
             cmd.Parameters.AddWithValue("idLocalidad_in", _cliente.idLocalidad);
             cmd.Parameters.AddWithValue("idUsuario_in", _cliente.idUsuario);
+            if (_cliente.chcDni == 1 && _cliente.ActualizaComprobanteDNI == 1)
+            {
+                cmd.Parameters.AddWithValue("chcDni_in", _cliente.chcDni);
+            }
+            else if (_cliente.chcDni == 1)
+            {
+                cmd.Parameters.AddWithValue("chcDni_in", 1);
+            }
+            else
+            {
+                cmd.Parameters.AddWithValue("chcDni_in", 0);
+            }
+            if (_cliente.chcFacturas == 1 && _cliente.ActualizaComprobanteFactura == 1)
+            {
+                cmd.Parameters.AddWithValue("chcFacturas_in", _cliente.chcFacturas);
+            }
+            else if (_cliente.chcFacturas == 1)
+            {
+                cmd.Parameters.AddWithValue("chcFacturas_in", 1);
+            }
+            else
+            {
+                cmd.Parameters.AddWithValue("chcFacturas_in", 0);
+            }
             cmd.ExecuteNonQuery();
+            if (_cliente.ActualizaComprobanteFactura == 1)
+            {
+                RegistrarHistorialComprobantes(idUsuarioSeleccionado, _cliente.ListaComprobantes);
+            }
             exito = true;
             connection.Close();
             return exito;
@@ -279,6 +341,8 @@ namespace ElObrador.Dao
                     listaCliente.Altura = item["Altura"].ToString();
                     listaCliente.NombreProvincia = item["Provincia"].ToString();
                     listaCliente.NombreLocalidad = item["Localidad"].ToString();
+                    listaCliente.chcDni = Convert.ToInt32(item["chcDNI"].ToString());
+                    listaCliente.chcFacturas = Convert.ToInt32(item["chcFacturas"].ToString());
                     lista.Add(listaCliente);
                 }
             }
@@ -358,6 +422,33 @@ namespace ElObrador.Dao
                     listaObra.NombreLocalidad = item["Nombre"].ToString();
                     //listaObra.CodigoPostalLocalidad = item["CodigoPostal"].ToString();
                     _lista.Add(listaObra);
+                }
+            }
+            connection.Close();
+            return _lista;
+        }
+
+        public static List<string> ListaComprobantesDeFactura(int idCliente)
+        {
+            connection.Close();
+            connection.Open();
+            List<string> _lista = new List<string>();
+            MySqlCommand cmd = new MySqlCommand();
+            cmd.Connection = connection;
+            DataTable Tabla = new DataTable();
+            MySqlParameter[] oParam = { new MySqlParameter("idCliente_in", idCliente) };
+            string proceso = "ListaComprobantesDeFactura";
+            MySqlDataAdapter dt = new MySqlDataAdapter(proceso, connection);
+            dt.SelectCommand.CommandType = CommandType.StoredProcedure;
+            dt.SelectCommand.Parameters.AddRange(oParam);
+            dt.Fill(Tabla);
+            if (Tabla.Rows.Count > 0)
+            {
+                foreach (DataRow item in Tabla.Rows)
+                {
+                    string lista;
+                    lista = item["Comprobante"].ToString();
+                    _lista.Add(lista);
                 }
             }
             connection.Close();

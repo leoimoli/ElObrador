@@ -440,7 +440,7 @@ namespace ElObrador
 
 
                 // columnas
-                arlColumnas.Add(new ReporteColumna("Código de Herramieta", 20, true, Element.ALIGN_CENTER, Element.ALIGN_CENTER, "", FontFactory.TIMES_ROMAN, 8));
+                arlColumnas.Add(new ReporteColumna("Código de Herramienta", 20, true, Element.ALIGN_CENTER, Element.ALIGN_CENTER, "", FontFactory.TIMES_ROMAN, 8));
                 arlColumnas.Add(new ReporteColumna("Material", 30, true, Element.ALIGN_CENTER, Element.ALIGN_CENTER, "", FontFactory.TIMES_ROMAN, 8));
                 arlColumnas.Add(new ReporteColumna("Fecha de Devolución", 30, true, Element.ALIGN_CENTER, Element.ALIGN_CENTER, "", FontFactory.TIMES_ROMAN, 8));
                 arlColumnas.Add(new ReporteColumna("Días de alquiler estimado", 20, true, Element.ALIGN_CENTER, Element.ALIGN_CENTER, "", FontFactory.TIMES_ROMAN, 8));

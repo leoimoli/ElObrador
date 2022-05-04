@@ -22,7 +22,15 @@ namespace ElObrador.Entidades
         public int idUsuario { get; set; }
         public int idProvincia { get; set; }
         public int idLocalidad { get; set; }
+        public int chcDni { get; set; }
+        public int chcFacturas { get; set; }
+        public string chcTipoFactura { get; set; }
         public string NombreProvincia { get; set; }
         public string NombreLocalidad { get; set; }
+        public int ActualizaComprobanteDNI { get; set; }
+        public int ActualizaComprobanteFactura { get; set; }
+        public List<string> ListaComprobantes { get; set; }
+
+        public int ListaNuevoComprobantes { get; set; }
     }
 }
