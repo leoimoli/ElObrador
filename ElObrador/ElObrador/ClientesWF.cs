@@ -220,6 +220,13 @@ namespace ElObrador
             chcTelefono.Checked = false;
             chcOtros.Checked = false;
             grbTipoFactura.Visible = false;
+            chcFotocopiaDNI.Enabled = true;
+            chcFacturas.Enabled = true;
+            chcAgua.Enabled = true;
+            chcGas.Enabled = true;
+            chcLuz.Enabled = true;
+            chcTelefono.Enabled = true;
+            chcOtros.Enabled = true;
             CargarCombo();
             CargarProvincias();
         }
@@ -469,6 +476,7 @@ namespace ElObrador
         {
             if (this.dgvClientes.RowCount > 0)
             {
+                LimpiarCampos();
                 Funcion = 2;
                 idClienteSeleccionado = Convert.ToInt32(this.dgvClientes.CurrentRow.Cells[0].Value);
                 List<Entidades.Clientes> _clientes = new List<Entidades.Clientes>();
@@ -554,56 +562,58 @@ namespace ElObrador
                         chcGas.Checked = true;
                         chcGas.Enabled = false;
                     }
-                    else
-                    {
-                        chcGas.Checked = false;
-                        chcGas.Enabled = true;
-                    }
+                    //else
+                    //{
+                    //    chcGas.Checked = false;
+                    //    chcGas.Enabled = true;
+                    //}
                     if (item.ToString() == "Factura de Agua")
                     {
                         chcAgua.Checked = true;
                         chcAgua.Enabled = false;
                     }
-                    else
-                    {
-                        chcAgua.Checked = false;
-                        chcAgua.Enabled = true;
-                    }
+                    //else
+                    //{
+                    //    chcAgua.Checked = false;
+                    //    chcAgua.Enabled = true;
+                    //}
                     if (item.ToString() == "Factura de Luz")
                     {
                         chcLuz.Checked = true;
                         chcLuz.Enabled = false;
                     }
-                    else
-                    {
-                        chcLuz.Checked = false;
-                        chcLuz.Enabled = true;
-                    }
+                    //else
+                    //{
+                    //    chcLuz.Checked = false;
+                    //    chcLuz.Enabled = true;
+                    //}
                     if (item.ToString() == "Factura de Teléfono")
                     {
                         chcTelefono.Checked = true;
                         chcTelefono.Enabled = false;
                     }
-                    else
-                    {
-                        chcTelefono.Checked = false;
-                        chcTelefono.Enabled = true;
-                    }
+                    //else
+                    //{
+                    //    chcTelefono.Checked = false;
+                    //    chcTelefono.Enabled = true;
+                    //}
                     if (item.ToString() == "Factura de Otros")
                     {
                         chcOtros.Checked = true;
                         chcOtros.Enabled = false;
                     }
-                    else
-                    {
-                        chcOtros.Checked = false;
-                        chcOtros.Enabled = true;
-                    }
+                    //else
+                    //{
+                    //    chcOtros.Checked = false;
+                    //    chcOtros.Enabled = true;
+                    //}
                 }
             }
             else
             {
                 chcFotocopiaDNI.Checked = false;
+                chcFacturas.Checked = false;
+                chcFacturas.Enabled = true;
                 chcFotocopiaDNI.Enabled = true;
                 grbTipoFactura.Visible = false;
                 cliente.ActualizaComprobanteFactura = 1;

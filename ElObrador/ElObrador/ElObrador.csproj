@@ -216,6 +216,12 @@
     <Compile Include="InicioWF.Designer.cs">
       <DependentUpon>InicioWF.cs</DependentUpon>
     </Compile>
+    <Compile Include="LibreDeudaWF.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LibreDeudaWF.Designer.cs">
+      <DependentUpon>LibreDeudaWF.cs</DependentUpon>
+    </Compile>
     <Compile Include="LoginWF.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -355,6 +361,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="InicioWF.resx">
       <DependentUpon>InicioWF.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LibreDeudaWF.resx">
+      <DependentUpon>LibreDeudaWF.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginWF.resx">
       <DependentUpon>LoginWF.cs</DependentUpon>
