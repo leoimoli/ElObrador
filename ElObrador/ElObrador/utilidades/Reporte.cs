@@ -53,7 +53,7 @@ namespace waiTextSharp.utilidades
         /// <param name="PiePagina">Pie de página del reporte</param>
         /// <param name="EncabezadoColumnas">Arreglo de columnas que contiene el reporte</param>
         /// <param name="dtbDatos"><see cref="DataTable"/> con la información a imprimir</param>
-        public void Generar(string ReporteNombre, Rectangle PapelTamanio, string Encabezado, string SubEncabezado, string DiasHorariosLaborales, string TextoAlquiler, string Nota, string TextoNota, string FirmaAclaracion, string DniFirmante, string TextoLey, string PiePagina, ArrayList EncabezadoColumnas, DataTable dtbDatos)
+        public void Generar(string ReporteNombre, Rectangle PapelTamanio, string Encabezado, string SubEncabezado, string DiasHorariosLaborales, string TextoAlquiler, string Nota, string TextoNota, string FirmaAclaracion, string DniFirmante, string TextoLey, string TextoProtesto, string PiePagina, ArrayList EncabezadoColumnas, DataTable dtbDatos)
         {
 
             //try
@@ -137,7 +137,7 @@ namespace waiTextSharp.utilidades
             {
                 // asignar documento y evento
                 m_writerTmp = PdfWriter.GetInstance(docTmp, fsTmp);
-                m_peTmp = new ReportePaginaAlquiler(Encabezado, SubEncabezado, DiasHorariosLaborales, TextoAlquiler, Nota, TextoNota, FirmaAclaracion,DniFirmante, TextoLey, PiePagina, EncabezadoColumnas, m_Logotipo, true);
+                m_peTmp = new ReportePaginaAlquiler(Encabezado, SubEncabezado, DiasHorariosLaborales, TextoAlquiler, Nota, TextoNota, FirmaAclaracion,DniFirmante, TextoLey, TextoProtesto, PiePagina, EncabezadoColumnas, m_Logotipo, true);
                 m_writerTmp.PageEvent = m_peTmp;
             }
             catch (Exception Ex)

@@ -358,6 +358,7 @@ namespace ElObrador
         string FirmaAclaracion = "";
         string DniFirmante = "";
         string TextoLey = "";
+        string TextoProtesto = "";
         string PiePagina = "";
         ArrayList arlColumnas = new ArrayList();
         Rectangle PapelTamanio = iTextSharp.text.PageSize.LETTER;        /// </summary>
@@ -436,8 +437,9 @@ namespace ElObrador
                 DniFirmante = "DNI";
 
                 // Texto Ley
-                TextoLey = "IMPORTANTE " + Environment.NewLine + " 1) Sera requisito indispensable presentar este comprobante para retirar el equipo. " + Environment.NewLine + " 2) Si pasados los 90 días de terminado el arreglo, el material no es retirado, quedara en propiedad de este service, entendiendose que el titular renuncia al mismo de acuerdo a los Art.872/3 del Código Civil. " + Environment.NewLine + " 3) Los tiempos de reparación estarán sujetos a disponibilidad y/o stock de los repuestos. " + Environment.NewLine + " 4) Las reparaciones gozarán de 90 días de garantía sobre el arreglo específico. " + Environment.NewLine + " 5) Los equipos dejado a presupuestar que no tengan una confirmación dentro de los 60 días una vez cotizado el trabajo, quedarán a disposición del El obrador, perdiendo el propietario todo derecho a reclamo alguno.";
+                TextoLey = "Vence el '__________' de '__________' de 20'_____' el dia '__________' pagare sin protesto(art 50 Decreto Ley N° 5965/63) a El Obrador SA o a su orden la cantidad de pesos '__________' por igual valor recibido en equipos/herramientas descriptos en el presente contrato a su entera satisfacción, pagaderos en '__________'" + Environment.NewLine + " " + Environment.NewLine + " Cliente: " + Environment.NewLine + " " + Environment.NewLine + " Calle:" + Environment.NewLine + " " + Environment.NewLine + " Localidad:" + Environment.NewLine + " " + Environment.NewLine + " Teléfono:";
 
+                TextoProtesto = "Clausula sin Protesto: Respecto al pagara que luce precedentemente se pacta la clausula 'Sin Protesto' de modo que el tomador y ??? queda dispensado de formalizar el presente por falta de pago articulo ley 16478 y les confiere la pertienen via ejecutiva en caso de no ser pagado a su ???.";
 
                 // columnas
                 arlColumnas.Add(new ReporteColumna("Código de Herramienta", 20, true, Element.ALIGN_CENTER, Element.ALIGN_CENTER, "", FontFactory.TIMES_ROMAN, 8));
@@ -475,7 +477,7 @@ namespace ElObrador
                 // crear reporte
                 try
                 {
-                    udtReporte.Generar(ArchivoNombre, PapelTamanio, Encabezado, Subencabezado, DiasHorariosLaborales, Texto, Nota, TextoNota, FirmaAclaracion, DniFirmante, TextoLey, PiePagina, arlColumnas, dt);
+                    udtReporte.Generar(ArchivoNombre, PapelTamanio, Encabezado, Subencabezado, DiasHorariosLaborales, Texto, Nota, TextoNota, FirmaAclaracion, DniFirmante, TextoLey, TextoProtesto, PiePagina, arlColumnas, dt);
                 }
                 catch (Exception ex)
                 {
