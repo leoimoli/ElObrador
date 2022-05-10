@@ -160,6 +160,7 @@
     <Compile Include="Entidades\Clientes.cs" />
     <Compile Include="Entidades\Feriados.cs" />
     <Compile Include="Entidades\Grupo.cs" />
+    <Compile Include="Entidades\LibreDeuda.cs" />
     <Compile Include="Entidades\ListaAlquiler.cs" />
     <Compile Include="Entidades\ListaAlquilerEstadistica.cs" />
     <Compile Include="Entidades\MenuPorPerfilUsuario.cs" />
@@ -246,6 +247,7 @@
     <Compile Include="Negocio\ConfiguracionesNeg.cs" />
     <Compile Include="Negocio\FeriadosNeg.cs" />
     <Compile Include="Negocio\GrupoNeg.cs" />
+    <Compile Include="Negocio\LibreDeudaNeg.cs" />
     <Compile Include="Negocio\ProveedoresNeg.cs" />
     <Compile Include="Negocio\ReparacionesNeg.cs" />
     <Compile Include="Negocio\StockNeg.cs" />

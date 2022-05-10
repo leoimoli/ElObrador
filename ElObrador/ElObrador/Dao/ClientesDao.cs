@@ -52,6 +52,25 @@ namespace ElObrador.Dao
             connection.Close();
             return exito;
         }
+        public static bool RegistrarDeuda(LibreDeuda libreDeuda)
+        {           
+            bool exito = false;
+            connection.Close();
+            connection.Open();
+            string proceso = "RegistrarDeuda";
+            MySqlCommand cmd = new MySqlCommand(proceso, connection);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("idCliente_in", libreDeuda.idCliente);
+            cmd.Parameters.AddWithValue("Monto_in", libreDeuda.Monto);
+            cmd.Parameters.AddWithValue("Fecha_in", libreDeuda.Fecha);
+            cmd.Parameters.AddWithValue("Motivo_in", libreDeuda.Motivo);
+            cmd.Parameters.AddWithValue("FechaActual_in", libreDeuda.FechaActual);
+            cmd.Parameters.AddWithValue("idUsuario_in", libreDeuda.idUsuario);
+            cmd.ExecuteNonQuery();
+            exito = true;
+            connection.Close();
+            return exito;
+        }
         private static bool RegistrarHistorialComprobantes(int idCliente, List<string> chcTipoFactura)
         {
             bool exito = false;

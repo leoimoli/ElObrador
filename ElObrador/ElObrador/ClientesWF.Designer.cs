@@ -42,6 +42,15 @@
             this.txtDescipcionBus = new System.Windows.Forms.TextBox();
             this.btnEditar = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lblFaltaDocumentacion = new System.Windows.Forms.Label();
+            this.chcFacturas = new System.Windows.Forms.CheckBox();
+            this.grbTipoFactura = new System.Windows.Forms.GroupBox();
+            this.chcOtros = new System.Windows.Forms.CheckBox();
+            this.chcTelefono = new System.Windows.Forms.CheckBox();
+            this.chcGas = new System.Windows.Forms.CheckBox();
+            this.chcAgua = new System.Windows.Forms.CheckBox();
+            this.chcLuz = new System.Windows.Forms.CheckBox();
+            this.chcFotocopiaDNI = new System.Windows.Forms.CheckBox();
             this.txtLocalidad = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.txtProvincia = new System.Windows.Forms.TextBox();
@@ -75,18 +84,9 @@
             this.Telefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.btnLibreDeuda = new System.Windows.Forms.Button();
-            this.chcFotocopiaDNI = new System.Windows.Forms.CheckBox();
-            this.grbTipoFactura = new System.Windows.Forms.GroupBox();
-            this.chcLuz = new System.Windows.Forms.CheckBox();
-            this.chcAgua = new System.Windows.Forms.CheckBox();
-            this.chcGas = new System.Windows.Forms.CheckBox();
-            this.chcTelefono = new System.Windows.Forms.CheckBox();
-            this.chcFacturas = new System.Windows.Forms.CheckBox();
-            this.chcOtros = new System.Windows.Forms.CheckBox();
-            this.lblFaltaDocumentacion = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).BeginInit();
             this.grbTipoFactura.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).BeginInit();
             this.SuspendLayout();
             // 
             // btnHistorial
@@ -209,6 +209,113 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(466, 481);
             this.panel1.TabIndex = 61;
+            // 
+            // lblFaltaDocumentacion
+            // 
+            this.lblFaltaDocumentacion.AutoSize = true;
+            this.lblFaltaDocumentacion.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFaltaDocumentacion.ForeColor = System.Drawing.Color.Red;
+            this.lblFaltaDocumentacion.Location = new System.Drawing.Point(131, 7);
+            this.lblFaltaDocumentacion.Name = "lblFaltaDocumentacion";
+            this.lblFaltaDocumentacion.Size = new System.Drawing.Size(320, 18);
+            this.lblFaltaDocumentacion.TabIndex = 125;
+            this.lblFaltaDocumentacion.Text = "Atención: Debe presentar documentación";
+            this.lblFaltaDocumentacion.Visible = false;
+            // 
+            // chcFacturas
+            // 
+            this.chcFacturas.AutoSize = true;
+            this.chcFacturas.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chcFacturas.ForeColor = System.Drawing.Color.Black;
+            this.chcFacturas.Location = new System.Drawing.Point(244, 322);
+            this.chcFacturas.Name = "chcFacturas";
+            this.chcFacturas.Size = new System.Drawing.Size(209, 21);
+            this.chcFacturas.TabIndex = 124;
+            this.chcFacturas.Text = "Comprobante de Servicio";
+            this.chcFacturas.UseVisualStyleBackColor = true;
+            this.chcFacturas.CheckedChanged += new System.EventHandler(this.chcFacturas_CheckedChanged);
+            // 
+            // grbTipoFactura
+            // 
+            this.grbTipoFactura.Controls.Add(this.chcOtros);
+            this.grbTipoFactura.Controls.Add(this.chcTelefono);
+            this.grbTipoFactura.Controls.Add(this.chcGas);
+            this.grbTipoFactura.Controls.Add(this.chcAgua);
+            this.grbTipoFactura.Controls.Add(this.chcLuz);
+            this.grbTipoFactura.Location = new System.Drawing.Point(16, 362);
+            this.grbTipoFactura.Name = "grbTipoFactura";
+            this.grbTipoFactura.Size = new System.Drawing.Size(406, 64);
+            this.grbTipoFactura.TabIndex = 78;
+            this.grbTipoFactura.TabStop = false;
+            this.grbTipoFactura.Text = "Tipo de Comprobante";
+            this.grbTipoFactura.Visible = false;
+            // 
+            // chcOtros
+            // 
+            this.chcOtros.AutoSize = true;
+            this.chcOtros.ForeColor = System.Drawing.Color.Black;
+            this.chcOtros.Location = new System.Drawing.Point(148, 47);
+            this.chcOtros.Name = "chcOtros";
+            this.chcOtros.Size = new System.Drawing.Size(51, 17);
+            this.chcOtros.TabIndex = 124;
+            this.chcOtros.Text = "Otros";
+            this.chcOtros.UseVisualStyleBackColor = true;
+            // 
+            // chcTelefono
+            // 
+            this.chcTelefono.AutoSize = true;
+            this.chcTelefono.ForeColor = System.Drawing.Color.Black;
+            this.chcTelefono.Location = new System.Drawing.Point(10, 47);
+            this.chcTelefono.Name = "chcTelefono";
+            this.chcTelefono.Size = new System.Drawing.Size(122, 17);
+            this.chcTelefono.TabIndex = 123;
+            this.chcTelefono.Text = "Factura de Teléfono";
+            this.chcTelefono.UseVisualStyleBackColor = true;
+            // 
+            // chcGas
+            // 
+            this.chcGas.AutoSize = true;
+            this.chcGas.ForeColor = System.Drawing.Color.Black;
+            this.chcGas.Location = new System.Drawing.Point(301, 19);
+            this.chcGas.Name = "chcGas";
+            this.chcGas.Size = new System.Drawing.Size(99, 17);
+            this.chcGas.TabIndex = 122;
+            this.chcGas.Text = "Factura de Gas";
+            this.chcGas.UseVisualStyleBackColor = true;
+            // 
+            // chcAgua
+            // 
+            this.chcAgua.AutoSize = true;
+            this.chcAgua.ForeColor = System.Drawing.Color.Black;
+            this.chcAgua.Location = new System.Drawing.Point(148, 19);
+            this.chcAgua.Name = "chcAgua";
+            this.chcAgua.Size = new System.Drawing.Size(105, 17);
+            this.chcAgua.TabIndex = 121;
+            this.chcAgua.Text = "Factura de Agua";
+            this.chcAgua.UseVisualStyleBackColor = true;
+            // 
+            // chcLuz
+            // 
+            this.chcLuz.AutoSize = true;
+            this.chcLuz.ForeColor = System.Drawing.Color.Black;
+            this.chcLuz.Location = new System.Drawing.Point(10, 19);
+            this.chcLuz.Name = "chcLuz";
+            this.chcLuz.Size = new System.Drawing.Size(97, 17);
+            this.chcLuz.TabIndex = 120;
+            this.chcLuz.Text = "Factura de Luz";
+            this.chcLuz.UseVisualStyleBackColor = true;
+            // 
+            // chcFotocopiaDNI
+            // 
+            this.chcFotocopiaDNI.AutoSize = true;
+            this.chcFotocopiaDNI.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chcFotocopiaDNI.ForeColor = System.Drawing.Color.Black;
+            this.chcFotocopiaDNI.Location = new System.Drawing.Point(13, 322);
+            this.chcFotocopiaDNI.Name = "chcFotocopiaDNI";
+            this.chcFotocopiaDNI.Size = new System.Drawing.Size(177, 21);
+            this.chcFotocopiaDNI.TabIndex = 117;
+            this.chcFotocopiaDNI.Text = "Comprobante de DNI";
+            this.chcFotocopiaDNI.UseVisualStyleBackColor = true;
             // 
             // txtLocalidad
             // 
@@ -567,113 +674,7 @@
             this.btnLibreDeuda.TabIndex = 77;
             this.btnLibreDeuda.Text = "Libre Deuda";
             this.btnLibreDeuda.UseVisualStyleBackColor = false;
-            // 
-            // chcFotocopiaDNI
-            // 
-            this.chcFotocopiaDNI.AutoSize = true;
-            this.chcFotocopiaDNI.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chcFotocopiaDNI.ForeColor = System.Drawing.Color.Black;
-            this.chcFotocopiaDNI.Location = new System.Drawing.Point(13, 322);
-            this.chcFotocopiaDNI.Name = "chcFotocopiaDNI";
-            this.chcFotocopiaDNI.Size = new System.Drawing.Size(177, 21);
-            this.chcFotocopiaDNI.TabIndex = 117;
-            this.chcFotocopiaDNI.Text = "Comprobante de DNI";
-            this.chcFotocopiaDNI.UseVisualStyleBackColor = true;
-            // 
-            // grbTipoFactura
-            // 
-            this.grbTipoFactura.Controls.Add(this.chcOtros);
-            this.grbTipoFactura.Controls.Add(this.chcTelefono);
-            this.grbTipoFactura.Controls.Add(this.chcGas);
-            this.grbTipoFactura.Controls.Add(this.chcAgua);
-            this.grbTipoFactura.Controls.Add(this.chcLuz);
-            this.grbTipoFactura.Location = new System.Drawing.Point(16, 362);
-            this.grbTipoFactura.Name = "grbTipoFactura";
-            this.grbTipoFactura.Size = new System.Drawing.Size(406, 64);
-            this.grbTipoFactura.TabIndex = 78;
-            this.grbTipoFactura.TabStop = false;
-            this.grbTipoFactura.Text = "Tipo de Comprobante";
-            this.grbTipoFactura.Visible = false;
-            // 
-            // chcLuz
-            // 
-            this.chcLuz.AutoSize = true;
-            this.chcLuz.ForeColor = System.Drawing.Color.Black;
-            this.chcLuz.Location = new System.Drawing.Point(10, 19);
-            this.chcLuz.Name = "chcLuz";
-            this.chcLuz.Size = new System.Drawing.Size(97, 17);
-            this.chcLuz.TabIndex = 120;
-            this.chcLuz.Text = "Factura de Luz";
-            this.chcLuz.UseVisualStyleBackColor = true;
-            // 
-            // chcAgua
-            // 
-            this.chcAgua.AutoSize = true;
-            this.chcAgua.ForeColor = System.Drawing.Color.Black;
-            this.chcAgua.Location = new System.Drawing.Point(148, 19);
-            this.chcAgua.Name = "chcAgua";
-            this.chcAgua.Size = new System.Drawing.Size(105, 17);
-            this.chcAgua.TabIndex = 121;
-            this.chcAgua.Text = "Factura de Agua";
-            this.chcAgua.UseVisualStyleBackColor = true;
-            // 
-            // chcGas
-            // 
-            this.chcGas.AutoSize = true;
-            this.chcGas.ForeColor = System.Drawing.Color.Black;
-            this.chcGas.Location = new System.Drawing.Point(301, 19);
-            this.chcGas.Name = "chcGas";
-            this.chcGas.Size = new System.Drawing.Size(99, 17);
-            this.chcGas.TabIndex = 122;
-            this.chcGas.Text = "Factura de Gas";
-            this.chcGas.UseVisualStyleBackColor = true;
-            // 
-            // chcTelefono
-            // 
-            this.chcTelefono.AutoSize = true;
-            this.chcTelefono.ForeColor = System.Drawing.Color.Black;
-            this.chcTelefono.Location = new System.Drawing.Point(10, 47);
-            this.chcTelefono.Name = "chcTelefono";
-            this.chcTelefono.Size = new System.Drawing.Size(122, 17);
-            this.chcTelefono.TabIndex = 123;
-            this.chcTelefono.Text = "Factura de Teléfono";
-            this.chcTelefono.UseVisualStyleBackColor = true;
-            // 
-            // chcFacturas
-            // 
-            this.chcFacturas.AutoSize = true;
-            this.chcFacturas.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chcFacturas.ForeColor = System.Drawing.Color.Black;
-            this.chcFacturas.Location = new System.Drawing.Point(244, 322);
-            this.chcFacturas.Name = "chcFacturas";
-            this.chcFacturas.Size = new System.Drawing.Size(209, 21);
-            this.chcFacturas.TabIndex = 124;
-            this.chcFacturas.Text = "Comprobante de Servicio";
-            this.chcFacturas.UseVisualStyleBackColor = true;
-            this.chcFacturas.CheckedChanged += new System.EventHandler(this.chcFacturas_CheckedChanged);
-            // 
-            // chcOtros
-            // 
-            this.chcOtros.AutoSize = true;
-            this.chcOtros.ForeColor = System.Drawing.Color.Black;
-            this.chcOtros.Location = new System.Drawing.Point(148, 47);
-            this.chcOtros.Name = "chcOtros";
-            this.chcOtros.Size = new System.Drawing.Size(51, 17);
-            this.chcOtros.TabIndex = 124;
-            this.chcOtros.Text = "Otros";
-            this.chcOtros.UseVisualStyleBackColor = true;
-            // 
-            // lblFaltaDocumentacion
-            // 
-            this.lblFaltaDocumentacion.AutoSize = true;
-            this.lblFaltaDocumentacion.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFaltaDocumentacion.ForeColor = System.Drawing.Color.Red;
-            this.lblFaltaDocumentacion.Location = new System.Drawing.Point(131, 7);
-            this.lblFaltaDocumentacion.Name = "lblFaltaDocumentacion";
-            this.lblFaltaDocumentacion.Size = new System.Drawing.Size(320, 18);
-            this.lblFaltaDocumentacion.TabIndex = 125;
-            this.lblFaltaDocumentacion.Text = "Atención: Debe presentar documentación";
-            this.lblFaltaDocumentacion.Visible = false;
+            this.btnLibreDeuda.Click += new System.EventHandler(this.btnLibreDeuda_Click);
             // 
             // ClientesWF
             // 
@@ -699,9 +700,9 @@
             this.Load += new System.EventHandler(this.ClientesWF_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).EndInit();
             this.grbTipoFactura.ResumeLayout(false);
             this.grbTipoFactura.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

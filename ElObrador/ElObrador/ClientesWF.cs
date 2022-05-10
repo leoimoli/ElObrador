@@ -755,5 +755,24 @@ namespace ElObrador
                 grbTipoFactura.Visible = false;
             }
         }
+
+        private void btnLibreDeuda_Click(object sender, EventArgs e)
+        {
+            if (this.dgvClientes.RowCount > 0)
+            {
+                LimpiarCampos();                
+                idClienteSeleccionado = Convert.ToInt32(this.dgvClientes.CurrentRow.Cells[0].Value);
+                LibreDeudaWF _libreDeuda = new LibreDeudaWF(idClienteSeleccionado);
+                _libreDeuda.Show();
+            }
+            else
+            {
+                const string message2 = "Debe seleccionar un cliente de la grilla.";
+                const string caption2 = "Atención";
+                var result2 = MessageBox.Show(message2, caption2,
+                                             MessageBoxButtons.OK,
+                                             MessageBoxIcon.Asterisk);
+            }
+        }
     }
 }
