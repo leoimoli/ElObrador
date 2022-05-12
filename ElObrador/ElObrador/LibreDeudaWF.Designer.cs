@@ -28,6 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.ImagenPagina = new System.Windows.Forms.PictureBox();
             this.lblHistorial = new System.Windows.Forms.Label();
@@ -36,8 +40,15 @@
             this.chcRegistrarDeuda = new System.Windows.Forms.CheckBox();
             this.chcPagarDeuda = new System.Windows.Forms.CheckBox();
             this.grbGrilla = new System.Windows.Forms.GroupBox();
+            this.lblTextoDeuda = new System.Windows.Forms.Label();
+            this.txtMontoTotal = new System.Windows.Forms.TextBox();
+            this.dgvLibreDeuda = new System.Windows.Forms.DataGridView();
+            this.idProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Monto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Transacción = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FechaPago = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Motivo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.grbRegistrarDeuda = new System.Windows.Forms.GroupBox();
-            this.lblidCliente = new System.Windows.Forms.Label();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
@@ -46,11 +57,13 @@
             this.txMotivo = new System.Windows.Forms.TextBox();
             this.dtFecha = new System.Windows.Forms.DateTimePicker();
             this.txMonto = new System.Windows.Forms.TextBox();
-            this.grbPagoDeuda = new System.Windows.Forms.GroupBox();
+            this.lblidCliente = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ImagenPagina)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
             this.groupBox1.SuspendLayout();
+            this.grbGrilla.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLibreDeuda)).BeginInit();
             this.grbRegistrarDeuda.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -63,7 +76,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(657, 35);
+            this.panel1.Size = new System.Drawing.Size(666, 35);
             this.panel1.TabIndex = 9;
             // 
             // ImagenPagina
@@ -92,7 +105,7 @@
             this.btnCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCerrar.Image = global::ElObrador.Properties.Resources.cancelar2;
-            this.btnCerrar.Location = new System.Drawing.Point(620, 3);
+            this.btnCerrar.Location = new System.Drawing.Point(629, 3);
             this.btnCerrar.Name = "btnCerrar";
             this.btnCerrar.Size = new System.Drawing.Size(25, 25);
             this.btnCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -104,7 +117,7 @@
             // 
             this.groupBox1.Controls.Add(this.chcRegistrarDeuda);
             this.groupBox1.Controls.Add(this.chcPagarDeuda);
-            this.groupBox1.Location = new System.Drawing.Point(115, 68);
+            this.groupBox1.Location = new System.Drawing.Point(115, 46);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(396, 80);
             this.groupBox1.TabIndex = 10;
@@ -136,18 +149,124 @@
             // 
             // grbGrilla
             // 
+            this.grbGrilla.Controls.Add(this.lblTextoDeuda);
+            this.grbGrilla.Controls.Add(this.txtMontoTotal);
+            this.grbGrilla.Controls.Add(this.dgvLibreDeuda);
             this.grbGrilla.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grbGrilla.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(187)))), ((int)(((byte)(45)))));
-            this.grbGrilla.Location = new System.Drawing.Point(0, 164);
+            this.grbGrilla.Location = new System.Drawing.Point(5, 164);
             this.grbGrilla.Name = "grbGrilla";
-            this.grbGrilla.Size = new System.Drawing.Size(645, 320);
+            this.grbGrilla.Size = new System.Drawing.Size(645, 351);
             this.grbGrilla.TabIndex = 13;
             this.grbGrilla.TabStop = false;
             this.grbGrilla.Text = "Listado Libre Deuda";
             // 
+            // lblTextoDeuda
+            // 
+            this.lblTextoDeuda.AutoSize = true;
+            this.lblTextoDeuda.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTextoDeuda.ForeColor = System.Drawing.Color.Black;
+            this.lblTextoDeuda.Location = new System.Drawing.Point(294, 301);
+            this.lblTextoDeuda.Name = "lblTextoDeuda";
+            this.lblTextoDeuda.Size = new System.Drawing.Size(204, 17);
+            this.lblTextoDeuda.TabIndex = 102;
+            this.lblTextoDeuda.Text = "El Cliente posee dueda de:";
+            // 
+            // txtMontoTotal
+            // 
+            this.txtMontoTotal.ForeColor = System.Drawing.Color.Red;
+            this.txtMontoTotal.Location = new System.Drawing.Point(512, 291);
+            this.txtMontoTotal.Multiline = true;
+            this.txtMontoTotal.Name = "txtMontoTotal";
+            this.txtMontoTotal.Size = new System.Drawing.Size(102, 43);
+            this.txtMontoTotal.TabIndex = 78;
+            this.txtMontoTotal.Visible = false;
+            // 
+            // dgvLibreDeuda
+            // 
+            this.dgvLibreDeuda.AllowUserToAddRows = false;
+            this.dgvLibreDeuda.BackgroundColor = System.Drawing.Color.White;
+            this.dgvLibreDeuda.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvLibreDeuda.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(187)))), ((int)(((byte)(45)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvLibreDeuda.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            this.dgvLibreDeuda.ColumnHeadersHeight = 30;
+            this.dgvLibreDeuda.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dgvLibreDeuda.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idProducto,
+            this.Monto,
+            this.Transacción,
+            this.FechaPago,
+            this.Motivo});
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(187)))), ((int)(((byte)(45)))));
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.IndianRed;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvLibreDeuda.DefaultCellStyle = dataGridViewCellStyle6;
+            this.dgvLibreDeuda.EnableHeadersVisualStyles = false;
+            this.dgvLibreDeuda.Location = new System.Drawing.Point(28, 34);
+            this.dgvLibreDeuda.Name = "dgvLibreDeuda";
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvLibreDeuda.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            this.dgvLibreDeuda.RowHeadersVisible = false;
+            this.dgvLibreDeuda.RowHeadersWidth = 51;
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Black;
+            this.dgvLibreDeuda.RowsDefaultCellStyle = dataGridViewCellStyle8;
+            this.dgvLibreDeuda.Size = new System.Drawing.Size(590, 251);
+            this.dgvLibreDeuda.TabIndex = 77;
+            // 
+            // idProducto
+            // 
+            this.idProducto.HeaderText = "id";
+            this.idProducto.MinimumWidth = 6;
+            this.idProducto.Name = "idProducto";
+            this.idProducto.Visible = false;
+            this.idProducto.Width = 50;
+            // 
+            // Monto
+            // 
+            this.Monto.HeaderText = "Monto";
+            this.Monto.MinimumWidth = 6;
+            this.Monto.Name = "Monto";
+            this.Monto.Width = 120;
+            // 
+            // Transacción
+            // 
+            this.Transacción.HeaderText = "Transacción";
+            this.Transacción.MinimumWidth = 6;
+            this.Transacción.Name = "Transacción";
+            this.Transacción.Width = 150;
+            // 
+            // FechaPago
+            // 
+            this.FechaPago.HeaderText = "Fecha Pago";
+            this.FechaPago.MinimumWidth = 6;
+            this.FechaPago.Name = "FechaPago";
+            this.FechaPago.Width = 125;
+            // 
+            // Motivo
+            // 
+            this.Motivo.HeaderText = "Motivo";
+            this.Motivo.MinimumWidth = 6;
+            this.Motivo.Name = "Motivo";
+            this.Motivo.Width = 170;
+            // 
             // grbRegistrarDeuda
             // 
-            this.grbRegistrarDeuda.Controls.Add(this.lblidCliente);
             this.grbRegistrarDeuda.Controls.Add(this.progressBar1);
             this.grbRegistrarDeuda.Controls.Add(this.btnGuardar);
             this.grbRegistrarDeuda.Controls.Add(this.label2);
@@ -158,31 +277,19 @@
             this.grbRegistrarDeuda.Controls.Add(this.txMonto);
             this.grbRegistrarDeuda.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grbRegistrarDeuda.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(187)))), ((int)(((byte)(45)))));
-            this.grbRegistrarDeuda.Location = new System.Drawing.Point(10, 154);
+            this.grbRegistrarDeuda.Location = new System.Drawing.Point(5, 132);
             this.grbRegistrarDeuda.Name = "grbRegistrarDeuda";
-            this.grbRegistrarDeuda.Size = new System.Drawing.Size(629, 298);
+            this.grbRegistrarDeuda.Size = new System.Drawing.Size(654, 295);
             this.grbRegistrarDeuda.TabIndex = 0;
             this.grbRegistrarDeuda.TabStop = false;
             this.grbRegistrarDeuda.Text = "Registar Deuda";
             this.grbRegistrarDeuda.Visible = false;
             this.grbRegistrarDeuda.Enter += new System.EventHandler(this.grbRegistrarDeuda_Enter);
             // 
-            // lblidCliente
-            // 
-            this.lblidCliente.AutoSize = true;
-            this.lblidCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblidCliente.ForeColor = System.Drawing.Color.Black;
-            this.lblidCliente.Location = new System.Drawing.Point(67, 34);
-            this.lblidCliente.Name = "lblidCliente";
-            this.lblidCliente.Size = new System.Drawing.Size(23, 17);
-            this.lblidCliente.TabIndex = 106;
-            this.lblidCliente.Text = "@";
-            this.lblidCliente.Visible = false;
-            // 
             // progressBar1
             // 
             this.progressBar1.ForeColor = System.Drawing.Color.Lime;
-            this.progressBar1.Location = new System.Drawing.Point(166, 114);
+            this.progressBar1.Location = new System.Drawing.Point(158, 114);
             this.progressBar1.Name = "progressBar1";
             this.progressBar1.Size = new System.Drawing.Size(339, 23);
             this.progressBar1.Step = 50;
@@ -197,7 +304,7 @@
             this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardar.ForeColor = System.Drawing.Color.White;
-            this.btnGuardar.Location = new System.Drawing.Point(182, 248);
+            this.btnGuardar.Location = new System.Drawing.Point(182, 227);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(289, 38);
             this.btnGuardar.TabIndex = 104;
@@ -210,7 +317,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(114, 192);
+            this.label2.Location = new System.Drawing.Point(114, 171);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(60, 17);
             this.label2.TabIndex = 103;
@@ -221,7 +328,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(99, 124);
+            this.label1.Location = new System.Drawing.Point(99, 103);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(75, 17);
             this.label1.TabIndex = 102;
@@ -232,7 +339,7 @@
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.ForeColor = System.Drawing.Color.Black;
-            this.label12.Location = new System.Drawing.Point(117, 75);
+            this.label12.Location = new System.Drawing.Point(117, 54);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(57, 17);
             this.label12.TabIndex = 101;
@@ -240,7 +347,7 @@
             // 
             // txMotivo
             // 
-            this.txMotivo.Location = new System.Drawing.Point(195, 160);
+            this.txMotivo.Location = new System.Drawing.Point(195, 139);
             this.txMotivo.Multiline = true;
             this.txMotivo.Name = "txMotivo";
             this.txMotivo.Size = new System.Drawing.Size(276, 78);
@@ -249,36 +356,39 @@
             // dtFecha
             // 
             this.dtFecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtFecha.Location = new System.Drawing.Point(195, 70);
+            this.dtFecha.Location = new System.Drawing.Point(195, 49);
             this.dtFecha.Name = "dtFecha";
             this.dtFecha.Size = new System.Drawing.Size(276, 21);
             this.dtFecha.TabIndex = 15;
             // 
             // txMonto
             // 
-            this.txMonto.Location = new System.Drawing.Point(195, 118);
+            this.txMonto.Location = new System.Drawing.Point(195, 97);
             this.txMonto.Name = "txMonto";
             this.txMonto.Size = new System.Drawing.Size(276, 26);
             this.txMonto.TabIndex = 14;
             this.txMonto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.SoloNumerosyDecimales);
             // 
-            // grbPagoDeuda
+            // lblidCliente
             // 
-            this.grbPagoDeuda.Location = new System.Drawing.Point(529, 83);
-            this.grbPagoDeuda.Name = "grbPagoDeuda";
-            this.grbPagoDeuda.Size = new System.Drawing.Size(106, 57);
-            this.grbPagoDeuda.TabIndex = 105;
-            this.grbPagoDeuda.TabStop = false;
-            this.grbPagoDeuda.Text = "groupBox2";
+            this.lblidCliente.AutoSize = true;
+            this.lblidCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblidCliente.ForeColor = System.Drawing.Color.Black;
+            this.lblidCliente.Location = new System.Drawing.Point(25, 68);
+            this.lblidCliente.Name = "lblidCliente";
+            this.lblidCliente.Size = new System.Drawing.Size(23, 17);
+            this.lblidCliente.TabIndex = 106;
+            this.lblidCliente.Text = "@";
+            this.lblidCliente.Visible = false;
             // 
             // LibreDeudaWF
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(657, 527);
-            this.Controls.Add(this.grbRegistrarDeuda);
-            this.Controls.Add(this.grbPagoDeuda);
+            this.ClientSize = new System.Drawing.Size(666, 588);
+            this.Controls.Add(this.lblidCliente);
             this.Controls.Add(this.grbGrilla);
+            this.Controls.Add(this.grbRegistrarDeuda);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -292,9 +402,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.grbGrilla.ResumeLayout(false);
+            this.grbGrilla.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLibreDeuda)).EndInit();
             this.grbRegistrarDeuda.ResumeLayout(false);
             this.grbRegistrarDeuda.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -316,8 +430,15 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Button btnGuardar;
-        private System.Windows.Forms.GroupBox grbPagoDeuda;
         private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.Label lblidCliente;
+        private System.Windows.Forms.TextBox txtMontoTotal;
+        private System.Windows.Forms.DataGridView dgvLibreDeuda;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idProducto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Monto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Transacción;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FechaPago;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Motivo;
+        private System.Windows.Forms.Label lblTextoDeuda;
     }
 }

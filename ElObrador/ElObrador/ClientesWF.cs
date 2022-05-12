@@ -665,7 +665,7 @@ namespace ElObrador
         {
             try
             {
-                ObtenerLocalidad();               
+                ObtenerLocalidad();
             }
             catch (Exception ex)
             {
@@ -720,7 +720,7 @@ namespace ElObrador
         {
             try
             {
-                ObtenerProvincia();               
+                ObtenerProvincia();
             }
             catch (Exception ex)
             {
@@ -760,7 +760,7 @@ namespace ElObrador
         {
             if (this.dgvClientes.RowCount > 0)
             {
-                LimpiarCampos();                
+                LimpiarCampos();
                 idClienteSeleccionado = Convert.ToInt32(this.dgvClientes.CurrentRow.Cells[0].Value);
                 LibreDeudaWF _libreDeuda = new LibreDeudaWF(idClienteSeleccionado);
                 _libreDeuda.Show();
@@ -773,6 +773,53 @@ namespace ElObrador
                                              MessageBoxButtons.OK,
                                              MessageBoxIcon.Asterisk);
             }
+        }
+
+        private void dgvClientes_Click(object sender, EventArgs e)
+        {
+            FuncionListarLibreDeuda();
+        }
+        private void FuncionListarLibreDeuda()
+        {
+            int idCliente = Convert.ToInt32(this.dgvClientes.CurrentRow.Cells[0].Value);
+            List<Entidades.LibreDeuda> Lista = LibreDeudaNeg.ListarLibreDeuda(idCliente);
+            if (Lista.Count > 0)
+            {
+                decimal MontoSuma = 0;
+                decimal MontoResta = 0;
+                decimal MontoTotal = 0;
+                foreach (var item in Lista)
+                {
+                    string Monto = Convert.ToString(item.Monto);
+                    int Tipo = item.idTipoTarea;
+                    string TipoFuncion = "";
+                    if (Tipo == 1)
+                    {
+                        TipoFuncion = "Registro Deuda";
+                        MontoResta = MontoResta + item.Monto;
+                    }
+                    if (Tipo == 2)
+                    {
+                        TipoFuncion = "Pago Deuda";
+                        MontoSuma = MontoSuma + item.Monto;
+                    }
+                    string Fecha = Convert.ToString(item.Fecha.ToShortDateString());
+                    string Motivo = item.Motivo;
+
+                    //dgvLibreDeuda.Rows.Add(item.idLibreDeuda, Monto, TipoFuncion, Fecha, Motivo);
+                }
+                MontoTotal = MontoResta - MontoSuma;
+                if (MontoTotal >= 0)
+                {
+                    btnLibreDeuda.BackColor = Color.Red;
+                }
+                else
+                {
+                    btnLibreDeuda.BackColor = Color.Green;
+                }
+            }
+            else { btnLibreDeuda.BackColor = Color.Green; }
+
         }
     }
 }

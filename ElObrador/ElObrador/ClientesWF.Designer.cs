@@ -624,6 +624,7 @@
             this.dgvClientes.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvClientes.Size = new System.Drawing.Size(596, 421);
             this.dgvClientes.TabIndex = 76;
+            this.dgvClientes.Click += new System.EventHandler(this.dgvClientes_Click);
             // 
             // idProducto
             // 

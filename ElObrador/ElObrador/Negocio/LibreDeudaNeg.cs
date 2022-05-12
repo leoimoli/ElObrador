@@ -36,5 +36,30 @@ namespace ElObrador.Negocio
                 throw new Exception();
             }
         }
+        public static List<LibreDeuda> ListarLibreDeuda(int idClienteSeleccionado)
+        {
+            List<Entidades.LibreDeuda> _listaLibreDeuda = new List<Entidades.LibreDeuda>();
+            try
+            {
+                _listaLibreDeuda = ClientesDao.ListarLibreDeuda(idClienteSeleccionado);
+            }
+            catch (Exception ex)
+            {
+            }
+            return _listaLibreDeuda;
+        }
+
+        public static bool RegistrarPago(LibreDeuda libreDeuda)
+        {
+            bool exito = false;
+            try
+            {
+                ValidarDatos(libreDeuda);
+                exito = ClientesDao.RegistrarPago(libreDeuda);
+            }
+            catch (Exception ex)
+            { }
+            return exito;
+        }
     }
 }

@@ -52,20 +52,73 @@ namespace ElObrador.Dao
             connection.Close();
             return exito;
         }
+
+        public static bool RegistrarPago(LibreDeuda libreDeuda)
+        {
+            bool exito = false;
+            connection.Close();
+            connection.Open();
+            string proceso = "RegistrarPago";
+            MySqlCommand cmd = new MySqlCommand(proceso, connection);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("Monto_in", libreDeuda.Monto);
+            cmd.Parameters.AddWithValue("Fecha_in", libreDeuda.Fecha);
+            cmd.Parameters.AddWithValue("Motivo_in", libreDeuda.Motivo);
+            cmd.Parameters.AddWithValue("FechaActual_in", libreDeuda.FechaActual);
+            cmd.Parameters.AddWithValue("idUsuario_in", libreDeuda.idUsuario);
+            cmd.Parameters.AddWithValue("idCliente_in", libreDeuda.idCliente);
+            cmd.ExecuteNonQuery();
+            exito = true;
+            connection.Close();
+            return exito;
+        }
+
+        public static List<LibreDeuda> ListarLibreDeuda(int idClienteSeleccionado)
+        {
+            connection.Close();
+            connection.Open();
+            List<Entidades.LibreDeuda> _lista = new List<Entidades.LibreDeuda>();
+            MySqlCommand cmd = new MySqlCommand();
+            cmd.Connection = connection;
+            DataTable Tabla = new DataTable();
+            MySqlParameter[] oParam = {
+            new MySqlParameter("idClienteSeleccionado_in", idClienteSeleccionado)};
+            string proceso = "ListarLibreDeuda";
+            MySqlDataAdapter dt = new MySqlDataAdapter(proceso, connection);
+            dt.SelectCommand.CommandType = CommandType.StoredProcedure;
+            dt.SelectCommand.Parameters.AddRange(oParam);
+            dt.Fill(Tabla);
+            if (Tabla.Rows.Count > 0)
+            {
+                foreach (DataRow item in Tabla.Rows)
+                {
+                    Entidades.LibreDeuda lista = new Entidades.LibreDeuda();
+                    lista.idLibreDeuda = Convert.ToInt32(item["idLibreDeuda"].ToString());
+                    lista.Monto = Convert.ToDecimal(item["Monto"].ToString());
+                    lista.idTipoTarea = Convert.ToInt32(item["idTipo"].ToString());
+                    lista.Fecha = Convert.ToDateTime(item["FechaPago"].ToString());
+                    lista.Motivo = item["Motivo"].ToString();
+                    _lista.Add(lista);
+                }
+            }
+            connection.Close();
+            return _lista;
+        }
+
         public static bool RegistrarDeuda(LibreDeuda libreDeuda)
-        {           
+        {
             bool exito = false;
             connection.Close();
             connection.Open();
             string proceso = "RegistrarDeuda";
             MySqlCommand cmd = new MySqlCommand(proceso, connection);
             cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("idCliente_in", libreDeuda.idCliente);
             cmd.Parameters.AddWithValue("Monto_in", libreDeuda.Monto);
             cmd.Parameters.AddWithValue("Fecha_in", libreDeuda.Fecha);
             cmd.Parameters.AddWithValue("Motivo_in", libreDeuda.Motivo);
             cmd.Parameters.AddWithValue("FechaActual_in", libreDeuda.FechaActual);
             cmd.Parameters.AddWithValue("idUsuario_in", libreDeuda.idUsuario);
+            cmd.Parameters.AddWithValue("idCliente_in", libreDeuda.idCliente);
             cmd.ExecuteNonQuery();
             exito = true;
             connection.Close();
