@@ -621,7 +621,7 @@ namespace ElObrador.utilidades
                     // establecer Dias Laborales
                     recTmp = document.PageSize;
                     tblDiasHorariosLaborales.TotalWidth = recTmp.Width - document.LeftMargin - document.RightMargin;
-                    tblDiasHorariosLaborales.WriteSelectedRows(0, -1, document.LeftMargin, recTmp.Height - document.TopMargin + tblDiasHorariosLaborales.TotalHeight, writer.DirectContent);
+                    tblDiasHorariosLaborales.WriteSelectedRows(0, -1, document.LeftMargin, recTmp.Height - document.TopMargin + tblDiasHorariosLaborales.TotalHeight -5, writer.DirectContent);
 
                     //// establecer Texto
                     recTmp = document.PageSize;
