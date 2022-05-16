@@ -51,6 +51,177 @@ namespace ElObrador
             catch (Exception ex)
             { }
         }
+
+        #region "variables"
+
+        /// <summary>
+        /// Obtener la ruta y nombre logotipo 
+        /// </summary>
+        public string ArchivoLogotipoCupon = Comun.AppRuta() + Comun.AppLogotipoDos;
+
+        /// <summary>
+        /// Obtener la ruta donde se crea y guarda el reporte (archivo) PDF
+
+        //SqlConnection conTmp = new SqlConnection();
+        SqlCommand cmdTmpCupon = new SqlCommand();
+        //SqlDataAdapter daTmp;
+        DataSet dstTmpCupon = new DataSet();
+        string ArchivoNombreCupon;
+        string EncabezadoCupon;
+        string SubencabezadoCupon = "";
+        string DiasHorariosLaboralesCupon = "";
+        string TextoCupon = "";
+        string TextoLineaDosCupon = "";
+        string TextoLeyCupon = "";
+        string PiePaginaCupon = "";
+        ArrayList arlColumnasCupon = new ArrayList();
+        Rectangle PapelTamanioCupon = iTextSharp.text.PageSize.LETTER;        /// </summary>
+        //public string RutaReporte = Comun.AppRuta() + Comun.AppRutaReporte;
+
+        /// <summary>
+        /// Obtener la cadena de conexión desde App.config, para conexíón con SQL Server 
+        /// </summary>
+        // public string CadenaConexion = System.Configuration.ConfigurationManager.ConnectionStrings["csMSQLServer"].ConnectionString;
+
+        #endregion
+        private void GenerarCuponDeCodigo(int exito)
+        {
+
+            string TablaImnprimir = "Nro.Reparacion '" + exito + "'";
+            try
+            {
+
+                // cambiar puntero del ratón
+                Cursor.Current = Cursors.WaitCursor;
+
+                //// mensaje inicializar
+                //MensajeLimpiar();
+
+                //// mensaje
+                //MensajeMostrar(" - [ Reporte en proceso... ]");
+
+
+                string folderPath = "C:\\Obrador-Archivos\\PDFs\\Nro.Reparacion\\";
+                if (!Directory.Exists(folderPath))
+                {
+                    Directory.CreateDirectory(folderPath);
+                }
+
+                string RutaReporte = folderPath;
+                // ruta y nombre del archivo con extensión
+                ArchivoNombreCupon = RutaReporte + "rpt" + TablaImnprimir + DateTime.Now.ToFileTime().ToString() + ".pdf";
+
+                // Encabezado
+                EncabezadoCupon = Comun.AppNombreReparaciones();
+
+
+                // tamaño de la hoja
+                PapelTamanioCupon = iTextSharp.text.PageSize.LETTER;
+
+                // encabezado
+                //Subencabezado = "Comprobante de Alquiler" + Environment.NewLine + "(No valido como factura)";
+                SubencabezadoCupon = "Código de Reparación:" + exito + "";
+
+                //Jornada Laboral
+                DiasHorariosLaboralesCupon = "Días y Horario de Atención: Lunes a Viernes de 8hs a 17hs / Sábados de 8hs a 13hs";
+
+
+                // Texto
+                var espacios = "";
+                string Blancos = espacios.PadRight(80);
+                string BlancosDos = espacios.PadRight(20);
+
+
+                string txtApellido = lblApellido.Text;
+                string txtTelefono = lblTelefono.Text;
+                string txtNroReferencia = Convert.ToString(exito);
+                string txSeña = txtSeña.Text;
+                if (txtSeña.Text == "")
+                {
+                    txSeña = "0";
+                }
+                else
+                { txSeña = txtSeña.Text; }
+                string txFechaEstimada = dtFechaEstimadaEntrega.Value.ToShortDateString();
+
+                TextoCupon = "Cliente: '" + txtApellido + "'; Teléfono: '" + txtTelefono + "'; Referencia: '" + txtNroReferencia + "';" + "Seña: '" + txSeña + "';" + "Fecha Estimada de Entrega: '" + txFechaEstimada + "'";
+
+
+
+                // Texto Ley
+                TextoLeyCupon = "IMPORTANTE " + Environment.NewLine + " 1) Sera requisito indispensable presentar este comprobante para retirar el equipo. " + Environment.NewLine + " 2) Si pasados los 90 días de terminado el arreglo, el material no es retirado, quedara en propiedad de este service, entendiendose que el titular renuncia al mismo de acuerdo a los Art.872/3 del Código Civil. " + Environment.NewLine + " 3) Los tiempos de reparación estarán sujetos a disponibilidad y/o stock de los repuestos. " + Environment.NewLine + " 4) Las reparaciones gozarán de 90 días de garantía sobre el arreglo específico. " + Environment.NewLine + " 5) Los equipos dejado a presupuestar que no tengan una confirmación dentro de los 60 días una vez cotizado el trabajo, quedarán a disposición del El obrador, perdiendo el propietario todo derecho a reclamo alguno.";
+
+                //columnas
+                arlColumnasCupon.Add(new ReporteColumna("Código", 20, true, Element.ALIGN_CENTER, Element.ALIGN_CENTER, "", FontFactory.TIMES_ROMAN, 8));
+                arlColumnasCupon.Add(new ReporteColumna("Material", 30, true, Element.ALIGN_CENTER, Element.ALIGN_CENTER, "", FontFactory.TIMES_ROMAN, 8));
+                arlColumnasCupon.Add(new ReporteColumna("Modelo", 30, true, Element.ALIGN_CENTER, Element.ALIGN_CENTER, "", FontFactory.TIMES_ROMAN, 8));
+
+
+                // pie de página
+                PiePaginaCupon = "";
+
+                // instanciar reporte
+                CodigoReparacion udtReporte = new CodigoReparacion(ArchivoLogotipoCupon);
+
+                //
+                // Se define la estructura del DataTable
+                //
+                DataTable dtCupon = new DataTable();
+
+                dtCupon.Columns.Add("Código");
+                dtCupon.Columns.Add("Material");
+                dtCupon.Columns.Add("Modelo");
+
+
+                //dt.Rows.Add("Código", "Material", "Modelo");
+                //dt.Rows.Add(_taller.Codigo, _taller.Material, _taller.Modelo);
+
+                //foreach (var item in _taller)
+                //{
+                //    dt.Rows.Add(item.Material, item.Modelo, item.Codigo);
+                //}
+
+                //string Prueba = "Hola Mundo";
+                // crear reporte
+                try
+                {
+                    udtReporte.Generar(ArchivoNombreCupon, PapelTamanioCupon, EncabezadoCupon, SubencabezadoCupon, DiasHorariosLaboralesCupon, TextoCupon, TextoLeyCupon, PiePaginaCupon, arlColumnasCupon, dtCupon);
+                }
+                catch (Exception ex)
+                {
+
+                    string message = ex.Message;
+                    const string caption = "Error";
+                    var result = MessageBox.Show(message, caption,
+                                                 MessageBoxButtons.OK,
+                                               MessageBoxIcon.Exclamation);
+                    throw new Exception();
+                }
+                //entregar el reporte con la aplicación asociada
+                System.Diagnostics.Process.Start(ArchivoNombreCupon);
+
+                // mensaje
+                //MensajeMostrar(" - [ Reporte terminado... ]");
+
+                // cambiar puntero ratón
+                Cursor.Current = Cursors.Default;
+            }
+            catch (Exception Ex)
+            {
+                // heredar
+                throw Ex;
+            }
+            finally
+            {
+                ////cerrar y destruir
+                //cmdTmpCupon.Dispose();
+                //conTmpCupon.Close();
+                //conTmpCupon.Dispose();
+            }
+        }
+
+
+        //////////////// TICKET DE LA FACTURA
         #region "variables"
 
         /// <summary>
@@ -146,7 +317,7 @@ namespace ElObrador
 
                 Texto = "Cliente: '" + txtApellido + "'; Teléfono: '" + txtTelefono + "'; Referencia: '" + txtNroReferencia + "';" + "Seña: '" + txSeña + "';" + "Fecha Estimada de Entrega: '" + txFechaEstimada + "'";
 
-            
+
 
                 // Texto Ley
                 TextoLey = "IMPORTANTE " + Environment.NewLine + " 1) Sera requisito indispensable presentar este comprobante para retirar el equipo. " + Environment.NewLine + " 2) Si pasados los 90 días de terminado el arreglo, el material no es retirado, quedara en propiedad de este service, entendiendose que el titular renuncia al mismo de acuerdo a los Art.872/3 del Código Civil. " + Environment.NewLine + " 3) Los tiempos de reparación estarán sujetos a disponibilidad y/o stock de los repuestos. " + Environment.NewLine + " 4) Las reparaciones gozarán de 90 días de garantía sobre el arreglo específico. " + Environment.NewLine + " 5) Los equipos dejado a presupuestar que no tengan una confirmación dentro de los 60 días una vez cotizado el trabajo, quedarán a disposición del El obrador, perdiendo el propietario todo derecho a reclamo alguno.";
@@ -247,6 +418,7 @@ namespace ElObrador
             txtPorDni.Clear();
             lblidCliente.Text = "0";
             panel1.Enabled = false;
+            txtDiagnostico.Clear();
         }
 
         private void ProgressBar()
@@ -578,6 +750,12 @@ namespace ElObrador
         private void label18_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnImprimir_Click(object sender, EventArgs e)
+        {
+            int codigo = Convert.ToInt32(this.dgvHistorialTaller.CurrentRow.Cells[0].Value.ToString());
+            GenerarCuponDeCodigo(codigo);
         }
     }
 }

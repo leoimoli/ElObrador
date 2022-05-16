@@ -310,6 +310,7 @@
     <Compile Include="UsuariosWF.Designer.cs">
       <DependentUpon>UsuariosWF.cs</DependentUpon>
     </Compile>
+    <Compile Include="utilidades\CodigoReparacion.cs" />
     <Compile Include="utilidades\Comun.cs" />
     <Compile Include="utilidades\ComunAlquiler.cs" />
     <Compile Include="utilidades\OrdenDeTrabajoReparaciones.cs" />
@@ -317,6 +318,7 @@
     <Compile Include="utilidades\ReporteColumna.cs" />
     <Compile Include="utilidades\ReportePagina.cs" />
     <Compile Include="utilidades\ReportePaginaAlquiler.cs" />
+    <Compile Include="utilidades\ReportePaginaCodigoNroReparacion.cs" />
     <Compile Include="utilidades\ReportePaginaOrdenTrabajo.cs" />
     <Compile Include="VisualizarHistorialWF.cs">
       <SubType>Form</SubType>

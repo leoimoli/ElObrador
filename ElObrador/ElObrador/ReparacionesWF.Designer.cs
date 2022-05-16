@@ -38,9 +38,16 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ReparacionesWF));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lblTelefono = new System.Windows.Forms.Label();
+            this.lblApellido = new System.Windows.Forms.Label();
+            this.lblFechaEstimadaEntrega = new System.Windows.Forms.Label();
+            this.dtFechaEstimadaEntrega = new System.Windows.Forms.DateTimePicker();
+            this.label12 = new System.Windows.Forms.Label();
+            this.txtSeña = new System.Windows.Forms.TextBox();
             this.lblidCliente = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.label10 = new System.Windows.Forms.Label();
             this.txtPorDni = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -58,7 +65,6 @@
             this.txtModelo = new System.Windows.Forms.TextBox();
             this.txtCodigo = new System.Windows.Forms.TextBox();
             this.txtDescripcionProducto = new System.Windows.Forms.TextBox();
-            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.label2 = new System.Windows.Forms.Label();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.dgvReparaciones = new System.Windows.Forms.DataGridView();
@@ -81,12 +87,7 @@
             this.VerHistorial = new System.Windows.Forms.DataGridViewButtonColumn();
             this.label18 = new System.Windows.Forms.Label();
             this.btnNuevoHistorial = new System.Windows.Forms.Button();
-            this.label12 = new System.Windows.Forms.Label();
-            this.txtSeña = new System.Windows.Forms.TextBox();
-            this.lblFechaEstimadaEntrega = new System.Windows.Forms.Label();
-            this.dtFechaEstimadaEntrega = new System.Windows.Forms.DateTimePicker();
-            this.lblApellido = new System.Windows.Forms.Label();
-            this.lblTelefono = new System.Windows.Forms.Label();
+            this.btnImprimir = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvReparaciones)).BeginInit();
             this.panelVer.SuspendLayout();
@@ -131,6 +132,67 @@
             this.panel1.Size = new System.Drawing.Size(478, 481);
             this.panel1.TabIndex = 84;
             // 
+            // lblTelefono
+            // 
+            this.lblTelefono.AutoSize = true;
+            this.lblTelefono.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTelefono.ForeColor = System.Drawing.Color.Black;
+            this.lblTelefono.Location = new System.Drawing.Point(412, 121);
+            this.lblTelefono.Name = "lblTelefono";
+            this.lblTelefono.Size = new System.Drawing.Size(17, 17);
+            this.lblTelefono.TabIndex = 204;
+            this.lblTelefono.Text = "0";
+            this.lblTelefono.Visible = false;
+            // 
+            // lblApellido
+            // 
+            this.lblApellido.AutoSize = true;
+            this.lblApellido.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblApellido.ForeColor = System.Drawing.Color.Black;
+            this.lblApellido.Location = new System.Drawing.Point(18, 64);
+            this.lblApellido.Name = "lblApellido";
+            this.lblApellido.Size = new System.Drawing.Size(17, 17);
+            this.lblApellido.TabIndex = 203;
+            this.lblApellido.Text = "0";
+            this.lblApellido.Visible = false;
+            // 
+            // lblFechaEstimadaEntrega
+            // 
+            this.lblFechaEstimadaEntrega.AutoSize = true;
+            this.lblFechaEstimadaEntrega.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFechaEstimadaEntrega.ForeColor = System.Drawing.Color.Black;
+            this.lblFechaEstimadaEntrega.Location = new System.Drawing.Point(13, 249);
+            this.lblFechaEstimadaEntrega.Name = "lblFechaEstimadaEntrega";
+            this.lblFechaEstimadaEntrega.Size = new System.Drawing.Size(185, 17);
+            this.lblFechaEstimadaEntrega.TabIndex = 202;
+            this.lblFechaEstimadaEntrega.Text = "Fecha Estimada Entrega";
+            // 
+            // dtFechaEstimadaEntrega
+            // 
+            this.dtFechaEstimadaEntrega.Location = new System.Drawing.Point(16, 270);
+            this.dtFechaEstimadaEntrega.Name = "dtFechaEstimadaEntrega";
+            this.dtFechaEstimadaEntrega.Size = new System.Drawing.Size(220, 20);
+            this.dtFechaEstimadaEntrega.TabIndex = 201;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.ForeColor = System.Drawing.Color.Black;
+            this.label12.Location = new System.Drawing.Point(246, 250);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(50, 17);
+            this.label12.TabIndex = 200;
+            this.label12.Text = "Seña:";
+            // 
+            // txtSeña
+            // 
+            this.txtSeña.Location = new System.Drawing.Point(249, 270);
+            this.txtSeña.Name = "txtSeña";
+            this.txtSeña.Size = new System.Drawing.Size(220, 20);
+            this.txtSeña.TabIndex = 199;
+            this.txtSeña.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.SoloNumerosyDecimales);
+            // 
             // lblidCliente
             // 
             this.lblidCliente.AutoSize = true;
@@ -164,6 +226,17 @@
             this.label9.Size = new System.Drawing.Size(94, 13);
             this.label9.TabIndex = 196;
             this.label9.Text = "Buscar por DNI";
+            // 
+            // progressBar1
+            // 
+            this.progressBar1.ForeColor = System.Drawing.Color.Lime;
+            this.progressBar1.Location = new System.Drawing.Point(33, 411);
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(397, 23);
+            this.progressBar1.Step = 50;
+            this.progressBar1.TabIndex = 95;
+            this.progressBar1.Value = 10;
+            this.progressBar1.Visible = false;
             // 
             // label10
             // 
@@ -333,17 +406,6 @@
             this.txtDescripcionProducto.Size = new System.Drawing.Size(220, 42);
             this.txtDescripcionProducto.TabIndex = 2;
             // 
-            // progressBar1
-            // 
-            this.progressBar1.ForeColor = System.Drawing.Color.Lime;
-            this.progressBar1.Location = new System.Drawing.Point(33, 411);
-            this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(397, 23);
-            this.progressBar1.Step = 50;
-            this.progressBar1.TabIndex = 95;
-            this.progressBar1.Value = 10;
-            this.progressBar1.Visible = false;
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -504,6 +566,7 @@
             // panelVer
             // 
             this.panelVer.BackColor = System.Drawing.Color.Gainsboro;
+            this.panelVer.Controls.Add(this.btnImprimir);
             this.panelVer.Controls.Add(this.btnSalidaTaller);
             this.panelVer.Controls.Add(this.lblidReparacion);
             this.panelVer.Controls.Add(this.dgvHistorialTaller);
@@ -645,66 +708,20 @@
             this.btnNuevoHistorial.UseVisualStyleBackColor = false;
             this.btnNuevoHistorial.Click += new System.EventHandler(this.btnNuevoHistorial_Click);
             // 
-            // label12
+            // btnImprimir
             // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.ForeColor = System.Drawing.Color.Black;
-            this.label12.Location = new System.Drawing.Point(246, 250);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(50, 17);
-            this.label12.TabIndex = 200;
-            this.label12.Text = "Seña:";
-            // 
-            // txtSeña
-            // 
-            this.txtSeña.Location = new System.Drawing.Point(249, 270);
-            this.txtSeña.Name = "txtSeña";
-            this.txtSeña.Size = new System.Drawing.Size(220, 20);
-            this.txtSeña.TabIndex = 199;
-            this.txtSeña.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.SoloNumerosyDecimales);
-            // 
-            // lblFechaEstimadaEntrega
-            // 
-            this.lblFechaEstimadaEntrega.AutoSize = true;
-            this.lblFechaEstimadaEntrega.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFechaEstimadaEntrega.ForeColor = System.Drawing.Color.Black;
-            this.lblFechaEstimadaEntrega.Location = new System.Drawing.Point(13, 249);
-            this.lblFechaEstimadaEntrega.Name = "lblFechaEstimadaEntrega";
-            this.lblFechaEstimadaEntrega.Size = new System.Drawing.Size(185, 17);
-            this.lblFechaEstimadaEntrega.TabIndex = 202;
-            this.lblFechaEstimadaEntrega.Text = "Fecha Estimada Entrega";
-            // 
-            // dtFechaEstimadaEntrega
-            // 
-            this.dtFechaEstimadaEntrega.Location = new System.Drawing.Point(16, 270);
-            this.dtFechaEstimadaEntrega.Name = "dtFechaEstimadaEntrega";
-            this.dtFechaEstimadaEntrega.Size = new System.Drawing.Size(220, 20);
-            this.dtFechaEstimadaEntrega.TabIndex = 201;
-            // 
-            // lblApellido
-            // 
-            this.lblApellido.AutoSize = true;
-            this.lblApellido.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblApellido.ForeColor = System.Drawing.Color.Black;
-            this.lblApellido.Location = new System.Drawing.Point(18, 64);
-            this.lblApellido.Name = "lblApellido";
-            this.lblApellido.Size = new System.Drawing.Size(17, 17);
-            this.lblApellido.TabIndex = 203;
-            this.lblApellido.Text = "0";
-            this.lblApellido.Visible = false;
-            // 
-            // lblTelefono
-            // 
-            this.lblTelefono.AutoSize = true;
-            this.lblTelefono.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTelefono.ForeColor = System.Drawing.Color.Black;
-            this.lblTelefono.Location = new System.Drawing.Point(412, 121);
-            this.lblTelefono.Name = "lblTelefono";
-            this.lblTelefono.Size = new System.Drawing.Size(17, 17);
-            this.lblTelefono.TabIndex = 204;
-            this.lblTelefono.Text = "0";
-            this.lblTelefono.Visible = false;
+            this.btnImprimir.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(187)))), ((int)(((byte)(45)))));
+            this.btnImprimir.FlatAppearance.BorderColor = System.Drawing.Color.SeaGreen;
+            this.btnImprimir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnImprimir.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnImprimir.ForeColor = System.Drawing.Color.White;
+            this.btnImprimir.Location = new System.Drawing.Point(325, 6);
+            this.btnImprimir.Name = "btnImprimir";
+            this.btnImprimir.Size = new System.Drawing.Size(114, 29);
+            this.btnImprimir.TabIndex = 99;
+            this.btnImprimir.Text = "Imprimir Código";
+            this.btnImprimir.UseVisualStyleBackColor = false;
+            this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
             // 
             // ReparacionesWF
             // 
@@ -787,5 +804,6 @@
         public System.Windows.Forms.TextBox txtSeña;
         private System.Windows.Forms.Label lblApellido;
         private System.Windows.Forms.Label lblTelefono;
+        private System.Windows.Forms.Button btnImprimir;
     }
 }
