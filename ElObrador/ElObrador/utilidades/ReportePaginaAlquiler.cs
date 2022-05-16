@@ -618,6 +618,15 @@ namespace ElObrador.utilidades
                     // verificar
                     if (m_TextoLey.Length > 0)
                     {
+                        m_TextoLey = m_TextoLey.Replace("#", Persona);
+                        m_TextoLey = m_TextoLey.Replace("%", Telefono);
+                        m_TextoLey = m_TextoLey.Replace("$", Email);
+
+                        m_TextoLey = m_TextoLey.Replace("@Cliente:", "");
+                        m_TextoLey = m_TextoLey.Replace("@Teléfono:", "");
+                        m_TextoLey = m_TextoLey.Replace("@Email:", "");
+
+
                         cellTmp = new PdfPCell(new Phrase(m_TextoLey, fTextoLey))
                         {
                             Border = (int)CeldaBorde.ninguno,
@@ -648,7 +657,7 @@ namespace ElObrador.utilidades
                     {
                         cellTmp = new PdfPCell(new Phrase(m_TextoLeyProtesto, fTextoLey))
                         {
-                            Border = (int)CeldaBorde.ninguno,                            
+                            Border = (int)CeldaBorde.ninguno,
                             HorizontalAlignment = Element.ALIGN_LEFT,
                             VerticalAlignment = Element.ALIGN_BOTTOM
                         };
@@ -860,12 +869,12 @@ namespace ElObrador.utilidades
                     //// establecer Firma y Aclaracion
                     recTmp = document.PageSize;
                     tblFirmaAclaracion.TotalWidth = recTmp.Width - document.LeftMargin - document.RightMargin;
-                    tblFirmaAclaracion.WriteSelectedRows(0, -1, document.LeftMargin + 350, document.BottomMargin + 150, writer.DirectContent);
+                    tblFirmaAclaracion.WriteSelectedRows(0, -1, document.LeftMargin + 350, document.BottomMargin + 170, writer.DirectContent);
 
                     //// establecer Dni Firmante
                     recTmp = document.PageSize;
                     tblDniFirmante.TotalWidth = recTmp.Width - document.LeftMargin - document.RightMargin;
-                    tblDniFirmante.WriteSelectedRows(0, -1, document.LeftMargin + 350, document.BottomMargin + 140, writer.DirectContent);
+                    tblDniFirmante.WriteSelectedRows(0, -1, document.LeftMargin + 350, document.BottomMargin + 160, writer.DirectContent);
 
                     //// establecer TextoLey Sin Protesto
                     recTmp = document.PageSize;
