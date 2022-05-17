@@ -184,6 +184,8 @@ namespace ElObrador
             txtProvincia.Enabled = true;
             txtLocalidad.Enabled = true;
             CargarCombo();
+            chcParticular.Enabled = true;
+            chcEmpresa.Enabled = true;
         }
         private void LimpiarCampos()
         {
@@ -227,6 +229,10 @@ namespace ElObrador
             chcLuz.Enabled = true;
             chcTelefono.Enabled = true;
             chcOtros.Enabled = true;
+            chcAutorizacion.Enabled = true;
+            chcPersonaJuridica.Enabled = true;
+            chcAutorizacion.Checked = false;
+            chcPersonaJuridica.Checked = false;
             CargarCombo();
             CargarProvincias();
         }
@@ -356,6 +362,24 @@ namespace ElObrador
                 }
             }
             _clientes.FechaDeAlta = fechaActual;
+            ////// Asigno Valor Tipo de Cliente Particular o Empresa
+            if (chcParticular.Checked == true)
+            {
+                _clientes.TipoCliente = 1;
+            }
+            else
+            {
+                _clientes.TipoCliente = 2;
+            }
+
+            if (chcAutorizacion.Checked == true)
+            {
+                _clientes.chcAutorizacion = 1;
+            }
+            if (chcPersonaJuridica.Checked == true)
+            {
+                _clientes.chcPersonaJuridica = 1;
+            }
             return _clientes;
         }
         private void ProgressBar()
@@ -469,6 +493,15 @@ namespace ElObrador
             else
             {
                 _clientes.ActualizaComprobanteFactura = 0;
+            }           
+
+            if (chcAutorizacion.Checked == true)
+            {
+                _clientes.chcAutorizacion = 1;
+            }
+            if (chcPersonaJuridica.Checked == true)
+            {
+                _clientes.chcPersonaJuridica = 1;
             }
             return _clientes;
         }
@@ -531,6 +564,43 @@ namespace ElObrador
             txtAltura.Enabled = true;
             txtProvincia.Enabled = true;
             txtLocalidad.Enabled = true;
+
+            if (cliente.TipoCliente == 1)
+            {
+                chcParticular.Checked = true;
+                chcParticular.Enabled = false;
+                chcEmpresa.Checked = false;
+                chcEmpresa.Enabled = false;
+                HabilitarCheckParticular();
+            }
+            if (cliente.TipoCliente == 2)
+            {
+                chcParticular.Checked = false;
+                chcEmpresa.Checked = true;
+                chcEmpresa.Enabled = false;
+                chcParticular.Enabled = false;
+                HabilitarCheckEmpresa();
+            }
+            if (cliente.chcAutorizacion == 1)
+            {
+                chcAutorizacion.Checked = true;
+                chcAutorizacion.Enabled = false;
+            }
+            else
+            {
+                chcAutorizacion.Checked = false;
+                chcAutorizacion.Enabled = true;
+            }
+            if (cliente.chcPersonaJuridica == 1)
+            {
+                chcPersonaJuridica.Checked = true;
+                chcPersonaJuridica.Enabled = false;
+            }
+            else
+            {
+                chcPersonaJuridica.Checked = false;
+                chcPersonaJuridica.Enabled = true;
+            }
 
             if (cliente.chcDni == 1)
             {
@@ -607,6 +677,22 @@ namespace ElObrador
                     //    chcOtros.Checked = false;
                     //    chcOtros.Enabled = true;
                     //}
+                }
+                if (cliente.TipoCliente == 2 && cliente.chcAutorizacion == 1)
+                {
+                    lblFaltaDocumentacion.Visible = false;
+                }
+                else
+                {
+                    lblFaltaDocumentacion.Visible = true;
+                }
+                if (cliente.TipoCliente == 2 && cliente.chcAutorizacion == 1)
+                {
+                    lblFaltaDocumentacion.Visible = false;
+                }
+                else
+                {
+                    lblFaltaDocumentacion.Visible = true;
                 }
             }
             else
@@ -820,6 +906,59 @@ namespace ElObrador
             }
             else { btnLibreDeuda.BackColor = Color.Green; }
 
+        }
+
+        private void chcParticular_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chcParticular.Checked == true)
+            {
+                HabilitarCheckParticular();
+
+            }
+            else
+            {
+                HabilitarCheckEmpresa();
+            }
+        }
+        private void HabilitarCheckEmpresa()
+        {
+            chcParticular.Checked = false;
+
+            lblDniCuit.Text = "Cuit/Cuil de la empresa(*)";
+            lblApellido.Text = "Nombre/Razón Social(*)";
+            lblSexo.Visible = false;
+            cmbSexo.Visible = false;
+            txtNombre.Visible = false;
+            lblNombre.Visible = false;
+            chcPersonaJuridica.Visible = true;
+            chcAutorizacion.Visible = true;
+        }
+        private void HabilitarCheckParticular()
+        {
+            chcEmpresa.Checked = false;
+            //LimpiarCampos();
+            //HabilitarCamposClienteNuevo();
+            lblDniCuit.Text = "Número Documento(*)";
+            lblApellido.Text = "Apellido(*)";
+            lblSexo.Visible = true;
+            cmbSexo.Visible = true;
+            txtNombre.Visible = true;
+            lblNombre.Visible = true;
+            chcPersonaJuridica.Visible = false;
+            chcAutorizacion.Visible = false;
+        }
+        private void chcEmpresa_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chcEmpresa.Checked == true)
+            {
+                HabilitarCheckEmpresa();
+                //LimpiarCampos();
+                //HabilitarCamposClienteNuevo();
+            }
+            else
+            {
+                HabilitarCheckParticular();
+            }
         }
     }
 }

@@ -24,6 +24,8 @@ namespace ElObrador.Entidades
         public int idLocalidad { get; set; }
         public int chcDni { get; set; }
         public int chcFacturas { get; set; }
+        public int chcPersonaJuridica { get; set; }
+        public int chcAutorizacion { get; set; }
         public string chcTipoFactura { get; set; }
         public string NombreProvincia { get; set; }
         public string NombreLocalidad { get; set; }
@@ -32,5 +34,6 @@ namespace ElObrador.Entidades
         public List<string> ListaComprobantes { get; set; }
 
         public int ListaNuevoComprobantes { get; set; }
+        public int TipoCliente { get; set; }
     }
 }

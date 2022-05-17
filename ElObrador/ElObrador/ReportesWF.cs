@@ -1,5 +1,6 @@
 ﻿using ElObrador.Dao;
 using ElObrador.Entidades;
+using Microsoft.Office.Interop.Excel;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -87,7 +88,9 @@ namespace ElObrador
                 string total = Convert.ToString(item.ProductoMasAlquilado);
                 Total.Add(total);
             }
-            chartProductos.Series[0].Points.DataBindXY(Nombre, Total);
+            chartProductos.Series[0].Points.DataBindXY(Nombre, Total);           
+            //this.chartProductos.Titles.Add("Essential Chart");
+
         }
         private void DiseñoGraficoProveedores(List<Proveedores> listaProveedores)
         {

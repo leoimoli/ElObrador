@@ -39,69 +39,120 @@ namespace ElObrador.Negocio
         }
         private static void ValidarDatos(Entidades.Clientes _cliente)
         {
-            if (String.IsNullOrEmpty(_cliente.Dni))
+            if (_cliente.TipoCliente == 1)
             {
-                const string message = "El campo dni es obligatorio.";
-                const string caption = "Error";
-                var result = MessageBox.Show(message, caption,
-                                             MessageBoxButtons.OK,
-                                           MessageBoxIcon.Exclamation);
-                throw new Exception();
-            }
-            if (_cliente.Sexo == "Seleccione")
-            {
-                const string message = "El campo sexo es obligatorio.";
-                const string caption = "Error";
-                var result = MessageBox.Show(message, caption,
-                                             MessageBoxButtons.OK,
-                                           MessageBoxIcon.Exclamation);
+                if (String.IsNullOrEmpty(_cliente.Dni))
+                {
+                    const string message = "El campo dni es obligatorio.";
+                    const string caption = "Error";
+                    var result = MessageBox.Show(message, caption,
+                                                 MessageBoxButtons.OK,
+                                               MessageBoxIcon.Exclamation);
+                    throw new Exception();
+                }
+                if (_cliente.Sexo == "Seleccione")
+                {
+                    const string message = "El campo sexo es obligatorio.";
+                    const string caption = "Error";
+                    var result = MessageBox.Show(message, caption,
+                                                 MessageBoxButtons.OK,
+                                               MessageBoxIcon.Exclamation);
 
-                throw new Exception();
+                    throw new Exception();
+                }
+                if (String.IsNullOrEmpty(_cliente.Apellido))
+                {
+                    const string message = "El campo apellido es obligatorio.";
+                    const string caption = "Error";
+                    var result = MessageBox.Show(message, caption,
+                                                 MessageBoxButtons.OK,
+                                               MessageBoxIcon.Exclamation);
+                    throw new Exception();
+                }
+                if (String.IsNullOrEmpty(_cliente.Nombre))
+                {
+                    const string message = "El campo nombre es obligatorio.";
+                    const string caption = "Error";
+                    var result = MessageBox.Show(message, caption,
+                                                 MessageBoxButtons.OK,
+                                               MessageBoxIcon.Exclamation);
+                    throw new Exception();
+                }
+                if (String.IsNullOrEmpty(_cliente.Email) && _cliente.Telefono == "-")
+                {
+                    const string message = "Debe ingresar un email o teléfono de contacto de la persona.";
+                    const string caption = "Error";
+                    var result = MessageBox.Show(message, caption,
+                                                 MessageBoxButtons.OK,
+                                               MessageBoxIcon.Exclamation);
+                    throw new Exception();
+                }
+                if (_cliente.idProvincia == 0)
+                {
+                    const string message = "El campo Provincia es obligatorio";
+                    const string caption = "Error";
+                    var result = MessageBox.Show(message, caption,
+                                                 MessageBoxButtons.OK,
+                                               MessageBoxIcon.Exclamation);
+                    throw new Exception();
+                }
+                if (_cliente.idLocalidad == 0)
+                {
+                    const string message = "El campo Localidad es obligatorio";
+                    const string caption = "Error";
+                    var result = MessageBox.Show(message, caption,
+                                                 MessageBoxButtons.OK,
+                                               MessageBoxIcon.Exclamation);
+                    throw new Exception();
+                }
             }
-            if (String.IsNullOrEmpty(_cliente.Apellido))
+            else
             {
-                const string message = "El campo apellido es obligatorio.";
-                const string caption = "Error";
-                var result = MessageBox.Show(message, caption,
-                                             MessageBoxButtons.OK,
-                                           MessageBoxIcon.Exclamation);
-                throw new Exception();
-            }
-            if (String.IsNullOrEmpty(_cliente.Nombre))
-            {
-                const string message = "El campo nombre es obligatorio.";
-                const string caption = "Error";
-                var result = MessageBox.Show(message, caption,
-                                             MessageBoxButtons.OK,
-                                           MessageBoxIcon.Exclamation);
-                throw new Exception();
-            }
-            if (String.IsNullOrEmpty(_cliente.Email) && _cliente.Telefono == "-")
-            {
-                const string message = "Debe ingresar un email o teléfono de contacto de la persona.";
-                const string caption = "Error";
-                var result = MessageBox.Show(message, caption,
-                                             MessageBoxButtons.OK,
-                                           MessageBoxIcon.Exclamation);
-                throw new Exception();
-            }
-            if (_cliente.idProvincia == 0)
-            {
-                const string message = "El campo Provincia es obligatorio";
-                const string caption = "Error";
-                var result = MessageBox.Show(message, caption,
-                                             MessageBoxButtons.OK,
-                                           MessageBoxIcon.Exclamation);
-                throw new Exception();
-            }
-            if (_cliente.idLocalidad == 0)
-            {
-                const string message = "El campo Localidad es obligatorio";
-                const string caption = "Error";
-                var result = MessageBox.Show(message, caption,
-                                             MessageBoxButtons.OK,
-                                           MessageBoxIcon.Exclamation);
-                throw new Exception();
+                if (String.IsNullOrEmpty(_cliente.Dni))
+                {
+                    const string message = "El campo Cuit/Cuil es obligatorio.";
+                    const string caption = "Error";
+                    var result = MessageBox.Show(message, caption,
+                                                 MessageBoxButtons.OK,
+                                               MessageBoxIcon.Exclamation);
+                    throw new Exception();
+                }               
+                if (String.IsNullOrEmpty(_cliente.Apellido))
+                {
+                    const string message = "El campo Nombre Razón Social es obligatorio.";
+                    const string caption = "Error";
+                    var result = MessageBox.Show(message, caption,
+                                                 MessageBoxButtons.OK,
+                                               MessageBoxIcon.Exclamation);
+                    throw new Exception();
+                }                
+                if (String.IsNullOrEmpty(_cliente.Email) && _cliente.Telefono == "-")
+                {
+                    const string message = "Debe ingresar un email o teléfono de contacto de la persona.";
+                    const string caption = "Error";
+                    var result = MessageBox.Show(message, caption,
+                                                 MessageBoxButtons.OK,
+                                               MessageBoxIcon.Exclamation);
+                    throw new Exception();
+                }
+                if (_cliente.idProvincia == 0)
+                {
+                    const string message = "El campo Provincia es obligatorio";
+                    const string caption = "Error";
+                    var result = MessageBox.Show(message, caption,
+                                                 MessageBoxButtons.OK,
+                                               MessageBoxIcon.Exclamation);
+                    throw new Exception();
+                }
+                if (_cliente.idLocalidad == 0)
+                {
+                    const string message = "El campo Localidad es obligatorio";
+                    const string caption = "Error";
+                    var result = MessageBox.Show(message, caption,
+                                                 MessageBoxButtons.OK,
+                                               MessageBoxIcon.Exclamation);
+                    throw new Exception();
+                }
             }
         }
         public static List<Clientes> ListaDeClientesPorDNI(string dni)
@@ -155,7 +206,7 @@ namespace ElObrador.Negocio
                 exito = ClientesDao.EditarCliente(_cliente, idUsuarioSeleccionado);
             }
             catch (Exception ex)
-            {              
+            {
             }
             return exito;
         }

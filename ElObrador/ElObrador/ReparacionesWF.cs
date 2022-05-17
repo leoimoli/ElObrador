@@ -754,7 +754,7 @@ namespace ElObrador
 
         private void btnImprimir_Click(object sender, EventArgs e)
         {
-            int codigo = Convert.ToInt32(this.dgvHistorialTaller.CurrentRow.Cells[0].Value.ToString());
+            int codigo = Convert.ToInt32(this.dgvReparaciones.CurrentRow.Cells[0].Value.ToString());
             GenerarCuponDeCodigo(codigo);
         }
     }

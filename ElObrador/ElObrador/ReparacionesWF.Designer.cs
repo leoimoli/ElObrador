@@ -78,6 +78,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnNuevo = new System.Windows.Forms.Button();
             this.panelVer = new System.Windows.Forms.Panel();
+            this.btnImprimir = new System.Windows.Forms.Button();
             this.btnSalidaTaller = new System.Windows.Forms.Button();
             this.lblidReparacion = new System.Windows.Forms.Label();
             this.dgvHistorialTaller = new System.Windows.Forms.DataGridView();
@@ -87,7 +88,6 @@
             this.VerHistorial = new System.Windows.Forms.DataGridViewButtonColumn();
             this.label18 = new System.Windows.Forms.Label();
             this.btnNuevoHistorial = new System.Windows.Forms.Button();
-            this.btnImprimir = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvReparaciones)).BeginInit();
             this.panelVer.SuspendLayout();
@@ -127,7 +127,7 @@
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.btnGuardar);
             this.panel1.Enabled = false;
-            this.panel1.Location = new System.Drawing.Point(598, 71);
+            this.panel1.Location = new System.Drawing.Point(589, 71);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(478, 481);
             this.panel1.TabIndex = 84;
@@ -572,11 +572,26 @@
             this.panelVer.Controls.Add(this.dgvHistorialTaller);
             this.panelVer.Controls.Add(this.label18);
             this.panelVer.Controls.Add(this.btnNuevoHistorial);
-            this.panelVer.Location = new System.Drawing.Point(598, 68);
+            this.panelVer.Location = new System.Drawing.Point(589, 68);
             this.panelVer.Name = "panelVer";
             this.panelVer.Size = new System.Drawing.Size(478, 481);
             this.panelVer.TabIndex = 199;
             this.panelVer.Visible = false;
+            // 
+            // btnImprimir
+            // 
+            this.btnImprimir.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(187)))), ((int)(((byte)(45)))));
+            this.btnImprimir.FlatAppearance.BorderColor = System.Drawing.Color.SeaGreen;
+            this.btnImprimir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnImprimir.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnImprimir.ForeColor = System.Drawing.Color.White;
+            this.btnImprimir.Location = new System.Drawing.Point(325, 6);
+            this.btnImprimir.Name = "btnImprimir";
+            this.btnImprimir.Size = new System.Drawing.Size(114, 29);
+            this.btnImprimir.TabIndex = 99;
+            this.btnImprimir.Text = "Imprimir Código";
+            this.btnImprimir.UseVisualStyleBackColor = false;
+            this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
             // 
             // btnSalidaTaller
             // 
@@ -707,21 +722,6 @@
             this.btnNuevoHistorial.Text = "Nuevo Historial";
             this.btnNuevoHistorial.UseVisualStyleBackColor = false;
             this.btnNuevoHistorial.Click += new System.EventHandler(this.btnNuevoHistorial_Click);
-            // 
-            // btnImprimir
-            // 
-            this.btnImprimir.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(187)))), ((int)(((byte)(45)))));
-            this.btnImprimir.FlatAppearance.BorderColor = System.Drawing.Color.SeaGreen;
-            this.btnImprimir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnImprimir.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnImprimir.ForeColor = System.Drawing.Color.White;
-            this.btnImprimir.Location = new System.Drawing.Point(325, 6);
-            this.btnImprimir.Name = "btnImprimir";
-            this.btnImprimir.Size = new System.Drawing.Size(114, 29);
-            this.btnImprimir.TabIndex = 99;
-            this.btnImprimir.Text = "Imprimir Código";
-            this.btnImprimir.UseVisualStyleBackColor = false;
-            this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
             // 
             // ReparacionesWF
             // 

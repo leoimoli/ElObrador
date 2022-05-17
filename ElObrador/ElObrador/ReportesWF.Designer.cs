@@ -96,10 +96,9 @@
             // 
             this.panel8.BackColor = System.Drawing.Color.Gainsboro;
             this.panel8.Controls.Add(this.label2);
-            this.panel8.Location = new System.Drawing.Point(0, 53);
-            this.panel8.Margin = new System.Windows.Forms.Padding(4);
+            this.panel8.Location = new System.Drawing.Point(0, 43);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(1464, 46);
+            this.panel8.Size = new System.Drawing.Size(1098, 37);
             this.panel8.TabIndex = 2;
             // 
             // label2
@@ -107,38 +106,34 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(187)))), ((int)(((byte)(80)))));
-            this.label2.Location = new System.Drawing.Point(648, 10);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(486, 8);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(194, 29);
+            this.label2.Size = new System.Drawing.Size(156, 23);
             this.label2.TabIndex = 43;
             this.label2.Text = "Menú Reportes";
             // 
             // panel6
             // 
             this.panel6.BackColor = System.Drawing.Color.Silver;
-            this.panel6.Location = new System.Drawing.Point(735, 388);
-            this.panel6.Margin = new System.Windows.Forms.Padding(4);
+            this.panel6.Location = new System.Drawing.Point(551, 315);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(729, 12);
+            this.panel6.Size = new System.Drawing.Size(547, 10);
             this.panel6.TabIndex = 6;
             // 
             // panel7
             // 
             this.panel7.BackColor = System.Drawing.Color.Silver;
-            this.panel7.Location = new System.Drawing.Point(-4, 388);
-            this.panel7.Margin = new System.Windows.Forms.Padding(4);
+            this.panel7.Location = new System.Drawing.Point(-3, 315);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(727, 14);
+            this.panel7.Size = new System.Drawing.Size(545, 11);
             this.panel7.TabIndex = 8;
             // 
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.Silver;
-            this.panel5.Location = new System.Drawing.Point(723, 102);
-            this.panel5.Margin = new System.Windows.Forms.Padding(4);
+            this.panel5.Location = new System.Drawing.Point(542, 83);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(13, 588);
+            this.panel5.Size = new System.Drawing.Size(10, 478);
             this.panel5.TabIndex = 7;
             // 
             // panel1
@@ -147,10 +142,9 @@
             this.panel1.Controls.Add(this.btnExportar);
             this.panel1.Controls.Add(this.dataGridView1);
             this.panel1.Controls.Add(this.chartVentas);
-            this.panel1.Location = new System.Drawing.Point(4, 106);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4);
+            this.panel1.Location = new System.Drawing.Point(3, 86);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(717, 274);
+            this.panel1.Size = new System.Drawing.Size(538, 223);
             this.panel1.TabIndex = 9;
             // 
             // btnFiltrar
@@ -161,10 +155,9 @@
             this.btnFiltrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnFiltrar.ForeColor = System.Drawing.Color.White;
             this.btnFiltrar.Image = global::ElObrador.Properties.Resources.calendario__1_;
-            this.btnFiltrar.Location = new System.Drawing.Point(659, 236);
-            this.btnFiltrar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnFiltrar.Location = new System.Drawing.Point(494, 192);
             this.btnFiltrar.Name = "btnFiltrar";
-            this.btnFiltrar.Size = new System.Drawing.Size(48, 34);
+            this.btnFiltrar.Size = new System.Drawing.Size(36, 28);
             this.btnFiltrar.TabIndex = 83;
             this.btnFiltrar.TextAlign = System.Drawing.ContentAlignment.TopRight;
             this.toolTip1.SetToolTip(this.btnFiltrar, "Buscar por filtro");
@@ -179,10 +172,9 @@
             this.btnExportar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExportar.ForeColor = System.Drawing.Color.White;
             this.btnExportar.Image = global::ElObrador.Properties.Resources.icons8_ms_excel_20__1_1;
-            this.btnExportar.Location = new System.Drawing.Point(603, 236);
-            this.btnExportar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnExportar.Location = new System.Drawing.Point(452, 192);
             this.btnExportar.Name = "btnExportar";
-            this.btnExportar.Size = new System.Drawing.Size(48, 34);
+            this.btnExportar.Size = new System.Drawing.Size(36, 28);
             this.btnExportar.TabIndex = 82;
             this.btnExportar.TextAlign = System.Drawing.ContentAlignment.TopRight;
             this.toolTip1.SetToolTip(this.btnExportar, "Exportar a Excel");
@@ -195,12 +187,11 @@
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Fecha,
             this.Precio});
-            this.dataGridView1.Location = new System.Drawing.Point(209, 34);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
+            this.dataGridView1.Location = new System.Drawing.Point(157, 28);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.Size = new System.Drawing.Size(271, 27);
+            this.dataGridView1.Size = new System.Drawing.Size(203, 22);
             this.dataGridView1.TabIndex = 81;
             this.dataGridView1.Visible = false;
             // 
@@ -236,8 +227,7 @@
             legend1.Enabled = false;
             legend1.Name = "Legend1";
             this.chartVentas.Legends.Add(legend1);
-            this.chartVentas.Location = new System.Drawing.Point(4, 4);
-            this.chartVentas.Margin = new System.Windows.Forms.Padding(4);
+            this.chartVentas.Location = new System.Drawing.Point(3, 3);
             this.chartVentas.Name = "chartVentas";
             this.chartVentas.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SeaGreen;
             series1.ChartArea = "ChartArea1";
@@ -247,7 +237,7 @@
             series1.Legend = "Legend1";
             series1.Name = "Series1";
             this.chartVentas.Series.Add(series1);
-            this.chartVentas.Size = new System.Drawing.Size(697, 225);
+            this.chartVentas.Size = new System.Drawing.Size(523, 183);
             this.chartVentas.TabIndex = 80;
             this.chartVentas.Text = "chartVentas";
             title1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
@@ -261,10 +251,9 @@
             this.panel2.Controls.Add(this.btnExportarComprasProveedores);
             this.panel2.Controls.Add(this.dataGridView2);
             this.panel2.Controls.Add(this.chartProveedores);
-            this.panel2.Location = new System.Drawing.Point(3, 406);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4);
+            this.panel2.Location = new System.Drawing.Point(2, 330);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(719, 274);
+            this.panel2.Size = new System.Drawing.Size(539, 223);
             this.panel2.TabIndex = 1;
             // 
             // btnExportarComprasProveedores
@@ -275,10 +264,9 @@
             this.btnExportarComprasProveedores.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExportarComprasProveedores.ForeColor = System.Drawing.Color.White;
             this.btnExportarComprasProveedores.Image = global::ElObrador.Properties.Resources.icons8_ms_excel_20__1_;
-            this.btnExportarComprasProveedores.Location = new System.Drawing.Point(651, 229);
-            this.btnExportarComprasProveedores.Margin = new System.Windows.Forms.Padding(4);
+            this.btnExportarComprasProveedores.Location = new System.Drawing.Point(488, 186);
             this.btnExportarComprasProveedores.Name = "btnExportarComprasProveedores";
-            this.btnExportarComprasProveedores.Size = new System.Drawing.Size(48, 34);
+            this.btnExportarComprasProveedores.Size = new System.Drawing.Size(36, 28);
             this.btnExportarComprasProveedores.TabIndex = 70;
             this.btnExportarComprasProveedores.TextAlign = System.Drawing.ContentAlignment.TopRight;
             this.toolTip1.SetToolTip(this.btnExportarComprasProveedores, "Exportar Excel");
@@ -292,12 +280,11 @@
             this.dataGridViewTextBoxColumn1,
             this.dataGridViewTextBoxColumn2,
             this.Remito});
-            this.dataGridView2.Location = new System.Drawing.Point(152, 236);
-            this.dataGridView2.Margin = new System.Windows.Forms.Padding(4);
+            this.dataGridView2.Location = new System.Drawing.Point(114, 192);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.RowHeadersVisible = false;
             this.dataGridView2.RowHeadersWidth = 51;
-            this.dataGridView2.Size = new System.Drawing.Size(395, 27);
+            this.dataGridView2.Size = new System.Drawing.Size(296, 22);
             this.dataGridView2.TabIndex = 69;
             this.dataGridView2.Visible = false;
             // 
@@ -340,8 +327,7 @@
             legend2.Enabled = false;
             legend2.Name = "Legend1";
             this.chartProveedores.Legends.Add(legend2);
-            this.chartProveedores.Location = new System.Drawing.Point(11, 16);
-            this.chartProveedores.Margin = new System.Windows.Forms.Padding(4);
+            this.chartProveedores.Location = new System.Drawing.Point(8, 13);
             this.chartProveedores.Name = "chartProveedores";
             this.chartProveedores.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SeaGreen;
             series2.ChartArea = "ChartArea1";
@@ -354,7 +340,7 @@
             series2.Name = "Series1";
             series2.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SeaGreen;
             this.chartProveedores.Series.Add(series2);
-            this.chartProveedores.Size = new System.Drawing.Size(697, 213);
+            this.chartProveedores.Size = new System.Drawing.Size(523, 173);
             this.chartProveedores.TabIndex = 3;
             this.chartProveedores.Text = "chart1";
             title2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
@@ -368,10 +354,9 @@
             this.panel3.Controls.Add(this.btnproductoMasVendido);
             this.panel3.Controls.Add(this.dataGridView3);
             this.panel3.Controls.Add(this.chartProductos);
-            this.panel3.Location = new System.Drawing.Point(740, 406);
-            this.panel3.Margin = new System.Windows.Forms.Padding(4);
+            this.panel3.Location = new System.Drawing.Point(555, 330);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(719, 274);
+            this.panel3.Size = new System.Drawing.Size(539, 223);
             this.panel3.TabIndex = 10;
             // 
             // btnproductoMasVendido
@@ -382,10 +367,9 @@
             this.btnproductoMasVendido.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnproductoMasVendido.ForeColor = System.Drawing.Color.White;
             this.btnproductoMasVendido.Image = global::ElObrador.Properties.Resources.icons8_ms_excel_20__1_2;
-            this.btnproductoMasVendido.Location = new System.Drawing.Point(635, 229);
-            this.btnproductoMasVendido.Margin = new System.Windows.Forms.Padding(4);
+            this.btnproductoMasVendido.Location = new System.Drawing.Point(476, 186);
             this.btnproductoMasVendido.Name = "btnproductoMasVendido";
-            this.btnproductoMasVendido.Size = new System.Drawing.Size(48, 34);
+            this.btnproductoMasVendido.Size = new System.Drawing.Size(36, 28);
             this.btnproductoMasVendido.TabIndex = 71;
             this.btnproductoMasVendido.TextAlign = System.Drawing.ContentAlignment.TopRight;
             this.toolTip1.SetToolTip(this.btnproductoMasVendido, "Exportar a Excel");
@@ -398,12 +382,11 @@
             this.dataGridView3.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn3,
             this.dataGridViewTextBoxColumn4});
-            this.dataGridView3.Location = new System.Drawing.Point(208, 236);
-            this.dataGridView3.Margin = new System.Windows.Forms.Padding(4);
+            this.dataGridView3.Location = new System.Drawing.Point(156, 192);
             this.dataGridView3.Name = "dataGridView3";
             this.dataGridView3.RowHeadersVisible = false;
             this.dataGridView3.RowHeadersWidth = 51;
-            this.dataGridView3.Size = new System.Drawing.Size(275, 27);
+            this.dataGridView3.Size = new System.Drawing.Size(206, 22);
             this.dataGridView3.TabIndex = 70;
             this.dataGridView3.Visible = false;
             // 
@@ -429,8 +412,7 @@
             this.chartProductos.ChartAreas.Add(chartArea3);
             legend3.Name = "Legend1";
             this.chartProductos.Legends.Add(legend3);
-            this.chartProductos.Location = new System.Drawing.Point(11, 6);
-            this.chartProductos.Margin = new System.Windows.Forms.Padding(4);
+            this.chartProductos.Location = new System.Drawing.Point(8, 5);
             this.chartProductos.Name = "chartProductos";
             this.chartProductos.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SeaGreen;
             series3.ChartArea = "ChartArea1";
@@ -442,13 +424,13 @@
             series3.Name = "Series1";
             series3.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SeaGreen;
             this.chartProductos.Series.Add(series3);
-            this.chartProductos.Size = new System.Drawing.Size(697, 213);
+            this.chartProductos.Size = new System.Drawing.Size(523, 173);
             this.chartProductos.TabIndex = 2;
             this.chartProductos.Text = "chart1";
             title3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             title3.ForeColor = System.Drawing.Color.SeaGreen;
             title3.Name = "Title1";
-            title3.Text = "Productos más Vendidos";
+            title3.Text = "Productos más Alquilado";
             this.chartProductos.Titles.Add(title3);
             // 
             // label4
@@ -457,10 +439,9 @@
             this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(187)))), ((int)(((byte)(80)))));
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(1232, 326);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Location = new System.Drawing.Point(924, 265);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(18, 20);
+            this.label4.Size = new System.Drawing.Size(16, 17);
             this.label4.TabIndex = 79;
             this.label4.Text = "$";
             // 
@@ -470,10 +451,9 @@
             this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(187)))), ((int)(((byte)(80)))));
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(1232, 197);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Location = new System.Drawing.Point(924, 160);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(18, 20);
+            this.label3.Size = new System.Drawing.Size(16, 17);
             this.label3.TabIndex = 78;
             this.label3.Text = "$";
             // 
@@ -482,10 +462,9 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(187)))), ((int)(((byte)(45)))));
-            this.label1.Location = new System.Drawing.Point(997, 124);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(748, 101);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(187, 25);
+            this.label1.Size = new System.Drawing.Size(154, 20);
             this.label1.TabIndex = 77;
             this.label1.Text = "Información General";
             // 
@@ -495,10 +474,9 @@
             this.lblPagosProveedores.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(187)))), ((int)(((byte)(80)))));
             this.lblPagosProveedores.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPagosProveedores.ForeColor = System.Drawing.Color.White;
-            this.lblPagosProveedores.Location = new System.Drawing.Point(1261, 325);
-            this.lblPagosProveedores.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblPagosProveedores.Location = new System.Drawing.Point(946, 264);
             this.lblPagosProveedores.Name = "lblPagosProveedores";
-            this.lblPagosProveedores.Size = new System.Drawing.Size(26, 20);
+            this.lblPagosProveedores.Size = new System.Drawing.Size(22, 17);
             this.lblPagosProveedores.TabIndex = 76;
             this.lblPagosProveedores.Text = "@";
             // 
@@ -508,10 +486,9 @@
             this.lblTotalCompras.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(187)))), ((int)(((byte)(80)))));
             this.lblTotalCompras.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTotalCompras.ForeColor = System.Drawing.Color.White;
-            this.lblTotalCompras.Location = new System.Drawing.Point(963, 325);
-            this.lblTotalCompras.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblTotalCompras.Location = new System.Drawing.Point(722, 264);
             this.lblTotalCompras.Name = "lblTotalCompras";
-            this.lblTotalCompras.Size = new System.Drawing.Size(26, 20);
+            this.lblTotalCompras.Size = new System.Drawing.Size(22, 17);
             this.lblTotalCompras.TabIndex = 75;
             this.lblTotalCompras.Text = "@";
             // 
@@ -523,10 +500,9 @@
             this.btnPagoProveedores.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPagoProveedores.ForeColor = System.Drawing.Color.White;
             this.btnPagoProveedores.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPagoProveedores.Location = new System.Drawing.Point(1143, 297);
-            this.btnPagoProveedores.Margin = new System.Windows.Forms.Padding(4);
+            this.btnPagoProveedores.Location = new System.Drawing.Point(857, 241);
             this.btnPagoProveedores.Name = "btnPagoProveedores";
-            this.btnPagoProveedores.Size = new System.Drawing.Size(241, 65);
+            this.btnPagoProveedores.Size = new System.Drawing.Size(181, 53);
             this.btnPagoProveedores.TabIndex = 74;
             this.btnPagoProveedores.Text = "Pagos  Proveedores";
             this.btnPagoProveedores.TextAlign = System.Drawing.ContentAlignment.TopRight;
@@ -540,10 +516,9 @@
             this.btnTotalCompras.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTotalCompras.ForeColor = System.Drawing.Color.White;
             this.btnTotalCompras.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnTotalCompras.Location = new System.Drawing.Point(853, 297);
-            this.btnTotalCompras.Margin = new System.Windows.Forms.Padding(4);
+            this.btnTotalCompras.Location = new System.Drawing.Point(640, 241);
             this.btnTotalCompras.Name = "btnTotalCompras";
-            this.btnTotalCompras.Size = new System.Drawing.Size(241, 65);
+            this.btnTotalCompras.Size = new System.Drawing.Size(181, 53);
             this.btnTotalCompras.TabIndex = 73;
             this.btnTotalCompras.Text = "Total de Compras";
             this.btnTotalCompras.TextAlign = System.Drawing.ContentAlignment.TopRight;
@@ -555,10 +530,9 @@
             this.lblCajaVentas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(187)))), ((int)(((byte)(80)))));
             this.lblCajaVentas.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCajaVentas.ForeColor = System.Drawing.Color.White;
-            this.lblCajaVentas.Location = new System.Drawing.Point(1261, 196);
-            this.lblCajaVentas.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblCajaVentas.Location = new System.Drawing.Point(946, 159);
             this.lblCajaVentas.Name = "lblCajaVentas";
-            this.lblCajaVentas.Size = new System.Drawing.Size(26, 20);
+            this.lblCajaVentas.Size = new System.Drawing.Size(22, 17);
             this.lblCajaVentas.TabIndex = 72;
             this.lblCajaVentas.Text = "@";
             // 
@@ -570,10 +544,9 @@
             this.btnAlquileresCaja.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAlquileresCaja.ForeColor = System.Drawing.Color.White;
             this.btnAlquileresCaja.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAlquileresCaja.Location = new System.Drawing.Point(1143, 165);
-            this.btnAlquileresCaja.Margin = new System.Windows.Forms.Padding(4);
+            this.btnAlquileresCaja.Location = new System.Drawing.Point(857, 134);
             this.btnAlquileresCaja.Name = "btnAlquileresCaja";
-            this.btnAlquileresCaja.Size = new System.Drawing.Size(241, 65);
+            this.btnAlquileresCaja.Size = new System.Drawing.Size(181, 53);
             this.btnAlquileresCaja.TabIndex = 71;
             this.btnAlquileresCaja.Text = "Caja de Alquileres";
             this.btnAlquileresCaja.TextAlign = System.Drawing.ContentAlignment.TopRight;
@@ -585,10 +558,9 @@
             this.lblTotalVentas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(187)))), ((int)(((byte)(80)))));
             this.lblTotalVentas.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTotalVentas.ForeColor = System.Drawing.Color.White;
-            this.lblTotalVentas.Location = new System.Drawing.Point(963, 196);
-            this.lblTotalVentas.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblTotalVentas.Location = new System.Drawing.Point(722, 159);
             this.lblTotalVentas.Name = "lblTotalVentas";
-            this.lblTotalVentas.Size = new System.Drawing.Size(26, 20);
+            this.lblTotalVentas.Size = new System.Drawing.Size(22, 17);
             this.lblTotalVentas.TabIndex = 70;
             this.lblTotalVentas.Text = "@";
             // 
@@ -600,10 +572,9 @@
             this.btnAlquileresGenerales.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAlquileresGenerales.ForeColor = System.Drawing.Color.White;
             this.btnAlquileresGenerales.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAlquileresGenerales.Location = new System.Drawing.Point(853, 165);
-            this.btnAlquileresGenerales.Margin = new System.Windows.Forms.Padding(4);
+            this.btnAlquileresGenerales.Location = new System.Drawing.Point(640, 134);
             this.btnAlquileresGenerales.Name = "btnAlquileresGenerales";
-            this.btnAlquileresGenerales.Size = new System.Drawing.Size(241, 65);
+            this.btnAlquileresGenerales.Size = new System.Drawing.Size(181, 53);
             this.btnAlquileresGenerales.TabIndex = 69;
             this.btnAlquileresGenerales.Text = "Total de Alquileres";
             this.btnAlquileresGenerales.TextAlign = System.Drawing.ContentAlignment.TopRight;
@@ -611,9 +582,9 @@
             // 
             // ReportesWF
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1465, 694);
+            this.ClientSize = new System.Drawing.Size(1040, 564);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label1);
@@ -634,7 +605,6 @@
             this.Controls.Add(this.panel8);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ReportesWF";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ReportesWF";

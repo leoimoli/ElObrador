@@ -35,6 +35,9 @@ namespace ElObrador.Dao
             cmd.Parameters.AddWithValue("idUsuario_in", _cliente.idUsuario);
             cmd.Parameters.AddWithValue("chcDni_in", _cliente.chcDni);
             cmd.Parameters.AddWithValue("chcFacturas_in", _cliente.chcFacturas);
+            cmd.Parameters.AddWithValue("chcTipoCliente_in", _cliente.TipoCliente);
+            cmd.Parameters.AddWithValue("chcPersonaJuridica_in", _cliente.chcPersonaJuridica);
+            cmd.Parameters.AddWithValue("chcAutorizacion_in", _cliente.chcAutorizacion);
             MySqlDataReader r = cmd.ExecuteReader();
             if (_cliente.chcFacturas == 1)
             {
@@ -186,6 +189,8 @@ namespace ElObrador.Dao
             {
                 cmd.Parameters.AddWithValue("chcFacturas_in", 0);
             }
+            cmd.Parameters.AddWithValue("chcPersonaJuridica_in", _cliente.chcPersonaJuridica);
+            cmd.Parameters.AddWithValue("chcAutorizacion_in", _cliente.chcAutorizacion);
             cmd.ExecuteNonQuery();
             if (_cliente.ActualizaComprobanteFactura == 1)
             {
@@ -415,6 +420,9 @@ namespace ElObrador.Dao
                     listaCliente.NombreLocalidad = item["Localidad"].ToString();
                     listaCliente.chcDni = Convert.ToInt32(item["chcDNI"].ToString());
                     listaCliente.chcFacturas = Convert.ToInt32(item["chcFacturas"].ToString());
+                    listaCliente.TipoCliente = Convert.ToInt32(item["TipoCliente"].ToString());
+                    listaCliente.chcPersonaJuridica = Convert.ToInt32(item["chcPersonaJuridica"].ToString());
+                    listaCliente.chcAutorizacion = Convert.ToInt32(item["chcAutorizacion"].ToString());
                     lista.Add(listaCliente);
                 }
             }

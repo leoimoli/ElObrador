@@ -109,7 +109,7 @@
             this.dgvProveedores.RowHeadersWidth = 51;
             dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
             this.dgvProveedores.RowsDefaultCellStyle = dataGridViewCellStyle4;
-            this.dgvProveedores.Size = new System.Drawing.Size(633, 418);
+            this.dgvProveedores.Size = new System.Drawing.Size(613, 418);
             this.dgvProveedores.TabIndex = 75;
             // 
             // idProducto
@@ -222,7 +222,7 @@
             this.panel1.Controls.Add(this.progressBar1);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.btnGuardar);
-            this.panel1.Location = new System.Drawing.Point(656, 79);
+            this.panel1.Location = new System.Drawing.Point(635, 79);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(427, 444);
             this.panel1.TabIndex = 73;
