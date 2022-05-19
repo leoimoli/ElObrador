@@ -439,7 +439,7 @@ namespace ElObrador
                 // Texto Ley
                 TextoLey = "Vence el '__________' de '__________' de 20'_____' el dia '__________' pagare sin protesto(art 50 Decreto Ley N° 5965/63) a El Obrador SA o a su orden la cantidad de pesos '__________' por igual valor recibido en equipos/herramientas descriptos en el presente contrato a su entera satisfacción, pagaderos en '__________'" + Environment.NewLine + " " + Environment.NewLine + "  @Cliente: #" + Environment.NewLine + " " + Environment.NewLine + " @Teléfono: %" + Environment.NewLine + " " + Environment.NewLine + " @Email: $";
 
-                TextoProtesto = "Clausula sin Protesto: Respecto al pagara que luce precedentemente se pacta la clausula 'Sin Protesto' de modo que el tomador y ??? queda dispensado de formalizar el presente por falta de pago articulo ley 16478 y les confiere la pertienen via ejecutiva en caso de no ser pagado a su ???.";
+                TextoProtesto = "Clausula sin Protesto: Respecto del pagaré que luce precedentemente, se pacta la cláusula 'sin protesto', de modo que el tenedor queda dispensado de formalizar el protesto por falta de pago y le confiere la pertinente vía ejecutiva en los términos del art. 50 del decreto-ley 5965/63";
 
                 // columnas
                 arlColumnas.Add(new ReporteColumna("Código de Herramienta", 20, true, Element.ALIGN_CENTER, Element.ALIGN_CENTER, "", FontFactory.TIMES_ROMAN, 8));
