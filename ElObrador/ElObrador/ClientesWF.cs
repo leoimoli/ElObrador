@@ -486,14 +486,14 @@ namespace ElObrador
                     _clientes.ListaComprobantes = Lista;
                 }
             }
-            if (_clientes.ListaComprobantes.Count > 0)
+            if (_clientes.ListaComprobantes != null)
             {
                 _clientes.ActualizaComprobanteFactura = 1;
             }
             else
             {
                 _clientes.ActualizaComprobanteFactura = 0;
-            }           
+            }
 
             if (chcAutorizacion.Checked == true)
             {
@@ -678,29 +678,39 @@ namespace ElObrador
                     //    chcOtros.Enabled = true;
                     //}
                 }
-                if (cliente.TipoCliente == 2 && cliente.chcAutorizacion == 1)
+                if (cliente.TipoCliente == 2)
                 {
-                    lblFaltaDocumentacion.Visible = false;
+                    if (cliente.chcAutorizacion == 1)
+                    {
+                        lblFaltaDocumentacion.Visible = false;
+                    }
+                    else
+                    {
+                        lblFaltaDocumentacion.Visible = true;
+                    }
+                    if (cliente.chcPersonaJuridica == 1)
+                    {
+                        if (lblFaltaDocumentacion.Visible == false)
+                        {
+                            lblFaltaDocumentacion.Visible = false;
+                        }
+                    }
+                    else
+                    {
+                        lblFaltaDocumentacion.Visible = true;
+                    }
                 }
-                else
-                {
-                    lblFaltaDocumentacion.Visible = true;
-                }
-                if (cliente.TipoCliente == 2 && cliente.chcAutorizacion == 1)
-                {
-                    lblFaltaDocumentacion.Visible = false;
-                }
-                else
-                {
-                    lblFaltaDocumentacion.Visible = true;
-                }
+                //else
+                //{
+                //    lblFaltaDocumentacion.Visible = true;
+                //}
             }
             else
             {
-                chcFotocopiaDNI.Checked = false;
+                //chcFotocopiaDNI.Checked = false;
                 chcFacturas.Checked = false;
                 chcFacturas.Enabled = true;
-                chcFotocopiaDNI.Enabled = true;
+                //chcFotocopiaDNI.Enabled = true;
                 grbTipoFactura.Visible = false;
                 cliente.ActualizaComprobanteFactura = 1;
                 lblFaltaDocumentacion.Visible = true;
@@ -895,7 +905,7 @@ namespace ElObrador
                     //dgvLibreDeuda.Rows.Add(item.idLibreDeuda, Monto, TipoFuncion, Fecha, Motivo);
                 }
                 MontoTotal = MontoResta - MontoSuma;
-                if (MontoTotal >= 0)
+                if (MontoTotal > 0)
                 {
                     btnLibreDeuda.BackColor = Color.Red;
                 }
