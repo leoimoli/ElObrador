@@ -230,7 +230,27 @@ namespace ElObrador.Dao
                     listaCliente.Altura = item["Altura"].ToString();
                     listaCliente.NombreProvincia = item["Provincia"].ToString();
                     listaCliente.NombreLocalidad = item["Localidad"].ToString();
-                    _listaClientes.Add(listaCliente);
+                    listaCliente.chcDni = Convert.ToInt32(item["chcDNI"].ToString());
+                    listaCliente.chcFacturas = Convert.ToInt32(item["chcFacturas"].ToString());
+                    listaCliente.chcPersonaJuridica = Convert.ToInt32(item["chcPersonaJuridica"].ToString());
+                    listaCliente.chcAutorizacion = Convert.ToInt32(item["chcAutorizacion"].ToString());
+                    listaCliente.TipoCliente = Convert.ToInt32(item["TipoCliente"].ToString());
+                    if (listaCliente.TipoCliente == 1)
+                    {
+                        if (listaCliente.chcDni == 1 && listaCliente.chcFacturas == 1)
+                        {
+                            listaCliente.DocumentacionCompleta = 1;
+                            _listaClientes.Add(listaCliente);
+                        }
+                    }
+                    if (listaCliente.TipoCliente == 2)
+                    {
+                        if (listaCliente.chcDni == 1 && listaCliente.chcFacturas == 1 && listaCliente.chcPersonaJuridica == 1 && listaCliente.chcAutorizacion == 1)
+                        {
+                            listaCliente.DocumentacionCompleta = 1;
+                            _listaClientes.Add(listaCliente);
+                        }
+                    }
                 }
             }
             connection.Close();
@@ -266,6 +286,23 @@ namespace ElObrador.Dao
                     listaCliente.Altura = item["Altura"].ToString();
                     listaCliente.NombreProvincia = item["Provincia"].ToString();
                     listaCliente.NombreLocalidad = item["Localidad"].ToString();
+                    listaCliente.chcDni = Convert.ToInt32(item["chcDNI"].ToString());
+                    listaCliente.chcFacturas = Convert.ToInt32(item["chcFacturas"].ToString());
+                    listaCliente.chcPersonaJuridica = Convert.ToInt32(item["chcPersonaJuridica"].ToString());
+                    listaCliente.chcAutorizacion = Convert.ToInt32(item["chcAutorizacion"].ToString());
+                    listaCliente.TipoCliente = Convert.ToInt32(item["TipoCliente"].ToString());
+                    if (listaCliente.TipoCliente == 1)
+                    {
+                        if (listaCliente.chcDni == 1 && listaCliente.chcFacturas == 1)
+                        { listaCliente.DocumentacionCompleta = 1; }
+                        else { listaCliente.DocumentacionCompleta = 0; }
+                    }
+                    if (listaCliente.TipoCliente == 2)
+                    {
+                        if (listaCliente.chcDni == 1 && listaCliente.chcFacturas == 1 && listaCliente.chcPersonaJuridica == 1 && listaCliente.chcAutorizacion == 1)
+                        { listaCliente.DocumentacionCompleta = 1; }
+                        else { listaCliente.DocumentacionCompleta = 0; }
+                    }
                     _listaClientes.Add(listaCliente);
                 }
             }

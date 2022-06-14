@@ -54,7 +54,7 @@ namespace ElObrador
                     //string Calle = item.Calle;
                     //string Altura = item.Altura;
                     //string Domicilio = Calle + " " + "N° " + item.Altura + ", " + item.NombreProvincia + ", " + item.NombreLocalidad;
-                    dgvClientes.Rows.Add(item.IdCliente, item.Dni, Persona, Domicilio, item.Email, item.Telefono);
+                    dgvClientes.Rows.Add(item.IdCliente, item.Dni, Persona, Domicilio, item.Email, item.Telefono, item.DocumentacionCompleta);
                 }
             }
             dgvClientes.ReadOnly = true;
@@ -80,14 +80,14 @@ namespace ElObrador
         }
         private void dgvClientes_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (dgvClientes.CurrentCell.ColumnIndex == 6)
+            if (dgvClientes.CurrentCell.ColumnIndex == 7)
             {
                 int idCliente = Convert.ToInt32(this.dgvClientes.CurrentRow.Cells[0].Value.ToString());
                 string dni = this.dgvClientes.CurrentRow.Cells[1].Value.ToString();
                 string ApellidoNombre = this.dgvClientes.CurrentRow.Cells[2].Value.ToString();
                 string telefono = this.dgvClientes.CurrentRow.Cells[5].Value.ToString();
                 string email = this.dgvClientes.CurrentRow.Cells[4].Value.ToString();
-
+                int documentacion = Convert.ToInt32(this.dgvClientes.CurrentRow.Cells[6].Value.ToString());
                 //CODIGO SOLO PERMITE 2 INSTANCIAS DEL FORMULARIO CLIENTES
                 //---------------------------------------------
                 int existe = Application.OpenForms.OfType<AlquileresWF>().Count();
@@ -119,6 +119,13 @@ namespace ElObrador
                         frm2.lblApeNom.Visible = true;
                         frm2.lblClienteFijo.Visible = true;
                         frm2.lblDniFijo.Visible = true;
+
+                        if (documentacion == 0)
+                        {
+                            frm2.lblFaltaDocumentacion.Visible = true;
+                        }
+                        else
+                        { frm2.lblFaltaDocumentacion.Visible = false; }
                         this.Close();
                         //Close();
                     }
@@ -159,7 +166,7 @@ namespace ElObrador
                         //string Calle = item.Calle;
                         //string Altura = item.Altura;
                         //string Domicilio = Calle + " " + "N° " + item.Altura + ", " + item.NombreProvincia + ", " + item.NombreLocalidad;
-                        dgvClientes.Rows.Add(item.IdCliente, item.Dni, Persona, Domicilio, item.Email, item.Telefono);
+                        dgvClientes.Rows.Add(item.IdCliente, item.Dni, Persona, Domicilio, item.Email, item.Telefono, item.DocumentacionCompleta);
                     }
                 }
                 dgvClientes.ReadOnly = true;

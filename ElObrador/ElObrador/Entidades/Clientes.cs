@@ -35,5 +35,6 @@ namespace ElObrador.Entidades
 
         public int ListaNuevoComprobantes { get; set; }
         public int TipoCliente { get; set; }
+        public int DocumentacionCompleta { get; set; }
     }
 }

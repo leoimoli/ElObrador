@@ -170,6 +170,7 @@ namespace ElObrador
             lblApeNom.Visible = false;
             lblClienteFijo.Visible = false;
             lblDniFijo.Visible = false;
+            lblFaltaDocumentacion.Visible = false;
         }
 
         private void btnCargar_Click(object sender, EventArgs e)
@@ -577,6 +578,7 @@ namespace ElObrador
             lblClienteFijo.Visible = false;
             lblDniFijo.Visible = false;
             chcPagado.Checked = true;
+            lblFaltaDocumentacion.Visible = false;
         }
 
         public static List<Alquiler> ListaAlquilerStatic;

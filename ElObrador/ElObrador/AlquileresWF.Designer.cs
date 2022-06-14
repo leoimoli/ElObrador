@@ -86,6 +86,7 @@
             this.lblTelefono = new System.Windows.Forms.Label();
             this.lblEmail = new System.Windows.Forms.Label();
             this.chcPagado = new System.Windows.Forms.CheckBox();
+            this.lblFaltaDocumentacion = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAlquiler)).BeginInit();
             this.PanelPrecios.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -465,7 +466,7 @@
             this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardar.ForeColor = System.Drawing.Color.White;
-            this.btnGuardar.Location = new System.Drawing.Point(375, 522);
+            this.btnGuardar.Location = new System.Drawing.Point(375, 524);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(107, 38);
             this.btnGuardar.TabIndex = 169;
@@ -480,7 +481,7 @@
             this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelar.ForeColor = System.Drawing.Color.White;
-            this.btnCancelar.Location = new System.Drawing.Point(149, 523);
+            this.btnCancelar.Location = new System.Drawing.Point(149, 525);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(107, 38);
             this.btnCancelar.TabIndex = 170;
@@ -540,7 +541,7 @@
             this.lblDniCliente.AutoSize = true;
             this.lblDniCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDniCliente.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(187)))), ((int)(((byte)(45)))));
-            this.lblDniCliente.Location = new System.Drawing.Point(69, 491);
+            this.lblDniCliente.Location = new System.Drawing.Point(69, 488);
             this.lblDniCliente.Name = "lblDniCliente";
             this.lblDniCliente.Size = new System.Drawing.Size(20, 15);
             this.lblDniCliente.TabIndex = 175;
@@ -552,7 +553,7 @@
             this.lblApeNom.AutoSize = true;
             this.lblApeNom.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblApeNom.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(187)))), ((int)(((byte)(45)))));
-            this.lblApeNom.Location = new System.Drawing.Point(69, 472);
+            this.lblApeNom.Location = new System.Drawing.Point(69, 469);
             this.lblApeNom.Name = "lblApeNom";
             this.lblApeNom.Size = new System.Drawing.Size(20, 15);
             this.lblApeNom.TabIndex = 176;
@@ -564,7 +565,7 @@
             this.lblClienteFijo.AutoSize = true;
             this.lblClienteFijo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblClienteFijo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(187)))), ((int)(((byte)(45)))));
-            this.lblClienteFijo.Location = new System.Drawing.Point(13, 472);
+            this.lblClienteFijo.Location = new System.Drawing.Point(13, 469);
             this.lblClienteFijo.Name = "lblClienteFijo";
             this.lblClienteFijo.Size = new System.Drawing.Size(56, 15);
             this.lblClienteFijo.TabIndex = 177;
@@ -576,7 +577,7 @@
             this.lblDniFijo.AutoSize = true;
             this.lblDniFijo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDniFijo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(187)))), ((int)(((byte)(45)))));
-            this.lblDniFijo.Location = new System.Drawing.Point(33, 491);
+            this.lblDniFijo.Location = new System.Drawing.Point(33, 488);
             this.lblDniFijo.Name = "lblDniFijo";
             this.lblDniFijo.Size = new System.Drawing.Size(33, 15);
             this.lblDniFijo.TabIndex = 178;
@@ -590,7 +591,7 @@
             this.btnCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCliente.ForeColor = System.Drawing.Color.White;
-            this.btnCliente.Location = new System.Drawing.Point(262, 523);
+            this.btnCliente.Location = new System.Drawing.Point(262, 525);
             this.btnCliente.Name = "btnCliente";
             this.btnCliente.Size = new System.Drawing.Size(107, 38);
             this.btnCliente.TabIndex = 179;
@@ -658,11 +659,24 @@
             this.chcPagado.Text = "Alquiler Pagado";
             this.chcPagado.UseVisualStyleBackColor = true;
             // 
+            // lblFaltaDocumentacion
+            // 
+            this.lblFaltaDocumentacion.AutoSize = true;
+            this.lblFaltaDocumentacion.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFaltaDocumentacion.ForeColor = System.Drawing.Color.Red;
+            this.lblFaltaDocumentacion.Location = new System.Drawing.Point(9, 506);
+            this.lblFaltaDocumentacion.Name = "lblFaltaDocumentacion";
+            this.lblFaltaDocumentacion.Size = new System.Drawing.Size(212, 16);
+            this.lblFaltaDocumentacion.TabIndex = 184;
+            this.lblFaltaDocumentacion.Text = "Atención: Adeuda documentación";
+            this.lblFaltaDocumentacion.Visible = false;
+            // 
             // AlquileresWF
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1040, 564);
+            this.Controls.Add(this.lblFaltaDocumentacion);
             this.Controls.Add(this.chcPagado);
             this.Controls.Add(this.lblEmail);
             this.Controls.Add(this.lblTelefono);
@@ -746,5 +760,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Cod;
         private System.Windows.Forms.DataGridViewTextBoxColumn Mod;
         private System.Windows.Forms.CheckBox chcPagado;
+        public System.Windows.Forms.Label lblFaltaDocumentacion;
     }
 }
