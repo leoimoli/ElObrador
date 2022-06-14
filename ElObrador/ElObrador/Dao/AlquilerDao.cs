@@ -173,6 +173,7 @@ namespace ElObrador.Dao
                     listaAlquiler.Dias = Convert.ToInt32(item["Dias"].ToString());
                     listaAlquiler.FechaDesde = Convert.ToDateTime(item["FechaDesde"].ToString());
                     listaAlquiler.FechaHasta = Convert.ToDateTime(item["FechaHasta"].ToString());
+                    listaAlquiler.AlquilerPagado = Convert.ToInt32(item["AlquilerPagado"].ToString());
                     _listaAlquileres.Add(listaAlquiler);
                 }
             }
@@ -196,6 +197,7 @@ namespace ElObrador.Dao
             cmd.Parameters.AddWithValue("FechaRegistro_in", DateTime.Now);
             cmd.Parameters.AddWithValue("idUsuario_in", Sesion.UsuarioLogueado.idUsuario);
             cmd.Parameters.AddWithValue("Estado_in", listaAlquiler[0].Estado);
+            cmd.Parameters.AddWithValue("AlquilerPagado_in", listaAlquiler[0].AlquilerPagado);
             MySqlDataReader r = cmd.ExecuteReader();
             while (r.Read())
             {

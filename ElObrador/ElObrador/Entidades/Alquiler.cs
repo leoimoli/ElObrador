@@ -31,5 +31,6 @@ namespace ElObrador.Entidades
         public int ProductoMasAlquilado { get; set; }
         public int TotalDeAlquleresGenerales { get; set; }
         public decimal CajaDeAlquileres { get; set; }
+        public int AlquilerPagado  { get; set; }
     }
 }

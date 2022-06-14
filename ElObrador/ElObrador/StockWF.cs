@@ -223,11 +223,17 @@ namespace ElObrador
             { _stock.Monto = 0; }
             DateTime fechaActual = DateTime.Now;
             string proveedor = txtProveedor.Text;
-            _stock.idProveedor = ProveedoresDao.BuscarIdProveedor(proveedor);
+            if (proveedor != "")
+            {
+                _stock.idProveedor = ProveedoresDao.BuscarIdProveedor(proveedor);
+            }
+            else
+            { _stock.idProveedor = 0; }
             _stock.FechaDeAlta = fechaActual;
             _stock.idUsuario = idusuarioLogueado;
             return _stock;
-        }        private void btnCrearCodigo_Click(object sender, EventArgs e)
+        }
+        private void btnCrearCodigo_Click(object sender, EventArgs e)
         {
             string Codigo = "";
             int cadena = 100;

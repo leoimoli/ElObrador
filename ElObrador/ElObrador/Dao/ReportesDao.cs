@@ -389,7 +389,7 @@ namespace ElObrador.Dao
             }
             return lista;
         }
-        public static List<ListaAlquiler> ConsultarVentasMesActual(int mes)
+        public static List<ListaAlquiler> ConsultarVentasMesActual(int mes, int año)
         {
             connection.Close();
             connection.Open();
@@ -397,7 +397,8 @@ namespace ElObrador.Dao
             MySqlCommand cmd = new MySqlCommand();
             cmd.Connection = connection;
             DataTable Tabla = new DataTable();
-            MySqlParameter[] oParam = { new MySqlParameter("Mes_in", mes) };
+            MySqlParameter[] oParam = { new MySqlParameter("Mes_in", mes),
+             new MySqlParameter("Anio_in", año)};
             string proceso = "ConsultarAlquilersMesActual";
             MySqlDataAdapter dt = new MySqlDataAdapter(proceso, connection);
             dt.SelectCommand.CommandType = CommandType.StoredProcedure;
@@ -464,7 +465,7 @@ namespace ElObrador.Dao
             return lista;
         }
 
-        public static List<ListaAlquiler> ConsultarVentasMesAnterior(int mes)
+        public static List<ListaAlquiler> ConsultarVentasMesAnterior(int mes, int Año)
         {
             connection.Close();
             connection.Open();
@@ -472,7 +473,8 @@ namespace ElObrador.Dao
             MySqlCommand cmd = new MySqlCommand();
             cmd.Connection = connection;
             DataTable Tabla = new DataTable();
-            MySqlParameter[] oParam = { new MySqlParameter("Mes_in", mes) };
+            MySqlParameter[] oParam = { new MySqlParameter("Mes_in", mes),
+            new MySqlParameter("Anio_in", Año)};
             string proceso = "ConsultarAlquilerMesAnterior";
             MySqlDataAdapter dt = new MySqlDataAdapter(proceso, connection);
             dt.SelectCommand.CommandType = CommandType.StoredProcedure;
@@ -593,25 +595,33 @@ namespace ElObrador.Dao
             {
                 foreach (DataRow item in Tabla.Rows)
                 {
-                    listaCompras.Monto = Convert.ToDecimal(item["Monto"].ToString());
-                    _listaCompras.Add(listaCompras);
+                    decimal ValorMonto = Convert.ToDecimal(item["Monto"].ToString());
+                    if (ValorMonto > 0)
+                    {
+                        CalculoGasto = ValorMonto;
+                        ValorFinal = ValorFinal + CalculoGasto;
+                        //listaCompras.Monto = ValorMonto;
+                        //_listaCompras.Add(listaCompras);
+                        listaCompras.CajaDePagos = ValorFinal;
+                    }
                 }
-            }
-            if (_listaCompras.Count > 0)
-            {
-                foreach (var item in _listaCompras)
-                {
-                    CalculoGasto = item.Monto;
-                    ValorFinal = ValorFinal + CalculoGasto;
-                }
-                listaCompras.CajaDePagos = ValorFinal;
                 _listaCompras.Add(listaCompras);
             }
-            else
-            {
-                listaCompras.CajaDePagos = 0;
-                _listaCompras.Add(listaCompras);
-            }
+            //if (_listaCompras.Count > 0)
+            //{
+            //    foreach (var item in _listaCompras)
+            //    {
+            //        CalculoGasto = item.Monto;
+            //        ValorFinal = ValorFinal + CalculoGasto;
+            //    }
+            //    listaCompras.CajaDePagos = ValorFinal;
+            //    _listaCompras.Add(listaCompras);
+            //}
+            //else
+            //{
+            //    listaCompras.CajaDePagos = 0;
+            //    _listaCompras.Add(listaCompras);
+            //}
             connection.Close();
             return _listaCompras;
         }

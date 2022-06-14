@@ -160,14 +160,21 @@ namespace ElObrador
 
         private void BuscarAlquileresVigentes()
         {
+            dgvAlquiler.Rows.Clear();
             List<Alquiler> ListaAlquileres = new List<Alquiler>();
             ListaAlquileres = AlquilerNeg.ListarAlquileresActuales();
+            int contadorFilas = 0;
             if (ListaAlquileres.Count > 0)
             {
                 dgvAlquiler.Rows.Clear();
                 foreach (var item in ListaAlquileres)
                 {
                     dgvAlquiler.Rows.Add(item.idAlquiler, item.idMaterial, item.DescripcionProducto, item.Dias, item.FechaDesde, item.FechaHasta);
+                    if (item.AlquilerPagado == 0)
+                    {
+                        dgvAlquiler.Rows[contadorFilas].DefaultCellStyle.ForeColor = Color.Red;
+                    }
+                    contadorFilas = contadorFilas + 1;
                 }
             }
             dgvAlquiler.ReadOnly = true;

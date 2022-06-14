@@ -667,6 +667,7 @@
             this.btnCrearPersona.TabIndex = 209;
             this.toolTip1.SetToolTip(this.btnCrearPersona, "Crear Cliente");
             this.btnCrearPersona.UseVisualStyleBackColor = false;
+            this.btnCrearPersona.Visible = false;
             this.btnCrearPersona.Click += new System.EventHandler(this.btnCrearPersona_Click);
             // 
             // ConsultaClientesWF

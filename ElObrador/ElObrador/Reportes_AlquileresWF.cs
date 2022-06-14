@@ -21,12 +21,12 @@ namespace ElObrador
         }
         private void Reportes_AlquileresWF_Load(object sender, EventArgs e)
         {
-            int perfil = Sesion.UsuarioLogueado.idPerfil;
-            if (perfil != 1)
-            {
-                btnEliminar.Visible = false;
-            }
-            else { btnEliminar.Visible = true; }
+            //int perfil = Sesion.UsuarioLogueado.idPerfil;
+            //if (perfil != 1)
+            //{
+            //    btnEliminar.Visible = false;
+            //}
+            //else { btnEliminar.Visible = true; }
         }
         private void btnVentasDelDia_Click(object sender, EventArgs e)
         {
@@ -55,7 +55,7 @@ namespace ElObrador
             foreach (var item in resultado)
             {
                 string fecha = item.Fecha.ToShortDateString();
-                TotalVentas = Convert.ToDecimal(TotalVentas + item.Precio);                
+                TotalVentas = Convert.ToDecimal(TotalVentas + item.Precio);
                 dgvVentas.Rows.Add(item.idAlquiler, fecha, item.Precio, item.Recargo);
             }
             /// Total de Alquileres                 
@@ -147,12 +147,14 @@ namespace ElObrador
         {
             LimpiarCampos();
             String MesAnterior = DateTime.Now.Month.ToString();
+            String AñoVigente = DateTime.Now.Year.ToString();
             int Mes = Convert.ToInt32(MesAnterior);
+            int Año = Convert.ToInt32(AñoVigente);
             List<ListaAlquiler> resultado = new List<ListaAlquiler>();
             List<Entidades.ListaAlquilerEstadistica> listaVentasEstadistica = new List<ListaAlquilerEstadistica>();
             try
             {
-                resultado = ReportesDao.ConsultarVentasMesActual(Mes);
+                resultado = ReportesDao.ConsultarVentasMesActual(Mes, Año);
                 if (resultado.Count > 0)
                 {
                     ArmoGrilla(resultado);
@@ -166,15 +168,26 @@ namespace ElObrador
 
         private void btnVentasMesAnterior_Click(object sender, EventArgs e)
         {
+            int Mes = 0;
+            int Año = 0;
             LimpiarCampos();
             String MesAnterior = DateTime.Now.Month.ToString();
-            int Mes = Convert.ToInt32(MesAnterior);
-            Mes = Mes - 1;
+            String AñoVigente = DateTime.Now.Year.ToString();
+            Mes = Convert.ToInt32(MesAnterior);
+            Año = Convert.ToInt32(AñoVigente);
+            if (Mes == 1)
+            {
+                Mes = 12;
+                Año = Año - 1;
+            }
+            else
+            { Mes = Mes - 1; }
+
             List<ListaAlquiler> resultado = new List<ListaAlquiler>();
             List<Entidades.ListaAlquilerEstadistica> listaVentasEstadistica = new List<ListaAlquilerEstadistica>();
             try
             {
-                resultado = ReportesDao.ConsultarVentasMesAnterior(Mes);
+                resultado = ReportesDao.ConsultarVentasMesAnterior(Mes, Año);
                 if (resultado.Count > 0)
                 {
                     ArmoGrilla(resultado);
@@ -249,6 +262,11 @@ namespace ElObrador
         private void btnCerrar_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -102,6 +102,8 @@ namespace ElObrador
 
 
                 string folderPath = "C:\\Obrador-Archivos\\PDFs\\Nro.Reparacion\\";
+                //string folderPath = "C:\\Users\\Leo - Romi\\Desktop\\Obrador";
+                
                 if (!Directory.Exists(folderPath))
                 {
                     Directory.CreateDirectory(folderPath);

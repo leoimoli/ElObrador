@@ -38,7 +38,18 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AlquileresWF));
             this.dgvAlquiler = new System.Windows.Forms.DataGridView();
+            this.idProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Material = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Dias = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FechaInicio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FechaFin = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Observacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ValorAlquiler = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cod = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Mod = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PanelPrecios = new System.Windows.Forms.Panel();
+            this.txtObservaciones = new System.Windows.Forms.TextBox();
+            this.lblObservaciones = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.txtDescipcionBus = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -74,17 +85,7 @@
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.lblTelefono = new System.Windows.Forms.Label();
             this.lblEmail = new System.Windows.Forms.Label();
-            this.lblObservaciones = new System.Windows.Forms.Label();
-            this.txtObservaciones = new System.Windows.Forms.TextBox();
-            this.idProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Material = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Dias = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FechaInicio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FechaFin = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Observacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ValorAlquiler = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cod = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Mod = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.chcPagado = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAlquiler)).BeginInit();
             this.PanelPrecios.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -141,6 +142,71 @@
             this.dgvAlquiler.TabIndex = 75;
             this.dgvAlquiler.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dgvAlquiler_KeyDown);
             // 
+            // idProducto
+            // 
+            this.idProducto.HeaderText = "id";
+            this.idProducto.MinimumWidth = 6;
+            this.idProducto.Name = "idProducto";
+            this.idProducto.Visible = false;
+            this.idProducto.Width = 50;
+            // 
+            // Material
+            // 
+            this.Material.HeaderText = "Material";
+            this.Material.MinimumWidth = 6;
+            this.Material.Name = "Material";
+            this.Material.Width = 195;
+            // 
+            // Dias
+            // 
+            this.Dias.HeaderText = "Días";
+            this.Dias.MinimumWidth = 6;
+            this.Dias.Name = "Dias";
+            this.Dias.Width = 70;
+            // 
+            // FechaInicio
+            // 
+            this.FechaInicio.HeaderText = "Fecha Inicio";
+            this.FechaInicio.MinimumWidth = 6;
+            this.FechaInicio.Name = "FechaInicio";
+            this.FechaInicio.Visible = false;
+            this.FechaInicio.Width = 95;
+            // 
+            // FechaFin
+            // 
+            this.FechaFin.HeaderText = "Fecha Devolución";
+            this.FechaFin.MinimumWidth = 6;
+            this.FechaFin.Name = "FechaFin";
+            this.FechaFin.Width = 95;
+            // 
+            // Observacion
+            // 
+            this.Observacion.HeaderText = "Observacion";
+            this.Observacion.Name = "Observacion";
+            // 
+            // ValorAlquiler
+            // 
+            this.ValorAlquiler.HeaderText = "Total";
+            this.ValorAlquiler.MinimumWidth = 6;
+            this.ValorAlquiler.Name = "ValorAlquiler";
+            this.ValorAlquiler.Width = 90;
+            // 
+            // Cod
+            // 
+            this.Cod.HeaderText = "Codigo";
+            this.Cod.MinimumWidth = 6;
+            this.Cod.Name = "Cod";
+            this.Cod.Visible = false;
+            this.Cod.Width = 125;
+            // 
+            // Mod
+            // 
+            this.Mod.HeaderText = "Modelo";
+            this.Mod.MinimumWidth = 6;
+            this.Mod.Name = "Mod";
+            this.Mod.Visible = false;
+            this.Mod.Width = 125;
+            // 
             // PanelPrecios
             // 
             this.PanelPrecios.BackColor = System.Drawing.Color.Gainsboro;
@@ -163,6 +229,27 @@
             this.PanelPrecios.Name = "PanelPrecios";
             this.PanelPrecios.Size = new System.Drawing.Size(501, 408);
             this.PanelPrecios.TabIndex = 168;
+            // 
+            // txtObservaciones
+            // 
+            this.txtObservaciones.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtObservaciones.Location = new System.Drawing.Point(15, 327);
+            this.txtObservaciones.MaxLength = 50;
+            this.txtObservaciones.Multiline = true;
+            this.txtObservaciones.Name = "txtObservaciones";
+            this.txtObservaciones.Size = new System.Drawing.Size(220, 42);
+            this.txtObservaciones.TabIndex = 192;
+            // 
+            // lblObservaciones
+            // 
+            this.lblObservaciones.AutoSize = true;
+            this.lblObservaciones.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblObservaciones.ForeColor = System.Drawing.Color.Black;
+            this.lblObservaciones.Location = new System.Drawing.Point(12, 307);
+            this.lblObservaciones.Name = "lblObservaciones";
+            this.lblObservaciones.Size = new System.Drawing.Size(121, 17);
+            this.lblObservaciones.TabIndex = 191;
+            this.lblObservaciones.Text = "Observaciones:";
             // 
             // label5
             // 
@@ -378,7 +465,7 @@
             this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardar.ForeColor = System.Drawing.Color.White;
-            this.btnGuardar.Location = new System.Drawing.Point(351, 522);
+            this.btnGuardar.Location = new System.Drawing.Point(375, 522);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(107, 38);
             this.btnGuardar.TabIndex = 169;
@@ -393,7 +480,7 @@
             this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelar.ForeColor = System.Drawing.Color.White;
-            this.btnCancelar.Location = new System.Drawing.Point(125, 523);
+            this.btnCancelar.Location = new System.Drawing.Point(149, 523);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(107, 38);
             this.btnCancelar.TabIndex = 170;
@@ -441,7 +528,7 @@
             this.lblidCliente.AutoSize = true;
             this.lblidCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblidCliente.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(187)))), ((int)(((byte)(45)))));
-            this.lblidCliente.Location = new System.Drawing.Point(13, 523);
+            this.lblidCliente.Location = new System.Drawing.Point(299, 470);
             this.lblidCliente.Name = "lblidCliente";
             this.lblidCliente.Size = new System.Drawing.Size(19, 13);
             this.lblidCliente.TabIndex = 174;
@@ -503,7 +590,7 @@
             this.btnCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCliente.ForeColor = System.Drawing.Color.White;
-            this.btnCliente.Location = new System.Drawing.Point(238, 523);
+            this.btnCliente.Location = new System.Drawing.Point(262, 523);
             this.btnCliente.Name = "btnCliente";
             this.btnCliente.Size = new System.Drawing.Size(107, 38);
             this.btnCliente.TabIndex = 179;
@@ -530,7 +617,6 @@
             // 
             this.reportViewer1.Location = new System.Drawing.Point(0, 0);
             this.reportViewer1.Name = "ReportViewer";
-            //this.reportViewer1.ServerReport.BearerToken = null;
             this.reportViewer1.Size = new System.Drawing.Size(396, 246);
             this.reportViewer1.TabIndex = 0;
             // 
@@ -558,97 +644,26 @@
             this.lblEmail.Text = "@";
             this.lblEmail.Visible = false;
             // 
-            // lblObservaciones
+            // chcPagado
             // 
-            this.lblObservaciones.AutoSize = true;
-            this.lblObservaciones.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblObservaciones.ForeColor = System.Drawing.Color.Black;
-            this.lblObservaciones.Location = new System.Drawing.Point(12, 307);
-            this.lblObservaciones.Name = "lblObservaciones";
-            this.lblObservaciones.Size = new System.Drawing.Size(121, 17);
-            this.lblObservaciones.TabIndex = 191;
-            this.lblObservaciones.Text = "Observaciones:";
-            // 
-            // txtObservaciones
-            // 
-            this.txtObservaciones.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtObservaciones.Location = new System.Drawing.Point(15, 327);
-            this.txtObservaciones.MaxLength = 50;
-            this.txtObservaciones.Multiline = true;
-            this.txtObservaciones.Name = "txtObservaciones";
-            this.txtObservaciones.Size = new System.Drawing.Size(220, 42);
-            this.txtObservaciones.TabIndex = 192;
-            // 
-            // idProducto
-            // 
-            this.idProducto.HeaderText = "id";
-            this.idProducto.MinimumWidth = 6;
-            this.idProducto.Name = "idProducto";
-            this.idProducto.Visible = false;
-            this.idProducto.Width = 50;
-            // 
-            // Material
-            // 
-            this.Material.HeaderText = "Material";
-            this.Material.MinimumWidth = 6;
-            this.Material.Name = "Material";
-            this.Material.Width = 195;
-            // 
-            // Dias
-            // 
-            this.Dias.HeaderText = "Días";
-            this.Dias.MinimumWidth = 6;
-            this.Dias.Name = "Dias";
-            this.Dias.Width = 70;
-            // 
-            // FechaInicio
-            // 
-            this.FechaInicio.HeaderText = "Fecha Inicio";
-            this.FechaInicio.MinimumWidth = 6;
-            this.FechaInicio.Name = "FechaInicio";
-            this.FechaInicio.Visible = false;
-            this.FechaInicio.Width = 95;
-            // 
-            // FechaFin
-            // 
-            this.FechaFin.HeaderText = "Fecha Devolución";
-            this.FechaFin.MinimumWidth = 6;
-            this.FechaFin.Name = "FechaFin";
-            this.FechaFin.Width = 95;
-            // 
-            // Observacion
-            // 
-            this.Observacion.HeaderText = "Observacion";
-            this.Observacion.Name = "Observacion";
-            // 
-            // ValorAlquiler
-            // 
-            this.ValorAlquiler.HeaderText = "Total";
-            this.ValorAlquiler.MinimumWidth = 6;
-            this.ValorAlquiler.Name = "ValorAlquiler";
-            this.ValorAlquiler.Width = 90;
-            // 
-            // Cod
-            // 
-            this.Cod.HeaderText = "Codigo";
-            this.Cod.MinimumWidth = 6;
-            this.Cod.Name = "Cod";
-            this.Cod.Visible = false;
-            this.Cod.Width = 125;
-            // 
-            // Mod
-            // 
-            this.Mod.HeaderText = "Modelo";
-            this.Mod.MinimumWidth = 6;
-            this.Mod.Name = "Mod";
-            this.Mod.Visible = false;
-            this.Mod.Width = 125;
+            this.chcPagado.AutoSize = true;
+            this.chcPagado.Checked = true;
+            this.chcPagado.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chcPagado.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chcPagado.ForeColor = System.Drawing.Color.Black;
+            this.chcPagado.Location = new System.Drawing.Point(16, 531);
+            this.chcPagado.Name = "chcPagado";
+            this.chcPagado.Size = new System.Drawing.Size(127, 21);
+            this.chcPagado.TabIndex = 183;
+            this.chcPagado.Text = "Alquiler Pagado";
+            this.chcPagado.UseVisualStyleBackColor = true;
             // 
             // AlquileresWF
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1040, 564);
+            this.Controls.Add(this.chcPagado);
             this.Controls.Add(this.lblEmail);
             this.Controls.Add(this.lblTelefono);
             this.Controls.Add(this.btnDevoluciones);
@@ -730,5 +745,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ValorAlquiler;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cod;
         private System.Windows.Forms.DataGridViewTextBoxColumn Mod;
+        private System.Windows.Forms.CheckBox chcPagado;
     }
 }

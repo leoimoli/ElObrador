@@ -67,7 +67,8 @@ namespace ElObrador.utilidades
             }
             catch (Exception Ex)
             {
-                const string message = "Error FileStream.";
+                //const string message = "Error FileStream.";
+                string message = Ex.ToString();
                 const string caption = "Error";
                 var result = MessageBox.Show(message, caption,
                                              MessageBoxButtons.OK,

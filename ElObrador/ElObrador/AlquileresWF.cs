@@ -316,6 +316,11 @@ namespace ElObrador
                 }
                 _listaAlquiler = CargarEntidad();
                 int idAlquiler = AlquilerNeg.RegistrarAlquiler(_listaAlquiler);
+                if (_listaAlquiler[0].AlquilerPagado == 0)
+                {
+                    Entidades.LibreDeuda _libreDeuda = CargarEntidadRegistroDeuda(_listaAlquiler, idAlquiler);
+                    bool Exito = LibreDeudaNeg.RegistrarDeuda(_libreDeuda);
+                }
                 if (idAlquiler > 0)
                 {
                     ListaAlquilerStatic = _listaAlquiler;
@@ -332,7 +337,21 @@ namespace ElObrador
             catch (Exception ex)
             { }
         }
-
+        private LibreDeuda CargarEntidadRegistroDeuda(List<Alquiler> _listaAlquiler, int idAlquiler)
+        {
+            LibreDeuda _libreDeuda = new LibreDeuda();
+            int idusuarioLogueado = Sesion.UsuarioLogueado.idUsuario;
+            _libreDeuda.idUsuario = idusuarioLogueado;
+            /////// Tipo de Tarea 1 = registro Deuda //// 2 = Pago Deuda
+            _libreDeuda.idTipoTarea = 1;
+            _libreDeuda.Monto = Convert.ToDecimal(_listaAlquiler[0].MontoTotal);
+            string fecha = _listaAlquiler[0].FechaDesde.ToShortDateString();
+            _libreDeuda.Fecha = Convert.ToDateTime(fecha);
+            _libreDeuda.Motivo = "Alquiler Nro: '"+idAlquiler+"' Impago";
+            _libreDeuda.idCliente = Convert.ToInt32(_listaAlquiler[0].idCliente);
+            _libreDeuda.FechaActual = DateTime.Now;
+            return _libreDeuda;
+        }
 
         #region "variables"
 
@@ -557,6 +576,7 @@ namespace ElObrador
             lblApeNom.Visible = false;
             lblClienteFijo.Visible = false;
             lblDniFijo.Visible = false;
+            chcPagado.Checked = true;
         }
 
         public static List<Alquiler> ListaAlquilerStatic;
@@ -728,6 +748,14 @@ namespace ElObrador
                 _Alquiler.TelefonoCliente = lblTelefono.Text;
                 _Alquiler.EmailCliente = lblEmail.Text;
                 _Alquiler.Estado = 1;
+                if (chcPagado.Checked == true)
+                {
+                    _Alquiler.AlquilerPagado = 1;
+                }
+                else
+                {
+                    _Alquiler.AlquilerPagado = 0;
+                }
                 _listaAlquiler.Add(_Alquiler);
             }
             //foreach (DataGridViewRow row in dataGridView1.Rows)
