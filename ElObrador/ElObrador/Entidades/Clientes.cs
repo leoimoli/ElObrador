@@ -36,5 +36,13 @@ namespace ElObrador.Entidades
         public int ListaNuevoComprobantes { get; set; }
         public int TipoCliente { get; set; }
         public int DocumentacionCompleta { get; set; }
+
+        public DateTime FechaChcDni { get; set; }
+        public DateTime FechaChcFacturas { get; set; }
+        public DateTime FechaChcPersonaJuridica { get; set; }
+        public DateTime FechaChcAutorizacion { get; set; }
+
+        public int ActualizaPersonaJuridica { get; set; }
+        public int ActualizaAutorizacion { get; set; }
     }
 }

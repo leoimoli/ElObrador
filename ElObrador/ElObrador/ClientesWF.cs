@@ -498,10 +498,18 @@ namespace ElObrador
             if (chcAutorizacion.Checked == true)
             {
                 _clientes.chcAutorizacion = 1;
+                if (chcAutorizacion.Enabled == false)
+                { _clientes.ActualizaAutorizacion = 0; }
+                else
+                { _clientes.ActualizaAutorizacion = 1; }
             }
+
             if (chcPersonaJuridica.Checked == true)
             {
                 _clientes.chcPersonaJuridica = 1;
+                if (chcPersonaJuridica.Enabled == false)
+                { _clientes.ActualizaPersonaJuridica = 0; }
+                else { _clientes.ActualizaPersonaJuridica = 1; }
             }
             return _clientes;
         }

@@ -33,11 +33,39 @@ namespace ElObrador.Dao
             cmd.Parameters.AddWithValue("idProvincia_in", _cliente.idProvincia);
             cmd.Parameters.AddWithValue("idLocalidad_in", _cliente.idLocalidad);
             cmd.Parameters.AddWithValue("idUsuario_in", _cliente.idUsuario);
-            cmd.Parameters.AddWithValue("chcDni_in", _cliente.chcDni);
-            cmd.Parameters.AddWithValue("chcFacturas_in", _cliente.chcFacturas);
             cmd.Parameters.AddWithValue("chcTipoCliente_in", _cliente.TipoCliente);
+            cmd.Parameters.AddWithValue("chcDni_in", _cliente.chcDni);
+            if (_cliente.chcDni == 1)
+            {
+                cmd.Parameters.AddWithValue("FechaChcDni", DateTime.Now);
+            }
+            else
+            { cmd.Parameters.AddWithValue("FechaChcDni", null); }
+
+            cmd.Parameters.AddWithValue("chcFacturas_in", _cliente.chcFacturas);
+            if (_cliente.chcFacturas == 1)
+            {
+                cmd.Parameters.AddWithValue("FechaChcFacturas", DateTime.Now);
+            }
+            else
+            { cmd.Parameters.AddWithValue("FechaChcFacturas", null); }
+
             cmd.Parameters.AddWithValue("chcPersonaJuridica_in", _cliente.chcPersonaJuridica);
+            if (_cliente.chcPersonaJuridica == 1)
+            {
+                cmd.Parameters.AddWithValue("FechaChcPersonaJuridica", DateTime.Now);
+            }
+            else
+            { cmd.Parameters.AddWithValue("FechaChcPersonaJuridica", null); }
+
             cmd.Parameters.AddWithValue("chcAutorizacion_in", _cliente.chcAutorizacion);
+            if (_cliente.chcAutorizacion == 1)
+            {
+                cmd.Parameters.AddWithValue("FechaChcAutorizacion", DateTime.Now);
+            }
+            else
+            { cmd.Parameters.AddWithValue("FechaChcAutorizacion", null); }
+
             MySqlDataReader r = cmd.ExecuteReader();
             if (_cliente.chcFacturas == 1)
             {
@@ -168,29 +196,58 @@ namespace ElObrador.Dao
             if (_cliente.chcDni == 1 && _cliente.ActualizaComprobanteDNI == 1)
             {
                 cmd.Parameters.AddWithValue("chcDni_in", _cliente.chcDni);
-            }
+            }           
+
             else if (_cliente.chcDni == 1)
             {
                 cmd.Parameters.AddWithValue("chcDni_in", 1);
+                cmd.Parameters.AddWithValue("FechaChcDni", DateTime.Now);
             }
             else
             {
                 cmd.Parameters.AddWithValue("chcDni_in", 0);
-            }
+                cmd.Parameters.AddWithValue("FechaChcDni", null);
+            }                                
+
             if (_cliente.chcFacturas == 1 && _cliente.ActualizaComprobanteFactura == 1)
             {
                 cmd.Parameters.AddWithValue("chcFacturas_in", _cliente.chcFacturas);
+                cmd.Parameters.AddWithValue("FechaChcFacturas", DateTime.Now);
             }
             else if (_cliente.chcFacturas == 1)
             {
                 cmd.Parameters.AddWithValue("chcFacturas_in", 1);
+                cmd.Parameters.AddWithValue("FechaChcFacturas", DateTime.Now);
             }
             else
             {
                 cmd.Parameters.AddWithValue("chcFacturas_in", 0);
+                cmd.Parameters.AddWithValue("FechaChcFacturas", null);
             }
-            cmd.Parameters.AddWithValue("chcPersonaJuridica_in", _cliente.chcPersonaJuridica);
-            cmd.Parameters.AddWithValue("chcAutorizacion_in", _cliente.chcAutorizacion);
+          
+            if (_cliente.chcPersonaJuridica == 1 && _cliente.ActualizaPersonaJuridica == 1)
+            {
+                cmd.Parameters.AddWithValue("chcPersonaJuridica_in", _cliente.chcPersonaJuridica);
+                cmd.Parameters.AddWithValue("FechaChcPersonaJuridica", DateTime.Now);
+            }
+            else if (_cliente.chcPersonaJuridica == 1)
+            {
+                cmd.Parameters.AddWithValue("chcPersonaJuridica_in", 1);             
+            }
+            else
+            { cmd.Parameters.AddWithValue("FechaChcPersonaJuridica", null); }
+           
+            if (_cliente.chcAutorizacion == 1 && _cliente.ActualizaAutorizacion == 1)
+            {
+                cmd.Parameters.AddWithValue("chcAutorizacion_in", _cliente.chcAutorizacion);
+                cmd.Parameters.AddWithValue("FechaChcAutorizacion", DateTime.Now);
+            }
+            else if (_cliente.chcAutorizacion == 1)
+            {
+                cmd.Parameters.AddWithValue("chcAutorizacion_in", 1);
+            }
+            else
+            { cmd.Parameters.AddWithValue("FechaChcAutorizacion", null); }
             cmd.ExecuteNonQuery();
             if (_cliente.ActualizaComprobanteFactura == 1)
             {
