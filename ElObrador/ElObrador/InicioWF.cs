@@ -153,7 +153,7 @@ namespace ElObrador
 
         private void FuncionBuscartexto()
         {
-            txtBuscarEnGrilla.AutoCompleteCustomSource = Clases_Maestras.AutoCompleteMateriales.Autocomplete();
+            txtBuscarEnGrilla.AutoCompleteCustomSource = Clases_Maestras.AutoCompletePorApellido.Autocomplete();
             txtBuscarEnGrilla.AutoCompleteMode = AutoCompleteMode.Suggest;
             txtBuscarEnGrilla.AutoCompleteSource = AutoCompleteSource.CustomSource;
         }
@@ -167,14 +167,21 @@ namespace ElObrador
             if (ListaAlquileres.Count > 0)
             {
                 dgvAlquiler.Rows.Clear();
+                List<int> ListaIdAlquiler = new List<int>();
                 foreach (var item in ListaAlquileres)
                 {
-                    dgvAlquiler.Rows.Add(item.idAlquiler, item.idMaterial, item.DescripcionProducto, item.Dias, item.FechaDesde, item.FechaHasta);
-                    if (item.AlquilerPagado == 0)
+                    bool Existe = ListaIdAlquiler.Any(x => x == item.idAlquiler);
+                    if (Existe != true)
                     {
-                        dgvAlquiler.Rows[contadorFilas].DefaultCellStyle.ForeColor = Color.Red;
+                        dgvAlquiler.Rows.Add(item.idAlquiler, item.idAlquiler, item.Cliente, item.Dias, item.FechaDesde, item.FechaHasta);
+                        if (item.AlquilerPagado == 0)
+                        {
+                            dgvAlquiler.Rows[contadorFilas].DefaultCellStyle.ForeColor = Color.Red;
+                        }
+                        contadorFilas = contadorFilas + 1;
+                        ListaIdAlquiler.Add(item.idAlquiler);
                     }
-                    contadorFilas = contadorFilas + 1;
+
                 }
             }
             dgvAlquiler.ReadOnly = true;
@@ -304,22 +311,25 @@ namespace ElObrador
                 string ProvLoc = "";
                 string Telefono = "";
                 string Email = "";
-                string material = this.dgvAlquiler.CurrentRow.Cells[2].Value.ToString();
+                //string material = this.dgvAlquiler.CurrentRow.Cells[2].Value.ToString();
+                string material = "";
                 idAlquiler = Convert.ToInt32(this.dgvAlquiler.CurrentRow.Cells[0].Value.ToString());
 
                 string MontoAlquiler = AlquilerDao.BuscaMontoAlquiler(idAlquiler);
-                List<Clientes> _cliente = ClientesDao.BuscarClientePorIdAlquiler(idAlquiler);
-                if (_cliente.Count > 0)
+                //List<Clientes> _cliente = ClientesDao.BuscarClientePorIdAlquiler(idAlquiler);
+                List<Alquiler> _Alquiler = AlquilerDao.BuscarMaterialesPorIdAlquiler(idAlquiler);
+                if (_Alquiler.Count > 0)
                 {
-                    foreach (var item in _cliente)
+                    foreach (var item in _Alquiler)
                     {
-                        ApellidoNombre = item.Apellido + " " + item.Nombre;
-                        Domicilio = item.Calle + " " + "N°" + item.Altura;
-                        ProvLoc = item.NombreProvincia + " " + item.NombreLocalidad;
-                        Telefono = item.Telefono;
-                        Email = item.Email;
+                        //ApellidoNombre = item.Apellido + " " + item.Nombre;
+                        //Domicilio = item.Calle + " " + "N°" + item.Altura;
+                        //ProvLoc = item.NombreProvincia + " " + item.NombreLocalidad;
+                        //Telefono = item.Telefono;
+                        //Email = item.Email;
+                        material = item.Material;
                     }
-                    InformeAlquilerWF _informe = new InformeAlquilerWF(material, MontoAlquiler, ApellidoNombre, Domicilio, ProvLoc, Email, Telefono);
+                    InformeAlquilerWF _informe = new InformeAlquilerWF(_Alquiler, material, MontoAlquiler, ApellidoNombre, Domicilio, ProvLoc, Email, Telefono);
                     _informe.Show();
                 }
 
@@ -427,16 +437,30 @@ namespace ElObrador
         private void BuscarAlquileresVigentesPorDescripcion(string Valor)
         {
             List<Alquiler> ListaAlquileres = new List<Alquiler>();
-            ListaAlquileres = AlquilerNeg.ListarAlquileresActualesPorDescripcion(Valor);
+            //ListaAlquileres = AlquilerNeg.ListarAlquileresActualesPorDescripcion(Valor);
+            ListaAlquileres = AlquilerNeg.ListarAlquileresActualesPorCliente(Valor);
+            int contadorFilas = 0;
             if (ListaAlquileres.Count > 0)
             {
                 dgvAlquiler.Rows.Clear();
+                List<int> ListaIdAlquiler = new List<int>();
                 foreach (var item in ListaAlquileres)
                 {
-                    dgvAlquiler.Rows.Add(item.idAlquiler, item.idMaterial, item.DescripcionProducto, item.Dias, item.FechaDesde, item.FechaHasta);
+                    bool Existe = ListaIdAlquiler.Any(x => x == item.idAlquiler);
+                    if (Existe != true)
+                    {
+                        //dgvAlquiler.Rows.Add(item.idAlquiler, item.idMaterial, item.DescripcionProducto, item.Dias, item.FechaDesde, item.FechaHasta);
+                        dgvAlquiler.Rows.Add(item.idAlquiler, item.idAlquiler, item.Cliente, item.Dias, item.FechaDesde, item.FechaHasta);
+                        if (item.AlquilerPagado == 0)
+                        {
+                            dgvAlquiler.Rows[contadorFilas].DefaultCellStyle.ForeColor = Color.Red;
+                        }
+                        contadorFilas = contadorFilas + 1;
+                        ListaIdAlquiler.Add(item.idAlquiler);
+                    }
                 }
+                dgvAlquiler.ReadOnly = true;
             }
-            dgvAlquiler.ReadOnly = true;
         }
     }
 }

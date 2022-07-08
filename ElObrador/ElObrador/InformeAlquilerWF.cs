@@ -19,8 +19,9 @@ namespace ElObrador
         private string ProvLoc;
         private string email;
         private string telefono;
+        private List<Entidades.Alquiler> _Alquiler;
 
-        public InformeAlquilerWF(string material, string montoAlquiler, string apellidoNombre, string domicilio, string ProvLoc, string email, string telefono)
+        public InformeAlquilerWF(List<Entidades.Alquiler> _Alquiler, string material, string montoAlquiler, string apellidoNombre, string domicilio, string ProvLoc, string email, string telefono)
         {
             InitializeComponent();
             this.material = material;
@@ -30,6 +31,7 @@ namespace ElObrador
             this.ProvLoc = ProvLoc;
             this.email = email;
             this.telefono = telefono;
+            this._Alquiler = _Alquiler;
         }
 
         private void btnVolver_Click(object sender, EventArgs e)
@@ -53,6 +55,10 @@ namespace ElObrador
             lblProvLoc.Text = ProvLoc;
             lblTelefono.Text = telefono;
             lblEmail.Text = email;
+            foreach (var item in _Alquiler)
+            {
+                dgvMateriales.Rows.Add(item.Codigo, item.DescripcionProducto);
+            }
         }
     }
 }

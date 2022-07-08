@@ -618,6 +618,7 @@
             // 
             this.reportViewer1.Location = new System.Drawing.Point(0, 0);
             this.reportViewer1.Name = "ReportViewer";
+            this.reportViewer1.ServerReport.BearerToken = null;
             this.reportViewer1.Size = new System.Drawing.Size(396, 246);
             this.reportViewer1.TabIndex = 0;
             // 
@@ -648,8 +649,6 @@
             // chcPagado
             // 
             this.chcPagado.AutoSize = true;
-            this.chcPagado.Checked = true;
-            this.chcPagado.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chcPagado.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chcPagado.ForeColor = System.Drawing.Color.Black;
             this.chcPagado.Location = new System.Drawing.Point(16, 531);

@@ -41,6 +41,7 @@ namespace ElObrador
         {
             try
             {
+                dgvAlquiler.ReadOnly = true;
                 CargarComboGrupo();
                 FuncionBuscartexto();
             }
@@ -781,7 +782,7 @@ namespace ElObrador
         {
             if (e.KeyCode == Keys.Delete)
             {
-                decimal TotalDelMaterial = Convert.ToDecimal(dgvAlquiler.CurrentRow.Cells[5].Value.ToString());
+                decimal TotalDelMaterial = Convert.ToDecimal(dgvAlquiler.CurrentRow.Cells[6].Value.ToString());
                 dgvAlquiler.Rows.Remove(dgvAlquiler.CurrentRow);
                 EliminarProductoDeLista(TotalDelMaterial);
             }

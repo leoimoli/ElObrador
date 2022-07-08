@@ -70,5 +70,18 @@ namespace ElObrador.Negocio
             }
             return _listaAlquileres;
         }
+
+        public static List<Alquiler> ListarAlquileresActualesPorCliente(string valor)
+        {
+            List<Alquiler> _listaAlquileres = new List<Alquiler>();
+            try
+            {
+                _listaAlquileres = AlquilerDao.ListarAlquileresActualesPorCliente(valor);
+            }
+            catch (Exception ex)
+            {
+            }
+            return _listaAlquileres;
+        }
     }
 }
