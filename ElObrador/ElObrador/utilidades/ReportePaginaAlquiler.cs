@@ -844,42 +844,42 @@ namespace ElObrador.utilidades
                     //// establecer Nota
                     recTmp = document.PageSize;
                     tblNota.TotalWidth = recTmp.Width - document.LeftMargin - document.RightMargin;
-                    tblNota.WriteSelectedRows(0, -1, document.LeftMargin, document.BottomMargin + 500, writer.DirectContent);
+                    tblNota.WriteSelectedRows(0, -1, document.LeftMargin, document.BottomMargin + 290, writer.DirectContent);
 
                     //// establecer TextoNota
                     recTmp = document.PageSize;
                     tblTextoNota.TotalWidth = recTmp.Width - document.LeftMargin - document.RightMargin;
-                    tblTextoNota.WriteSelectedRows(0, -1, document.LeftMargin, document.BottomMargin + 480, writer.DirectContent);
+                    tblTextoNota.WriteSelectedRows(0, -1, document.LeftMargin, document.BottomMargin + 270, writer.DirectContent);
 
                     //// establecer Firma y Aclaracion
                     recTmp = document.PageSize;
                     tblFirmaAclaracion.TotalWidth = recTmp.Width - document.LeftMargin - document.RightMargin;
-                    tblFirmaAclaracion.WriteSelectedRows(0, -1, document.LeftMargin + 350, document.BottomMargin + 390, writer.DirectContent);
+                    tblFirmaAclaracion.WriteSelectedRows(0, -1, document.LeftMargin + 350, document.BottomMargin + 180, writer.DirectContent);
 
                     //// establecer Dni Firmante
                     recTmp = document.PageSize;
                     tblDniFirmante.TotalWidth = recTmp.Width - document.LeftMargin - document.RightMargin;
-                    tblDniFirmante.WriteSelectedRows(0, -1, document.LeftMargin + 350, document.BottomMargin + 380, writer.DirectContent);
+                    tblDniFirmante.WriteSelectedRows(0, -1, document.LeftMargin + 350, document.BottomMargin + 170, writer.DirectContent);
 
                     //// establecer TextoLey
                     recTmp = document.PageSize;
                     tblTextoLey.TotalWidth = recTmp.Width - document.LeftMargin - document.RightMargin;
-                    tblTextoLey.WriteSelectedRows(0, -1, document.LeftMargin, document.BottomMargin + 200, writer.DirectContent);
+                    tblTextoLey.WriteSelectedRows(0, -1, document.LeftMargin, document.BottomMargin + 120, writer.DirectContent);
 
                     //// establecer Firma y Aclaracion
                     recTmp = document.PageSize;
                     tblFirmaAclaracion.TotalWidth = recTmp.Width - document.LeftMargin - document.RightMargin;
-                    tblFirmaAclaracion.WriteSelectedRows(0, -1, document.LeftMargin + 350, document.BottomMargin + 170, writer.DirectContent);
+                    tblFirmaAclaracion.WriteSelectedRows(0, -1, document.LeftMargin + 350, document.BottomMargin + 90, writer.DirectContent);
 
                     //// establecer Dni Firmante
                     recTmp = document.PageSize;
                     tblDniFirmante.TotalWidth = recTmp.Width - document.LeftMargin - document.RightMargin;
-                    tblDniFirmante.WriteSelectedRows(0, -1, document.LeftMargin + 350, document.BottomMargin + 160, writer.DirectContent);
+                    tblDniFirmante.WriteSelectedRows(0, -1, document.LeftMargin + 350, document.BottomMargin + 80, writer.DirectContent);
 
                     //// establecer TextoLey Sin Protesto
                     recTmp = document.PageSize;
                     tblTextoLeyProtesto.TotalWidth = recTmp.Width - document.LeftMargin - document.RightMargin;
-                    tblTextoLeyProtesto.WriteSelectedRows(0, -1, document.LeftMargin, document.BottomMargin + 100, writer.DirectContent);
+                    tblTextoLeyProtesto.WriteSelectedRows(0, -1, document.LeftMargin, document.BottomMargin + 50, writer.DirectContent);
 
                     // establecer pie de página
                     recTmp = document.PageSize;
