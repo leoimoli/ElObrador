@@ -205,6 +205,7 @@ namespace ElObrador.Dao
                     listaTaller.Material = item["Producto"].ToString();
                     listaTaller.Codigo = item["Codigo"].ToString();
                     listaTaller.Modelo = item["Modelo"].ToString();
+                    listaTaller.Cliente = item["Apellido"].ToString() + "," + item["Nombre"].ToString();
                     _listaTaller.Add(listaTaller);
                 }
             }

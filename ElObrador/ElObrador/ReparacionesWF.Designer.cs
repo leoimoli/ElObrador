@@ -68,11 +68,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.dgvReparaciones = new System.Windows.Forms.DataGridView();
-            this.idProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RazonSocial = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Domicilio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Telefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Ver = new System.Windows.Forms.DataGridViewButtonColumn();
             this.label5 = new System.Windows.Forms.Label();
             this.txtDescipcionBus = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -88,6 +83,12 @@
             this.VerHistorial = new System.Windows.Forms.DataGridViewButtonColumn();
             this.label18 = new System.Windows.Forms.Label();
             this.btnNuevoHistorial = new System.Windows.Forms.Button();
+            this.idProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RazonSocial = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Domicilio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Telefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ver = new System.Windows.Forms.DataGridViewButtonColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvReparaciones)).BeginInit();
             this.panelVer.SuspendLayout();
@@ -450,6 +451,7 @@
             this.dgvReparaciones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvReparaciones.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idProducto,
+            this.Cliente,
             this.RazonSocial,
             this.Domicilio,
             this.Telefono,
@@ -463,7 +465,7 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvReparaciones.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvReparaciones.EnableHeadersVisualStyles = false;
-            this.dgvReparaciones.Location = new System.Drawing.Point(12, 101);
+            this.dgvReparaciones.Location = new System.Drawing.Point(5, 101);
             this.dgvReparaciones.Name = "dgvReparaciones";
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
@@ -476,46 +478,11 @@
             this.dgvReparaciones.RowHeadersWidth = 51;
             dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
             this.dgvReparaciones.RowsDefaultCellStyle = dataGridViewCellStyle4;
-            this.dgvReparaciones.Size = new System.Drawing.Size(572, 418);
+            this.dgvReparaciones.Size = new System.Drawing.Size(579, 418);
             this.dgvReparaciones.TabIndex = 89;
             this.dgvReparaciones.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvReparaciones_CellClick);
+            this.dgvReparaciones.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvReparaciones_CellContentClick);
             this.dgvReparaciones.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dgvReparaciones_CellPainting);
-            // 
-            // idProducto
-            // 
-            this.idProducto.HeaderText = "id";
-            this.idProducto.MinimumWidth = 6;
-            this.idProducto.Name = "idProducto";
-            this.idProducto.Visible = false;
-            this.idProducto.Width = 50;
-            // 
-            // RazonSocial
-            // 
-            this.RazonSocial.HeaderText = "Material";
-            this.RazonSocial.MinimumWidth = 6;
-            this.RazonSocial.Name = "RazonSocial";
-            this.RazonSocial.Width = 240;
-            // 
-            // Domicilio
-            // 
-            this.Domicilio.HeaderText = "Codigo";
-            this.Domicilio.MinimumWidth = 6;
-            this.Domicilio.Name = "Domicilio";
-            this.Domicilio.Width = 125;
-            // 
-            // Telefono
-            // 
-            this.Telefono.HeaderText = "Modelo";
-            this.Telefono.MinimumWidth = 6;
-            this.Telefono.Name = "Telefono";
-            this.Telefono.Width = 130;
-            // 
-            // Ver
-            // 
-            this.Ver.HeaderText = "Seleccionar";
-            this.Ver.MinimumWidth = 6;
-            this.Ver.Name = "Ver";
-            this.Ver.Width = 80;
             // 
             // label5
             // 
@@ -723,6 +690,45 @@
             this.btnNuevoHistorial.UseVisualStyleBackColor = false;
             this.btnNuevoHistorial.Click += new System.EventHandler(this.btnNuevoHistorial_Click);
             // 
+            // idProducto
+            // 
+            this.idProducto.HeaderText = "Id";
+            this.idProducto.MinimumWidth = 6;
+            this.idProducto.Name = "idProducto";
+            this.idProducto.Width = 50;
+            // 
+            // Cliente
+            // 
+            this.Cliente.HeaderText = "Cliente";
+            this.Cliente.Name = "Cliente";
+            // 
+            // RazonSocial
+            // 
+            this.RazonSocial.HeaderText = "Material";
+            this.RazonSocial.MinimumWidth = 6;
+            this.RazonSocial.Name = "RazonSocial";
+            this.RazonSocial.Width = 180;
+            // 
+            // Domicilio
+            // 
+            this.Domicilio.HeaderText = "Codigo";
+            this.Domicilio.MinimumWidth = 6;
+            this.Domicilio.Name = "Domicilio";
+            this.Domicilio.Width = 70;
+            // 
+            // Telefono
+            // 
+            this.Telefono.HeaderText = "Modelo";
+            this.Telefono.MinimumWidth = 6;
+            this.Telefono.Name = "Telefono";
+            // 
+            // Ver
+            // 
+            this.Ver.HeaderText = "Seleccionar";
+            this.Ver.MinimumWidth = 6;
+            this.Ver.Name = "Ver";
+            this.Ver.Width = 80;
+            // 
             // ReparacionesWF
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -793,11 +799,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Usuario;
         private System.Windows.Forms.DataGridViewButtonColumn VerHistorial;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idProducto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn RazonSocial;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Domicilio;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Telefono;
-        private System.Windows.Forms.DataGridViewButtonColumn Ver;
         private System.Windows.Forms.Label lblFechaEstimadaEntrega;
         private System.Windows.Forms.DateTimePicker dtFechaEstimadaEntrega;
         private System.Windows.Forms.Label label12;
@@ -805,5 +806,11 @@
         private System.Windows.Forms.Label lblApellido;
         private System.Windows.Forms.Label lblTelefono;
         private System.Windows.Forms.Button btnImprimir;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idProducto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Cliente;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RazonSocial;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Domicilio;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Telefono;
+        private System.Windows.Forms.DataGridViewButtonColumn Ver;
     }
 }

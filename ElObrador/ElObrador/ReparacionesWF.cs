@@ -617,7 +617,7 @@ namespace ElObrador
             {
                 foreach (var item in ListaReparaciones)
                 {
-                    dgvReparaciones.Rows.Add(item.idReparaciones, item.Material, item.Codigo, item.Modelo);
+                    dgvReparaciones.Rows.Add(item.idReparaciones, item.Cliente, item.Material, item.Codigo, item.Modelo);
                 }
             }
             dgvReparaciones.ReadOnly = true;
@@ -634,7 +634,7 @@ namespace ElObrador
         public static int idHistorialReparacionSeleccionado = 0;
         private void dgvReparaciones_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (dgvReparaciones.CurrentCell.ColumnIndex == 4)
+            if (dgvReparaciones.CurrentCell.ColumnIndex == 5)
             {
                 dgvHistorialTaller.Rows.Clear();
                 idReparacionSeleccionado = Convert.ToInt32(this.dgvReparaciones.CurrentRow.Cells[0].Value.ToString());
@@ -739,7 +739,7 @@ namespace ElObrador
             {
                 foreach (var item in ListaTaller)
                 {
-                    dgvReparaciones.Rows.Add(item.idReparaciones, item.Material, item.Codigo, item.Modelo);
+                    dgvReparaciones.Rows.Add(item.idReparaciones, item.Cliente, item.Material, item.Codigo, item.Modelo);
                 }
             }
             dgvReparaciones.ReadOnly = true;
@@ -758,6 +758,11 @@ namespace ElObrador
         {
             int codigo = Convert.ToInt32(this.dgvReparaciones.CurrentRow.Cells[0].Value.ToString());
             GenerarCuponDeCodigo(codigo);
+        }
+
+        private void dgvReparaciones_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

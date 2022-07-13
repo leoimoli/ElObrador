@@ -22,5 +22,6 @@ namespace ElObrador.Entidades
         public decimal CostoTotal { get; set; }
         public decimal Seña { get; set; }
         public DateTime FechaEstimadaEntrega { get; set; }
+        public string Cliente { get; set; }
     }
 }
