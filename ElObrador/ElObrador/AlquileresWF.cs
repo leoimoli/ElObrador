@@ -578,7 +578,7 @@ namespace ElObrador
             lblApeNom.Visible = false;
             lblClienteFijo.Visible = false;
             lblDniFijo.Visible = false;
-            chcPagado.Checked = true;
+            chcPagado.Checked = false;
             lblFaltaDocumentacion.Visible = false;
         }
 
