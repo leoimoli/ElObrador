@@ -24,6 +24,7 @@ namespace ElObrador.Dao
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.AddWithValue("Material_in", taller.Material);
             cmd.Parameters.AddWithValue("Codigo_in", taller.Codigo);
+            cmd.Parameters.AddWithValue("Marca_in", taller.Marca);
             cmd.Parameters.AddWithValue("Modelo_in", taller.Modelo);
             cmd.Parameters.AddWithValue("TipoServicio_in", taller.TipoServicio);
             cmd.Parameters.AddWithValue("Fecha_in", taller.Fecha);
@@ -144,6 +145,41 @@ namespace ElObrador.Dao
             return _listaTaller;
         }
 
+        public static List<Reparaciones> ListaDeReparacionesFinalizadas()
+        {
+            connection.Close();
+            connection.Open();
+            List<Entidades.Reparaciones> _listaTaller = new List<Entidades.Reparaciones>();
+            MySqlCommand cmd = new MySqlCommand();
+            cmd.Connection = connection;
+            DataTable Tabla = new DataTable();
+            MySqlParameter[] oParam = { };
+            string proceso = "ListaDeReparacionesFinalizadas";
+            MySqlDataAdapter dt = new MySqlDataAdapter(proceso, connection);
+            dt.SelectCommand.CommandType = CommandType.StoredProcedure;
+            dt.SelectCommand.Parameters.AddRange(oParam);
+            dt.Fill(Tabla);
+            DataSet ds = new DataSet();
+            if (Tabla.Rows.Count > 0)
+            {
+                foreach (DataRow item in Tabla.Rows)
+                {
+                    Entidades.Reparaciones listaTaller = new Entidades.Reparaciones();
+                    listaTaller.idReparaciones = Convert.ToInt32(item["idReparaciones"].ToString());
+                    listaTaller.TipoServicio = item["TipoServicio"].ToString();
+                    listaTaller.Diagnostico = item["Diagnostico"].ToString();
+                    listaTaller.Fecha = Convert.ToDateTime(item["FechaInicio"].ToString());
+                    listaTaller.Material = item["Producto"].ToString();
+                    listaTaller.Codigo = item["Codigo"].ToString();
+                    listaTaller.Modelo = item["Modelo"].ToString();
+                    listaTaller.Cliente = item["Apellido"].ToString() + "," + item["Nombre"].ToString();
+                    _listaTaller.Add(listaTaller);
+                }
+            }
+            connection.Close();
+            return _listaTaller;
+        }
+
         public static List<Reparaciones> BuscarHistorialPorId(int idHistorialReparacionSeleccionado)
         {
             connection.Close();
@@ -204,6 +240,7 @@ namespace ElObrador.Dao
                     listaTaller.Fecha = Convert.ToDateTime(item["FechaInicio"].ToString());
                     listaTaller.Material = item["Producto"].ToString();
                     listaTaller.Codigo = item["Codigo"].ToString();
+                    listaTaller.Marca = item["Marca"].ToString();
                     listaTaller.Modelo = item["Modelo"].ToString();
                     listaTaller.Cliente = item["Apellido"].ToString() + "," + item["Nombre"].ToString();
                     _listaTaller.Add(listaTaller);

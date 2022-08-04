@@ -83,10 +83,14 @@
             this.VerHistorial = new System.Windows.Forms.DataGridViewButtonColumn();
             this.label18 = new System.Windows.Forms.Label();
             this.btnNuevoHistorial = new System.Windows.Forms.Button();
+            this.chcReparacionCerradas = new System.Windows.Forms.CheckBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.txtMarca = new System.Windows.Forms.TextBox();
             this.idProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.RazonSocial = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Domicilio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Marca = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Telefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Ver = new System.Windows.Forms.DataGridViewButtonColumn();
             this.panel1.SuspendLayout();
@@ -98,6 +102,8 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Gainsboro;
+            this.panel1.Controls.Add(this.label13);
+            this.panel1.Controls.Add(this.txtMarca);
             this.panel1.Controls.Add(this.lblTelefono);
             this.panel1.Controls.Add(this.lblApellido);
             this.panel1.Controls.Add(this.lblFechaEstimadaEntrega);
@@ -138,7 +144,7 @@
             this.lblTelefono.AutoSize = true;
             this.lblTelefono.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTelefono.ForeColor = System.Drawing.Color.Black;
-            this.lblTelefono.Location = new System.Drawing.Point(412, 121);
+            this.lblTelefono.Location = new System.Drawing.Point(412, 64);
             this.lblTelefono.Name = "lblTelefono";
             this.lblTelefono.Size = new System.Drawing.Size(17, 17);
             this.lblTelefono.TabIndex = 204;
@@ -199,7 +205,7 @@
             this.lblidCliente.AutoSize = true;
             this.lblidCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblidCliente.ForeColor = System.Drawing.Color.Black;
-            this.lblidCliente.Location = new System.Drawing.Point(322, 121);
+            this.lblidCliente.Location = new System.Drawing.Point(322, 64);
             this.lblidCliente.Name = "lblidCliente";
             this.lblidCliente.Size = new System.Drawing.Size(17, 17);
             this.lblidCliente.TabIndex = 198;
@@ -365,7 +371,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(13, 164);
+            this.label4.Location = new System.Drawing.Point(249, 101);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(63, 17);
             this.label4.TabIndex = 182;
@@ -392,7 +398,7 @@
             // 
             // txtCodigo
             // 
-            this.txtCodigo.Location = new System.Drawing.Point(16, 184);
+            this.txtCodigo.Location = new System.Drawing.Point(249, 121);
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.Size = new System.Drawing.Size(220, 20);
             this.txtCodigo.TabIndex = 3;
@@ -454,6 +460,7 @@
             this.Cliente,
             this.RazonSocial,
             this.Domicilio,
+            this.Marca,
             this.Telefono,
             this.Ver});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -539,7 +546,7 @@
             this.panelVer.Controls.Add(this.dgvHistorialTaller);
             this.panelVer.Controls.Add(this.label18);
             this.panelVer.Controls.Add(this.btnNuevoHistorial);
-            this.panelVer.Location = new System.Drawing.Point(589, 68);
+            this.panelVer.Location = new System.Drawing.Point(586, 75);
             this.panelVer.Name = "panelVer";
             this.panelVer.Size = new System.Drawing.Size(478, 481);
             this.panelVer.TabIndex = 199;
@@ -690,6 +697,38 @@
             this.btnNuevoHistorial.UseVisualStyleBackColor = false;
             this.btnNuevoHistorial.Click += new System.EventHandler(this.btnNuevoHistorial_Click);
             // 
+            // chcReparacionCerradas
+            // 
+            this.chcReparacionCerradas.AutoSize = true;
+            this.chcReparacionCerradas.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chcReparacionCerradas.ForeColor = System.Drawing.Color.Black;
+            this.chcReparacionCerradas.Location = new System.Drawing.Point(373, 530);
+            this.chcReparacionCerradas.Name = "chcReparacionCerradas";
+            this.chcReparacionCerradas.Size = new System.Drawing.Size(190, 21);
+            this.chcReparacionCerradas.TabIndex = 200;
+            this.chcReparacionCerradas.Text = "Reparaciones Finalizadas";
+            this.chcReparacionCerradas.UseVisualStyleBackColor = true;
+            this.chcReparacionCerradas.CheckedChanged += new System.EventHandler(this.chcReparacionCerradas_CheckedChanged);
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.ForeColor = System.Drawing.Color.Black;
+            this.label13.Location = new System.Drawing.Point(13, 164);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(57, 17);
+            this.label13.TabIndex = 206;
+            this.label13.Text = "Marca:";
+            // 
+            // txtMarca
+            // 
+            this.txtMarca.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.txtMarca.Location = new System.Drawing.Point(16, 184);
+            this.txtMarca.Name = "txtMarca";
+            this.txtMarca.Size = new System.Drawing.Size(220, 20);
+            this.txtMarca.TabIndex = 205;
+            // 
             // idProducto
             // 
             this.idProducto.HeaderText = "Id";
@@ -711,16 +750,24 @@
             // 
             // Domicilio
             // 
-            this.Domicilio.HeaderText = "Codigo";
+            this.Domicilio.HeaderText = "Código";
             this.Domicilio.MinimumWidth = 6;
             this.Domicilio.Name = "Domicilio";
+            this.Domicilio.Visible = false;
             this.Domicilio.Width = 70;
+            // 
+            // Marca
+            // 
+            this.Marca.HeaderText = "Marca";
+            this.Marca.Name = "Marca";
+            this.Marca.Width = 80;
             // 
             // Telefono
             // 
             this.Telefono.HeaderText = "Modelo";
             this.Telefono.MinimumWidth = 6;
             this.Telefono.Name = "Telefono";
+            this.Telefono.Width = 80;
             // 
             // Ver
             // 
@@ -734,6 +781,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1040, 564);
+            this.Controls.Add(this.chcReparacionCerradas);
             this.Controls.Add(this.panelVer);
             this.Controls.Add(this.dgvReparaciones);
             this.Controls.Add(this.label5);
@@ -806,10 +854,14 @@
         private System.Windows.Forms.Label lblApellido;
         private System.Windows.Forms.Label lblTelefono;
         private System.Windows.Forms.Button btnImprimir;
+        private System.Windows.Forms.CheckBox chcReparacionCerradas;
+        private System.Windows.Forms.Label label13;
+        public System.Windows.Forms.TextBox txtMarca;
         private System.Windows.Forms.DataGridViewTextBoxColumn idProducto;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cliente;
         private System.Windows.Forms.DataGridViewTextBoxColumn RazonSocial;
         private System.Windows.Forms.DataGridViewTextBoxColumn Domicilio;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Marca;
         private System.Windows.Forms.DataGridViewTextBoxColumn Telefono;
         private System.Windows.Forms.DataGridViewButtonColumn Ver;
     }

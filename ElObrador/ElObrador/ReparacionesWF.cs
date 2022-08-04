@@ -103,7 +103,7 @@ namespace ElObrador
 
                 string folderPath = "C:\\Obrador-Archivos\\PDFs\\Nro.Reparacion\\";
                 //string folderPath = "C:\\Users\\Leo - Romi\\Desktop\\Obrador";
-                
+
                 if (!Directory.Exists(folderPath))
                 {
                     Directory.CreateDirectory(folderPath);
@@ -244,6 +244,7 @@ namespace ElObrador
         string DiasHorariosLaborales = "";
         string Texto = "";
         string TextoLineaDos = "";
+        string DiagnosticoInicial = "";
         string TextoLey = "";
         string PiePagina = "";
         ArrayList arlColumnas = new ArrayList();
@@ -317,16 +318,25 @@ namespace ElObrador
                 { txSeña = txtSeña.Text; }
                 string txFechaEstimada = dtFechaEstimadaEntrega.Value.ToShortDateString();
 
-                Texto = "Cliente: '" + txtApellido + "'; Teléfono: '" + txtTelefono + "'; Referencia: '" + txtNroReferencia + "';" + "Seña: '" + txSeña + "';" + "Fecha Estimada de Entrega: '" + txFechaEstimada + "'";
+                Texto = "Cliente: '" + txtApellido + "'; Teléfono: '" + txtTelefono + "'; Código de Reparación: '" + txtNroReferencia + "';" + "Seña: '" + txSeña + "';" + "Fecha Estimada de Entrega: '" + txFechaEstimada + "'";
 
+                // Diagnostico Inicial     
+                //var sb = new System.Drawing.Font("Tahoma", 12, FontStyle.Bold);
+                //string texto = "Diagnóstico Inicial:";
+                Label _label = new Label();
+               
+                _label.Text = "Diagnóstico Inicial: ";
+                _label.Font = new System.Drawing.Font("Tahoma", 25, FontStyle.Bold);
 
+                DiagnosticoInicial = _label.Text + " " + txtDiagnostico.Text;
 
                 // Texto Ley
                 TextoLey = "IMPORTANTE " + Environment.NewLine + " 1) Sera requisito indispensable presentar este comprobante para retirar el equipo. " + Environment.NewLine + " 2) Si pasados los 90 días de terminado el arreglo, el material no es retirado, quedara en propiedad de este service, entendiendose que el titular renuncia al mismo de acuerdo a los Art.872/3 del Código Civil. " + Environment.NewLine + " 3) Los tiempos de reparación estarán sujetos a disponibilidad y/o stock de los repuestos. " + Environment.NewLine + " 4) Las reparaciones gozarán de 90 días de garantía sobre el arreglo específico. " + Environment.NewLine + " 5) Los equipos dejado a presupuestar que no tengan una confirmación dentro de los 60 días una vez cotizado el trabajo, quedarán a disposición del El obrador, perdiendo el propietario todo derecho a reclamo alguno.";
 
-                // columnas
+                // columnas                
+                arlColumnas.Add(new ReporteColumna("Equipo", 30, true, Element.ALIGN_CENTER, Element.ALIGN_CENTER, "", FontFactory.TIMES_ROMAN, 8));
                 arlColumnas.Add(new ReporteColumna("Código", 20, true, Element.ALIGN_CENTER, Element.ALIGN_CENTER, "", FontFactory.TIMES_ROMAN, 8));
-                arlColumnas.Add(new ReporteColumna("Material", 30, true, Element.ALIGN_CENTER, Element.ALIGN_CENTER, "", FontFactory.TIMES_ROMAN, 8));
+                arlColumnas.Add(new ReporteColumna("Marca", 30, true, Element.ALIGN_CENTER, Element.ALIGN_CENTER, "", FontFactory.TIMES_ROMAN, 8));
                 arlColumnas.Add(new ReporteColumna("Modelo", 30, true, Element.ALIGN_CENTER, Element.ALIGN_CENTER, "", FontFactory.TIMES_ROMAN, 8));
 
 
@@ -334,20 +344,21 @@ namespace ElObrador
                 PiePagina = "";
 
                 // instanciar reporte
-                OrdenDeTrabajoReparaciones udtReporte = new OrdenDeTrabajoReparaciones(ArchivoLogotipo);
+                OrdenDeTrabajoReparaciones udtReporte = new OrdenDeTrabajoReparaciones(ArchivoLogotipo, ArchivoLogotipoCupon);
 
                 //
                 // Se define la estructura del DataTable
                 //
                 DataTable dt = new DataTable();
 
-                dt.Columns.Add("Código");
-                dt.Columns.Add("Material");
+                dt.Columns.Add("Código del Equipo");
+                dt.Columns.Add("Equipo");
+                dt.Columns.Add("Marca");
                 dt.Columns.Add("Modelo");
 
 
-                dt.Rows.Add("Código", "Material", "Modelo");
-                dt.Rows.Add(_taller.Codigo, _taller.Material, _taller.Modelo);
+                dt.Rows.Add("Equipo", "Código del Equipo", "Marca", "Modelo");
+                dt.Rows.Add(_taller.Material, _taller.Codigo, _taller.Marca, _taller.Modelo);
 
                 //foreach (var item in _taller)
                 //{
@@ -356,9 +367,11 @@ namespace ElObrador
 
                 //string Prueba = "Hola Mundo";
                 // crear reporte
+
+                string LineaDePuntos = "------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------";
                 try
                 {
-                    udtReporte.Generar(ArchivoNombre, PapelTamanio, Encabezado, Subencabezado, DiasHorariosLaborales, Texto, TextoLey, PiePagina, arlColumnas, dt);
+                    udtReporte.Generar(ArchivoNombre, PapelTamanio, Encabezado, Subencabezado, DiasHorariosLaborales, Texto, DiagnosticoInicial, TextoLey, LineaDePuntos, PiePagina, arlColumnas, dt);
                 }
                 catch (Exception ex)
                 {
@@ -459,6 +472,7 @@ namespace ElObrador
             }
             _taller.Material = txtDescripcionProducto.Text;
             _taller.Codigo = txtCodigo.Text;
+            _taller.Marca = txtMarca.Text;
             _taller.Modelo = txtModelo.Text;
             _taller.TipoServicio = cmbTipoServicio.Text;
             _taller.Fecha = dtFecha.Value;
@@ -617,7 +631,7 @@ namespace ElObrador
             {
                 foreach (var item in ListaReparaciones)
                 {
-                    dgvReparaciones.Rows.Add(item.idReparaciones, item.Cliente, item.Material, item.Codigo, item.Modelo);
+                    dgvReparaciones.Rows.Add(item.idReparaciones, item.Cliente, item.Material, item.Codigo, item.Marca, item.Modelo);
                 }
             }
             dgvReparaciones.ReadOnly = true;
@@ -634,7 +648,7 @@ namespace ElObrador
         public static int idHistorialReparacionSeleccionado = 0;
         private void dgvReparaciones_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (dgvReparaciones.CurrentCell.ColumnIndex == 5)
+            if (dgvReparaciones.CurrentCell.ColumnIndex == 6)
             {
                 dgvHistorialTaller.Rows.Clear();
                 idReparacionSeleccionado = Convert.ToInt32(this.dgvReparaciones.CurrentRow.Cells[0].Value.ToString());
@@ -739,7 +753,7 @@ namespace ElObrador
             {
                 foreach (var item in ListaTaller)
                 {
-                    dgvReparaciones.Rows.Add(item.idReparaciones, item.Cliente, item.Material, item.Codigo, item.Modelo);
+                    dgvReparaciones.Rows.Add(item.idReparaciones, item.Cliente, item.Material, item.Codigo, item.Marca, item.Modelo);
                 }
             }
             dgvReparaciones.ReadOnly = true;
@@ -763,6 +777,41 @@ namespace ElObrador
         private void dgvReparaciones_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void chcReparacionCerradas_CheckedChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (chcReparacionCerradas.Checked == true)
+                {
+                    FuncionListarReparacionesFinalizadas();
+                    txtDescipcionBus.Focus();
+                    FuncionBuscartexto();
+                }
+                else
+                {
+                    txtDescipcionBus.Focus();
+                    FuncionListarReparaciones();
+                    FuncionBuscartexto();
+                }
+            }
+            catch (Exception ex)
+            { }
+        }
+
+        private void FuncionListarReparacionesFinalizadas()
+        {
+            dgvReparaciones.Rows.Clear();
+            List<Reparaciones> ListaReparaciones = ReparacionesNeg.ListaDeReparacionesFinalizadas();
+            if (ListaReparaciones.Count > 0)
+            {
+                foreach (var item in ListaReparaciones)
+                {
+                    dgvReparaciones.Rows.Add(item.idReparaciones, item.Cliente, item.Material, item.Codigo, item.Marca, item.Modelo);
+                }
+            }
+            dgvReparaciones.ReadOnly = true;
         }
     }
 }

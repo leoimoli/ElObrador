@@ -39,12 +39,16 @@ namespace ElObrador.utilidades
 
         private string m_Encabezado;
         private string m_Subencabezado;
+        private string m_CodigoImpreso;
         private string m_DiasHorariosLaborales;
         private string m_TextoAlquiler;
+        private string m_DiagnosticoInicial;
         private string m_TextoLey;
+        private string m_LineaDePuntos;
         private string m_PiePagina;
         private ArrayList m_EncabezadoColumnas;
         private readonly string m_Logo;
+        private readonly string m_Logo2;
         private bool m_Detalle;
         private bool m_Activo;
         //
@@ -67,7 +71,7 @@ namespace ElObrador.utilidades
         /// <param name="encabezadocolumnas">Arreglo de columnas que contiene el reporte</param>
         /// <param name="logoNombre">Ruta y nombre del Logotipo</param>
         /// <param name="blnDetalle">true = Para mostrar lo títulos de las columnas, false = Para no mostrar los títulos de la columnas</param>
-        public ReportePaginaOrdenTrabajo(string encabezado, string subencabezado, string DiasHorariosLaborales, string TextoAlquiler, string TextoLey, string piePagina, ArrayList encabezadocolumnas, string logotipo, bool blnDetalle)
+        public ReportePaginaOrdenTrabajo(string encabezado, string subencabezado, string DiasHorariosLaborales, string TextoAlquiler, string DiagnosticoInicial, string TextoLey, string LineaDePuntos, string piePagina, ArrayList encabezadocolumnas, string logotipo, string logotipo2, bool blnDetalle)
         {
             try
             {
@@ -76,11 +80,13 @@ namespace ElObrador.utilidades
                 m_Subencabezado = subencabezado;
                 m_DiasHorariosLaborales = DiasHorariosLaborales;
                 m_TextoAlquiler = TextoAlquiler;
+                m_DiagnosticoInicial = DiagnosticoInicial;
                 m_TextoLey = TextoLey;
-                //m_Prueba = Prueba;
+                m_LineaDePuntos = LineaDePuntos;
                 m_PiePagina = piePagina;
                 m_EncabezadoColumnas = encabezadocolumnas;
                 m_Logo = logotipo;
+                m_Logo2 = logotipo2;
                 m_Detalle = blnDetalle;
                 m_Activo = true;
             }
@@ -150,10 +156,22 @@ namespace ElObrador.utilidades
             set { m_TextoAlquiler = value; }
         }
 
+        public string DiagnosticoInicial
+        {
+            get { return m_DiagnosticoInicial; }
+            set { m_DiagnosticoInicial = value; }
+        }
+
         public string TextoLey
         {
             get { return m_TextoLey; }
             set { m_TextoLey = value; }
+        }
+
+        public string LineaDePuntos
+        {
+            get { return m_LineaDePuntos; }
+            set { m_LineaDePuntos = value; }
         }
         //public string Prueba
         //{
@@ -220,23 +238,29 @@ namespace ElObrador.utilidades
         public override void OnEndPage(PdfWriter writer, Document document)
         {
             PdfPTable tblEncabezado = new PdfPTable(2);
+            PdfPTable tblEncabezado2 = new PdfPTable(2);
             PdfPTable tblSubencabezado = new PdfPTable(1);
+            PdfPTable tblCodigoImpreso = new PdfPTable(1);
             PdfPTable tblDiasHorariosLaborales = new PdfPTable(1);
             PdfPTable tblTextoAlquiler = new PdfPTable(1);
             PdfPTable tblTextoAlquiler2 = new PdfPTable(1);
             PdfPTable tblTextoAlquiler3 = new PdfPTable(1);
             PdfPTable tblTextoAlquiler4 = new PdfPTable(1);
             PdfPTable tblTextoAlquiler5 = new PdfPTable(1);
+            PdfPTable tblDiagnosticoInicial = new PdfPTable(1);
             PdfPTable tblTextoLey = new PdfPTable(1);
+            PdfPTable tblLineaDePuntos = new PdfPTable(1);
             //PdfPTable tblPrueba = new PdfPTable(2);
             PdfPTable tblEncabezadoColumnas = new PdfPTable((m_EncabezadoColumnas.Count == 0) ? 1 : m_EncabezadoColumnas.Count);
             PdfPTable tblLogotipo = new PdfPTable(1);
+            PdfPTable tblLogotipo2 = new PdfPTable(1);
             PdfPTable tblPiePagina = new PdfPTable(3);
             int[] iTamanio = new int[m_EncabezadoColumnas.Count];
             ReporteColumna udtCIDCuerpo;
             //
             PdfPCell cellTmp;
             Image imgLogo;
+            Image imgLogo2;
             Phrase fraseTmp;
             //
             Font fEncabezado;
@@ -244,6 +268,7 @@ namespace ElObrador.utilidades
             Font fDiasHorariosLaborales;
             Font fTextoAlquiler;
             Font fTextoLey;
+            Font fDiagnosticoInicial;
             //Font fPrueba;
             Font fPiePagina;
             Font fEncabezadoColumnas;
@@ -260,8 +285,10 @@ namespace ElObrador.utilidades
                 {
                     // definir encabezado, subencabezado, logotipo y pie de página
                     tblEncabezado.WidthPercentage = 100;
+                    tblEncabezado2.WidthPercentage = 100;
 
                     tblSubencabezado.WidthPercentage = 100;
+                    tblCodigoImpreso.WidthPercentage = 100;
                     //tblSubencabezado.DefaultCell.BorderWidthTop = 50;
                     //tblSubencabezado.DefaultCell.BorderColorTop = Color.BLACK;
                     tblDiasHorariosLaborales.WidthPercentage = 100;
@@ -270,7 +297,9 @@ namespace ElObrador.utilidades
                     tblTextoAlquiler3.WidthPercentage = 33;
                     tblTextoAlquiler4.WidthPercentage = 33;
                     tblTextoAlquiler5.WidthPercentage = 33;
+                    tblDiagnosticoInicial.WidthPercentage = 100;
                     tblTextoLey.WidthPercentage = 100;
+                    tblLineaDePuntos.WidthPercentage = 100;
                     //tblPrueba.WidthPercentage = 100;
                     tblEncabezadoColumnas.WidthPercentage = 100;
                     tblLogotipo.WidthPercentage = 100;
@@ -279,15 +308,19 @@ namespace ElObrador.utilidades
 
                     // columnas encabezado, subencabezado, logotipo y pie de página
                     tblEncabezado.SetWidths(new int[] { 20, 80 });
+                    tblEncabezado2.SetWidths(new int[] { 20, 80 });
 
                     tblSubencabezado.SetWidths(new int[] { 100 });
+                    tblCodigoImpreso.SetWidths(new int[] { 100 });
                     tblDiasHorariosLaborales.SetWidths(new int[] { 100 });
                     tblTextoAlquiler.SetWidths(new int[] { 50 });
                     tblTextoAlquiler2.SetWidths(new int[] { 50 });
                     tblTextoAlquiler3.SetWidths(new int[] { 33 });
                     tblTextoAlquiler4.SetWidths(new int[] { 33 });
                     tblTextoAlquiler5.SetWidths(new int[] { 33 });
+                    tblDiagnosticoInicial.SetWidths(new int[] { 100 });
                     tblTextoLey.SetWidths(new int[] { 100 });
+                    tblLineaDePuntos.SetWidths(new int[] { 100 });
                     tblLogotipo.SetWidths(new int[] { 100 });
                     tblPiePagina.SetWidths(new int[] { 7, 15, 10 });
 
@@ -300,6 +333,8 @@ namespace ElObrador.utilidades
                     fDiasHorariosLaborales = FontFactory.GetFont(FontFactory.TIMES_ROMAN, 7, Font.NORMAL);
                     fTextoAlquiler = new Font();
                     fTextoAlquiler = FontFactory.GetFont(FontFactory.TIMES_ROMAN, 10, Font.NORMAL);
+                    fDiagnosticoInicial = new Font();
+                    fDiagnosticoInicial = FontFactory.GetFont(FontFactory.TIMES_ROMAN, 8, Font.NORMAL);
                     fTextoLey = new Font();
                     fTextoLey = FontFactory.GetFont(FontFactory.TIMES_ROMAN, 8, Font.NORMAL);
                     fTamanio2 = new Font();
@@ -309,9 +344,11 @@ namespace ElObrador.utilidades
 
                     // cargar logotipo
                     imgLogo = Image.GetInstance(m_Logo);
+                    imgLogo2 = Image.GetInstance(m_Logo2);
 
                     // aplicar escala a logotipo
                     imgLogo.ScalePercent(Comun.AppLogoEscala);
+                    imgLogo2.ScalePercent(Comun.AppLogoEscala);
 
                     // adicionar logotipo
                     cellTmp = new PdfPCell(imgLogo)
@@ -321,6 +358,15 @@ namespace ElObrador.utilidades
                         VerticalAlignment = Element.ALIGN_MIDDLE
                     };
                     tblLogotipo.AddCell(cellTmp);
+
+                    // adicionar logotipo
+                    cellTmp = new PdfPCell(imgLogo2)
+                    {
+                        Border = (int)CeldaBorde.ninguno,
+                        HorizontalAlignment = Element.ALIGN_LEFT,
+                        VerticalAlignment = Element.ALIGN_MIDDLE
+                    };
+                    tblLogotipo2.AddCell(cellTmp);
 
                     // adicionar encabezado
                     cellTmp = new PdfPCell(new Phrase(m_Encabezado, fEncabezado))
@@ -384,17 +430,15 @@ namespace ElObrador.utilidades
                     string Seña = DatoInicial.Split(';')[3];
                     string FechaEstimada = DatoInicial.Split(';')[4];
 
-                    //string Telefono = SegundaCadena.Split(';')[0];
-                    //string TerceraCadena = SegundaCadena.Split(';')[1];
+                    var tele = Telefono.Split(':')[1].Trim();
+                   
 
-                    //string Referencia = TerceraCadena.Split(';')[0];
-                    //string CuartaCadena = TerceraCadena.Split(';')[1];
-
-                    //string Seña = CuartaCadena.Split(';')[0];
-                    //string QuintaCadena = Seña.Split(';')[1];
-
-                    //string FechaEstimada = QuintaCadena.Split(';')[0];
-                    //string SextaCadena = FechaEstimada.Split(';')[1];                 
+                    if(tele != "'-'")
+                    { m_CodigoImpreso = Referencia + Environment.NewLine + Persona + Environment.NewLine + Telefono; }
+                    else
+                    {
+                        m_CodigoImpreso = Referencia + Environment.NewLine + Persona;
+                    }
 
 
                     // verificar
@@ -457,6 +501,31 @@ namespace ElObrador.utilidades
                         HorizontalAlignment = Element.ALIGN_LEFT
                     };
                     tblTextoAlquiler.AddCell(cellTmp);
+
+                    // verificar
+                    if (m_DiagnosticoInicial.Length > 0)
+                    {
+                        // adicionar DiagnosticoInicial
+                        cellTmp = new PdfPCell(new Phrase(m_DiagnosticoInicial, fDiagnosticoInicial))
+                        {
+                            Border = (int)CeldaBorde.arriba,
+                            BorderColor = new Color(System.Drawing.Color.LightGray),
+                            BorderWidthTop = 1,
+                            HorizontalAlignment = Element.ALIGN_LEFT,
+                            VerticalAlignment = Element.ALIGN_BOTTOM
+                        };
+                        tblDiagnosticoInicial.AddCell(cellTmp);
+                    }
+
+                    // linea en blanco
+                    cellTmp = new PdfPCell(new Phrase(" ", fDiagnosticoInicial))
+                    {
+                        Border = (int)CeldaBorde.ninguno,
+                        Colspan = 2,
+                        HorizontalAlignment = Element.ALIGN_LEFT
+                    };
+                    tblDiagnosticoInicial.AddCell(cellTmp);
+
                     // verificar
                     if (m_TextoLey.Length > 0)
                     {
@@ -480,6 +549,55 @@ namespace ElObrador.utilidades
                     };
                     tblTextoLey.AddCell(cellTmp);
 
+                    // verificar
+                    if (m_LineaDePuntos.Length > 0)
+                    {
+                        // adicionar textoLey
+                        cellTmp = new PdfPCell(new Phrase(m_LineaDePuntos, fTextoLey))
+                        {
+                            Border = (int)CeldaBorde.ninguno,
+                            BorderWidthTop = 0,
+                            HorizontalAlignment = Element.ALIGN_LEFT,
+                            VerticalAlignment = Element.ALIGN_BOTTOM
+                        };
+                        tblLineaDePuntos.AddCell(cellTmp);
+                    }
+
+                    // linea en blanco
+                    cellTmp = new PdfPCell(new Phrase(" ", fTextoLey))
+                    {
+                        Border = (int)CeldaBorde.ninguno,
+                        Colspan = 2,
+                        HorizontalAlignment = Element.ALIGN_LEFT
+                    };
+                    tblTextoLey.AddCell(cellTmp);
+
+
+                    ///////////////////////////////////// verificar Segunda Parte del reporte
+
+                    if (m_CodigoImpreso.Length > 0)
+                    {
+                        // adicionar subencabezado
+                        cellTmp = new PdfPCell(new Phrase(m_CodigoImpreso, fSubEncabezado))
+                        {
+                            Border = (int)CeldaBorde.ninguno,
+                            HorizontalAlignment = Element.ALIGN_LEFT,
+                            PaddingTop = 20,
+                            PaddingLeft = -40,
+                            VerticalAlignment = Element.ALIGN_CENTER
+                        };
+                        tblCodigoImpreso.AddCell(cellTmp);
+                    }
+
+                    // linea en blanco
+                    cellTmp = new PdfPCell(new Phrase(" ", fSubEncabezado))
+                    {
+                        Border = (int)CeldaBorde.ninguno,
+                        Colspan = 2,
+                        HorizontalAlignment = Element.ALIGN_LEFT
+                    };
+                    tblCodigoImpreso.AddCell(cellTmp);
+
 
                     cellTmp = new PdfPCell(tblLogotipo)
                     {
@@ -497,6 +615,26 @@ namespace ElObrador.utilidades
                         VerticalAlignment = Element.ALIGN_TOP
                     };
                     tblEncabezado.AddCell(cellTmp);
+
+
+                    /////// Agregar Segunda imagen
+                    cellTmp = new PdfPCell(tblLogotipo2)
+                    {
+                        Border = (int)CeldaBorde.ninguno,
+                        HorizontalAlignment = Element.ALIGN_CENTER,
+                        VerticalAlignment = Element.ALIGN_TOP
+                    };
+                    tblEncabezado2.AddCell(cellTmp);
+
+                    /////// adicionar encabezado DOS
+                    cellTmp = new PdfPCell(tblCodigoImpreso)
+                    {
+                        Border = (int)CeldaBorde.ninguno,
+                        HorizontalAlignment = Element.ALIGN_CENTER,
+                        VerticalAlignment = Element.ALIGN_TOP
+                    };
+                    tblEncabezado2.AddCell(cellTmp);
+
 
                     // verificar
                     if (m_Detalle)
@@ -621,7 +759,7 @@ namespace ElObrador.utilidades
                     // establecer Dias Laborales
                     recTmp = document.PageSize;
                     tblDiasHorariosLaborales.TotalWidth = recTmp.Width - document.LeftMargin - document.RightMargin;
-                    tblDiasHorariosLaborales.WriteSelectedRows(0, -1, document.LeftMargin, recTmp.Height - document.TopMargin + tblDiasHorariosLaborales.TotalHeight -5, writer.DirectContent);
+                    tblDiasHorariosLaborales.WriteSelectedRows(0, -1, document.LeftMargin, recTmp.Height - document.TopMargin + tblDiasHorariosLaborales.TotalHeight - 5, writer.DirectContent);
 
                     //// establecer Texto
                     recTmp = document.PageSize;
@@ -649,10 +787,30 @@ namespace ElObrador.utilidades
                     tblTextoAlquiler5.TotalWidth = recTmp.Width - document.LeftMargin - document.RightMargin;
                     tblTextoAlquiler5.WriteSelectedRows(0, -1, document.Left + tblTextoAlquiler4.TotalWidth - 180, document.Top - 20, writer.DirectContent);
 
+
+                    //// establecer Diagnostico Inicial
+                    recTmp = document.PageSize;
+                    tblDiagnosticoInicial.TotalWidth = recTmp.Width - document.LeftMargin - document.RightMargin;
+                    tblDiagnosticoInicial.WriteSelectedRows(0, -1, document.LeftMargin, document.BottomMargin + 550, writer.DirectContent);
+
+
                     //// establecer TextoLey
                     recTmp = document.PageSize;
                     tblTextoLey.TotalWidth = recTmp.Width - document.LeftMargin - document.RightMargin;
-                    tblTextoLey.WriteSelectedRows(0, -1, document.LeftMargin, document.BottomMargin + 90, writer.DirectContent);
+                    tblTextoLey.WriteSelectedRows(0, -1, document.LeftMargin, document.BottomMargin + 400, writer.DirectContent);
+
+
+                    //// establecer LineaDePuntos
+                    recTmp = document.PageSize;
+                    tblLineaDePuntos.TotalWidth = recTmp.Width - document.LeftMargin - document.RightMargin;
+                    tblLineaDePuntos.WriteSelectedRows(0, -1, document.LeftMargin, document.BottomMargin + 280, writer.DirectContent);
+
+
+                    //// establecer CodigoImpreso
+                    recTmp = document.PageSize;
+                    tblEncabezado2.TotalWidth = recTmp.Width - document.LeftMargin - document.RightMargin;
+                    tblEncabezado2.WriteSelectedRows(0, -1, document.LeftMargin, document.BottomMargin + 230, writer.DirectContent);
+
 
                     // establecer pie de página
                     recTmp = document.PageSize;

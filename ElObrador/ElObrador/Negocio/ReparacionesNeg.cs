@@ -139,5 +139,18 @@ namespace ElObrador.Negocio
             }
             return _listaTaller;
         }
+
+        public static List<Reparaciones> ListaDeReparacionesFinalizadas()
+        {
+            List<Entidades.Reparaciones> _listaReparaciones = new List<Entidades.Reparaciones>();
+            try
+            {
+                _listaReparaciones = ReparacionesDao.ListaDeReparacionesFinalizadas();
+            }
+            catch (Exception ex)
+            {
+            }
+            return _listaReparaciones;
+        }
     }
 }

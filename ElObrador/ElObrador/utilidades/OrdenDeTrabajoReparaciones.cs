@@ -15,6 +15,7 @@ namespace ElObrador.utilidades
         #region "variables"
 
         private static string m_Logotipo;
+        private static string m_Logotipo2;
 
         #endregion
 
@@ -24,12 +25,13 @@ namespace ElObrador.utilidades
         /// Inicializa una nueva instancia de clase <see cref="Reporte"/>
         /// </summary>
         /// <param name="Logotipo">Ruta y nombre del logotipo que se muestra en el encabezado</param>
-        public OrdenDeTrabajoReparaciones(string Logotipo)
+        public OrdenDeTrabajoReparaciones(string Logotipo, string Logotipo2)
         {
             try
             {
                 // asignar valor
                 m_Logotipo = Logotipo;
+                m_Logotipo2 = Logotipo2;
             }
             catch (Exception Ex)
             {
@@ -53,7 +55,7 @@ namespace ElObrador.utilidades
         /// <param name="PiePagina">Pie de página del reporte</param>
         /// <param name="EncabezadoColumnas">Arreglo de columnas que contiene el reporte</param>
         /// <param name="dtbDatos"><see cref="DataTable"/> con la información a imprimir</param>
-        public void Generar(string ReporteNombre, Rectangle PapelTamanio, string Encabezado, string SubEncabezado, string DiasHorariosLaborales, string TextoAlquiler, string TextoLey, string PiePagina, ArrayList EncabezadoColumnas, DataTable dtbDatos)
+        public void Generar(string ReporteNombre, Rectangle PapelTamanio, string Encabezado, string SubEncabezado, string DiasHorariosLaborales, string TextoAlquiler, string DiagnosticoInicial, string TextoLey, string LineaDePuntos, string PiePagina, ArrayList EncabezadoColumnas, DataTable dtbDatos)
         {
 
             //try
@@ -137,7 +139,7 @@ namespace ElObrador.utilidades
             {
                 // asignar documento y evento
                 m_writerTmp = PdfWriter.GetInstance(docTmp, fsTmp);
-                m_peTmp = new ReportePaginaOrdenTrabajo(Encabezado, SubEncabezado, DiasHorariosLaborales, TextoAlquiler, TextoLey, PiePagina, EncabezadoColumnas, m_Logotipo, true);
+                m_peTmp = new ReportePaginaOrdenTrabajo(Encabezado, SubEncabezado, DiasHorariosLaborales, TextoAlquiler, DiagnosticoInicial, TextoLey, LineaDePuntos, PiePagina, EncabezadoColumnas, m_Logotipo, m_Logotipo2, true);
                 m_writerTmp.PageEvent = m_peTmp;
             }
             catch (Exception Ex)

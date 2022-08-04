@@ -609,6 +609,8 @@ namespace ElObrador.utilidades
                     recTmp = document.PageSize;
                     tblEncabezado.TotalWidth = recTmp.Width - document.LeftMargin - document.RightMargin;
                     tblEncabezado.WriteSelectedRows(0, -1, document.LeftMargin, recTmp.Height - document.TopMargin + tblEncabezado.TotalHeight, writer.DirectContent);
+                                                         
+
 
                     //recTmp = document.PageSize;
                     //tblSubencabezado.TotalWidth = recTmp.Width - document.LeftMargin - document.RightMargin;

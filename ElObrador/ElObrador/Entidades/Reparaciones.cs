@@ -17,6 +17,7 @@ namespace ElObrador.Entidades
         public int idUsuario { get; set; }
         public string Material { get; set; }
         public string Codigo { get; set; }
+        public string Marca { get; set; }
         public string Modelo { get; set; }
         public string Usuario { get; set; }
         public decimal CostoTotal { get; set; }
