@@ -76,6 +76,7 @@
             this.txtNuevaClave = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.picNavidad = new System.Windows.Forms.PictureBox();
             this.panel14.SuspendLayout();
             this.MenuVertical.SuspendLayout();
             this.panel11.SuspendLayout();
@@ -92,6 +93,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picNavidad)).BeginInit();
             this.SuspendLayout();
             // 
             // PanelContenedor
@@ -123,7 +125,7 @@
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(305, 17);
             this.label7.TabIndex = 6;
-            this.label7.Text = "El Obrador(Maquinas y Herramienstas) V-1.0.2";
+            this.label7.Text = "El Obrador(Maquinas y Herramienstas) V-1.0.3";
             // 
             // MenuVertical
             // 
@@ -641,6 +643,7 @@
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.SystemColors.Control;
+            this.panel5.Controls.Add(this.picNavidad);
             this.panel5.Controls.Add(this.btnModificarClave);
             this.panel5.Controls.Add(this.txtNuevaClave);
             this.panel5.Controls.Add(this.label6);
@@ -693,6 +696,15 @@
             this.pictureBox6.TabStop = false;
             this.pictureBox6.Click += new System.EventHandler(this.pictureBox6_Click);
             // 
+            // picNavidad
+            // 
+            this.picNavidad.Location = new System.Drawing.Point(447, 0);
+            this.picNavidad.Name = "picNavidad";
+            this.picNavidad.Size = new System.Drawing.Size(185, 50);
+            this.picNavidad.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picNavidad.TabIndex = 8;
+            this.picNavidad.TabStop = false;
+            // 
             // MasterInicioWF
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -730,6 +742,7 @@
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picNavidad)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -783,5 +796,6 @@
         private System.Windows.Forms.TextBox txtNuevaClave;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.PictureBox pictureBox6;
+        private System.Windows.Forms.PictureBox picNavidad;
     }
 }

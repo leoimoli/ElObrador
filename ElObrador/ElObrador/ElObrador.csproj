@@ -164,6 +164,7 @@
     <Compile Include="Entidades\ListaAlquiler.cs" />
     <Compile Include="Entidades\ListaAlquilerEstadistica.cs" />
     <Compile Include="Entidades\MenuPorPerfilUsuario.cs" />
+    <Compile Include="Entidades\MontoAlquiler.cs" />
     <Compile Include="Entidades\Proveedores.cs" />
     <Compile Include="Entidades\Reparaciones.cs" />
     <Compile Include="Entidades\Stock.cs" />
@@ -267,6 +268,12 @@
     </Compile>
     <Compile Include="ProveedoresWF.Designer.cs">
       <DependentUpon>ProveedoresWF.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReAperturaAlquilerWF.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReAperturaAlquilerWF.Designer.cs">
+      <DependentUpon>ReAperturaAlquilerWF.cs</DependentUpon>
     </Compile>
     <Compile Include="RecargoWF.cs">
       <SubType>Form</SubType>
@@ -393,6 +400,9 @@
     </Compile>
     <EmbeddedResource Include="ProveedoresWF.resx">
       <DependentUpon>ProveedoresWF.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReAperturaAlquilerWF.resx">
+      <DependentUpon>ReAperturaAlquilerWF.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RecargoWF.resx">
       <DependentUpon>RecargoWF.cs</DependentUpon>

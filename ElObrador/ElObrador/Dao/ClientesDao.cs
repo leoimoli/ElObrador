@@ -263,6 +263,66 @@ namespace ElObrador.Dao
             connection.Close();
             return exito;
         }
+
+        public static List<Clientes> ListaDeClientesPorApellidoNombre(string dni)
+        {
+            string var = dni.ToString();
+            var Apellido = var.Split(',')[0];
+            var Nombre = var.Split(',')[1];
+
+            connection.Close();
+            connection.Open();
+            List<Entidades.Clientes> _listaClientes = new List<Entidades.Clientes>();
+            MySqlCommand cmd = new MySqlCommand();
+            cmd.Connection = connection;
+            DataTable Tabla = new DataTable();
+            MySqlParameter[] oParam = { new MySqlParameter("Apellido_in", Apellido),
+            new MySqlParameter("Nombre_in", Nombre)};
+            string proceso = "ListaDeClientesPorApellidoNombre";
+            MySqlDataAdapter dt = new MySqlDataAdapter(proceso, connection);
+            dt.SelectCommand.CommandType = CommandType.StoredProcedure;
+            dt.SelectCommand.Parameters.AddRange(oParam);
+            dt.Fill(Tabla);
+            if (Tabla.Rows.Count > 0)
+            {
+                foreach (DataRow item in Tabla.Rows)
+                {
+                    Entidades.Clientes listaCliente = new Entidades.Clientes();
+                    listaCliente.IdCliente = Convert.ToInt32(item["idClientes"].ToString());
+                    listaCliente.Apellido = item["Apellido"].ToString();
+                    listaCliente.Nombre = item["Nombre"].ToString();
+                    listaCliente.Dni = item["Dni"].ToString();
+                    listaCliente.FechaDeAlta = Convert.ToDateTime(item["FechaDeAlta"].ToString());
+                    listaCliente.Email = item["Email"].ToString();
+                    listaCliente.Telefono = item["Telefono"].ToString();
+                    listaCliente.Calle = item["Calle"].ToString();
+                    listaCliente.Altura = item["Altura"].ToString();
+                    listaCliente.NombreProvincia = item["Provincia"].ToString();
+                    listaCliente.NombreLocalidad = item["Localidad"].ToString();
+                    listaCliente.chcDni = Convert.ToInt32(item["chcDNI"].ToString());
+                    listaCliente.chcFacturas = Convert.ToInt32(item["chcFacturas"].ToString());
+                    listaCliente.chcPersonaJuridica = Convert.ToInt32(item["chcPersonaJuridica"].ToString());
+                    listaCliente.chcAutorizacion = Convert.ToInt32(item["chcAutorizacion"].ToString());
+                    listaCliente.TipoCliente = Convert.ToInt32(item["TipoCliente"].ToString());
+                    if (listaCliente.TipoCliente == 1)
+                    {
+                        if (listaCliente.chcDni == 1 && listaCliente.chcFacturas == 1)
+                        { listaCliente.DocumentacionCompleta = 1; }
+                        else { listaCliente.DocumentacionCompleta = 0; }
+                    }
+                    if (listaCliente.TipoCliente == 2)
+                    {
+                        if (listaCliente.chcDni == 1 && listaCliente.chcFacturas == 1 && listaCliente.chcPersonaJuridica == 1 && listaCliente.chcAutorizacion == 1)
+                        { listaCliente.DocumentacionCompleta = 1; }
+                        else { listaCliente.DocumentacionCompleta = 0; }
+                    }
+                    _listaClientes.Add(listaCliente);
+                }
+            }
+            connection.Close();
+            return _listaClientes;
+        }
+
         public static List<Entidades.Clientes> ListarClientes()
         {
             connection.Close();

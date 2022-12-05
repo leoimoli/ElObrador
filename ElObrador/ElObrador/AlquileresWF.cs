@@ -394,8 +394,6 @@ namespace ElObrador
 
         private void GenerarReporte(int idAlquiler, List<Alquiler> listaAlquiler)
         {
-
-
             string TablaImnprimir = "Nro.Alquiler '" + idAlquiler + "'";
             try
             {

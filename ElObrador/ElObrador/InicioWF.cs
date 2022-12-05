@@ -146,6 +146,17 @@ namespace ElObrador
             int month = Convert.ToInt32(Month);
             int year = Convert.ToInt32(Year);
             lblDia.Text = Dia + "," + " " + FechaDia + " " + "de" + " " + Mes + " " + Year;
+            /////  Achico font del dia, dependiendo el mes
+            if (Mes == "Diciembre" || Mes == "Noviembre" || Mes == "Septiembre")
+            {
+                Font fuente = new Font(label1.Font.FontFamily, 16);
+                lblDia.Font = fuente;
+            }
+            else
+            {
+                Font fuente = new Font(label1.Font.FontFamily, 18);
+                lblDia.Font = fuente;
+            }
 
             ///// Completo Grilla con informacion
             BuscarAlquileresVigentes();
@@ -304,6 +315,7 @@ namespace ElObrador
         {
             if (dgvAlquiler.CurrentCell.ColumnIndex == 6)
             {
+
                 int idAlquiler = 0;
                 int idMaterial = 0;
                 string ApellidoNombre = "";
@@ -332,43 +344,111 @@ namespace ElObrador
                     InformeAlquilerWF _informe = new InformeAlquilerWF(_Alquiler, material, MontoAlquiler, ApellidoNombre, Domicilio, ProvLoc, Email, Telefono);
                     _informe.Show();
                 }
-
             }
 
             if (dgvAlquiler.CurrentCell.ColumnIndex == 7)
             {
-
-                int DiasAtraso = 0;
-                int idAlquiler = 0;
-                int idMaterial = 0;
-                string material = this.dgvAlquiler.CurrentRow.Cells[2].Value.ToString();
-
-                DateTime FechaDevolucion = Convert.ToDateTime(this.dgvAlquiler.CurrentRow.Cells[5].Value.ToString());
-                ////// Si la devolución esta fuera de fecha
-                if (FechaDevolucion < DateTime.Now)
+                ///// VALIDO SI ES UN ALQUILER PENDIENTE O UN ALQUILER YA CERRADO................
+                if (CheckTipoAlquiler == 0)
                 {
-                    const string message = "Atención: El alquiler seleccionado esta por fuera de la fecha de devolución pautada. ¿Desea cobrar un recargo?";
-                    const string caption = "Consulta";
-                    var result = MessageBox.Show(message, caption,
-                                                 MessageBoxButtons.YesNoCancel,
-                                                 MessageBoxIcon.Question);
+                    int idCliente = 0;
+                    int idAlquiler = 0;
+                    string DNI = "";
+                    string ApellidoNombre = "";
+                    string Domicilio = "";
+                    string ProvLoc = "";
+                    string Telefono = "";
+                    string Email = "";
+                    //string material = this.dgvAlquiler.CurrentRow.Cells[2].Value.ToString();
+                    string material = "";
+                    int DiasDeAlquiler = 0;
+                    idAlquiler = Convert.ToInt32(this.dgvAlquiler.CurrentRow.Cells[0].Value.ToString());
+                    string MontoAlquiler = AlquilerDao.BuscaMontoAlquiler(idAlquiler);
+                    List<Clientes> _cliente = ClientesDao.BuscarClientePorIdAlquiler(idAlquiler);
+                    List<Alquiler> _Alquiler = AlquilerDao.BuscarMaterialesPorIdAlquiler(idAlquiler);
+                    if (_Alquiler.Count > 0)
                     {
-                        if (result == DialogResult.Yes)
+                        foreach (var item in _Alquiler)
                         {
-                            DiasAtraso = CalculosDiasAtrasado(FechaDevolucion);
-                            idAlquiler = Convert.ToInt32(this.dgvAlquiler.CurrentRow.Cells[0].Value.ToString());
-                            idMaterial = Convert.ToInt32(this.dgvAlquiler.CurrentRow.Cells[1].Value.ToString());
-                            material = this.dgvAlquiler.CurrentRow.Cells[2].Value.ToString();
-                            RecargoWF _recargo = new RecargoWF(DiasAtraso, idAlquiler, material, idMaterial);
-                            _recargo.Show();
+                            DiasDeAlquiler = item.Dias;
+                            material = item.Material;
                         }
-                        if (result == DialogResult.No)
+                        foreach (var item in _cliente)
                         {
-                            idAlquiler = Convert.ToInt32(this.dgvAlquiler.CurrentRow.Cells[0].Value.ToString());
-                            idMaterial = Convert.ToInt32(this.dgvAlquiler.CurrentRow.Cells[1].Value.ToString());
-                            bool Exito = AlquilerNeg.ActualizarEstados(idAlquiler, idMaterial);
-                            if (Exito == true)
+                            idCliente = item.IdCliente;
+                            DNI = item.Dni;
+                            ApellidoNombre = item.Apellido + " " + item.Nombre;
+                            Domicilio = item.Calle + " " + "N°" + item.Altura;
+                            ProvLoc = item.NombreProvincia + " " + item.NombreLocalidad;
+                            Telefono = item.Telefono;
+                            Email = item.Email;
+                        }
+                        ReAperturaAlquilerWF _Apertura = new ReAperturaAlquilerWF(_Alquiler, material, DiasDeAlquiler, MontoAlquiler, idCliente, DNI, ApellidoNombre, Domicilio, ProvLoc, Email, Telefono);
+                        _Apertura.Show();
+                    }
+                }
+                if (CheckTipoAlquiler == 1)
+                {
+                    int DiasAtraso = 0;
+                    int idAlquiler = 0;
+                    int idMaterial = 0;
+                    string material = this.dgvAlquiler.CurrentRow.Cells[2].Value.ToString();
+
+                    DateTime FechaDevolucion = Convert.ToDateTime(this.dgvAlquiler.CurrentRow.Cells[5].Value.ToString());
+                    ////// Si la devolución esta fuera de fecha
+                    if (FechaDevolucion < DateTime.Now)
+                    {
+                        const string message = "Atención: El alquiler seleccionado esta por fuera de la fecha de devolución pautada. ¿Desea cobrar un recargo?";
+                        const string caption = "Consulta";
+                        var result = MessageBox.Show(message, caption,
+                                                     MessageBoxButtons.YesNoCancel,
+                                                     MessageBoxIcon.Question);
+                        {
+                            if (result == DialogResult.Yes)
                             {
+                                DiasAtraso = CalculosDiasAtrasado(FechaDevolucion);
+                                idAlquiler = Convert.ToInt32(this.dgvAlquiler.CurrentRow.Cells[0].Value.ToString());
+                                idMaterial = Convert.ToInt32(this.dgvAlquiler.CurrentRow.Cells[1].Value.ToString());
+                                material = this.dgvAlquiler.CurrentRow.Cells[2].Value.ToString();
+                                RecargoWF _recargo = new RecargoWF(DiasAtraso, idAlquiler, material, idMaterial);
+                                _recargo.Show();
+                            }
+                            if (result == DialogResult.No)
+                            {
+                                idAlquiler = Convert.ToInt32(this.dgvAlquiler.CurrentRow.Cells[0].Value.ToString());
+                                idMaterial = Convert.ToInt32(this.dgvAlquiler.CurrentRow.Cells[1].Value.ToString());
+                                bool Exito = AlquilerNeg.ActualizarEstados(idAlquiler, idMaterial);
+                                if (Exito == true)
+                                {
+                                    const string message2 = "Se registro la devolución exitosamente.";
+                                    const string caption2 = "Éxito";
+                                    var result2 = MessageBox.Show(message2, caption2,
+                                                                 MessageBoxButtons.OK,
+                                                                 MessageBoxIcon.Asterisk);
+                                }
+                            }
+                            if (result == DialogResult.Cancel)
+                            {
+                            }
+                            BuscarAlquileresVigentes();
+                        }
+
+                        BuscarAlquileresVigentes();
+                    }
+                    ///// Si la devolucion esta en fecha
+                    else
+                    {
+                        const string message = "Atención: ¿Usted desea registrar la devolucion del material seleccionado?";
+                        const string caption = "Consulta";
+                        var result = MessageBox.Show(message, caption,
+                                                     MessageBoxButtons.YesNo,
+                                                     MessageBoxIcon.Question);
+                        {
+                            if (result == DialogResult.Yes)
+                            {
+                                idAlquiler = Convert.ToInt32(this.dgvAlquiler.CurrentRow.Cells[0].Value.ToString());
+                                idMaterial = Convert.ToInt32(this.dgvAlquiler.CurrentRow.Cells[1].Value.ToString());
+                                bool Exito = AlquilerNeg.ActualizarEstados(idAlquiler, idMaterial);
                                 const string message2 = "Se registro la devolución exitosamente.";
                                 const string caption2 = "Éxito";
                                 var result2 = MessageBox.Show(message2, caption2,
@@ -376,35 +456,8 @@ namespace ElObrador
                                                              MessageBoxIcon.Asterisk);
                             }
                         }
-                        if (result == DialogResult.Cancel)
-                        {
-                        }
                         BuscarAlquileresVigentes();
                     }
-                    BuscarAlquileresVigentes();
-                }
-                ///// Si la devolucion esta en fecha
-                else
-                {
-                    const string message = "Atención: ¿Usted desea registrar la devolucion del material seleccionado?";
-                    const string caption = "Consulta";
-                    var result = MessageBox.Show(message, caption,
-                                                 MessageBoxButtons.YesNo,
-                                                 MessageBoxIcon.Question);
-                    {
-                        if (result == DialogResult.Yes)
-                        {
-                            idAlquiler = Convert.ToInt32(this.dgvAlquiler.CurrentRow.Cells[0].Value.ToString());
-                            idMaterial = Convert.ToInt32(this.dgvAlquiler.CurrentRow.Cells[1].Value.ToString());
-                            bool Exito = AlquilerNeg.ActualizarEstados(idAlquiler, idMaterial);
-                            const string message2 = "Se registro la devolución exitosamente.";
-                            const string caption2 = "Éxito";
-                            var result2 = MessageBox.Show(message2, caption2,
-                                                         MessageBoxButtons.OK,
-                                                         MessageBoxIcon.Asterisk);
-                        }
-                    }
-                    BuscarAlquileresVigentes();
                 }
             }
         }
@@ -416,7 +469,6 @@ namespace ElObrador
             { dias = Convert.ToInt32(difFechas.Days); }
             return dias;
         }
-
         private void txtBuscarEnGrilla_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
@@ -461,6 +513,52 @@ namespace ElObrador
                 }
                 dgvAlquiler.ReadOnly = true;
             }
+        }
+        public static int CheckTipoAlquiler = 1;
+        private void chcReparacionCerradas_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chcAlquileresFinalizados.Checked == true)
+            {
+                CheckTipoAlquiler = 0;
+                BuscarAlquileresFinalizados();
+                this.dgvAlquiler.Columns["Devolucion"].HeaderText = "Re abrir Alquiler";
+            }
+            else
+            {
+                CheckTipoAlquiler = 1;
+                /// Completo Grilla con informacion
+                BuscarAlquileresVigentes();
+                this.dgvAlquiler.Columns["Devolucion"].HeaderText = "Devolución";
+            }
+        }
+
+        private void BuscarAlquileresFinalizados()
+        {
+            dgvAlquiler.Rows.Clear();
+            List<Alquiler> ListaAlquileres = new List<Alquiler>();
+            ListaAlquileres = AlquilerNeg.BuscarAlquileresFinalizados();
+            int contadorFilas = 0;
+            if (ListaAlquileres.Count > 0)
+            {
+                dgvAlquiler.Rows.Clear();
+                List<int> ListaIdAlquiler = new List<int>();
+                foreach (var item in ListaAlquileres)
+                {
+                    bool Existe = ListaIdAlquiler.Any(x => x == item.idAlquiler);
+                    if (Existe != true)
+                    {
+                        dgvAlquiler.Rows.Add(item.idAlquiler, item.idAlquiler, item.Cliente, item.Dias, item.FechaDesde, item.FechaHasta);
+                        if (item.AlquilerPagado == 0)
+                        {
+                            dgvAlquiler.Rows[contadorFilas].DefaultCellStyle.ForeColor = Color.Red;
+                        }
+                        contadorFilas = contadorFilas + 1;
+                        ListaIdAlquiler.Add(item.idAlquiler);
+                    }
+
+                }
+            }
+            dgvAlquiler.ReadOnly = true;
         }
     }
 }

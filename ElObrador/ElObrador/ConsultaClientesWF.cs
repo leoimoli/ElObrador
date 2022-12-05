@@ -154,10 +154,10 @@ namespace ElObrador
             {
                 FuncionBuscartexto();
                 dgvClientes.Rows.Clear();
-                List<Entidades.Clientes> ListaClientes = ClientesNeg.ListaDeClientesPorDNI(dni);
-                if (ListaClientes.Count > 0)
+                List<Entidades.Clientes> ListaClientesPorDni = ClientesNeg.ListaDeClientesPorDNI(dni);
+                if (ListaClientesPorDni.Count > 0)
                 {
-                    foreach (var item in ListaClientes)
+                    foreach (var item in ListaClientesPorDni)
                     {
                         string Apellido = item.Apellido;
                         string Nombre = item.Nombre;
@@ -168,6 +168,25 @@ namespace ElObrador
                         //string Domicilio = Calle + " " + "N° " + item.Altura + ", " + item.NombreProvincia + ", " + item.NombreLocalidad;
                         dgvClientes.Rows.Add(item.IdCliente, item.Dni, Persona, Domicilio, item.Email, item.Telefono, item.DocumentacionCompleta);
                     }
+                }
+                else
+                {
+                    List<Entidades.Clientes> ListaClientesPorApellidoNombre = ClientesNeg.ListaDeClientesPorApellidoNombre(dni);
+                    if (ListaClientesPorApellidoNombre.Count > 0)
+                    {
+                        foreach (var item in ListaClientesPorApellidoNombre)
+                        {
+                            string Apellido = item.Apellido;
+                            string Nombre = item.Nombre;
+                            string Persona = Apellido + "," + Nombre;
+                            string Domicilio = item.Calle + "N°" + item.Altura;
+                            //string Calle = item.Calle;
+                            //string Altura = item.Altura;
+                            //string Domicilio = Calle + " " + "N° " + item.Altura + ", " + item.NombreProvincia + ", " + item.NombreLocalidad;
+                            dgvClientes.Rows.Add(item.IdCliente, item.Dni, Persona, Domicilio, item.Email, item.Telefono, item.DocumentacionCompleta);
+                        }
+                    }
+
                 }
                 dgvClientes.ReadOnly = true;
             }

@@ -87,6 +87,103 @@ namespace ElObrador.Dao
             return _listaAlquileres;
         }
 
+        public static List<MontoAlquiler> BuscarMontoAlquilerParaMaterial(List<Alquiler> detallealquiler)
+        {
+            List<MontoAlquiler> _listaMonto = new List<MontoAlquiler>();
+            foreach (var item in detallealquiler)
+            {
+                connection.Close();
+                connection.Open();
+                MySqlCommand cmd = new MySqlCommand();
+                cmd.Connection = connection;
+                DataTable Tabla = new DataTable();
+                MySqlParameter[] oParam = { new MySqlParameter("idMaterial_in", item.idMaterial) };
+                string proceso = "BuscarMontoAlquilerParaMaterial";
+                MySqlDataAdapter dt = new MySqlDataAdapter(proceso, connection);
+                dt.SelectCommand.CommandType = CommandType.StoredProcedure;
+                dt.SelectCommand.Parameters.AddRange(oParam);
+                dt.Fill(Tabla);
+                if (Tabla.Rows.Count > 0)
+                {
+                    foreach (DataRow itemResultado in Tabla.Rows)
+                    {
+                        MontoAlquiler listMonto = new MontoAlquiler();
+                        listMonto.idMaterial = Convert.ToInt32(itemResultado["idProducto"].ToString());
+                        listMonto.Material = itemResultado["Descripcion"].ToString();
+                        listMonto.Monto = Convert.ToDecimal(itemResultado["MontoAlquiler"].ToString());
+                        listMonto.Codigo = itemResultado["Codigo"].ToString();
+                        listMonto.Modelo = itemResultado["Modelo"].ToString();
+                        _listaMonto.Add(listMonto);
+                    }
+                }
+            }
+            connection.Close();
+            return _listaMonto;
+        }
+
+        public static bool ValidarDisponibilidadMateriales(List<Alquiler> detallealquiler)
+        {
+            connection.Close();
+            bool MaterialDisponible = true;
+            foreach (var item in detallealquiler)
+            {
+                connection.Close();
+                connection.Open();
+                MySqlCommand cmd = new MySqlCommand();
+                cmd.Connection = connection;
+                DataTable Tabla = new DataTable();
+                MySqlParameter[] oParam = {
+                                      new MySqlParameter("idMaterial_in", item.idMaterial) };
+                string proceso = "ValidarEstadoDelMaterial";
+                MySqlDataAdapter dt = new MySqlDataAdapter(proceso, connection);
+                dt.SelectCommand.CommandType = CommandType.StoredProcedure;
+                dt.SelectCommand.Parameters.AddRange(oParam);
+                dt.Fill(Tabla);
+                DataSet ds = new DataSet();
+                if (Tabla.Rows.Count > 0)
+                {
+                    MaterialDisponible = false;
+                    break;
+                }
+            }
+            return MaterialDisponible;
+        }
+
+        public static List<Alquiler> BuscarAlquileresFinalizados(int estadoAlquiler)
+        {
+            connection.Close();
+            connection.Open();
+            List<Alquiler> _listaAlquileres = new List<Alquiler>();
+            MySqlCommand cmd = new MySqlCommand();
+            cmd.Connection = connection;
+            DataTable Tabla = new DataTable();
+            MySqlParameter[] oParam = { new MySqlParameter("EstadoAlquiler_in", estadoAlquiler) };
+            string proceso = "ListarAlquileresFinalizados";
+            MySqlDataAdapter dt = new MySqlDataAdapter(proceso, connection);
+            dt.SelectCommand.CommandType = CommandType.StoredProcedure;
+            dt.SelectCommand.Parameters.AddRange(oParam);
+            dt.Fill(Tabla);
+            if (Tabla.Rows.Count > 0)
+            {
+                foreach (DataRow item in Tabla.Rows)
+                {
+                    Alquiler listaAlquiler = new Alquiler();
+                    listaAlquiler.idAlquiler = Convert.ToInt32(item["idAlquiler"].ToString());
+                    listaAlquiler.idMaterial = Convert.ToInt32(item["idProducto"].ToString());
+                    listaAlquiler.DescripcionProducto = item["Material"].ToString();
+                    listaAlquiler.Dias = Convert.ToInt32(item["Dias"].ToString());
+                    listaAlquiler.FechaDesde = Convert.ToDateTime(item["FechaDesde"].ToString());
+                    listaAlquiler.FechaHasta = Convert.ToDateTime(item["FechaHasta"].ToString());
+                    listaAlquiler.AlquilerPagado = Convert.ToInt32(item["AlquilerPagado"].ToString());
+                    listaAlquiler.idCliente = Convert.ToInt32(item["idCliente"].ToString());
+                    listaAlquiler.Cliente = Convert.ToString(item["Apellido"].ToString() + "," + item["Nombre"].ToString());
+                    _listaAlquileres.Add(listaAlquiler);
+                }
+            }
+            connection.Close();
+            return _listaAlquileres;
+        }
+
         public static List<Alquiler> ListarAlquileresActualesPorCliente(string valor)
         {
             connection.Close();
@@ -322,8 +419,9 @@ namespace ElObrador.Dao
                     listaAlquiler.idAlquiler = Convert.ToInt32(item["idAlquiler"].ToString());
                     listaAlquiler.idMaterial = Convert.ToInt32(item["idProducto"].ToString());
                     listaAlquiler.Codigo = item["Codigo"].ToString();
+                    listaAlquiler.Modelo = item["Modelo"].ToString();
                     listaAlquiler.DescripcionProducto = item["Material"].ToString();
-                    //listaAlquiler.Dias = Convert.ToInt32(item["Dias"].ToString());
+                    listaAlquiler.Dias = Convert.ToInt32(item["Dias"].ToString());
                     //listaAlquiler.FechaDesde = Convert.ToDateTime(item["FechaDesde"].ToString());
                     //listaAlquiler.FechaHasta = Convert.ToDateTime(item["FechaHasta"].ToString());
                     _listaAlquileres.Add(listaAlquiler);

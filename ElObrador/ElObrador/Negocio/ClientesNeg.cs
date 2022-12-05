@@ -168,6 +168,19 @@ namespace ElObrador.Negocio
             return _listaClientes;
         }
 
+        public static List<Clientes> ListaDeClientesPorApellidoNombre(string dni)
+        {
+            List<Entidades.Clientes> _listaClientes = new List<Entidades.Clientes>();
+            try
+            {
+                _listaClientes = ClientesDao.ListaDeClientesPorApellidoNombre(dni);
+            }
+            catch (Exception ex)
+            {
+            }
+            return _listaClientes;
+        }
+
         //public static bool ActualizarDeuda(List<Entidades.Clientes> cliente, string deuda, decimal pagoIngresado)
         //{
         //    bool exito = false;

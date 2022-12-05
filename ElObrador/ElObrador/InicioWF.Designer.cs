@@ -62,8 +62,6 @@
             this.lblMaster_FechaHoraReal = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dgvAlquiler = new System.Windows.Forms.DataGridView();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtBuscarEnGrilla = new System.Windows.Forms.TextBox();
             this.idProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idAlquiler = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Material = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -72,6 +70,9 @@
             this.FechaFin = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Informe = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Devolucion = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtBuscarEnGrilla = new System.Windows.Forms.TextBox();
+            this.chcAlquileresFinalizados = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             this.panel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
@@ -468,30 +469,10 @@
             this.dgvAlquiler.RowHeadersWidth = 51;
             dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
             this.dgvAlquiler.RowsDefaultCellStyle = dataGridViewCellStyle4;
-            this.dgvAlquiler.Size = new System.Drawing.Size(734, 302);
+            this.dgvAlquiler.Size = new System.Drawing.Size(734, 271);
             this.dgvAlquiler.TabIndex = 80;
             this.dgvAlquiler.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAlquiler_CellClick);
             this.dgvAlquiler.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dgvAlquiler_CellPainting);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(187)))), ((int)(((byte)(80)))));
-            this.label2.Location = new System.Drawing.Point(15, 227);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(361, 24);
-            this.label2.TabIndex = 81;
-            this.label2.Text = "Listado de materiales alquilados a la fecha";
-            // 
-            // txtBuscarEnGrilla
-            // 
-            this.txtBuscarEnGrilla.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtBuscarEnGrilla.Location = new System.Drawing.Point(373, 232);
-            this.txtBuscarEnGrilla.Name = "txtBuscarEnGrilla";
-            this.txtBuscarEnGrilla.Size = new System.Drawing.Size(371, 20);
-            this.txtBuscarEnGrilla.TabIndex = 82;
-            this.txtBuscarEnGrilla.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBuscarEnGrilla_KeyDown);
             // 
             // idProducto
             // 
@@ -552,11 +533,45 @@
             this.Devolucion.Name = "Devolucion";
             this.Devolucion.Width = 125;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(187)))), ((int)(((byte)(80)))));
+            this.label2.Location = new System.Drawing.Point(15, 227);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(361, 24);
+            this.label2.TabIndex = 81;
+            this.label2.Text = "Listado de materiales alquilados a la fecha";
+            // 
+            // txtBuscarEnGrilla
+            // 
+            this.txtBuscarEnGrilla.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtBuscarEnGrilla.Location = new System.Drawing.Point(373, 232);
+            this.txtBuscarEnGrilla.Name = "txtBuscarEnGrilla";
+            this.txtBuscarEnGrilla.Size = new System.Drawing.Size(371, 20);
+            this.txtBuscarEnGrilla.TabIndex = 82;
+            this.txtBuscarEnGrilla.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBuscarEnGrilla_KeyDown);
+            // 
+            // chcAlquileresFinalizados
+            // 
+            this.chcAlquileresFinalizados.AutoSize = true;
+            this.chcAlquileresFinalizados.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chcAlquileresFinalizados.ForeColor = System.Drawing.Color.Black;
+            this.chcAlquileresFinalizados.Location = new System.Drawing.Point(544, 533);
+            this.chcAlquileresFinalizados.Name = "chcAlquileresFinalizados";
+            this.chcAlquileresFinalizados.Size = new System.Drawing.Size(164, 21);
+            this.chcAlquileresFinalizados.TabIndex = 201;
+            this.chcAlquileresFinalizados.Text = "Alquileres Finalizados";
+            this.chcAlquileresFinalizados.UseVisualStyleBackColor = true;
+            this.chcAlquileresFinalizados.CheckedChanged += new System.EventHandler(this.chcReparacionCerradas_CheckedChanged);
+            // 
             // InicioWF
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1040, 564);
+            this.Controls.Add(this.chcAlquileresFinalizados);
             this.Controls.Add(this.txtBuscarEnGrilla);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.dgvAlquiler);
@@ -630,5 +645,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn FechaFin;
         private System.Windows.Forms.DataGridViewButtonColumn Informe;
         private System.Windows.Forms.DataGridViewButtonColumn Devolucion;
+        private System.Windows.Forms.CheckBox chcAlquileresFinalizados;
     }
 }

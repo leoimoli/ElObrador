@@ -21,6 +21,7 @@ namespace ElObrador
         public MasterInicioWF()
         {
             InitializeComponent();
+            ValidarFechasFestivas();
             AbrirFormEnPanel(new InicioWF());
             var imagen = new Bitmap(ElObrador.Properties.Resources.hogar__3_);
             ImagenPagina.Image = imagen;
@@ -85,6 +86,33 @@ namespace ElObrador
                 var result2 = MessageBox.Show(message2, caption2,
                                              MessageBoxButtons.OK,
                                              MessageBoxIcon.Exclamation);
+            }
+        }
+        private void ValidarFechasFestivas()
+        {
+            int AñoActual = DateTime.Now.Year;
+            int AñoSiguiente = DateTime.Now.Year + 1;
+            DateTime FechaActual = DateTime.Now;
+            string PruebaIncio = Convert.ToString(30 + "/" + 10 + "/" + AñoActual + " " + "23" + ":59" + ":59");
+            string PruebaFin = Convert.ToString(30 + "/" + 11 + "/" + AñoActual + " " + "23" + ":59" + ":59");
+            string FiestasNavideñas = Convert.ToString(07 + "/" + 12 + "/" + AñoActual + " " + "23" + ":59" + ":59");
+            string FiestasReyes = Convert.ToString(01 + "/" + 01 + "/" + AñoSiguiente + " " + "23" + ":59" + ":59");
+            string FechaFinFiestas = Convert.ToString(06 + "/" + 01 + "/" + AñoActual + " " + "23" + ":59" + ":59");
+            //// Imagenes Navideñas
+            if (FechaActual > Convert.ToDateTime(FiestasNavideñas) && Convert.ToDateTime(FechaActual) < Convert.ToDateTime(FiestasReyes))
+            //if (FechaActual > Convert.ToDateTime(PruebaIncio) && Convert.ToDateTime(FechaActual) < Convert.ToDateTime(PruebaFin))
+            {
+                Image imgFiestas = Image.FromFile(Environment.CurrentDirectory + "\\" + @"Navidad-5.gif");
+                picNavidad.Image = imgFiestas;
+            }
+            else if (FechaActual > Convert.ToDateTime(FiestasReyes) && Convert.ToDateTime(FechaActual) < Convert.ToDateTime(FechaFinFiestas))
+            {
+                Image imgFiestas = Image.FromFile(Environment.CurrentDirectory + "\\" + @"Reyes4.gif");
+                picNavidad.Image = imgFiestas;
+            }
+            else
+            {
+                picNavidad.Visible = false;
             }
         }
         private void PanelContenedor_Paint(object sender, PaintEventArgs e)

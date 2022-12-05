@@ -71,12 +71,50 @@ namespace ElObrador.Negocio
             return _listaAlquileres;
         }
 
+        public static List<MontoAlquiler> BuscarMontoAlquilerParaMaterial(List<Alquiler> detallealquiler)
+        {
+            List<MontoAlquiler> Lista = new List<MontoAlquiler>();
+            try
+            {
+                Lista = AlquilerDao.BuscarMontoAlquilerParaMaterial(detallealquiler);
+            }
+            catch (Exception ex)
+            { }
+            return Lista;
+        }
+
+        public static bool ValidarDisponibilidadMateriales(List<Alquiler> detallealquiler)
+        {
+            bool MaterialDisponible = true;
+            try
+            {
+                MaterialDisponible = AlquilerDao.ValidarDisponibilidadMateriales(detallealquiler);
+            }
+            catch(Exception ex)
+            { }
+            return MaterialDisponible;
+        }
+
         public static List<Alquiler> ListarAlquileresActualesPorCliente(string valor)
         {
             List<Alquiler> _listaAlquileres = new List<Alquiler>();
             try
             {
                 _listaAlquileres = AlquilerDao.ListarAlquileresActualesPorCliente(valor);
+            }
+            catch (Exception ex)
+            {
+            }
+            return _listaAlquileres;
+        }
+
+        public static List<Alquiler> BuscarAlquileresFinalizados()
+        {
+            List<Alquiler> _listaAlquileres = new List<Alquiler>();
+            try
+            {
+                int EstadoAlquiler = 0;
+                _listaAlquileres = AlquilerDao.BuscarAlquileresFinalizados(EstadoAlquiler);
             }
             catch (Exception ex)
             {
